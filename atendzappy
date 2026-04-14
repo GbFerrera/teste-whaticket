@@ -1025,15 +1025,14 @@ frontend_set_env() {
   log_info "Configurando variáveis de ambiente (frontend)..."
   sleep 2
 
-  backend_url=$(echo "${backend_url}" | sed 's|https://||' | sed 's|/.*||')
-  backend_url="https://${backend_url}"
-
   sudo su - deploy <<EOF
   cat > /home/deploy/${instancia_add}/frontend/.env << 'ENVEOF'
-REACT_APP_BACKEND_URL=${backend_url}
-REACT_APP_HOURS_CLOSE_TICKETS_AUTO=24
 REACT_APP_SUPPORT_WHATSAPP=552433540335
+REACT_APP_BACKEND_URL=${backend_url}
+REACT_APP_API_HOST=${backend_url}
+PORT=${frontend_port}
 ENVEOF
+EOF
 
   cat > /home/deploy/${instancia_add}/frontend/server.js << 'SERVEREOF'
 const express = require("express");
@@ -1125,7 +1124,7 @@ EOF
 
 frontend_start_pm2() {
   print_banner
-  log_info "Iniciando frontend com PM2..."
+  log_info "Iniciando frontend com PM2 na porta ${frontend_port}..."
   sleep 2
 
   sudo su - root <<EOF
@@ -1137,13 +1136,13 @@ frontend_start_pm2() {
   chown -R deploy:deploy /home/deploy/.pm2 2>/dev/null || true
 
   cd /home/deploy/${instancia_add}/frontend
-  /usr/bin/pm2 start server.js --name ${instancia_add}-frontend
+  PORT=${frontend_port} /usr/bin/pm2 start server.js --name ${instancia_add}-frontend
   /usr/bin/pm2 save --force
   /usr/bin/pm2 startup
   env PATH=\$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u deploy --hp /home/deploy
 EOF
 
-  log_success "Frontend iniciado via PM2"
+  log_success "Frontend iniciado via PM2 na porta ${frontend_port}"
   sleep 2
 }
 
