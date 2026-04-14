@@ -1,0 +1,7 @@
+Aguardando conexão para iniciar a importação de mensagens:
+  Whatsapp nome: palmito
+  Whatsapp Id: 27
+  Criação do arquivo de logs: 19/11/2025 01:54:23
+  Selecionado Data de inicio de importação: 01/11/2025 13:16:00 
+  Selecionado Data final da importação: 16/11/2025 13:15:00 
+   

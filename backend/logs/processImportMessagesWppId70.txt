@@ -1,0 +1,2515 @@
+Aguardando conexão para iniciar a importação de mensagens:
+    Whatsapp nome: Teste
+    Whatsapp Id: 70
+    Criação do arquivo de logs: 02/01/2026 07:22:55
+    Selecionado Data de inicio de importação: 01/01/2026 07:20:00 
+    Selecionado Data final da importação: 02/01/2026 07:19:00 
+     
+
+Mensagem 1 de 836
+               
+
+Mensagem 2 de 836
+               
+
+Mensagem 3 de 836
+               
+
+Mensagem 4 de 836
+               
+
+Mensagem 5 de 836
+               
+
+Mensagem 6 de 836
+               
+
+Mensagem 7 de 836
+               
+
+Mensagem 8 de 836
+               
+
+Mensagem 9 de 836
+               
+
+Mensagem 10 de 836
+               
+
+Mensagem 11 de 836
+               
+
+Mensagem 12 de 836
+               
+
+Mensagem 13 de 836
+               
+
+Mensagem 14 de 836
+               
+
+Mensagem 15 de 836
+               
+
+Mensagem 16 de 836
+               
+
+Mensagem 17 de 836
+               
+
+Mensagem 18 de 836
+               
+
+Mensagem 19 de 836
+               
+
+Mensagem 20 de 836
+               
+
+Mensagem 21 de 836
+               
+
+Mensagem 22 de 836
+               
+
+Mensagem 23 de 836
+               
+
+Mensagem 24 de 836
+               
+
+Mensagem 25 de 836
+               
+
+Mensagem 26 de 836
+               
+
+Mensagem 27 de 836
+               
+
+Mensagem 28 de 836
+               
+
+Mensagem 29 de 836
+               
+
+Mensagem 30 de 836
+               
+
+Mensagem 31 de 836
+               
+
+Mensagem 32 de 836
+               
+
+Mensagem 33 de 836
+               
+
+Mensagem 34 de 836
+               
+
+Mensagem 35 de 836
+               
+
+Mensagem 36 de 836
+               
+
+Mensagem 37 de 836
+               
+
+Mensagem 38 de 836
+               
+
+Mensagem 39 de 836
+               
+
+Mensagem 40 de 836
+               
+
+Mensagem 41 de 836
+               
+
+Mensagem 42 de 836
+               
+
+Mensagem 43 de 836
+               
+
+Mensagem 44 de 836
+               
+
+Mensagem 45 de 836
+               
+
+Mensagem 46 de 836
+               
+
+Mensagem 47 de 836
+               
+
+Mensagem 48 de 836
+               
+
+Mensagem 49 de 836
+               
+
+Mensagem 50 de 836
+               
+
+Mensagem 51 de 836
+               
+
+Mensagem 52 de 836
+               
+
+Mensagem 53 de 836
+               
+
+Mensagem 54 de 836
+               
+
+Mensagem 55 de 836
+               
+
+Mensagem 56 de 836
+               
+
+Mensagem 57 de 836
+               
+
+Mensagem 58 de 836
+               
+
+Mensagem 59 de 836
+               
+
+Mensagem 60 de 836
+               
+
+Mensagem 61 de 836
+               
+
+Mensagem 62 de 836
+               
+
+Mensagem 63 de 836
+               
+
+Mensagem 64 de 836
+               
+
+Mensagem 65 de 836
+               
+
+Mensagem 66 de 836
+               
+
+Mensagem 67 de 836
+               
+
+Mensagem 68 de 836
+               
+
+Mensagem 69 de 836
+               
+
+Mensagem 70 de 836
+               
+
+Mensagem 71 de 836
+               
+
+Mensagem 72 de 836
+               
+
+Mensagem 73 de 836
+               
+
+Mensagem 74 de 836
+               
+
+Mensagem 75 de 836
+               
+
+Mensagem 76 de 836
+               
+
+Mensagem 77 de 836
+               
+
+Mensagem 78 de 836
+               
+
+Mensagem 79 de 836
+               
+
+Mensagem 80 de 836
+               
+
+Mensagem 81 de 836
+               
+
+Mensagem 82 de 836
+               
+
+Mensagem 83 de 836
+               
+
+Mensagem 84 de 836
+               
+
+Mensagem 85 de 836
+               
+
+Mensagem 86 de 836
+               
+
+Mensagem 87 de 836
+               
+
+Mensagem 88 de 836
+               
+
+Mensagem 89 de 836
+               
+
+Mensagem 90 de 836
+               
+
+Mensagem 91 de 836
+               
+
+Mensagem 92 de 836
+               
+
+Mensagem 93 de 836
+               
+
+Mensagem 94 de 836
+               
+
+Mensagem 95 de 836
+               
+
+Mensagem 96 de 836
+               
+
+Mensagem 97 de 836
+               
+
+Mensagem 98 de 836
+               
+
+Mensagem 99 de 836
+               
+
+Mensagem 100 de 836
+               
+
+Mensagem 101 de 836
+               
+
+Mensagem 102 de 836
+               
+
+Mensagem 103 de 836
+               
+
+Mensagem 104 de 836
+               
+
+Mensagem 105 de 836
+               
+
+Mensagem 106 de 836
+               
+
+Mensagem 107 de 836
+               
+
+Mensagem 108 de 836
+               
+
+Mensagem 109 de 836
+               
+
+Mensagem 110 de 836
+               
+
+Mensagem 111 de 836
+               
+
+Mensagem 112 de 836
+               
+
+Mensagem 113 de 836
+               
+
+Mensagem 114 de 836
+               
+
+Mensagem 115 de 836
+               
+
+Mensagem 116 de 836
+               
+
+Mensagem 117 de 836
+               
+
+Mensagem 118 de 836
+               
+
+Mensagem 119 de 836
+               
+
+Mensagem 120 de 836
+               
+
+Mensagem 121 de 836
+               
+
+Mensagem 122 de 836
+               
+
+Mensagem 123 de 836
+               
+
+Mensagem 124 de 836
+               
+
+Mensagem 125 de 836
+               
+
+Mensagem 126 de 836
+               
+
+Mensagem 127 de 836
+               
+
+Mensagem 128 de 836
+               
+
+Mensagem 129 de 836
+               
+
+Mensagem 130 de 836
+               
+
+Mensagem 131 de 836
+               
+
+Mensagem 132 de 836
+               
+
+Mensagem 133 de 836
+               
+
+Mensagem 134 de 836
+               
+
+Mensagem 135 de 836
+               
+
+Mensagem 136 de 836
+               
+
+Mensagem 137 de 836
+               
+
+Mensagem 138 de 836
+               
+
+Mensagem 139 de 836
+               
+
+Mensagem 140 de 836
+               
+
+Mensagem 141 de 836
+               
+
+Mensagem 142 de 836
+               
+
+Mensagem 143 de 836
+               
+
+Mensagem 144 de 836
+               
+
+Mensagem 145 de 836
+               
+
+Mensagem 146 de 836
+               
+
+Mensagem 147 de 836
+               
+
+Mensagem 148 de 836
+               
+
+Mensagem 149 de 836
+               
+
+Mensagem 150 de 836
+               
+
+Mensagem 151 de 836
+               
+
+Mensagem 152 de 836
+               
+
+Mensagem 153 de 836
+               
+
+Mensagem 154 de 836
+               
+
+Mensagem 155 de 836
+               
+
+Mensagem 156 de 836
+               
+
+Mensagem 157 de 836
+               
+
+Mensagem 158 de 836
+               
+
+Mensagem 159 de 836
+               
+
+Mensagem 160 de 836
+               
+
+Mensagem 161 de 836
+               
+
+Mensagem 162 de 836
+               
+
+Mensagem 163 de 836
+               
+
+Mensagem 164 de 836
+               
+
+Mensagem 165 de 836
+               
+
+Mensagem 166 de 836
+               
+
+Mensagem 167 de 836
+               
+
+Mensagem 168 de 836
+               
+
+Mensagem 169 de 836
+               
+
+Mensagem 170 de 836
+               
+
+Mensagem 171 de 836
+               
+
+Mensagem 172 de 836
+               
+
+Mensagem 173 de 836
+               
+
+Mensagem 174 de 836
+               
+
+Mensagem 175 de 836
+               
+
+Mensagem 176 de 836
+               
+
+Mensagem 177 de 836
+               
+
+Mensagem 178 de 836
+               
+
+Mensagem 179 de 836
+               
+
+Mensagem 180 de 836
+               
+
+Mensagem 181 de 836
+               
+
+Mensagem 182 de 836
+               
+
+Mensagem 183 de 836
+               
+
+Mensagem 184 de 836
+               
+
+Mensagem 185 de 836
+               
+
+Mensagem 186 de 836
+               
+
+Mensagem 187 de 836
+               
+
+Mensagem 188 de 836
+               
+
+Mensagem 189 de 836
+               
+
+Mensagem 190 de 836
+               
+
+Mensagem 191 de 836
+               
+
+Mensagem 192 de 836
+               
+
+Mensagem 193 de 836
+               
+
+Mensagem 194 de 836
+               
+
+Mensagem 195 de 836
+               
+
+Mensagem 196 de 836
+               
+
+Mensagem 197 de 836
+               
+
+Mensagem 198 de 836
+               
+
+Mensagem 199 de 836
+               
+
+Mensagem 200 de 836
+               
+
+Mensagem 201 de 836
+               
+
+Mensagem 202 de 836
+               
+
+Mensagem 203 de 836
+               
+
+Mensagem 204 de 836
+               
+
+Mensagem 205 de 836
+               
+
+Mensagem 206 de 836
+               
+
+Mensagem 207 de 836
+               
+
+Mensagem 208 de 836
+               
+
+Mensagem 209 de 836
+               
+
+Mensagem 210 de 836
+               
+
+Mensagem 211 de 836
+               
+
+Mensagem 212 de 836
+               
+
+Mensagem 213 de 836
+               
+
+Mensagem 214 de 836
+               
+
+Mensagem 215 de 836
+               
+
+Mensagem 216 de 836
+               
+
+Mensagem 217 de 836
+               
+
+Mensagem 218 de 836
+               
+
+Mensagem 219 de 836
+               
+
+Mensagem 220 de 836
+               
+
+Mensagem 221 de 836
+               
+
+Mensagem 222 de 836
+               
+
+Mensagem 223 de 836
+               
+
+Mensagem 224 de 836
+               
+
+Mensagem 225 de 836
+               
+
+Mensagem 226 de 836
+               
+
+Mensagem 227 de 836
+               
+
+Mensagem 228 de 836
+               
+
+Mensagem 229 de 836
+               
+
+Mensagem 230 de 836
+               
+
+Mensagem 231 de 836
+               
+
+Mensagem 232 de 836
+               
+
+Mensagem 233 de 836
+               
+
+Mensagem 234 de 836
+               
+
+Mensagem 235 de 836
+               
+
+Mensagem 236 de 836
+               
+
+Mensagem 237 de 836
+               
+
+Mensagem 238 de 836
+               
+
+Mensagem 239 de 836
+               
+
+Mensagem 240 de 836
+               
+
+Mensagem 241 de 836
+               
+
+Mensagem 242 de 836
+               
+
+Mensagem 243 de 836
+               
+
+Mensagem 244 de 836
+               
+
+Mensagem 245 de 836
+               
+
+Mensagem 246 de 836
+               
+
+Mensagem 247 de 836
+               
+
+Mensagem 248 de 836
+               
+
+Mensagem 249 de 836
+               
+
+Mensagem 250 de 836
+               
+
+Mensagem 251 de 836
+               
+
+Mensagem 252 de 836
+               
+
+Mensagem 253 de 836
+               
+
+Mensagem 254 de 836
+               
+
+Mensagem 255 de 836
+               
+
+Mensagem 256 de 836
+               
+
+Mensagem 257 de 836
+               
+
+Mensagem 258 de 836
+               
+
+Mensagem 259 de 836
+               
+
+Mensagem 260 de 836
+               
+
+Mensagem 261 de 836
+               
+
+Mensagem 262 de 836
+               
+
+Mensagem 263 de 836
+               
+
+Mensagem 264 de 836
+               
+
+Mensagem 265 de 836
+               
+
+Mensagem 266 de 836
+               
+
+Mensagem 267 de 836
+               
+
+Mensagem 268 de 836
+               
+
+Mensagem 269 de 836
+               
+
+Mensagem 270 de 836
+               
+
+Mensagem 271 de 836
+               
+
+Mensagem 272 de 836
+               
+
+Mensagem 273 de 836
+               
+
+Mensagem 274 de 836
+               
+
+Mensagem 275 de 836
+               
+
+Mensagem 276 de 836
+               
+
+Mensagem 277 de 836
+               
+
+Mensagem 278 de 836
+               
+
+Mensagem 279 de 836
+               
+
+Mensagem 280 de 836
+               
+
+Mensagem 281 de 836
+               
+
+Mensagem 282 de 836
+               
+
+Mensagem 283 de 836
+               
+
+Mensagem 284 de 836
+               
+
+Mensagem 285 de 836
+               
+
+Mensagem 286 de 836
+               
+
+Mensagem 287 de 836
+               
+
+Mensagem 288 de 836
+               
+
+Mensagem 289 de 836
+               
+
+Mensagem 290 de 836
+               
+
+Mensagem 291 de 836
+               
+
+Mensagem 292 de 836
+               
+
+Mensagem 293 de 836
+               
+
+Mensagem 294 de 836
+               
+
+Mensagem 295 de 836
+               
+
+Mensagem 296 de 836
+               
+
+Mensagem 297 de 836
+               
+
+Mensagem 298 de 836
+               
+
+Mensagem 299 de 836
+               
+
+Mensagem 300 de 836
+               
+
+Mensagem 301 de 836
+               
+
+Mensagem 302 de 836
+               
+
+Mensagem 303 de 836
+               
+
+Mensagem 304 de 836
+               
+
+Mensagem 305 de 836
+               
+
+Mensagem 306 de 836
+               
+
+Mensagem 307 de 836
+               
+
+Mensagem 308 de 836
+               
+
+Mensagem 309 de 836
+               
+
+Mensagem 310 de 836
+               
+
+Mensagem 311 de 836
+               
+
+Mensagem 312 de 836
+               
+
+Mensagem 313 de 836
+               
+
+Mensagem 314 de 836
+               
+
+Mensagem 315 de 836
+               
+
+Mensagem 316 de 836
+               
+
+Mensagem 317 de 836
+               
+
+Mensagem 318 de 836
+               
+
+Mensagem 319 de 836
+               
+
+Mensagem 320 de 836
+               
+
+Mensagem 321 de 836
+               
+
+Mensagem 322 de 836
+               
+
+Mensagem 323 de 836
+               
+
+Mensagem 324 de 836
+               
+
+Mensagem 325 de 836
+               
+
+Mensagem 326 de 836
+               
+
+Mensagem 327 de 836
+               
+
+Mensagem 328 de 836
+               
+
+Mensagem 329 de 836
+               
+
+Mensagem 330 de 836
+               
+
+Mensagem 331 de 836
+               
+
+Mensagem 332 de 836
+               
+
+Mensagem 333 de 836
+               
+
+Mensagem 334 de 836
+               
+
+Mensagem 335 de 836
+               
+
+Mensagem 336 de 836
+               
+
+Mensagem 337 de 836
+               
+
+Mensagem 338 de 836
+               
+
+Mensagem 339 de 836
+               
+
+Mensagem 340 de 836
+               
+
+Mensagem 341 de 836
+               
+
+Mensagem 342 de 836
+               
+
+Mensagem 343 de 836
+               
+
+Mensagem 344 de 836
+               
+
+Mensagem 345 de 836
+               
+
+Mensagem 346 de 836
+               
+
+Mensagem 347 de 836
+               
+
+Mensagem 348 de 836
+               
+
+Mensagem 349 de 836
+               
+
+Mensagem 350 de 836
+               
+
+Mensagem 351 de 836
+               
+
+Mensagem 352 de 836
+               
+
+Mensagem 353 de 836
+               
+
+Mensagem 354 de 836
+               
+
+Mensagem 355 de 836
+               
+
+Mensagem 356 de 836
+               
+
+Mensagem 357 de 836
+               
+
+Mensagem 358 de 836
+               
+
+Mensagem 359 de 836
+               
+
+Mensagem 360 de 836
+               
+
+Mensagem 361 de 836
+               
+
+Mensagem 362 de 836
+               
+
+Mensagem 363 de 836
+               
+
+Mensagem 364 de 836
+               
+
+Mensagem 365 de 836
+               
+
+Mensagem 366 de 836
+               
+
+Mensagem 367 de 836
+               
+
+Mensagem 368 de 836
+               
+
+Mensagem 369 de 836
+               
+
+Mensagem 370 de 836
+               
+
+Mensagem 371 de 836
+               
+
+Mensagem 372 de 836
+               
+
+Mensagem 373 de 836
+               
+
+Mensagem 374 de 836
+               
+
+Mensagem 375 de 836
+               
+
+Mensagem 376 de 836
+               
+
+Mensagem 377 de 836
+               
+
+Mensagem 378 de 836
+               
+
+Mensagem 379 de 836
+               
+
+Mensagem 380 de 836
+               
+
+Mensagem 381 de 836
+               
+
+Mensagem 382 de 836
+               
+
+Mensagem 383 de 836
+               
+
+Mensagem 384 de 836
+               
+
+Mensagem 385 de 836
+               
+
+Mensagem 386 de 836
+               
+
+Mensagem 387 de 836
+               
+
+Mensagem 388 de 836
+               
+
+Mensagem 389 de 836
+               
+
+Mensagem 390 de 836
+               
+
+Mensagem 391 de 836
+               
+
+Mensagem 392 de 836
+               
+
+Mensagem 393 de 836
+               
+
+Mensagem 394 de 836
+               
+
+Mensagem 395 de 836
+               
+
+Mensagem 396 de 836
+               
+
+Mensagem 397 de 836
+               
+
+Mensagem 398 de 836
+               
+
+Mensagem 399 de 836
+               
+
+Mensagem 400 de 836
+               
+
+Mensagem 401 de 836
+               
+
+Mensagem 402 de 836
+               
+
+Mensagem 403 de 836
+               
+
+Mensagem 404 de 836
+               
+
+Mensagem 405 de 836
+               
+
+Mensagem 406 de 836
+               
+
+Mensagem 407 de 836
+               
+
+Mensagem 408 de 836
+               
+
+Mensagem 409 de 836
+               
+
+Mensagem 410 de 836
+               
+
+Mensagem 411 de 836
+               
+
+Mensagem 412 de 836
+               
+
+Mensagem 413 de 836
+               
+
+Mensagem 414 de 836
+               
+
+Mensagem 415 de 836
+               
+
+Mensagem 416 de 836
+               
+
+Mensagem 417 de 836
+               
+
+Mensagem 418 de 836
+               
+
+Mensagem 419 de 836
+               
+
+Mensagem 420 de 836
+               
+
+Mensagem 421 de 836
+               
+
+Mensagem 422 de 836
+               
+
+Mensagem 423 de 836
+               
+
+Mensagem 424 de 836
+               
+
+Mensagem 425 de 836
+               
+
+Mensagem 426 de 836
+               
+
+Mensagem 427 de 836
+               
+
+Mensagem 428 de 836
+               
+
+Mensagem 429 de 836
+               
+
+Mensagem 430 de 836
+               
+
+Mensagem 431 de 836
+               
+
+Mensagem 432 de 836
+               
+
+Mensagem 433 de 836
+               
+
+Mensagem 434 de 836
+               
+
+Mensagem 435 de 836
+               
+
+Mensagem 436 de 836
+               
+
+Mensagem 437 de 836
+               
+
+Mensagem 438 de 836
+               
+
+Mensagem 439 de 836
+               
+
+Mensagem 440 de 836
+               
+
+Mensagem 441 de 836
+               
+
+Mensagem 442 de 836
+               
+
+Mensagem 443 de 836
+               
+
+Mensagem 444 de 836
+               
+
+Mensagem 445 de 836
+               
+
+Mensagem 446 de 836
+               
+
+Mensagem 447 de 836
+               
+
+Mensagem 448 de 836
+               
+
+Mensagem 449 de 836
+               
+
+Mensagem 450 de 836
+               
+
+Mensagem 451 de 836
+               
+
+Mensagem 452 de 836
+               
+
+Mensagem 453 de 836
+               
+
+Mensagem 454 de 836
+               
+
+Mensagem 455 de 836
+               
+
+Mensagem 456 de 836
+               
+
+Mensagem 457 de 836
+               
+
+Mensagem 458 de 836
+               
+
+Mensagem 459 de 836
+               
+
+Mensagem 460 de 836
+               
+
+Mensagem 461 de 836
+               
+
+Mensagem 462 de 836
+               
+
+Mensagem 463 de 836
+               
+
+Mensagem 464 de 836
+               
+
+Mensagem 465 de 836
+               
+
+Mensagem 466 de 836
+               
+
+Mensagem 467 de 836
+               
+
+Mensagem 468 de 836
+               
+
+Mensagem 469 de 836
+               
+
+Mensagem 470 de 836
+               
+
+Mensagem 471 de 836
+               
+
+Mensagem 472 de 836
+               
+
+Mensagem 473 de 836
+               
+
+Mensagem 474 de 836
+               
+
+Mensagem 475 de 836
+               
+
+Mensagem 476 de 836
+               
+
+Mensagem 477 de 836
+               
+
+Mensagem 478 de 836
+               
+
+Mensagem 479 de 836
+               
+
+Mensagem 480 de 836
+               
+
+Mensagem 481 de 836
+               
+
+Mensagem 482 de 836
+               
+
+Mensagem 483 de 836
+               
+
+Mensagem 484 de 836
+               
+
+Mensagem 485 de 836
+               
+
+Mensagem 486 de 836
+               
+
+Mensagem 487 de 836
+               
+
+Mensagem 488 de 836
+               
+
+Mensagem 489 de 836
+               
+
+Mensagem 490 de 836
+               
+
+Mensagem 491 de 836
+               
+
+Mensagem 492 de 836
+               
+
+Mensagem 493 de 836
+               
+
+Mensagem 494 de 836
+               
+
+Mensagem 495 de 836
+               
+
+Mensagem 496 de 836
+               
+
+Mensagem 497 de 836
+               
+
+Mensagem 498 de 836
+               
+
+Mensagem 499 de 836
+               
+
+Mensagem 500 de 836
+               
+
+Mensagem 501 de 836
+               
+
+Mensagem 502 de 836
+               
+
+Mensagem 503 de 836
+               
+
+Mensagem 504 de 836
+               
+
+Mensagem 505 de 836
+               
+
+Mensagem 506 de 836
+               
+
+Mensagem 507 de 836
+               
+
+Mensagem 508 de 836
+               
+
+Mensagem 509 de 836
+               
+
+Mensagem 510 de 836
+               
+
+Mensagem 511 de 836
+               
+
+Mensagem 512 de 836
+               
+
+Mensagem 513 de 836
+               
+
+Mensagem 514 de 836
+               
+
+Mensagem 515 de 836
+               
+
+Mensagem 516 de 836
+               
+
+Mensagem 517 de 836
+               
+
+Mensagem 518 de 836
+               
+
+Mensagem 519 de 836
+               
+
+Mensagem 520 de 836
+               
+
+Mensagem 521 de 836
+               
+
+Mensagem 522 de 836
+               
+
+Mensagem 523 de 836
+               
+
+Mensagem 524 de 836
+               
+
+Mensagem 525 de 836
+               
+
+Mensagem 526 de 836
+               
+
+Mensagem 527 de 836
+               
+
+Mensagem 528 de 836
+               
+
+Mensagem 529 de 836
+               
+
+Mensagem 530 de 836
+               
+
+Mensagem 531 de 836
+               
+
+Mensagem 532 de 836
+               
+
+Mensagem 533 de 836
+               
+
+Mensagem 534 de 836
+               
+
+Mensagem 535 de 836
+               
+
+Mensagem 536 de 836
+               
+
+Mensagem 537 de 836
+               
+
+Mensagem 538 de 836
+               
+
+Mensagem 539 de 836
+               
+
+Mensagem 540 de 836
+               
+
+Mensagem 541 de 836
+               
+
+Mensagem 542 de 836
+               
+
+Mensagem 543 de 836
+               
+
+Mensagem 544 de 836
+               
+
+Mensagem 545 de 836
+               
+
+Mensagem 546 de 836
+               
+
+Mensagem 547 de 836
+               
+
+Mensagem 548 de 836
+               
+
+Mensagem 549 de 836
+               
+
+Mensagem 550 de 836
+               
+
+Mensagem 551 de 836
+               
+
+Mensagem 552 de 836
+               
+
+Mensagem 553 de 836
+               
+
+Mensagem 554 de 836
+               
+
+Mensagem 555 de 836
+               
+
+Mensagem 556 de 836
+               
+
+Mensagem 557 de 836
+               
+
+Mensagem 558 de 836
+               
+
+Mensagem 559 de 836
+               
+
+Mensagem 560 de 836
+               
+
+Mensagem 561 de 836
+               
+
+Mensagem 562 de 836
+               
+
+Mensagem 563 de 836
+               
+
+Mensagem 564 de 836
+               
+
+Mensagem 565 de 836
+               
+
+Mensagem 566 de 836
+               
+
+Mensagem 567 de 836
+               
+
+Mensagem 568 de 836
+               
+
+Mensagem 569 de 836
+               
+
+Mensagem 570 de 836
+               
+
+Mensagem 571 de 836
+               
+
+Mensagem 572 de 836
+               
+
+Mensagem 573 de 836
+               
+
+Mensagem 574 de 836
+               
+
+Mensagem 575 de 836
+               
+
+Mensagem 576 de 836
+               
+
+Mensagem 577 de 836
+               
+
+Mensagem 578 de 836
+               
+
+Mensagem 579 de 836
+               
+
+Mensagem 580 de 836
+               
+
+Mensagem 581 de 836
+               
+
+Mensagem 582 de 836
+               
+
+Mensagem 583 de 836
+               
+
+Mensagem 584 de 836
+               
+
+Mensagem 585 de 836
+               
+
+Mensagem 586 de 836
+               
+
+Mensagem 587 de 836
+               
+
+Mensagem 588 de 836
+               
+
+Mensagem 589 de 836
+               
+
+Mensagem 590 de 836
+               
+
+Mensagem 591 de 836
+               
+
+Mensagem 592 de 836
+               
+
+Mensagem 593 de 836
+               
+
+Mensagem 594 de 836
+               
+
+Mensagem 595 de 836
+               
+
+Mensagem 596 de 836
+               
+
+Mensagem 597 de 836
+               
+
+Mensagem 598 de 836
+               
+
+Mensagem 599 de 836
+               
+
+Mensagem 600 de 836
+               
+
+Mensagem 601 de 836
+               
+
+Mensagem 602 de 836
+               
+
+Mensagem 603 de 836
+               
+
+Mensagem 604 de 836
+               
+
+Mensagem 605 de 836
+               
+
+Mensagem 606 de 836
+               
+
+Mensagem 607 de 836
+               
+
+Mensagem 608 de 836
+               
+
+Mensagem 609 de 836
+               
+
+Mensagem 610 de 836
+               
+
+Mensagem 611 de 836
+               
+
+Mensagem 612 de 836
+               
+
+Mensagem 613 de 836
+               
+
+Mensagem 614 de 836
+               
+
+Mensagem 615 de 836
+               
+
+Mensagem 616 de 836
+               
+
+Mensagem 617 de 836
+               
+
+Mensagem 618 de 836
+               
+
+Mensagem 619 de 836
+               
+
+Mensagem 620 de 836
+               
+
+Mensagem 621 de 836
+               
+
+Mensagem 622 de 836
+               
+
+Mensagem 623 de 836
+               
+
+Mensagem 624 de 836
+               
+
+Mensagem 625 de 836
+               
+
+Mensagem 626 de 836
+               
+
+Mensagem 627 de 836
+               
+
+Mensagem 628 de 836
+               
+
+Mensagem 629 de 836
+               
+
+Mensagem 630 de 836
+               
+
+Mensagem 631 de 836
+               
+
+Mensagem 632 de 836
+               
+
+Mensagem 633 de 836
+               
+
+Mensagem 634 de 836
+               
+
+Mensagem 635 de 836
+               
+
+Mensagem 636 de 836
+               
+
+Mensagem 637 de 836
+               
+
+Mensagem 638 de 836
+               
+
+Mensagem 639 de 836
+               
+
+Mensagem 640 de 836
+               
+
+Mensagem 641 de 836
+               
+
+Mensagem 642 de 836
+               
+
+Mensagem 643 de 836
+               
+
+Mensagem 644 de 836
+               
+
+Mensagem 645 de 836
+               
+
+Mensagem 646 de 836
+               
+
+Mensagem 647 de 836
+               
+
+Mensagem 648 de 836
+               
+
+Mensagem 649 de 836
+               
+
+Mensagem 650 de 836
+               
+
+Mensagem 651 de 836
+               
+
+Mensagem 652 de 836
+               
+
+Mensagem 653 de 836
+               
+
+Mensagem 654 de 836
+               
+
+Mensagem 655 de 836
+               
+
+Mensagem 656 de 836
+               
+
+Mensagem 657 de 836
+               
+
+Mensagem 658 de 836
+               
+
+Mensagem 659 de 836
+               
+
+Mensagem 660 de 836
+               
+
+Mensagem 661 de 836
+               
+
+Mensagem 662 de 836
+               
+
+Mensagem 663 de 836
+               
+
+Mensagem 664 de 836
+               
+
+Mensagem 665 de 836
+               
+
+Mensagem 666 de 836
+               
+
+Mensagem 667 de 836
+               
+
+Mensagem 668 de 836
+               
+
+Mensagem 669 de 836
+               
+
+Mensagem 670 de 836
+               
+
+Mensagem 671 de 836
+               
+
+Mensagem 672 de 836
+               
+
+Mensagem 673 de 836
+               
+
+Mensagem 674 de 836
+               
+
+Mensagem 675 de 836
+               
+
+Mensagem 676 de 836
+               
+
+Mensagem 677 de 836
+               
+
+Mensagem 678 de 836
+               
+
+Mensagem 679 de 836
+               
+
+Mensagem 680 de 836
+               
+
+Mensagem 681 de 836
+               
+
+Mensagem 682 de 836
+               
+
+Mensagem 683 de 836
+               
+
+Mensagem 684 de 836
+               
+
+Mensagem 685 de 836
+               
+
+Mensagem 686 de 836
+               
+
+Mensagem 687 de 836
+               
+
+Mensagem 688 de 836
+               
+
+Mensagem 689 de 836
+               
+
+Mensagem 690 de 836
+               
+
+Mensagem 691 de 836
+               
+
+Mensagem 692 de 836
+               
+
+Mensagem 693 de 836
+               
+
+Mensagem 694 de 836
+               
+
+Mensagem 695 de 836
+               
+
+Mensagem 696 de 836
+               
+
+Mensagem 697 de 836
+               
+
+Mensagem 698 de 836
+               
+
+Mensagem 699 de 836
+               
+
+Mensagem 700 de 836
+               
+
+Mensagem 701 de 836
+               
+
+Mensagem 702 de 836
+               
+
+Mensagem 703 de 836
+               
+
+Mensagem 704 de 836
+               
+
+Mensagem 705 de 836
+               
+
+Mensagem 706 de 836
+               
+
+Mensagem 707 de 836
+               
+
+Mensagem 708 de 836
+               
+
+Mensagem 709 de 836
+               
+
+Mensagem 710 de 836
+               
+
+Mensagem 711 de 836
+               
+
+Mensagem 712 de 836
+               
+
+Mensagem 713 de 836
+               
+
+Mensagem 714 de 836
+               
+
+Mensagem 715 de 836
+               
+
+Mensagem 716 de 836
+               
+
+Mensagem 717 de 836
+               
+
+Mensagem 718 de 836
+               
+
+Mensagem 719 de 836
+               
+
+Mensagem 720 de 836
+               
+
+Mensagem 721 de 836
+               
+
+Mensagem 722 de 836
+               
+
+Mensagem 723 de 836
+               
+
+Mensagem 724 de 836
+               
+
+Mensagem 725 de 836
+               
+
+Mensagem 726 de 836
+               
+
+Mensagem 727 de 836
+               
+
+Mensagem 728 de 836
+               
+
+Mensagem 729 de 836
+               
+
+Mensagem 730 de 836
+               
+
+Mensagem 731 de 836
+               
+
+Mensagem 732 de 836
+               
+
+Mensagem 733 de 836
+               
+
+Mensagem 734 de 836
+               
+
+Mensagem 735 de 836
+               
+
+Mensagem 736 de 836
+               
+
+Mensagem 737 de 836
+               
+
+Mensagem 738 de 836
+               
+
+Mensagem 739 de 836
+               
+
+Mensagem 740 de 836
+               
+
+Mensagem 741 de 836
+               
+
+Mensagem 742 de 836
+               
+
+Mensagem 743 de 836
+               
+
+Mensagem 744 de 836
+               
+
+Mensagem 745 de 836
+               
+
+Mensagem 746 de 836
+               
+
+Mensagem 747 de 836
+               
+
+Mensagem 748 de 836
+               
+
+Mensagem 749 de 836
+               
+
+Mensagem 750 de 836
+               
+
+Mensagem 751 de 836
+               
+
+Mensagem 752 de 836
+               
+
+Mensagem 753 de 836
+               
+
+Mensagem 754 de 836
+               
+
+Mensagem 755 de 836
+               
+
+Mensagem 756 de 836
+               
+
+Mensagem 757 de 836
+               
+
+Mensagem 758 de 836
+               
+
+Mensagem 759 de 836
+               
+
+Mensagem 760 de 836
+               
+
+Mensagem 761 de 836
+               
+
+Mensagem 762 de 836
+               
+
+Mensagem 763 de 836
+               
+
+Mensagem 764 de 836
+               
+
+Mensagem 765 de 836
+               
+
+Mensagem 766 de 836
+               
+
+Mensagem 767 de 836
+               
+
+Mensagem 768 de 836
+               
+
+Mensagem 769 de 836
+               
+
+Mensagem 770 de 836
+               
+
+Mensagem 771 de 836
+               
+
+Mensagem 772 de 836
+               
+
+Mensagem 773 de 836
+               
+
+Mensagem 774 de 836
+               
+
+Mensagem 775 de 836
+               
+
+Mensagem 776 de 836
+               
+
+Mensagem 777 de 836
+               
+
+Mensagem 778 de 836
+               
+
+Mensagem 779 de 836
+               
+
+Mensagem 780 de 836
+               
+
+Mensagem 781 de 836
+               
+
+Mensagem 782 de 836
+               
+
+Mensagem 783 de 836
+               
+
+Mensagem 784 de 836
+               
+
+Mensagem 785 de 836
+               
+
+Mensagem 786 de 836
+               
+
+Mensagem 787 de 836
+               
+
+Mensagem 788 de 836
+               
+
+Mensagem 789 de 836
+               
+
+Mensagem 790 de 836
+               
+
+Mensagem 791 de 836
+               
+
+Mensagem 792 de 836
+               
+
+Mensagem 793 de 836
+               
+
+Mensagem 794 de 836
+               
+
+Mensagem 795 de 836
+               
+
+Mensagem 796 de 836
+               
+
+Mensagem 797 de 836
+               
+
+Mensagem 798 de 836
+               
+
+Mensagem 799 de 836
+               
+
+Mensagem 800 de 836
+               
+
+Mensagem 801 de 836
+               
+
+Mensagem 802 de 836
+               
+
+Mensagem 803 de 836
+               
+
+Mensagem 804 de 836
+               
+
+Mensagem 805 de 836
+               
+
+Mensagem 806 de 836
+               
+
+Mensagem 807 de 836
+               
+
+Mensagem 808 de 836
+               
+
+Mensagem 809 de 836
+               
+
+Mensagem 810 de 836
+               
+
+Mensagem 811 de 836
+               
+
+Mensagem 812 de 836
+               
+
+Mensagem 813 de 836
+               
+
+Mensagem 814 de 836
+               
+
+Mensagem 815 de 836
+               
+
+Mensagem 816 de 836
+               
+
+Mensagem 817 de 836
+               
+
+Mensagem 818 de 836
+               
+
+Mensagem 819 de 836
+               
+
+Mensagem 820 de 836
+               
+
+Mensagem 821 de 836
+               
+
+Mensagem 822 de 836
+               
+
+Mensagem 823 de 836
+               
+
+Mensagem 824 de 836
+               
+
+Mensagem 825 de 836
+               
+
+Mensagem 826 de 836
+               
+
+Mensagem 827 de 836
+               
+
+Mensagem 828 de 836
+               
+
+Mensagem 829 de 836
+               
+
+Mensagem 830 de 836
+               
+
+Mensagem 831 de 836
+               
+
+Mensagem 832 de 836
+               
+
+Mensagem 833 de 836
+               
+
+Mensagem 834 de 836
+               
+
+Mensagem 835 de 836
+               
+
+Mensagem 836 de 836
+               

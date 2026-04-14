@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <title id="page-title">Carregando...</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&display=swap"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" id="favicon-link" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" id="shortcut-icon-link" />
+    <script>
+      // Carrega nome e favicon das configurações do sistema
+      (function() {
+        // Tenta pegar do localStorage primeiro (cache)
+        var cachedName = localStorage.getItem('appName');
+        if (cachedName) {
+          document.title = cachedName;
+        }
+        
+        // Busca as configurações do backend
+        var backendUrl = window.location.origin.replace(':3000', ':8080').replace(':3001', ':8080');
+        
+        fetch(backendUrl + '/public-settings/appName')
+          .then(function(res) { return res.json(); })
+          .then(function(data) {
+            if (data && data.value) {
+              document.title = data.value;
+              localStorage.setItem('appName', data.value);
+            }
+          })
+          .catch(function() {});
+        
+        fetch(backendUrl + '/public-settings/appLogoFavicon')
+          .then(function(res) { return res.json(); })
+          .then(function(data) {
+            if (data && data.value) {
+              var faviconUrl = backendUrl + '/public/' + data.value;
+              document.getElementById('favicon-link').href = faviconUrl;
+              document.getElementById('shortcut-icon-link').href = faviconUrl;
+            }
+          })
+          .catch(function() {});
+      })();
+    </script>
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="viewport"
+      content="minimum-scale=1, initial-scale=1, width=device-width"
+    />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Design completamente novo - estilo corporativo moderno */
+      #splash-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #ffffff;
+        z-index: 9999;
+        font-family: "Inter", sans-serif;
+        overflow: hidden;
+      }
+
+      /* Efeito de ondas suaves no fundo */
+      #splash-screen::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+          radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.06) 0%, transparent 50%),
+          radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.04) 0%, transparent 50%);
+        animation: waveMove 10s ease-in-out infinite;
+      }
+
+      @keyframes waveMove {
+        0%, 100% { transform: scale(1) rotate(0deg); }
+        50% { transform: scale(1.1) rotate(5deg); }
+      }
+
+      #splash-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Container do logo com layout horizontal */
+      .main-container {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        margin-bottom: 4rem;
+      }
+
+      /* Logo redesenhado - círculo com ícone */
+      .logo-wrapper {
+        position: relative;
+        width: 140px;
+        height: 140px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .logo-circle {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        box-shadow: 
+          0 25px 50px rgba(0, 0, 0, 0.08),
+          0 0 0 1px rgba(0, 0, 0, 0.04),
+          inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        animation: logoBreath 4s ease-in-out infinite;
+      }
+
+      @keyframes logoBreath {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.02); }
+      }
+
+      .logo-icon {
+        width: 64px;
+        height: 64px;
+        color: #3b82f6;
+        position: relative;
+        z-index: 2;
+        filter: drop-shadow(0 2px 8px rgba(59, 130, 246, 0.15));
+      }
+
+      /* Seção de loading lateral */
+      .loading-section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        min-width: 280px;
+      }
+
+      /* Status principal */
+      .main-status {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #1f2937;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.025em;
+      }
+
+      /* Texto secundário */
+      .sub-status {
+        font-size: 0.95rem;
+        color: #6b7280;
+        margin-bottom: 2rem;
+        font-weight: 400;
+      }
+
+      /* Progress container redesenhado */
+      .progress-wrapper {
+        width: 100%;
+        margin-bottom: 1.5rem;
+      }
+
+      .progress-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+      }
+
+      .progress-label {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: #374151;
+      }
+
+      .progress-percentage {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #3b82f6;
+        font-family: "Roboto Mono", monospace;
+      }
+
+      /* Barra de progresso linear moderna */
+      .progress-track {
+        width: 100%;
+        height: 3px;
+        background: #f1f5f9;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .progress-fill {
+        height: 100%;
+        width: 0;
+        background: linear-gradient(90deg, #3b82f6, #6366f1);
+        border-radius: 10px;
+        transition: width 0.15s ease-out;
+        position: relative;
+      }
+
+      .progress-fill::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+        animation: progressGlow 1.5s infinite;
+      }
+
+      @keyframes progressGlow {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+      }
+
+      /* Steps indicator */
+      .steps-container {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+      }
+
+      .step-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #e5e7eb;
+        transition: all 0.3s ease;
+      }
+
+      .step-dot.active {
+        background: #3b82f6;
+        transform: scale(1.2);
+      }
+
+      .step-dot.completed {
+        background: #10b981;
+      }
+
+      /* Layout responsivo */
+      @media (max-width: 768px) {
+        .main-container {
+          flex-direction: column;
+          gap: 2rem;
+          text-align: center;
+        }
+
+        .loading-section {
+          align-items: center;
+          min-width: auto;
+          width: 100%;
+          max-width: 320px;
+        }
+
+        .logo-wrapper {
+          width: 120px;
+          height: 120px;
+        }
+
+        .logo-icon {
+          width: 56px;
+          height: 56px;
+        }
+
+        .main-status {
+          font-size: 1.25rem;
+        }
+      }
+
+      /* Fade out melhorado */
+      @keyframes fadeOutScale {
+        from { 
+          opacity: 1; 
+          transform: scale(1);
+        }
+        to { 
+          opacity: 0; 
+          transform: scale(0.95);
+        }
+      }
+
+      .fade-out {
+        animation: fadeOutScale 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+    </style>
+    <!-- Issue workaround for React v16. -->
+    <script>
+      // See https://github.com/facebook/react/issues/20829#issuecomment-802088260
+      if (!crossOriginIsolated) SharedArrayBuffer = ArrayBuffer;
+    </script>
+  </head>
+
+  <body>
+    <div id="splash-screen">
+      <div id="splash-content">
+        <div class="main-container">
+          <!-- Logo principal -->
+          <div class="logo-wrapper">
+            <div class="logo-circle"></div>
+            <svg
+              class="logo-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+              />
+            </svg>
+          </div>
+
+          <!-- Seção de carregamento -->
+          <div class="loading-section">
+            <h2 class="main-status">Inicializando sistema...</h2>
+            <p class="sub-status">Preparando sua experiência</p>
+
+            <!-- Progresso -->
+            <div class="progress-wrapper">
+              <div class="progress-header">
+                <span class="progress-label">Inicializando</span>
+                <span class="progress-percentage" id="progress-percent">0%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" id="progress-bar"></div>
+              </div>
+            </div>
+
+            <!-- Indicadores de steps -->
+            <div class="steps-container">
+              <div class="step-dot active" id="step-1"></div>
+              <div class="step-dot" id="step-2"></div>
+              <div class="step-dot" id="step-3"></div>
+              <div class="step-dot" id="step-4"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="root"></div>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+      // Configuração para completar em ~3 segundos (3000ms) - MANTIDO ORIGINAL
+      const TOTAL_DURATION = 3000; // 3 segundos
+      const INTERVAL_DELAY = 30; // atualiza a cada 30ms
+      const TOTAL_STEPS = TOTAL_DURATION / INTERVAL_DELAY;
+      let currentStep = 0;
+
+      const progressBar = document.getElementById("progress-bar");
+      const progressPercent = document.getElementById("progress-percent");
+      const progressLabel = document.querySelector(".progress-label");
+      const splashScreen = document.getElementById("splash-screen");
+      const mainStatus = document.querySelector(".main-status");
+      const subStatus = document.querySelector(".sub-status");
+
+      const loadingPhases = [
+        { 
+          progress: 20, 
+          label: "Carregando recursos", 
+          status: "Conectando ao servidor...",
+          subStatus: "Estabelecendo conexão segura",
+          step: 1
+        },
+        { 
+          progress: 45, 
+          label: "Processando dados", 
+          status: "Verificando autenticação...",
+          subStatus: "Validando credenciais",
+          step: 2
+        },
+        { 
+          progress: 70, 
+          label: "Configurando interface", 
+          status: "Carregando componentes...",
+          subStatus: "Preparando interface do usuário",
+          step: 3
+        },
+        { 
+          progress: 90, 
+          label: "Finalizando", 
+          status: "Quase pronto...",
+          subStatus: "Aplicando configurações finais",
+          step: 4
+        },
+      ];
+
+      let currentPhase = 0;
+
+      const interval = setInterval(() => {
+        currentStep++;
+        const progress = Math.min(100, (currentStep / TOTAL_STEPS) * 100);
+
+        if (
+          currentPhase < loadingPhases.length &&
+          progress >= loadingPhases[currentPhase].progress
+        ) {
+          const phase = loadingPhases[currentPhase];
+          progressLabel.textContent = phase.label;
+          mainStatus.textContent = phase.status;
+          subStatus.textContent = phase.subStatus;
+          
+          // Atualizar steps
+          updateSteps(phase.step);
+          
+          currentPhase++;
+        }
+
+        progressBar.style.width = progress + "%";
+        progressPercent.textContent = Math.round(progress) + "%";
+
+        if (progress >= 100) {
+          clearInterval(interval);
+          progressLabel.textContent = "Pronto!";
+          mainStatus.textContent = "Bem-vindo ao sistema!";
+          subStatus.textContent = "Redirecionando...";
+          updateSteps(4, true);
+          
+          setTimeout(() => {
+            splashScreen.classList.add("fade-out");
+            setTimeout(() => {
+              splashScreen.remove();
+            }, 500);
+          }, 300);
+        }
+      }, INTERVAL_DELAY);
+
+      function updateSteps(activeStep, completed = false) {
+        for (let i = 1; i <= 4; i++) {
+          const stepElement = document.getElementById(`step-${i}`);
+          if (!stepElement || !stepElement.classList) continue;
+
+          stepElement.classList.remove('active', 'completed');
+          if (completed && i <= activeStep) {
+            stepElement.classList.add('completed');
+          } else if (i === activeStep) {
+            stepElement.classList.add('active');
+          }
+        }
+      }
+
+      window.finishProgress = () => {
+        progress = 100;
+        progressBar.style.width = "100%";
+        progressPercent.textContent = "100%";
+        updateSteps(4, true);
+      };
+
+      // Remove splash screen when all elements are loaded
+      window.addEventListener("load", () => {
+        if (progress < 100) {
+          window.finishProgress();
+        }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mic-recorder-to-mp3@2.2.2/dist/index.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1633 @@
+#!/bin/bash
+#
+# AtendZappy SaaS - Instalador Unificado e Otimizado com Traefik
+# Desenvolvido por: Fae Developer
+# Contato: (24) 3354-0335
+# E-mail: contato@faedeveloper.com.br
+# Faedeveloper.com.br
+#
+# Modificado para usar Traefik em vez de Nginx
+#
+
+# set -e  # Desabilitado para continuar mesmo com erros
+
+# ============================================================================
+# VARIÁVEIS GLOBAIS
+# ============================================================================
+
+# Cores e estilos
+readonly RED="\033[1;31m"
+readonly GREEN="\033[1;32m"
+readonly WHITE="\033[1;37m"
+readonly YELLOW="\033[1;33m"
+readonly GRAY_LIGHT="\033[0;37m"
+readonly CYAN_LIGHT="\033[1;36m"
+readonly NC="\033[0m"
+readonly BG_BROWN="\e[0;43m"
+readonly BOLD=$(tput bold)
+readonly NORMAL=$(tput sgr0)
+
+# Variáveis da aplicação
+readonly JWT_SECRET="3123123213123" 
+readonly JWT_REFRESH_SECRET="75756756756"
+readonly DEPLOY_PASSWORD="Master123"
+readonly DB_PASS="ZdG387FhYsm0olSm097541HMSdS"
+readonly DB_USER="root"
+readonly DB_NAME="atendzappy"
+readonly DEPLOY_EMAIL="deploy@atendzappy.com"
+
+# Obter diretório do script
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do
+  PROJECT_ROOT="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$PROJECT_ROOT/$SOURCE"
+done
+PROJECT_ROOT="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+
+# Array para armazenar erros durante a instalação
+INSTALLATION_ERRORS=()
+INSTALLATION_WARNINGS=()
+
+# Função para registrar erro e continuar
+register_error() {
+  INSTALLATION_ERRORS+=("$1")
+  log_error "$1"
+}
+
+# Função para registrar warning e continuar
+register_warning() {
+  INSTALLATION_WARNINGS+=("$1")
+  log_warning "$1"
+}
+
+# ============================================================================
+# FUNÇÕES DE UTILIDADES
+# ============================================================================
+
+print_banner() {
+  clear
+  printf "\n\n"
+  printf "       Desenvolvimento: FaeDeveloper\n"
+  printf "       Contato: (24) 3354-0335\n"
+  printf "       E-mail: contato@faedeveloper.com.br\n"
+  printf "${NC}\n"
+}
+
+log_info() {
+  printf "${WHITE}  $1${GRAY_LIGHT}\n"
+}
+
+log_success() {
+  printf "${GREEN}  $1${GRAY_LIGHT}\n"
+}
+
+log_error() {
+  printf "${RED}  $1${GRAY_LIGHT}\n"
+}
+
+log_warning() {
+  printf "${YELLOW}  $1${GRAY_LIGHT}\n"
+}
+
+# ============================================================================
+# FUNÇÕES DE ENTRADA DE DADOS
+# ============================================================================
+
+get_instancia_add() {
+  print_banner
+  printf "${WHITE} Informe um nome para a Instância/Empresa (sem espaços, minúsculas):${GRAY_LIGHT}\n\n"
+  read -p "> " instancia_add
+}
+
+get_max_whats() {
+  print_banner
+  printf "${WHITE} Qtde de Conexões/Whats para ${instancia_add}:${GRAY_LIGHT}\n\n"
+  read -p "> " max_whats
+}
+
+get_max_user() {
+  print_banner
+  printf "${WHITE} Qtde de Usuários/Atendentes para ${instancia_add}:${GRAY_LIGHT}\n\n"
+  read -p "> " max_user
+}
+
+get_frontend_url() {
+  print_banner
+  printf "${WHITE} Domínio do FRONTEND/PAINEL para ${instancia_add}:${GRAY_LIGHT}\n\n"
+  read -p "> " frontend_url
+}
+
+get_backend_url() {
+  print_banner
+  printf "${WHITE} Domínio do BACKEND/API para ${instancia_add}:${GRAY_LIGHT}\n\n"
+  read -p "> " backend_url
+}
+
+get_frontend_port() {
+  print_banner
+  printf "${WHITE} Porta do FRONTEND (Ex: 3000 a 3999):${GRAY_LIGHT}\n\n"
+  read -p "> " frontend_port
+}
+
+get_backend_port() {
+  print_banner
+  printf "${WHITE} Porta do BACKEND (Ex: 4000 a 4999):${GRAY_LIGHT}\n\n"
+  read -p "> " backend_port
+}
+
+get_redis_port() {
+  print_banner
+  printf "${WHITE} Porta do REDIS (Ex: 5000 a 5999):${GRAY_LIGHT}\n\n"
+  read -p "> " redis_port
+}
+
+generate_redis_password() {
+  print_banner
+  printf "${WHITE} Gerando senha segura para Redis...${GRAY_LIGHT}\n\n"
+  
+  redis_pass=$(openssl rand -base64 12 | tr -d "=+/" | cut -c1-16)
+  
+  if ! [[ "$redis_pass" =~ [0-9] ]] || ! [[ "$redis_pass" =~ [A-Za-z] ]]; then
+    redis_pass="Redis$(openssl rand -base64 8 | tr -d "=+/" | cut -c1-8)99"
+  fi
+  
+  log_success "Senha do Redis: ${redis_pass}"
+  log_warning "ANOTE ESTA SENHA!"
+  sleep 3
+  export redis_pass
+}
+
+get_empresa_delete() {
+  print_banner
+  printf "${WHITE} Nome da Instância a ser DELETADA:${GRAY_LIGHT}\n\n"
+  read -p "> " empresa_delete
+}
+
+get_empresa_bloquear() {
+  print_banner
+  printf "${WHITE} Nome da Instância a BLOQUEAR:${GRAY_LIGHT}\n\n"
+  read -p "> " empresa_bloquear
+}
+
+get_empresa_desbloquear() {
+  print_banner
+  printf "${WHITE} Nome da Instância a DESBLOQUEAR:${GRAY_LIGHT}\n\n"
+  read -p "> " empresa_desbloquear
+}
+
+get_empresa_dominio() {
+  print_banner
+  printf "${WHITE} Nome da Instância para alterar domínios:${GRAY_LIGHT}\n\n"
+  read -p "> " empresa_dominio
+}
+
+get_alter_frontend_url() {
+  print_banner
+  printf "${WHITE} NOVO domínio do FRONTEND:${GRAY_LIGHT}\n\n"
+  read -p "> " alter_frontend_url
+}
+
+get_alter_backend_url() {
+  print_banner
+  printf "${WHITE} NOVO domínio do BACKEND:${GRAY_LIGHT}\n\n"
+  read -p "> " alter_backend_url
+}
+
+get_alter_frontend_port() {
+  print_banner
+  printf "${WHITE} Porta do FRONTEND (mesma da instalação):${GRAY_LIGHT}\n\n"
+  read -p "> " alter_frontend_port
+}
+
+get_alter_backend_port() {
+  print_banner
+  printf "${WHITE} Porta do BACKEND (mesma da instalação):${GRAY_LIGHT}\n\n"
+  read -p "> " alter_backend_port
+}
+
+# ============================================================================
+# FUNÇÕES DO SISTEMA
+# ============================================================================
+
+system_configure_noninteractive() {
+  print_banner
+  log_info "Configurando modo não-interativo..."
+  sleep 2
+
+  sudo su - root <<'EOF'
+  export DEBIAN_FRONTEND=noninteractive
+  export NEEDRESTART_MODE=a
+  export NEEDRESTART_SUSPEND=1
+  
+  echo 'libc6 libraries/restart-without-asking boolean true' | debconf-set-selections
+  echo 'libssl1.1:amd64 libraries/restart-without-asking boolean true' | debconf-set-selections
+  echo 'libssl3:amd64 libraries/restart-without-asking boolean true' | debconf-set-selections
+  
+  mkdir -p /etc/needrestart/conf.d/
+  echo "\$nrconf{restart} = 'a';" > /etc/needrestart/conf.d/50local.conf
+  
+  dpkg --configure -a
+EOF
+
+  log_success "Modo não-interativo configurado"
+  sleep 2
+}
+
+system_update() {
+  print_banner
+  log_info "Atualizando sistema..."
+  sleep 2
+
+  sudo su - root <<'EOF'
+  export DEBIAN_FRONTEND=noninteractive
+  export NEEDRESTART_MODE=a
+  export NEEDRESTART_SUSPEND=1
+  
+  apt -y update
+  apt-get install -y libxshmfence-dev libgbm-dev wget unzip fontconfig locales \
+    gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 \
+    libexpat1 libfontconfig1 libgcc-s1 libgconf-2-4 libgdk-pixbuf2.0-0 \
+    libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 \
+    libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 \
+    libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 \
+    libxtst6 ca-certificates fonts-liberation libappindicator3-1 libnss3 \
+    lsb-release xdg-utils ffmpeg
+EOF
+
+  log_success "Sistema atualizado"
+  sleep 2
+}
+
+system_create_user() {
+  print_banner
+  log_info "Criando usuário deploy..."
+  sleep 2
+
+  sudo su - root <<EOF
+  export DEBIAN_FRONTEND=noninteractive
+  
+  if id "deploy" &>/dev/null; then
+    echo "Usuário deploy já existe"
+  else
+    useradd -m -s /bin/bash deploy
+    echo "deploy:${DEPLOY_PASSWORD}" | chpasswd
+    usermod -aG sudo deploy
+    echo "Usuário deploy criado com sucesso"
+  fi
+  
+  # Adicionar ao grupo docker se Docker estiver instalado
+  if command -v docker &>/dev/null; then
+    usermod -aG docker deploy
+    echo "Usuário deploy adicionado ao grupo docker"
+  fi
+  
+  # Criar diretórios necessários para deploy
+  mkdir -p /home/deploy/.pm2 2>/dev/null || true
+  mkdir -p /home/deploy/.npm 2>/dev/null || true
+  mkdir -p /home/deploy/.cache 2>/dev/null || true
+  mkdir -p /home/deploy/.local/bin 2>/dev/null || true
+  chown -R deploy:deploy /home/deploy
+  chmod -R 755 /home/deploy/.pm2
+  chmod -R 755 /home/deploy/.npm
+  
+  # Adicionar deploy ao sudoers sem senha para pm2
+  echo "deploy ALL=(ALL) NOPASSWD: /usr/bin/pm2, /usr/lib/node_modules/pm2/bin/pm2" > /etc/sudoers.d/deploy-pm2
+  chmod 440 /etc/sudoers.d/deploy-pm2
+EOF
+
+  log_success "Usuário deploy configurado"
+  sleep 2
+}
+
+system_node_install() {
+  print_banner
+  log_info "Instalando Node.js 20.x..."
+  sleep 2
+
+  sudo su - root <<'EOF'
+  set -e
+  export DEBIAN_FRONTEND=noninteractive
+  export NEEDRESTART_MODE=a
+  export NEEDRESTART_SUSPEND=1
+
+  rm -f /etc/apt/sources.list.d/pgdg.list
+  apt-get remove -y nodejs npm 2>/dev/null || true
+  apt-get autoremove -y
+  apt-get clean
+  apt-get update
+
+  curl -fsSL https://deb.nodesource.com/setup_20.x -o /tmp/nodesource_setup.sh
+  bash /tmp/nodesource_setup.sh
+  apt-get install -y nodejs
+  
+  npm install -g npm@latest
+  
+  apt-get install -y postgresql postgresql-client postgresql-contrib
+  systemctl enable postgresql
+  systemctl start postgresql
+  
+  timedatectl set-timezone America/Sao_Paulo
+EOF
+
+  log_success "Node.js $(node --version) instalado"
+  sleep 2
+}
+
+system_pm2_install() {
+  print_banner
+  log_info "Instalando PM2..."
+  sleep 2
+
+  sudo su - root <<'EOF'
+  export DEBIAN_FRONTEND=noninteractive
+  npm install -g pm2
+  npm install -g typescript
+EOF
+
+  log_success "PM2 instalado"
+  sleep 2
+}
+
+system_fix_permissions() {
+  print_banner
+  log_info "Corrigindo permissões globais..."
+  sleep 2
+
+  sudo su - root <<'EOF'
+  # ============================================
+  # PERMISSÕES DO NODE.JS E NPM
+  # ============================================
+  chmod -R 755 /usr/lib/node_modules 2>/dev/null || true
+  chmod -R 755 /usr/local/lib/node_modules 2>/dev/null || true
+  chmod -R 755 /usr/share/npm 2>/dev/null || true
+  
+  # Binários principais
+  chmod +x /usr/bin/node 2>/dev/null || true
+  chmod +x /usr/bin/npm 2>/dev/null || true
+  chmod +x /usr/bin/npx 2>/dev/null || true
+  chmod +x /usr/bin/corepack 2>/dev/null || true
+  
+  # ============================================
+  # PERMISSÕES DO TYPESCRIPT
+  # ============================================
+  chmod +x /usr/bin/tsc 2>/dev/null || true
+  chmod +x /usr/bin/tsserver 2>/dev/null || true
+  chmod -R 755 /usr/lib/node_modules/typescript 2>/dev/null || true
+  chmod +x /usr/lib/node_modules/typescript/bin/tsc 2>/dev/null || true
+  chmod +x /usr/lib/node_modules/typescript/bin/tsserver 2>/dev/null || true
+  ln -sf /usr/lib/node_modules/typescript/bin/tsc /usr/bin/tsc 2>/dev/null || true
+  ln -sf /usr/lib/node_modules/typescript/bin/tsserver /usr/bin/tsserver 2>/dev/null || true
+  
+  # ============================================
+  # PERMISSÕES DO PM2
+  # ============================================
+  chmod -R 755 /usr/lib/node_modules/pm2 2>/dev/null || true
+  chmod +x /usr/lib/node_modules/pm2/bin/pm2 2>/dev/null || true
+  chmod +x /usr/lib/node_modules/pm2/bin/pm2-dev 2>/dev/null || true
+  chmod +x /usr/lib/node_modules/pm2/bin/pm2-docker 2>/dev/null || true
+  chmod +x /usr/lib/node_modules/pm2/bin/pm2-runtime 2>/dev/null || true
+  ln -sf /usr/lib/node_modules/pm2/bin/pm2 /usr/bin/pm2 2>/dev/null || true
+  ln -sf /usr/lib/node_modules/pm2/bin/pm2-dev /usr/bin/pm2-dev 2>/dev/null || true
+  ln -sf /usr/lib/node_modules/pm2/bin/pm2-docker /usr/bin/pm2-docker 2>/dev/null || true
+  ln -sf /usr/lib/node_modules/pm2/bin/pm2-runtime /usr/bin/pm2-runtime 2>/dev/null || true
+  chmod +x /usr/bin/pm2 2>/dev/null || true
+  chmod +x /usr/bin/pm2-dev 2>/dev/null || true
+  chmod +x /usr/bin/pm2-docker 2>/dev/null || true
+  chmod +x /usr/bin/pm2-runtime 2>/dev/null || true
+  
+  # Diretório PM2 do usuário root
+  mkdir -p /root/.pm2 2>/dev/null || true
+  chmod -R 755 /root/.pm2 2>/dev/null || true
+  
+  # ============================================
+  # PERMISSÕES GLOBAIS DE BINÁRIOS
+  # ============================================
+  chmod -R 755 /usr/local/bin 2>/dev/null || true
+  
+  # Corrigir todos os binários em node_modules
+  find /usr/lib/node_modules -type f -name "*.js" -exec chmod +x {} \; 2>/dev/null || true
+  find /usr/lib/node_modules/*/bin -type f -exec chmod +x {} \; 2>/dev/null || true
+  find /usr/local/lib/node_modules -type f -name "*.js" -exec chmod +x {} \; 2>/dev/null || true
+  find /usr/local/lib/node_modules/*/bin -type f -exec chmod +x {} \; 2>/dev/null || true
+  
+  # ============================================
+  # PERMISSÕES DO USUÁRIO DEPLOY
+  # ============================================
+  mkdir -p /home/deploy 2>/dev/null || true
+  mkdir -p /home/deploy/.pm2 2>/dev/null || true
+  mkdir -p /home/deploy/.npm 2>/dev/null || true
+  mkdir -p /home/deploy/.cache 2>/dev/null || true
+  chown -R deploy:deploy /home/deploy 2>/dev/null || true
+  chmod -R 755 /home/deploy/.pm2 2>/dev/null || true
+  chmod -R 755 /home/deploy/.npm 2>/dev/null || true
+EOF
+
+  log_success "Permissões corrigidas"
+  sleep 2
+}
+
+system_docker_install() {
+  print_banner
+  log_info "Instalando Docker..."
+  sleep 2
+
+  sudo su - root <<'EOF'
+  export DEBIAN_FRONTEND=noninteractive
+  export NEEDRESTART_MODE=a
+  export NEEDRESTART_SUSPEND=1
+  
+  apt install -y apt-transport-https ca-certificates curl software-properties-common
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+  add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable"
+  apt update -y
+  apt install -y docker-ce
+  
+  systemctl start docker
+  systemctl enable docker
+EOF
+
+  if ! command -v docker &> /dev/null; then
+    log_warning "Docker pode não ter sido instalado corretamente, continuando..."
+  fi
+
+  log_success "Docker $(docker --version) instalado"
+  sleep 2
+}
+
+system_snapd_install() {
+  print_banner
+  log_info "Instalando Snapd..."
+  sleep 2
+
+  sudo su - root <<'EOF'
+  export DEBIAN_FRONTEND=noninteractive
+  export NEEDRESTART_MODE=a
+  export NEEDRESTART_SUSPEND=1
+  
+  apt install -y snapd
+  snap install core
+  snap refresh core
+EOF
+
+  log_success "Snapd instalado"
+  sleep 2
+}
+
+# Substituído por Traefik
+system_traefik_install() {
+  print_banner
+  log_info "Instalando e configurando Traefik..."
+  sleep 2
+
+  sudo su - root <<EOF
+  export DEBIAN_FRONTEND=noninteractive
+  export NEEDRESTART_MODE=a
+  export NEEDRESTART_SUSPEND=1
+  
+  # Criar diretórios do Traefik
+  mkdir -p /etc/traefik/dynamic-conf
+  mkdir -p /var/log/traefik
+  
+  # Criar rede Docker para Traefik
+  docker network create traefik-network 2>/dev/null || echo "Rede já existe"
+  
+  # Criar arquivo ACME para certificados SSL
+  touch /etc/traefik/acme.json
+  chmod 600 /etc/traefik/acme.json
+  
+  # Parar e remover nginx se estiver instalado
+  systemctl stop nginx 2>/dev/null || true
+  systemctl disable nginx 2>/dev/null || true
+  apt-get remove -y nginx nginx-common 2>/dev/null || true
+  apt-get autoremove -y 2>/dev/null || true
+EOF
+
+  log_success "Traefik configurado"
+  sleep 2
+}
+
+system_certbot_install() {
+  print_banner
+  log_info "Instalando Certbot para backup..."
+  sleep 2
+
+  sudo su - root <<'EOF'
+  export DEBIAN_FRONTEND=noninteractive
+  export NEEDRESTART_MODE=a
+  export NEEDRESTART_SUSPEND=1
+  
+  apt-get remove certbot -y 2>/dev/null || true
+  snap install --classic certbot
+  ln -sf /snap/bin/certbot /usr/bin/certbot
+EOF
+
+  log_success "Certbot instalado (backup)"
+  sleep 2
+}
+
+system_traefik_start() {
+  print_banner
+  log_info "Iniciando Traefik..."
+  sleep 2
+
+  backend_domain=$(echo "${backend_url}" | sed 's|https://||')
+  frontend_domain=$(echo "${frontend_url}" | sed 's|https://||')
+
+  sudo su - root <<EOF
+  export DEBIAN_FRONTEND=noninteractive
+  
+  # Gerar configuração estática do Traefik
+  cat > /etc/traefik/traefik.toml << 'TRAefikEOF'
+[global]
+  checkNewVersion = true
+  sendAnonymousUsage = false
+
+[entryPoints]
+  [entryPoints.web]
+    address = ":80"
+    [entryPoints.web.http.redirections]
+      [entryPoints.web.http.redirections.entryPoint]
+        to = "websecure"
+        scheme = "https"
+        permanent = true
+
+  [entryPoints.websecure]
+    address = ":443"
+
+[providers]
+  [providers.docker]
+    exposedByDefault = false
+    network = "traefik-network"
+
+  [providers.file]
+    directory = "/etc/traefik/dynamic-conf"
+    watch = true
+
+[certificatesResolvers]
+  [certificatesResolvers.letsencrypt]
+    [certificatesResolvers.letsencrypt.acme]
+      email = "${DEPLOY_EMAIL}"
+      storage = "/etc/traefik/acme.json"
+      [certificatesResolvers.letsencrypt.acme.httpChallenge]
+        entryPoint = "web"
+
+[api]
+  dashboard = true
+  insecure = true
+
+[log]
+  level = "INFO"
+
+[accessLog]
+TRAefikEOF
+
+  # Gerar configuração dinâmica para esta instância
+  cat > /etc/traefik/dynamic-conf/${instancia_add}-config.toml << DYNAMICEOF
+[http.routers]
+  [http.routers.atendzappy-backend-${instancia_add}]
+    entryPoints = ["websecure"]
+    rule = "Host(\`${backend_domain}\`)"
+    service = "atendzappy-backend-${instancia_add}"
+    [http.routers.atendzappy-backend-${instancia_add}.tls]
+      certResolver = "letsencrypt"
+
+  [http.routers.atendzappy-frontend-${instancia_add}]
+    entryPoints = ["websecure"]
+    rule = "Host(\`${frontend_domain}\`)"
+    service = "atendzappy-frontend-${instancia_add}"
+    [http.routers.atendzappy-frontend-${instancia_add}.tls]
+      certResolver = "letsencrypt"
+
+[http.services]
+  [http.services.atendzappy-backend-${instancia_add}]
+    [http.services.atendzappy-backend-${instancia_add}.loadBalancer]
+      [[http.services.atendzappy-backend-${instancia_add}.loadBalancer.servers]]
+        url = "http://127.0.0.1:${backend_port}"
+
+  [http.services.atendzappy-frontend-${instancia_add}]
+    [http.services.atendzappy-frontend-${instancia_add}.loadBalancer]
+      [[http.services.atendzappy-frontend-${instancia_add}.loadBalancer.servers]]
+        url = "http://127.0.0.1:${frontend_port}"
+DYNAMICEOF
+
+  # Iniciar Traefik
+  docker run -d \\
+    --name traefik \\
+    --restart always \\
+    -p 80:80 \\
+    -p 443:443 \\
+    -p 8080:8080 \\
+    --network traefik-network \\
+    -v /var/run/docker.sock:/var/run/docker.sock:ro \\
+    -v /etc/traefik:/etc/traefik \\
+    -v /var/log/traefik:/var/log/traefik \\
+    traefik:v2.10 --configfile=/etc/traefik/traefik.toml
+EOF
+
+  log_success "Traefik iniciado"
+  sleep 2
+}
+
+system_traefik_restart() {
+  print_banner
+  log_info "Reiniciando Traefik..."
+  sleep 2
+
+  sudo docker restart traefik 2>/dev/null || log_warning "Traefik container não encontrado"
+
+  log_success "Traefik reiniciado"
+  sleep 2
+}
+
+system_create_folder() {
+  print_banner
+  log_info "Criando pasta da instância..."
+  sleep 2
+
+  sudo mkdir -p /home/deploy/${instancia_add}
+  sudo chown deploy:deploy /home/deploy/${instancia_add}
+
+  if [ -d "/home/deploy/${instancia_add}" ]; then
+    log_success "Pasta /home/deploy/${instancia_add} criada"
+  else
+    register_error "Falha ao criar pasta /home/deploy/${instancia_add}"
+  fi
+  sleep 2
+}
+
+system_mv_folder() {
+  print_banner
+  log_info "Copiando código AtendZappy..."
+  sleep 2
+
+  ATENDZAPPY_ZIP=""
+  
+  if [ -f "${PROJECT_ROOT}/atendzappy.zip" ]; then
+    ATENDZAPPY_ZIP="${PROJECT_ROOT}/atendzappy.zip"
+  elif [ -f "$(dirname "${PROJECT_ROOT}")/atendzappy.zip" ]; then
+    ATENDZAPPY_ZIP="$(dirname "${PROJECT_ROOT}")/atendzappy.zip"
+  elif [ -f "/root/atendzappy.zip" ]; then
+    ATENDZAPPY_ZIP="/root/atendzappy.zip"
+  elif [ -f "./atendzappy.zip" ]; then
+    ATENDZAPPY_ZIP="./atendzappy.zip"
+  elif [ -f "/home/deploy/atendzappy.zip" ]; then
+    ATENDZAPPY_ZIP="/home/deploy/atendzappy.zip"
+  fi
+
+  if [ -n "$ATENDZAPPY_ZIP" ]; then
+    log_info "Encontrado: $ATENDZAPPY_ZIP"
+    sudo cp "$ATENDZAPPY_ZIP" /home/deploy/${instancia_add}/
+    sudo chown deploy:deploy /home/deploy/${instancia_add}/atendzappy.zip
+
+    if [ -f "/home/deploy/${instancia_add}/atendzappy.zip" ]; then
+      log_success "Código copiado para /home/deploy/${instancia_add}/"
+    else
+      register_error "Falha ao copiar atendzappy.zip para /home/deploy/${instancia_add}/"
+    fi
+    sleep 2
+    return
+  fi
+
+  CODE_SOURCE=""
+  if [ -d "${PROJECT_ROOT}/backend" ] && [ -d "${PROJECT_ROOT}/frontend" ]; then
+    CODE_SOURCE="${PROJECT_ROOT}"
+  elif [ -d "$(dirname "${PROJECT_ROOT}")/backend" ] && [ -d "$(dirname "${PROJECT_ROOT}")/frontend" ]; then
+    CODE_SOURCE="$(dirname "${PROJECT_ROOT}")"
+  elif [ -d "./backend" ] && [ -d "./frontend" ]; then
+    CODE_SOURCE="."
+  elif [ -d "/root/atendzappy/backend" ] && [ -d "/root/atendzappy/frontend" ]; then
+    CODE_SOURCE="/root/atendzappy"
+  fi
+
+  if [ -z "${CODE_SOURCE}" ]; then
+    register_error "Arquivo atendzappy.zip não encontrado e pastas backend/frontend não encontradas! Procurado em: ${PROJECT_ROOT}/, $(dirname "${PROJECT_ROOT}")/, /root/, ./, /home/deploy/"
+    return
+  fi
+
+  log_info "Encontrado código em: ${CODE_SOURCE}"
+  sudo rm -rf /home/deploy/${instancia_add}/backend /home/deploy/${instancia_add}/frontend 2>/dev/null
+  sudo cp -a "${CODE_SOURCE}/backend" "${CODE_SOURCE}/frontend" /home/deploy/${instancia_add}/
+  sudo chown -R deploy:deploy /home/deploy/${instancia_add}/backend /home/deploy/${instancia_add}/frontend 2>/dev/null
+
+  if [ -d "/home/deploy/${instancia_add}/backend" ] && [ -d "/home/deploy/${instancia_add}/frontend" ]; then
+    log_success "Código copiado (sem zip) para /home/deploy/${instancia_add}/"
+  else
+    register_error "Falha ao copiar backend/frontend para /home/deploy/${instancia_add}/"
+  fi
+  sleep 2
+}
+
+system_unzip_atendzappy() {
+  print_banner
+  log_info "Extraindo AtendZappy..."
+  sleep 2
+
+  cd /home/deploy/${instancia_add} 2>/dev/null
+  
+  if [ ! -f "atendzappy.zip" ]; then
+    if [ -d "/home/deploy/${instancia_add}/backend" ] && [ -d "/home/deploy/${instancia_add}/frontend" ]; then
+      log_success "AtendZappy pronto (sem zip)"
+      sudo chown -R deploy:deploy /home/deploy/${instancia_add} 2>/dev/null
+      sleep 2
+      return
+    fi
+    register_error "atendzappy.zip não encontrado e pastas backend/frontend não encontradas em /home/deploy/${instancia_add}/"
+    return
+  fi
+
+  # Remover pasta antiga se existir
+  if [ -d "/home/deploy/${instancia_add}/backend" ] || [ -d "/home/deploy/${instancia_add}/frontend" ]; then
+    log_info "Removendo instalação anterior..."
+    sudo rm -rf /home/deploy/${instancia_add}/backend /home/deploy/${instancia_add}/frontend 2>/dev/null
+  fi
+
+  # Extrair como root e depois ajustar permissões
+  sudo unzip -o -q atendzappy.zip 2>/dev/null
+  
+  if [ $? -ne 0 ]; then
+    register_warning "Falha ao extrair atendzappy.zip silenciosamente, tentando com detalhes..."
+    sudo unzip -o atendzappy.zip
+  fi
+
+  # Verificar se as pastas foram criadas
+  if [ -d "/home/deploy/${instancia_add}/backend" ] && [ -d "/home/deploy/${instancia_add}/frontend" ]; then
+    log_success "AtendZappy extraído com sucesso!"
+    log_info "Pastas encontradas: backend, frontend"
+  else
+    register_error "Extração falhou - pastas backend/frontend não encontradas em /home/deploy/${instancia_add}/"
+    log_warning "Conteúdo do diretório:"
+    ls -la /home/deploy/${instancia_add}/ 2>/dev/null || echo "Diretório não existe"
+  fi
+
+  # Ajustar permissões
+  sudo chown -R deploy:deploy /home/deploy/${instancia_add} 2>/dev/null
+  
+  sleep 2
+}
+
+copy_database_file() {
+  print_banner
+  log_info "Copiando arquivo de banco de dados..."
+  sleep 2
+
+  SQL_SOURCE=""
+  if [ -f "${PROJECT_ROOT}/atendzappy.sql" ]; then
+    SQL_SOURCE="${PROJECT_ROOT}/atendzappy.sql"
+  elif [ -f "$(dirname "${PROJECT_ROOT}")/atendzappy.sql" ]; then
+    SQL_SOURCE="$(dirname "${PROJECT_ROOT}")/atendzappy.sql"
+  elif [ -f "./atendzappy.sql" ]; then
+    SQL_SOURCE="./atendzappy.sql"
+  elif [ -f "/home/deploy/atendzappy.sql" ]; then
+    SQL_SOURCE="/home/deploy/atendzappy.sql"
+  elif [ -f "/root/atendzappy.sql" ]; then
+    SQL_SOURCE="/root/atendzappy.sql"
+  fi
+
+  if [ -z "${SQL_SOURCE}" ]; then
+    register_error "Arquivo atendzappy.sql não encontrado! (procurado em: ${PROJECT_ROOT}/, $(dirname "${PROJECT_ROOT}")/, ./, /home/deploy/, /root/)"
+    exit 1
+  fi
+
+  SQL_PATH="/home/deploy/${instancia_add}/atendzappy.sql"
+  sudo cp "${SQL_SOURCE}" "${SQL_PATH}"
+  sudo chown deploy:deploy "${SQL_PATH}"
+
+  if [ -f "${SQL_PATH}" ]; then
+    log_success "Arquivo atendzappy.sql copiado de ${SQL_SOURCE} para /home/deploy/${instancia_add}/"
+
+    if file "${SQL_PATH}" | grep -qi "UTF-16"; then
+      log_info "Convertendo atendzappy.sql de UTF-16 para UTF-8..."
+      sudo iconv -f UTF-16LE -t UTF-8 "${SQL_PATH}" -o "/home/deploy/${instancia_add}/atendzappy_utf8.sql"
+      sudo mv "/home/deploy/${instancia_add}/atendzappy_utf8.sql" "${SQL_PATH}"
+      sudo chown deploy:deploy "${SQL_PATH}"
+      log_success "Conversão para UTF-8 concluída"
+    else
+      log_info "atendzappy.sql já está em UTF-8"
+    fi
+  else
+    register_error "Falha ao copiar atendzappy.sql"
+  fi
+  
+  sleep 2
+}
+
+# ============================================================================
+# FUNÇÕES DO BACKEND
+# ============================================================================
+
+backend_redis_create() {
+  print_banner
+  log_info "Criando Redis e Banco PostgreSQL..."
+  sleep 2
+
+  if [ -z "${redis_port}" ] || [ -z "${redis_pass}" ] || [ -z "${instancia_add}" ]; then
+    log_warning "Variáveis Redis podem não estar definidas, usando padrões..."
+    redis_port=${redis_port:-5000}
+    redis_pass=${redis_pass:-"RedisPass123"}
+  fi
+
+  sudo su - root <<EOF
+  usermod -aG docker deploy
+  docker run --name redis-${instancia_add} \
+    -p ${redis_port}:6379 \
+    --restart always \
+    --detach redis \
+    redis-server --requirepass ${redis_pass}
+EOF
+
+  sleep 5
+
+  if ! docker ps | grep -q "redis-${instancia_add}"; then
+    log_warning "Redis pode não ter iniciado corretamente, continuando..."
+    docker logs "redis-${instancia_add}" 2>/dev/null || true
+  fi
+
+  log_success "Redis rodando na porta ${redis_port}"
+
+  sudo -u postgres bash <<EOSQL
+    createdb ${instancia_add} 2>/dev/null || echo "Banco já existe ou erro, continuando..."
+    psql -c "CREATE USER ${instancia_add} WITH SUPERUSER PASSWORD '${DB_PASS}';" 2>/dev/null || echo "Usuário já existe ou erro, continuando..."
+EOSQL
+
+  log_success "Banco PostgreSQL criado"
+  sleep 2
+}
+
+backend_set_env() {
+  print_banner
+  log_info "Configurando variáveis de ambiente (backend)..."
+  sleep 2
+
+  backend_url=$(echo "${backend_url}" | sed 's|https://||' | sed 's|/.*||')
+  backend_url="https://${backend_url}"
+  
+  frontend_url=$(echo "${frontend_url}" | sed 's|https://||' | sed 's|/.*||')
+  frontend_url="https://${frontend_url}"
+
+  sudo su - deploy <<EOF
+  cat > /home/deploy/${instancia_add}/backend/.env << 'ENVEOF'
+NODE_ENV=
+BACKEND_URL=${backend_url}
+FRONTEND_URL=${frontend_url}
+PROXY_PORT=443
+PORT=${backend_port}
+
+DB_HOST=localhost
+DB_DIALECT=postgres
+DB_PORT=5432
+DB_USER=${instancia_add}
+DB_PASS=${DB_PASS}
+DB_NAME=${instancia_add}
+
+JWT_SECRET=${JWT_SECRET}
+JWT_REFRESH_SECRET=${JWT_REFRESH_SECRET}
+
+REDIS_URI=redis://:${redis_pass}@127.0.0.1:${redis_port}
+REDIS_OPT_LIMITER_MAX=1
+REGIS_OPT_LIMITER_DURATION=3000
+
+USER_LIMIT=${max_user}
+CONNECTIONS_LIMIT=${max_whats}
+CLOSED_SEND_BY_ME=true
+ENVEOF
+EOF
+
+  if ! grep -q "REDIS_URI=redis://:${redis_pass}@127.0.0.1:${redis_port}" "/home/deploy/${instancia_add}/backend/.env"; then
+    log_warning "Arquivo .env pode não estar configurado corretamente, continuando..."
+  fi
+
+  log_success "Variáveis de ambiente configuradas"
+  sleep 2
+}
+
+backend_node_dependencies() {
+  print_banner
+  log_info "Instalando dependências do backend (incluindo Gemini AI)..."
+  sleep 2
+
+  sudo su - root <<EOF
+  # Corrigir permissões antes de instalar
+  chmod -R 755 /usr/lib/node_modules 2>/dev/null || true
+  chmod +x /usr/bin/npm /usr/bin/npx /usr/bin/node 2>/dev/null || true
+  chown -R deploy:deploy /home/deploy/${instancia_add} 2>/dev/null || true
+EOF
+
+  sudo su - deploy <<EOF
+  cd /home/deploy/${instancia_add}/backend
+  npm install --legacy-peer-deps 2>&1 || echo "Alguns pacotes falharam, continuando..."
+  npm install @google/generative-ai --legacy-peer-deps 2>&1 || echo "Gemini AI falhou, continuando..."
+  npm install tesseract.js --legacy-peer-deps 2>&1 || echo "tesseract.js falhou, continuando..."
+  npm install cheerio --legacy-peer-deps 2>&1 || echo "cheerio falhou, continuando..."
+EOF
+
+  log_success "Dependências instaladas (incluindo Gemini AI, OCR e scraping)"
+  sleep 2
+}
+
+backend_node_build() {
+  print_banner
+  log_info "Compilando backend..."
+  sleep 2
+
+  sudo su - root <<EOF
+  # Garantir permissões do tsc
+  chmod -R 755 /usr/lib/node_modules 2>/dev/null || true
+  chmod +x /usr/bin/tsc 2>/dev/null || true
+  ln -sf /usr/lib/node_modules/typescript/bin/tsc /usr/bin/tsc 2>/dev/null || true
+  
+  # Permissões locais do projeto
+  chmod -R 755 /home/deploy/${instancia_add}/backend/node_modules/.bin 2>/dev/null || true
+  find /home/deploy/${instancia_add}/backend/node_modules/.bin -type f -exec chmod +x {} \; 2>/dev/null || true
+EOF
+
+  sudo su - deploy <<EOF
+  cd /home/deploy/${instancia_add}/backend
+  # Usar npx para garantir execução do tsc local
+  npx tsc 2>&1 || npm run build 2>&1 || echo "Build com warnings, continuando..."
+EOF
+
+  log_success "Backend compilado"
+  sleep 2
+}
+
+backend_db_migrate() {
+  print_banner
+  log_info "Importando banco de dados do arquivo SQL..."
+  sleep 2
+
+  sudo su - root <<EOF
+  chmod -R 755 /home/deploy/${instancia_add}/backend/node_modules/.bin 2>/dev/null || true
+  find /home/deploy/${instancia_add}/backend/node_modules/.bin -type f -exec chmod +x {} \; 2>/dev/null || true
+EOF
+
+  sudo su - deploy <<EOF
+  cd /home/deploy/${instancia_add}
+  
+  # Carregar variáveis de ambiente do .env
+  if [ -f "backend/.env" ]; then
+    source backend/.env
+    log_info "Variáveis de ambiente carregadas do .env"
+  else
+    log_error "Arquivo .env não encontrado"
+    exit 1
+  fi
+  
+  SQL_FILE="atendzappy.sql"
+  if [ -f "atendzappy_utf8.sql" ]; then
+    SQL_FILE="atendzappy_utf8.sql"
+  fi
+
+  if [ -f "$SQL_FILE" ]; then
+    log_info "Importando arquivo ${SQL_FILE}..."
+    log_info "Conectando ao banco: ${DB_HOST}:${DB_PORT} - ${DB_USER}/${DB_NAME}"
+
+    PGPASSWORD=${DB_PASS} psql -h ${DB_HOST} -p ${DB_PORT} -U ${DB_USER} -d ${DB_NAME} -f "$SQL_FILE"
+
+    if [ $? -eq 0 ]; then
+      log_info "Importação do SQL concluída com sucesso"
+    else
+      log_error "Erro na importação do SQL"
+      exit 1
+    fi
+  else
+    log_error "Arquivo ${SQL_FILE} não encontrado em /home/deploy/${instancia_add}/"
+    exit 1
+  fi
+EOF
+
+  log_success "Banco de dados importado com sucesso"
+  sleep 2
+}
+
+backend_db_seed() {
+  print_banner
+  log_info "Executando seeds do banco..."
+  sleep 2
+
+  sudo su - root <<EOF
+  chmod -R 755 /home/deploy/${instancia_add}/backend/node_modules/.bin 2>/dev/null || true
+  find /home/deploy/${instancia_add}/backend/node_modules/.bin -type f -exec chmod +x {} \; 2>/dev/null || true
+EOF
+
+  sudo su - deploy <<EOF
+  cd /home/deploy/${instancia_add}/backend
+  npx sequelize db:seed:all 2>&1 || echo "Alguns seeds falharam, continuando..."
+EOF
+
+  log_success "Seeds aplicados (erros ignorados)"
+  sleep 2
+}
+
+backend_start_pm2() {
+  print_banner
+  log_info "Iniciando backend com PM2..."
+  sleep 2
+
+  sudo su - root <<EOF
+  # Garantir permissões do PM2
+  chmod -R 755 /usr/lib/node_modules/pm2 2>/dev/null || true
+  chmod +x /usr/bin/pm2 2>/dev/null || true
+  chmod +x /usr/lib/node_modules/pm2/bin/pm2 2>/dev/null || true
+  chmod +x /usr/lib/node_modules/pm2/bin/pm2-runtime 2>/dev/null || true
+  ln -sf /usr/lib/node_modules/pm2/bin/pm2 /usr/bin/pm2 2>/dev/null || true
+  
+  # Garantir diretório PM2
+  mkdir -p /root/.pm2 2>/dev/null || true
+  chmod -R 755 /root/.pm2 2>/dev/null || true
+  
+  cd /home/deploy/${instancia_add}/backend
+  /usr/bin/pm2 start dist/server.js --name ${instancia_add}-backend
+  /usr/bin/pm2 save --force
+EOF
+
+  log_success "Backend iniciado"
+  sleep 2
+}
+
+# Substituído por configuração do Traefik
+backend_traefik_setup() {
+  print_banner
+  log_info "Configurando Traefik (backend)..."
+  sleep 2
+
+  backend_domain=$(echo "${backend_url}" | sed 's|https://||')
+
+  sudo su - root <<EOF
+  # Atualizar configuração dinâmica do Traefik
+  cat > /etc/traefik/dynamic-conf/${instancia_add}-config.toml << DYNAMICEOF
+[http.routers]
+  [http.routers.atendzappy-backend-${instancia_add}]
+    entryPoints = ["websecure"]
+    rule = "Host(\`${backend_domain}\`)"
+    service = "atendzappy-backend-${instancia_add}"
+    [http.routers.atendzappy-backend-${instancia_add}.tls]
+      certResolver = "letsencrypt"
+
+[http.services]
+  [http.services.atendzappy-backend-${instancia_add}]
+    [http.services.atendzappy-backend-${instancia_add}.loadBalancer]
+      [[http.services.atendzappy-backend-${instancia_add}.loadBalancer.servers]]
+        url = "http://127.0.0.1:${backend_port}"
+DYNAMICEOF
+EOF
+
+  log_success "Traefik configurado (backend)"
+  sleep 2
+}
+
+# ============================================================================
+# FUNÇÕES DO FRONTEND
+# ============================================================================
+
+frontend_set_env() {
+  print_banner
+  log_info "Configurando variáveis de ambiente (frontend)..."
+  sleep 2
+
+  backend_url=$(echo "${backend_url}" | sed 's|https://||' | sed 's|/.*||')
+  backend_url="https://${backend_url}"
+
+  sudo su - deploy <<EOF
+  cat > /home/deploy/${instancia_add}/frontend/.env << 'ENVEOF'
+REACT_APP_BACKEND_URL=${backend_url}
+REACT_APP_HOURS_CLOSE_TICKETS_AUTO=24
+REACT_APP_SUPPORT_WHATSAPP=552433540335
+ENVEOF
+
+  cat > /home/deploy/${instancia_add}/frontend/server.js << 'SERVEREOF'
+const express = require("express");
+const path = require("path");
+const app = express();
+app.use(express.static(path.join(__dirname, "build")));
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
+app.listen(${frontend_port});
+SERVEREOF
+EOF
+
+  log_success "Variáveis de ambiente configuradas (frontend)"
+  sleep 2
+}
+
+frontend_node_dependencies() {
+  print_banner
+  log_info "Instalando dependências do frontend..."
+  sleep 2
+
+  sudo su - root <<EOF
+  # Corrigir permissões antes de instalar
+  chmod -R 755 /usr/lib/node_modules 2>/dev/null || true
+  chmod +x /usr/bin/npm /usr/bin/npx /usr/bin/node 2>/dev/null || true
+  chown -R deploy:deploy /home/deploy/${instancia_add} 2>/dev/null || true
+EOF
+
+  sudo su - deploy <<EOF
+  cd /home/deploy/${instancia_add}/frontend
+  npm install --force 2>&1 || echo "Alguns pacotes falharam, continuando..."
+EOF
+
+  log_success "Dependências instaladas (frontend)"
+  sleep 2
+}
+
+frontend_node_build() {
+  print_banner
+  log_info "Compilando frontend..."
+  sleep 2
+
+  swap_mem=$(free -m | awk 'NR==3{printf "%.0f", $2}')
+  total_mem=$(free -m | awk 'NR==2{printf "%.0f", $2}')
+  
+  if [ "$swap_mem" -eq 0 ] && [ "$total_mem" -lt 8192 ]; then
+    log_warning "Configurando swap para evitar travamento..."
+    sudo fallocate -l 6G /swapfile 2>/dev/null || true
+    sudo chmod 600 /swapfile 2>/dev/null || true
+    sudo mkswap /swapfile 2>/dev/null || true
+    sudo swapon /swapfile 2>/dev/null || true
+    echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab >/dev/null || true
+    log_success "Swap configurado"
+  fi
+
+  log_info "Liberando memória para build..."
+  sudo systemctl stop apache2 2>/dev/null || true
+  sudo systemctl stop mysql 2>/dev/null || true
+  sudo sync && sudo sysctl vm.drop_caches=3 2>/dev/null || true
+
+  sudo su - root <<EOF
+  # Garantir permissões antes do build
+  chmod -R 755 /usr/lib/node_modules 2>/dev/null || true
+  chmod -R 755 /home/deploy/${instancia_add}/frontend/node_modules/.bin 2>/dev/null || true
+  find /home/deploy/${instancia_add}/frontend/node_modules/.bin -type f -exec chmod +x {} \; 2>/dev/null || true
+  chown -R deploy:deploy /home/deploy/${instancia_add} 2>/dev/null || true
+EOF
+
+  sudo su - deploy <<EOF
+  cd /home/deploy/${instancia_add}/frontend
+  rm -rf build node_modules/.cache .eslintcache
+  
+  NODE_OPTIONS="--max-old-space-size=1536 --openssl-legacy-provider" \
+  GENERATE_SOURCEMAP=false \
+  INLINE_RUNTIME_CHUNK=false \
+  IMAGE_INLINE_SIZE_LIMIT=0 \
+  ESLint_NO_DEV_ERRORS=true \
+  FAST_REFRESH=false \
+  CI=true \
+  DISABLE_ESLINT_PLUGIN=true \
+  TSC_COMPILE_ON_ERROR=true \
+  npm run build --silent 2>/dev/null || npm run build 2>&1 | grep -v "WARNING\|warning\|deprecated" || true
+EOF
+
+  sudo systemctl start nginx 2>/dev/null || true
+  sudo systemctl start mysql 2>/dev/null || true
+
+  log_success "Frontend compilado (erros ignorados)"
+  sleep 2
+}
+
+frontend_start_pm2() {
+  print_banner
+  log_info "Iniciando frontend com PM2..."
+  sleep 2
+
+  sudo su - root <<EOF
+  # Garantir permissões do PM2
+  chmod -R 755 /usr/lib/node_modules/pm2 2>/dev/null || true
+  chmod +x /usr/bin/pm2 2>/dev/null || true
+  chmod +x /usr/lib/node_modules/pm2/bin/pm2 2>/dev/null || true
+  chmod +x /usr/lib/node_modules/pm2/bin/pm2-runtime 2>/dev/null || true
+  ln -sf /usr/lib/node_modules/pm2/bin/pm2 /usr/bin/pm2 2>/dev/null || true
+  
+  # Garantir diretório PM2
+  mkdir -p /root/.pm2 2>/dev/null || true
+  chmod -R 755 /root/.pm2 2>/dev/null || true
+  mkdir -p /home/deploy/.pm2 2>/dev/null || true
+  chown -R deploy:deploy /home/deploy/.pm2 2>/dev/null || true
+  chmod -R 755 /home/deploy/.pm2 2>/dev/null || true
+  
+  cd /home/deploy/${instancia_add}/frontend
+  /usr/bin/pm2 start server.js --name ${instancia_add}-frontend
+  /usr/bin/pm2 save --force
+  /usr/bin/pm2 startup
+  env PATH=\$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u deploy --hp /home/deploy
+EOF
+
+  log_success "Frontend iniciado"
+  sleep 2
+}
+
+# Substituído por configuração do Traefik
+frontend_traefik_setup() {
+  print_banner
+  log_info "Configurando Traefik (frontend)..."
+  sleep 2
+
+  frontend_domain=$(echo "${frontend_url}" | sed 's|https://||')
+  backend_domain=$(echo "${backend_url}" | sed 's|https://||')
+
+  sudo su - root <<EOF
+  # Atualizar configuração dinâmica do Traefik com ambos frontend e backend
+  cat > /etc/traefik/dynamic-conf/${instancia_add}-config.toml << DYNAMICEOF
+[http.routers]
+  [http.routers.atendzappy-backend-${instancia_add}]
+    entryPoints = ["websecure"]
+    rule = "Host(\`${backend_domain}\`)"
+    service = "atendzappy-backend-${instancia_add}"
+    [http.routers.atendzappy-backend-${instancia_add}.tls]
+      certResolver = "letsencrypt"
+
+  [http.routers.atendzappy-frontend-${instancia_add}]
+    entryPoints = ["websecure"]
+    rule = "Host(\`${frontend_domain}\`)"
+    service = "atendzappy-frontend-${instancia_add}"
+    [http.routers.atendzappy-frontend-${instancia_add}.tls]
+      certResolver = "letsencrypt"
+
+[http.services]
+  [http.services.atendzappy-backend-${instancia_add}]
+    [http.services.atendzappy-backend-${instancia_add}.loadBalancer]
+      [[http.services.atendzappy-backend-${instancia_add}.loadBalancer.servers]]
+        url = "http://127.0.0.1:${backend_port}"
+
+  [http.services.atendzappy-frontend-${instancia_add}]
+    [http.services.atendzappy-frontend-${instancia_add}.loadBalancer]
+      [[http.services.atendzappy-frontend-${instancia_add}.loadBalancer.servers]]
+        url = "http://127.0.0.1:${frontend_port}"
+DYNAMICEOF
+EOF
+
+  log_success "Traefik configurado (frontend)"
+  sleep 2
+}
+
+# ============================================================================
+# FUNÇÕES DE GERENCIAMENTO
+# ============================================================================
+
+deletar_tudo() {
+  print_banner
+  log_warning "Deletando instância ${empresa_delete}..."
+  sleep 2
+
+  sudo su - root <<EOF
+  export DEBIAN_FRONTEND=noninteractive
+  docker container rm redis-${empresa_delete} --force 2>/dev/null || true
+  rm -f /etc/traefik/dynamic-conf/${empresa_delete}-config.toml
+EOF
+
+  sudo -u postgres bash <<EOSQL
+  dropuser ${empresa_delete} 2>/dev/null || true
+  dropdb ${empresa_delete} 2>/dev/null || true
+EOSQL
+
+  sudo su - root <<EOF
+  rm -rf /home/deploy/${empresa_delete}
+  chmod +x /usr/bin/pm2 2>/dev/null || true
+  /usr/bin/pm2 delete ${empresa_delete}-frontend ${empresa_delete}-backend 2>/dev/null || true
+  /usr/bin/pm2 save
+EOF
+
+  log_success "Instância ${empresa_delete} removida"
+  sleep 2
+}
+
+configurar_bloqueio() {
+  print_banner
+  log_warning "Bloqueando instância ${empresa_bloquear}..."
+  sleep 2
+
+  sudo su - root <<EOF
+  chmod +x /usr/bin/pm2 2>/dev/null || true
+  /usr/bin/pm2 stop ${empresa_bloquear}-backend
+  /usr/bin/pm2 save
+EOF
+
+  log_success "Instância ${empresa_bloquear} bloqueada"
+  sleep 2
+}
+
+configurar_desbloqueio() {
+  print_banner
+  log_info "Desbloqueando instância ${empresa_desbloquear}..."
+  sleep 2
+
+  sudo su - root <<EOF
+  chmod +x /usr/bin/pm2 2>/dev/null || true
+  /usr/bin/pm2 start ${empresa_desbloquear}-backend
+  /usr/bin/pm2 save
+EOF
+
+  log_success "Instância ${empresa_desbloquear} desbloqueada"
+  sleep 2
+}
+
+configurar_dominio() {
+  print_banner
+  log_info "Alterando domínios da instância ${empresa_dominio}..."
+  sleep 2
+
+  sudo su - deploy <<EOF
+  cd /home/deploy/${empresa_dominio}/frontend
+  sed -i "1c\REACT_APP_BACKEND_URL=https://${alter_backend_url}" .env
+  cd /home/deploy/${empresa_dominio}/backend
+  sed -i "2c\BACKEND_URL=https://${alter_backend_url}" .env
+  sed -i "3c\FRONTEND_URL=https://${alter_frontend_url}" .env 
+EOF
+
+  backend_domain=$(echo "${alter_backend_url}" | sed 's|https://||')
+  frontend_domain=$(echo "${alter_frontend_url}" | sed 's|https://||')
+
+  sudo su - root <<EOF
+  export DEBIAN_FRONTEND=noninteractive
+  # Atualizar configuração do Traefik
+  cat > /etc/traefik/dynamic-conf/${empresa_dominio}-config.toml << DYNAMICEOF
+[http.routers]
+  [http.routers.atendzappy-backend-${empresa_dominio}]
+    entryPoints = ["websecure"]
+    rule = "Host(\`${backend_domain}\`)"
+    service = "atendzappy-backend-${empresa_dominio}"
+    [http.routers.atendzappy-backend-${empresa_dominio}.tls]
+      certResolver = "letsencrypt"
+
+  [http.routers.atendzappy-frontend-${empresa_dominio}]
+    entryPoints = ["websecure"]
+    rule = "Host(\`${frontend_domain}\`)"
+    service = "atendzappy-frontend-${empresa_dominio}"
+    [http.routers.atendzappy-frontend-${empresa_dominio}.tls]
+      certResolver = "letsencrypt"
+
+[http.services]
+  [http.services.atendzappy-backend-${empresa_dominio}]
+    [http.services.atendzappy-backend-${empresa_dominio}.loadBalancer]
+      [[http.services.atendzappy-backend-${empresa_dominio}.loadBalancer.servers]]
+        url = "http://127.0.0.1:${alter_backend_port}"
+
+  [http.services.atendzappy-frontend-${empresa_dominio}]
+    [http.services.atendzappy-frontend-${empresa_dominio}.loadBalancer]
+      [[http.services.atendzappy-frontend-${empresa_dominio}.loadBalancer.servers]]
+        url = "http://127.0.0.1:${alter_frontend_port}"
+DYNAMICEOF
+EOF
+
+  # Reiniciar Traefik para aplicar novas configurações
+  sudo docker restart traefik 2>/dev/null || log_warning "Traefik container não encontrado"
+
+  log_success "Domínios alterados para ${empresa_dominio}"
+  sleep 2
+}
+
+# ============================================================================
+# MENU PRINCIPAL
+# ============================================================================
+
+inquiry_options() {
+  print_banner
+  printf " Bem-vindo ao AtendZappy SaaS com Traefik - Selecione uma opção:${GRAY_LIGHT}\n\n"
+  printf "   [1] Instalar AtendZappy SaaS\n"
+  printf "   [2] Deletar AtendZappy SaaS\n"
+  printf "   [3] Bloquear AtendZappy SaaS\n"
+  printf "   [4] Desbloquear AtendZappy SaaS\n"
+  printf "   [5] Alterar domínio AtendZappy SaaS\n"
+  printf "\n"
+  read -p "> " option
+
+  case "${option}" in
+    1) 
+      get_instancia_add
+      get_max_whats
+      get_max_user
+      get_frontend_url
+      get_backend_url
+      get_frontend_port
+      get_backend_port
+      get_redis_port
+      generate_redis_password
+      ;;
+    2) 
+      get_empresa_delete
+      deletar_tudo
+      exit 0
+      ;;
+    3) 
+      get_empresa_bloquear
+      configurar_bloqueio
+      exit 0
+      ;;
+    4) 
+      get_empresa_desbloquear
+      configurar_desbloqueio
+      exit 0
+      ;;
+    5) 
+      get_empresa_dominio
+      get_alter_frontend_url
+      get_alter_backend_url
+      get_alter_frontend_port
+      get_alter_backend_port
+      configurar_dominio
+      exit 0
+      ;;
+    *) 
+      log_error "Opção inválida"
+      exit 1
+      ;;
+  esac
+}
+
+# ============================================================================
+# FLUXO PRINCIPAL DE INSTALAÇÃO
+# ============================================================================
+
+main() {
+  # Reset shell colors
+  tput init
+
+  # Criar arquivo de configuração se não existir
+  if [[ ! -e "${PROJECT_ROOT}"/config ]]; then
+    cat <<EOF > "${PROJECT_ROOT}"/config
+deploy_password=${DEPLOY_PASSWORD}
+db_pass=${DB_PASS}
+EOF
+    sudo chown root:root "${PROJECT_ROOT}"/config 2>/dev/null || true
+    sudo chmod 700 "${PROJECT_ROOT}"/config 2>/dev/null || true
+  fi
+
+  # Menu interativo
+  inquiry_options
+
+  # Instalação das dependências do sistema
+  system_configure_noninteractive
+  system_update
+  system_node_install
+  system_pm2_install
+  system_fix_permissions
+  system_docker_install
+  system_snapd_install
+  system_traefik_install
+  system_certbot_install
+
+  # Configuração do usuário
+  system_create_user
+
+  # Backend
+  system_create_folder
+  system_mv_folder
+  system_unzip_atendzappy
+  copy_database_file
+  backend_set_env
+  backend_redis_create
+  backend_node_dependencies
+  backend_node_build
+  backend_db_migrate
+  backend_db_seed
+  backend_start_pm2
+  backend_traefik_setup
+
+  # Frontend
+  frontend_set_env
+  frontend_node_dependencies
+  frontend_node_build
+  frontend_start_pm2
+  frontend_traefik_setup
+
+  # Configuração final
+  system_traefik_start
+  system_traefik_restart
+
+  # Mensagem final
+  print_banner
+  
+  # Verificar se houve erros
+  if [ ${#INSTALLATION_ERRORS[@]} -eq 0 ]; then
+    printf "${GREEN}"
+    printf "========================================================\n"
+    printf "           INSTALAÇÃO CONCLUÍDA COM SUCESSO!          \n"
+    printf "========================================================\n"
+    printf "${NC}\n"
+  else
+    printf "${YELLOW}"
+    printf "========================================================\n"
+    printf "         INSTALAÇÃO CONCLUÍDA COM ALGUNS ERROS         \n"
+    printf "========================================================\n"
+    printf "${NC}\n"
+  fi
+
+  printf "${WHITE} Informações da Instalação:${NC}\n\n"
+  printf "   ${CYAN_LIGHT}Instância:${NC} ${instancia_add}\n"
+  printf "   ${CYAN_LIGHT}Frontend:${NC} ${frontend_url}\n"
+  printf "   ${CYAN_LIGHT}Backend:${NC} ${backend_url}\n"
+  printf "   ${CYAN_LIGHT}Porta Frontend:${NC} ${frontend_port}\n"
+  printf "   ${CYAN_LIGHT}Porta Backend:${NC} ${backend_port}\n"
+  printf "   ${CYAN_LIGHT}Porta Redis:${NC} ${redis_port}\n"
+  printf "   ${CYAN_LIGHT}Usuário Deploy:${NC} deploy\n"
+  printf "   ${CYAN_LIGHT}Senha Deploy:${NC} ${DEPLOY_PASSWORD}\n"
+  printf "   ${CYAN_LIGHT}Senha Redis:${NC} ${redis_pass}\n"
+  printf "   ${CYAN_LIGHT}Senha Banco:${NC} ${DB_PASS}\n"
+  printf "   ${CYAN_LIGHT}Max WhatsApp:${NC} ${max_whats}\n"
+  printf "   ${CYAN_LIGHT}Max Usuários:${NC} ${max_user}\n"
+  printf "\n"
+
+  # Informações do Docker
+  printf "${WHITE} Status do Docker:${NC}\n\n"
+  if command -v docker &> /dev/null; then
+    printf "   ${CYAN_LIGHT}Docker:${NC} $(docker --version 2>/dev/null || echo 'Não instalado')\n"
+    printf "   ${CYAN_LIGHT}Containers ativos:${NC}\n"
+    docker ps --format "      - {{.Names}}: {{.Status}}" 2>/dev/null || printf "      Nenhum container ativo\n"
+    printf "\n"
+    printf "   ${CYAN_LIGHT}Container Redis:${NC}\n"
+    docker ps -a --filter "name=redis-${instancia_add}" --format "      Status: {{.Status}}" 2>/dev/null || printf "      Não encontrado\n"
+    printf "   ${CYAN_LIGHT}Container Traefik:${NC}\n"
+    docker ps -a --filter "name=traefik" --format "      Status: {{.Status}}" 2>/dev/null || printf "      Não encontrado\n"
+    printf "\n"
+    printf "   ${CYAN_LIGHT}Dashboard Traefik:${NC} http://$(hostname -I | awk '{print $1}'):8080/dashboard/\n"
+  else
+    printf "   ${RED}Docker não instalado${NC}\n"
+  fi
+  printf "\n"
+
+  # Status do PM2
+  printf "${WHITE} Status do PM2:${NC}\n\n"
+  if command -v pm2 &> /dev/null; then
+    pm2 list 2>/dev/null | head -20 || printf "   Nenhum processo PM2\n"
+  else
+    printf "   ${RED}PM2 não instalado${NC}\n"
+  fi
+  printf "\n"
+
+  # Exibir warnings se houver
+  if [ ${#INSTALLATION_WARNINGS[@]} -gt 0 ]; then
+    printf "${YELLOW} AVISOS DURANTE A INSTALAÇÃO (${#INSTALLATION_WARNINGS[@]}):${NC}\n\n"
+    for warning in "${INSTALLATION_WARNINGS[@]}"; do
+      printf "   ${YELLOW}  ${warning}${NC}\n"
+    done
+    printf "\n"
+  fi
+
+  # Exibir erros se houver
+  if [ ${#INSTALLATION_ERRORS[@]} -gt 0 ]; then
+    printf "${RED} ERROS DURANTE A INSTALAÇÃO (${#INSTALLATION_ERRORS[@]}):${NC}\n\n"
+    for error in "${INSTALLATION_ERRORS[@]}"; do
+      printf "   ${RED}  ${error}${NC}\n"
+    done
+    printf "\n"
+    printf "${YELLOW} DICAS PARA RESOLVER:${NC}\n"
+    printf "   Verifique se existe atendzappy.zip ou as pastas backend/frontend no diretório do script\n"
+    printf "   Execute: ls -la /home/deploy/${instancia_add}/\n"
+    printf "   Verifique logs: sudo pm2 logs\n"
+    printf "   Verifique Docker: sudo docker ps -a\n"
+    printf "   Verifique Traefik: sudo docker logs traefik\n"
+    printf "\n"
+  fi
+
+  printf "${YELLOW} IMPORTANTE: Anote essas informações em local seguro!${NC}\n\n"
+  printf "${GREEN} Acesse: ${frontend_url}${NC}\n"
+  printf "${GREEN} Login padrão: admin@admin.com${NC}\n"
+  printf "${GREEN} Senha padrão: adminpro${NC}\n\n"
+
+  # Salvar informações em arquivo
+  cat > /home/deploy/${instancia_add}/INSTALACAO_INFO.txt << INFOEOF
+========================================
+INFORMAÇÕES DA INSTALAÇÃO - ${instancia_add}
+Data: $(date)
+========================================
+
+ACESSOS:
+- Frontend: ${frontend_url}
+- Backend: ${backend_url}
+- Login: admin@admin.com
+- Senha: adminpro
+- Dashboard Traefik: http://$(hostname -I | awk '{print $1}'):8080/dashboard/
+
+PORTAS:
+- Frontend: ${frontend_port}
+- Backend: ${backend_port}
+- Redis: ${redis_port}
+
+CREDENCIAIS:
+- Usuário Deploy: deploy
+- Senha Deploy: ${DEPLOY_PASSWORD}
+- Senha Redis: ${redis_pass}
+- Senha Banco: ${DB_PASS}
+
+LIMITES:
+- Max WhatsApp: ${max_whats}
+- Max Usuários: ${max_user}
+
+COMANDOS ÚTEIS:
+- Ver status: sudo pm2 status
+- Ver logs backend: sudo pm2 logs ${instancia_add}-backend
+- Ver logs frontend: sudo pm2 logs ${instancia_add}-frontend
+- Reiniciar: sudo pm2 restart all
+- Ver Docker: sudo docker ps
+- Ver logs Traefik: sudo docker logs traefik
+- Reiniciar Traefik: sudo docker restart traefik
+
+INFOEOF
+
+  sudo chown deploy:deploy /home/deploy/${instancia_add}/INSTALACAO_INFO.txt 2>/dev/null
+  printf "${GREEN} Informações salvas em: /home/deploy/${instancia_add}/INSTALACAO_INFO.txt${NC}\n\n"
+}
+
+# Executar instalação
+main "$@"

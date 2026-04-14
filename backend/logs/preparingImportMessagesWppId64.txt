@@ -1,0 +1,973 @@
+Aguardando conexão para iniciar a importação de mensagens:
+  Whatsapp nome: TESTE HERI
+  Whatsapp Id: 64
+  Criação do arquivo de logs: 15/12/2025 16:14:39
+  Selecionado Data de inicio de importação: 14/12/2025 16:13:00 
+  Selecionado Data final da importação: 15/12/2025 16:12:00 
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:11:52
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:11:39
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:11:33
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:11:29
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:10:50
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:10:21
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:06:53
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:05:02
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:04:30
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:04:14
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:02:19
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:01:06
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:01:03
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:02:08
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:01:52
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:01:32
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:01:15
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : audioMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 15:55:11
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 15:49:48
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 15:49:28
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : extendedTextMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 15:49:26
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 12:57:58
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : imageMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 12:54:48
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 12:54:44
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 10:29:50
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 10:29:32
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : extendedTextMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 10:29:20
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 10:28:41
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 15:11:09
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 15:10:43
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : imageMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 14:36:46
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : audioMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 14:32:28
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 14:30:03
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 14:30:00
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : imageMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 14:29:05
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : imageMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 11:44:02
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : imageMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 11:43:43
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : imageMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 11:42:30
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 11:41:39
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : audioMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 11:41:08
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : imageMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 11:31:22
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : audioMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 10:07:45
+  Contato da Mensagem : 49195176198182@lid
+  Tipo da mensagem : imageMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 09:51:03
+  Contato da Mensagem : 262096151437390@lid
+  Tipo da mensagem : imageMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 09:51:03
+  Contato da Mensagem : 262096151437390@lid
+  Tipo da mensagem : imageMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 09:50:08
+  Contato da Mensagem : 262096151437390@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 08:59:15
+  Contato da Mensagem : 128291360997526@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 08:42:48
+  Contato da Mensagem : 5521964044037@s.whatsapp.net
+  Tipo da mensagem : audioMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 08:37:48
+  Contato da Mensagem : 5521964044037@s.whatsapp.net
+  Tipo da mensagem : imageMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 08:37:42
+  Contato da Mensagem : 5521964044037@s.whatsapp.net
+  Tipo da mensagem : audioMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 14/12/2025 21:48:11
+  Contato da Mensagem : 5521993314797@s.whatsapp.net
+  Tipo da mensagem : audioMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 14/12/2025 20:54:20
+  Contato da Mensagem : 5521993314797@s.whatsapp.net
+  Tipo da mensagem : extendedTextMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 14/12/2025 20:54:12
+  Contato da Mensagem : 5521993314797@s.whatsapp.net
+  Tipo da mensagem : extendedTextMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 14/12/2025 20:48:42
+  Contato da Mensagem : 5521981895101@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 14/12/2025 18:03:40
+  Contato da Mensagem : 6150393184361@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:11:52
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:11:39
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:11:33
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:11:29
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:10:50
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:10:21
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:06:53
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:05:02
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:04:30
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:04:14
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:02:19
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:01:06
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:01:03
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:00:42
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 15:55:07
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 15:55:00
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 15:54:51
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 15:54:43
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 15:51:10
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 15:50:40
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 15:50:27
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : extendedTextMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 15:48:15
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 15:47:44
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 15:31:57
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 14:49:57
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 14:49:48
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 14:49:45
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 14:49:36
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 14:48:31
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 14:48:11
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 13:53:00
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 12:28:27
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 12:28:13
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 12:25:17
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 12:24:56
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 11:26:46
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 11:26:36
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 11:26:06
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 11:25:56
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 11:23:58
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 11:23:48
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 11:23:24
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 11:23:12
+  Contato da Mensagem : 70811713024120@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:02:08
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:01:52
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:01:32
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 16:01:15
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : audioMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 15:55:11
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 15:49:48
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 15:49:28
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : extendedTextMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 15:49:26
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 12:57:58
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : imageMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 12:54:48
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 12:54:44
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 10:29:50
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 10:29:32
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : extendedTextMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 10:29:20
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 10:28:41
+  Contato da Mensagem : 5521981986263@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 15:10:43
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : imageMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 15:11:09
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 14:36:46
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : audioMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 14:32:28
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 14:30:03
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 14:30:00
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : imageMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 14:29:05
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : imageMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 11:44:02
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : imageMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 11:43:43
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : imageMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 11:42:30
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 11:41:39
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : audioMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 11:41:08
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : imageMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 11:31:22
+  Contato da Mensagem : 5521969699390@s.whatsapp.net
+  Tipo da mensagem : audioMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 10:07:45
+  Contato da Mensagem : 49195176198182@lid
+  Tipo da mensagem : imageMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 09:51:03
+  Contato da Mensagem : 262096151437390@lid
+  Tipo da mensagem : imageMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 09:51:03
+  Contato da Mensagem : 262096151437390@lid
+  Tipo da mensagem : imageMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 09:50:08
+  Contato da Mensagem : 262096151437390@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 08:59:15
+  Contato da Mensagem : 128291360997526@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 08:42:48
+  Contato da Mensagem : 5521964044037@s.whatsapp.net
+  Tipo da mensagem : audioMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 08:37:48
+  Contato da Mensagem : 5521964044037@s.whatsapp.net
+  Tipo da mensagem : imageMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 15/12/2025 08:37:42
+  Contato da Mensagem : 5521964044037@s.whatsapp.net
+  Tipo da mensagem : audioMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 14/12/2025 21:48:11
+  Contato da Mensagem : 5521993314797@s.whatsapp.net
+  Tipo da mensagem : audioMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 14/12/2025 20:54:20
+  Contato da Mensagem : 5521993314797@s.whatsapp.net
+  Tipo da mensagem : extendedTextMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 14/12/2025 20:54:12
+  Contato da Mensagem : 5521993314797@s.whatsapp.net
+  Tipo da mensagem : extendedTextMessage
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 14/12/2025 20:48:42
+  Contato da Mensagem : 5521981895101@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 14/12/2025 18:03:40
+  Contato da Mensagem : 6150393184361@lid
+  Tipo da mensagem : conversation
+  
+   

@@ -1,0 +1,41 @@
+[global]
+  checkNewVersion = true
+  sendAnonymousUsage = false
+
+[entryPoints]
+  [entryPoints.web]
+    address = ":80"
+    [entryPoints.web.http.redirections]
+      [entryPoints.web.http.redirections.entryPoint]
+        to = "websecure"
+        scheme = "https"
+        permanent = true
+
+  [entryPoints.websecure]
+    address = ":443"
+
+[providers]
+  [providers.docker]
+    exposedByDefault = false
+    network = "traefik-network"
+
+  [providers.file]
+    directory = "/etc/traefik/dynamic-conf"
+    watch = true
+
+[certificatesResolvers]
+  [certificatesResolvers.letsencrypt]
+    [certificatesResolvers.letsencrypt.acme]
+      email = "{{.Email}}"
+      storage = "/etc/traefik/acme.json"
+      [certificatesResolvers.letsencrypt.acme.httpChallenge]
+        entryPoint = "web"
+
+[api]
+  dashboard = true
+  insecure = true
+
+[log]
+  level = "INFO"
+
+[accessLog]

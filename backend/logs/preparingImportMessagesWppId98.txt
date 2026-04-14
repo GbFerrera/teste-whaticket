@@ -1,0 +1,133 @@
+Aguardando conexão para iniciar a importação de mensagens:
+  Whatsapp nome: g5e-4318
+  Whatsapp Id: 98
+  Criação do arquivo de logs: 25/01/2026 00:39:53
+  Selecionado Data de inicio de importação: 24/01/2026 00:36:00 
+  Selecionado Data final da importação: 25/01/2026 00:35:00 
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 25/01/2026 00:33:51
+  Contato da Mensagem : 555198082879@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 25/01/2026 00:33:21
+  Contato da Mensagem : 555198082879@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 25/01/2026 00:33:09
+  Contato da Mensagem : 555198082879@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 24/01/2026 23:55:02
+  Contato da Mensagem : 555198082879@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 24/01/2026 23:54:46
+  Contato da Mensagem : 555198082879@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 24/01/2026 23:54:07
+  Contato da Mensagem : 555198082879@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 24/01/2026 23:53:30
+  Contato da Mensagem : 555198082879@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 24/01/2026 23:49:23
+  Contato da Mensagem : 555198082879@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 24/01/2026 23:43:33
+  Contato da Mensagem : 555198082879@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 24/01/2026 23:43:19
+  Contato da Mensagem : 555198082879@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 24/01/2026 23:41:39
+  Contato da Mensagem : 555198082879@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 24/01/2026 10:03:01
+  Contato da Mensagem : 270742474207291@lid
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 24/01/2026 23:39:36
+  Contato da Mensagem : 555198082879@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 24/01/2026 23:37:23
+  Contato da Mensagem : 555198082879@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 24/01/2026 23:34:11
+  Contato da Mensagem : 555198082879@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 24/01/2026 23:33:47
+  Contato da Mensagem : 555198082879@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 24/01/2026 23:30:14
+  Contato da Mensagem : 555198082879@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   
+Adicionando mensagem para pos processamento:
+  Não é Mensagem de GRUPO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Data e hora da mensagem: 24/01/2026 23:26:58
+  Contato da Mensagem : 555198082879@s.whatsapp.net
+  Tipo da mensagem : conversation
+  
+   

@@ -1,0 +1,25 @@
+[http.routers]
+  [http.routers.atendzappy-backend-{{.Instance}}]
+    entryPoints = ["websecure"]
+    rule = "Host(`{{.BackendDomain}}`)"
+    service = "atendzappy-backend-{{.Instance}}"
+    [http.routers.atendzappy-backend-{{.Instance}}.tls]
+      certResolver = "letsencrypt"
+
+  [http.routers.atendzappy-frontend-{{.Instance}}]
+    entryPoints = ["websecure"]
+    rule = "Host(`{{.FrontendDomain}}`)"
+    service = "atendzappy-frontend-{{.Instance}}"
+    [http.routers.atendzappy-frontend-{{.Instance}}.tls]
+      certResolver = "letsencrypt"
+
+[http.services]
+  [http.services.atendzappy-backend-{{.Instance}}]
+    [http.services.atendzappy-backend-{{.Instance}}.loadBalancer]
+      [[http.services.atendzappy-backend-{{.Instance}}.loadBalancer.servers]]
+        url = "http://127.0.0.1:{{.BackendPort}}"
+
+  [http.services.atendzappy-frontend-{{.Instance}}]
+    [http.services.atendzappy-frontend-{{.Instance}}.loadBalancer]
+      [[http.services.atendzappy-frontend-{{.Instance}}.loadBalancer.servers]]
+        url = "http://127.0.0.1:{{.FrontendPort}}"

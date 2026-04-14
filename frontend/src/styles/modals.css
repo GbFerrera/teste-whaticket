@@ -1,0 +1,114 @@
+/* 
+ * CSS GLOBAL PARA TODOS OS MODAIS
+ * Garante que TODOS os modais fiquem ACIMA do header e sidebar
+ */
+
+/* ============================================
+   FORÇA Z-INDEX PARA TODOS OS TIPOS DE MODAIS
+   ============================================ */
+
+/* Dialogs - Modais padrão */
+.MuiDialog-root .MuiDialog-paper {
+  z-index: 2000 !important;
+}
+
+.MuiDialog-container {
+  z-index: 2000 !important;
+}
+
+/* Drawers - Modais laterais */
+.MuiDrawer-root .MuiDrawer-paper {
+  z-index: 2000 !important;
+}
+
+.MuiDrawer-container {
+  z-index: 2000 !important;
+}
+
+/* Modals - Modais genéricos */
+.MuiModal-root {
+  z-index: 2000 !important;
+}
+
+/* Backdrops - Fundo dos modais */
+.MuiBackdrop-root {
+  z-index: 1999 !important;
+}
+
+/* ============================================
+   MODAIS ESPECÍFICOS (garantir cobertura total)
+   ============================================ */
+
+/* Portals - Modais que usam React Portal */
+.MuiPortal-root {
+  z-index: 2000 !important;
+}
+
+/* Role dialog - Acessibilidade */
+[role="dialog"] {
+  z-index: 2000 !important;
+}
+
+/* ============================================
+   PREVENIR CONFLITOS
+   ============================================ */
+
+/* Garante que modais fiquem acima de tooltips */
+.MuiTooltip-popper {
+  z-index: 1800 !important;
+}
+
+/* Garante que modais fiquem acima de popovers */
+.MuiPopover-root {
+  z-index: 1850 !important;
+}
+
+/* Garante que modais fiquem acima de dropdowns */
+.MuiMenu-root {
+  z-index: 1900 !important;
+}
+
+/* ============================================
+   MODAIS MUI V5 (se usado no futuro)
+   ============================================ */
+
+.MuiDialog5-root .MuiDialog5-paper {
+  z-index: 1400 !important;
+}
+
+.MuiDrawer5-root .MuiDrawer5-paper {
+  z-index: 1400 !important;
+}
+
+/* ============================================
+   CLASSES CUSTOMIZADAS (se existirem)
+   ============================================ */
+
+/* Classes customizadas que possam existir */
+.modal-custom {
+  z-index: 2000 !important;
+}
+
+.drawer-custom {
+  z-index: 2000 !important;
+}
+
+.dialog-custom {
+  z-index: 2000 !important;
+}
+
+/* ============================================
+   IMPORTANTE: ORDEM CORRETA
+   ============================================ */
+
+/*
+  Ordem de z-index (do menor para o maior):
+  1. Sidebar: 1000
+  2. Header: 1200
+  3. Header Mobile: 1202
+  4. Modals: 2000 (ESTE ARQUIVO) ✅ ACIMA DE TUDO NO LAYOUT
+  5. Backdrop: 1999 (abaixo dos modais mas acima do layout)
+  6. Tooltips: 1800
+  7. Popovers: 1850
+  8. Dropdowns: 1900
+*/
