@@ -573,24 +573,37 @@ system_traefik_add_instance() {
   fi
   log_info "IP do host Docker detectado: ${docker_host_ip}"
 
-  sudo tee "${dynamic_dir}/${instancia}.yaml" > /dev/null <<EOF
+  if [ "${is_coolify}" = true ]; then
+    sudo tee "${dynamic_dir}/${instancia}.yaml" > /dev/null <<EOF
 http:
   routers:
+    ${instancia}-backend-http:
+      rule: "Host(\`${back_host}\`)"
+      entryPoints:
+        - http
+      service: ${instancia}-backend-svc
+
+    ${instancia}-frontend-http:
+      rule: "Host(\`${front_host}\`)"
+      entryPoints:
+        - http
+      service: ${instancia}-frontend-svc
+
     ${instancia}-backend:
       rule: "Host(\`${back_host}\`)"
       entryPoints:
-        - ${entrypoint_http}
+        - https
       service: ${instancia}-backend-svc
       tls:
-        certresolver: ${cert_resolver}
+        certresolver: letsencrypt
 
     ${instancia}-frontend:
       rule: "Host(\`${front_host}\`)"
       entryPoints:
-        - ${entrypoint_http}
+        - https
       service: ${instancia}-frontend-svc
       tls:
-        certresolver: ${cert_resolver}
+        certresolver: letsencrypt
 
   services:
     ${instancia}-backend-svc:
@@ -605,6 +618,40 @@ http:
           - url: "http://${docker_host_ip}:${front_port}"
         passHostHeader: true
 EOF
+  else
+    sudo tee "${dynamic_dir}/${instancia}.yaml" > /dev/null <<EOF
+http:
+  routers:
+    ${instancia}-backend:
+      rule: "Host(\`${back_host}\`)"
+      entryPoints:
+        - websecure
+      service: ${instancia}-backend-svc
+      tls:
+        certResolver: letsencrypt
+
+    ${instancia}-frontend:
+      rule: "Host(\`${front_host}\`)"
+      entryPoints:
+        - websecure
+      service: ${instancia}-frontend-svc
+      tls:
+        certResolver: letsencrypt
+
+  services:
+    ${instancia}-backend-svc:
+      loadBalancer:
+        servers:
+          - url: "http://${docker_host_ip}:${back_port}"
+        passHostHeader: true
+
+    ${instancia}-frontend-svc:
+      loadBalancer:
+        servers:
+          - url: "http://${docker_host_ip}:${front_port}"
+        passHostHeader: true
+EOF
+  fi
 
   echo "Rota dinâmica criada: ${dynamic_dir}/${instancia}.yaml"
 
