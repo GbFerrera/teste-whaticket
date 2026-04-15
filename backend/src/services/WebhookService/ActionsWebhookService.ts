@@ -461,6 +461,7 @@ export const ActionsWebhookService = async (
           const nextNode = nodes.find(n => n.id === next);
           if (nextNode) {
             // Chamar recursivamente com o próximo nó
+            // pressKey deve ser undefined: o próximo nó ainda não recebeu input do usuário
             return await ActionsWebhookService(
               whatsappId,
               idFlowDb,
@@ -471,7 +472,7 @@ export const ActionsWebhookService = async (
               dataWebhook,
               details,
               hashWebhookId,
-              pressKey,
+              undefined,
               idTicket,
               numberPhrase,
               msg

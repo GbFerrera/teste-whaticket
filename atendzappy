@@ -541,10 +541,20 @@ system_traefik_add_instance() {
   log_info "Configurando roteamento Traefik para ${instancia}..."
   sleep 2
 
-  sudo su - root <<EOF
-  # Arquivo de roteamento dinâmico Traefik para esta instância
-  # Aponta os domínios para os processos PM2 rodando localmente
-  cat > /etc/traefik/dynamic/${instancia}.yml << 'DYNEOF'
+  sudo mkdir -p /etc/traefik/dynamic
+
+  # Detectar IP do gateway Docker (host visto de dentro do container Traefik)
+  local docker_host_ip
+  docker_host_ip=$(docker inspect traefik 2>/dev/null | grep '"Gateway"' | head -1 | grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+')
+  if [ -z "${docker_host_ip}" ]; then
+    docker_host_ip=$(ip route | awk '/default/ {print $3}' | head -1)
+  fi
+  if [ -z "${docker_host_ip}" ]; then
+    docker_host_ip="172.17.0.1"
+  fi
+  log_info "IP do host Docker detectado: ${docker_host_ip}"
+
+  sudo tee /etc/traefik/dynamic/${instancia}.yml > /dev/null <<EOF
 http:
   routers:
     ${instancia}-backend:
@@ -567,18 +577,17 @@ http:
     ${instancia}-backend-svc:
       loadBalancer:
         servers:
-          - url: "http://127.0.0.1:${back_port}"
+          - url: "http://${docker_host_ip}:${back_port}"
         passHostHeader: true
 
     ${instancia}-frontend-svc:
       loadBalancer:
         servers:
-          - url: "http://127.0.0.1:${front_port}"
+          - url: "http://${docker_host_ip}:${front_port}"
         passHostHeader: true
-DYNEOF
+EOF
 
   echo "Rota dinâmica criada: /etc/traefik/dynamic/${instancia}.yml"
-EOF
 
   log_success "Traefik configurado para ${instancia} (backend: ${back_host} → :${back_port} | frontend: ${front_host} → :${front_port})"
   sleep 2
@@ -1034,7 +1043,7 @@ PORT=${frontend_port}
 ENVEOF
 EOF
 
-  cat > /home/deploy/${instancia_add}/frontend/server.js << 'SERVEREOF'
+  sudo tee /home/deploy/${instancia_add}/frontend/server.js > /dev/null <<EOF
 const express = require("express");
 const path = require("path");
 const app = express();
@@ -1043,8 +1052,8 @@ app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 app.listen(${frontend_port});
-SERVEREOF
 EOF
+  sudo chown deploy:deploy /home/deploy/${instancia_add}/frontend/server.js
 
   log_success "Variáveis de ambiente configuradas (frontend)"
   sleep 2
