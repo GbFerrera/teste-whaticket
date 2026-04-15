@@ -2,10 +2,10 @@
 -- PostgreSQL database dump
 --
 
-\restrict I3zNzRxrUv530N4nOIP9SC1YLB8XceIj5NBRzMfJHXIeAS5mAfzqgldeiaKu5zB
+\restrict KvuPkRGHe8YSVaEthz3aKXePlEUqxFts7NgHWdzUtRWEbrPXfRgoS6eNJ1zA2wq
 
--- Dumped from database version 14.20 (Ubuntu 14.20-0ubuntu0.22.04.1)
--- Dumped by pg_dump version 14.20 (Ubuntu 14.20-0ubuntu0.22.04.1)
+-- Dumped from database version 15.17 (Debian 15.17-1.pgdg13+1)
+-- Dumped by pg_dump version 15.17 (Debian 15.17-1.pgdg13+1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -13,7 +13,7 @@ SET idle_in_transaction_session_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;@
+SET check_function_bodies = false;
 SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
@@ -47,7 +47,7 @@ COMMENT ON EXTENSION "uuid-ossp" IS 'generate universally unique identifiers (UU
 
 
 --
--- Name: enum_MobileWebhooks_platform; Type: TYPE; Schema: public; Owner: empresa
+-- Name: enum_MobileWebhooks_platform; Type: TYPE; Schema: public; Owner: imagem
 --
 
 CREATE TYPE public."enum_MobileWebhooks_platform" AS ENUM (
@@ -56,10 +56,10 @@ CREATE TYPE public."enum_MobileWebhooks_platform" AS ENUM (
 );
 
 
-ALTER TYPE public."enum_MobileWebhooks_platform" OWNER TO empresa;
+ALTER TYPE public."enum_MobileWebhooks_platform" OWNER TO imagem;
 
 --
--- Name: update_produtocategorias_updated_at(); Type: FUNCTION; Schema: public; Owner: empresa
+-- Name: update_produtocategorias_updated_at(); Type: FUNCTION; Schema: public; Owner: imagem
 --
 
 CREATE FUNCTION public.update_produtocategorias_updated_at() RETURNS trigger
@@ -72,10 +72,10 @@ END;
 $$;
 
 
-ALTER FUNCTION public.update_produtocategorias_updated_at() OWNER TO empresa;
+ALTER FUNCTION public.update_produtocategorias_updated_at() OWNER TO imagem;
 
 --
--- Name: update_tutorial_videos_updated_at(); Type: FUNCTION; Schema: public; Owner: empresa
+-- Name: update_tutorial_videos_updated_at(); Type: FUNCTION; Schema: public; Owner: imagem
 --
 
 CREATE FUNCTION public.update_tutorial_videos_updated_at() RETURNS trigger
@@ -88,10 +88,10 @@ END;
 $$;
 
 
-ALTER FUNCTION public.update_tutorial_videos_updated_at() OWNER TO empresa;
+ALTER FUNCTION public.update_tutorial_videos_updated_at() OWNER TO imagem;
 
 --
--- Name: update_updated_at_column(); Type: FUNCTION; Schema: public; Owner: empresa
+-- Name: update_updated_at_column(); Type: FUNCTION; Schema: public; Owner: imagem
 --
 
 CREATE FUNCTION public.update_updated_at_column() RETURNS trigger
@@ -104,10 +104,10 @@ END;
 $$;
 
 
-ALTER FUNCTION public.update_updated_at_column() OWNER TO empresa;
+ALTER FUNCTION public.update_updated_at_column() OWNER TO imagem;
 
 --
--- Name: update_user_device_updated_at(); Type: FUNCTION; Schema: public; Owner: empresa
+-- Name: update_user_device_updated_at(); Type: FUNCTION; Schema: public; Owner: imagem
 --
 
 CREATE FUNCTION public.update_user_device_updated_at() RETURNS trigger
@@ -120,10 +120,10 @@ END;
 $$;
 
 
-ALTER FUNCTION public.update_user_device_updated_at() OWNER TO empresa;
+ALTER FUNCTION public.update_user_device_updated_at() OWNER TO imagem;
 
 --
--- Name: update_user_page_permissions_updated_at(); Type: FUNCTION; Schema: public; Owner: empresa
+-- Name: update_user_page_permissions_updated_at(); Type: FUNCTION; Schema: public; Owner: imagem
 --
 
 CREATE FUNCTION public.update_user_page_permissions_updated_at() RETURNS trigger
@@ -136,14 +136,14 @@ END;
 $$;
 
 
-ALTER FUNCTION public.update_user_page_permissions_updated_at() OWNER TO empresa;
+ALTER FUNCTION public.update_user_page_permissions_updated_at() OWNER TO imagem;
 
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
 --
--- Name: AffiliateCommissions; Type: TABLE; Schema: public; Owner: empresa
+-- Name: AffiliateCommissions; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."AffiliateCommissions" (
@@ -160,14 +160,14 @@ CREATE TABLE public."AffiliateCommissions" (
     "paidAt" timestamp without time zone,
     "updatedAt" timestamp with time zone DEFAULT now() NOT NULL,
     "faturaId" integer,
-    CONSTRAINT "AffiliateCommissions_status_check" CHECK (((status)::text = ANY ((ARRAY['pending'::character varying, 'approved'::character varying, 'paid'::character varying, 'cancelled'::character varying])::text[])))
+    CONSTRAINT "AffiliateCommissions_status_check" CHECK (((status)::text = ANY (ARRAY[('pending'::character varying)::text, ('approved'::character varying)::text, ('paid'::character varying)::text, ('cancelled'::character varying)::text])))
 );
 
 
-ALTER TABLE public."AffiliateCommissions" OWNER TO empresa;
+ALTER TABLE public."AffiliateCommissions" OWNER TO imagem;
 
 --
--- Name: AffiliateCommissions_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: AffiliateCommissions_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."AffiliateCommissions_id_seq"
@@ -179,17 +179,17 @@ CREATE SEQUENCE public."AffiliateCommissions_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."AffiliateCommissions_id_seq" OWNER TO empresa;
+ALTER TABLE public."AffiliateCommissions_id_seq" OWNER TO imagem;
 
 --
--- Name: AffiliateCommissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: AffiliateCommissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."AffiliateCommissions_id_seq" OWNED BY public."AffiliateCommissions".id;
 
 
 --
--- Name: AffiliateLinks; Type: TABLE; Schema: public; Owner: empresa
+-- Name: AffiliateLinks; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."AffiliateLinks" (
@@ -206,10 +206,10 @@ CREATE TABLE public."AffiliateLinks" (
 );
 
 
-ALTER TABLE public."AffiliateLinks" OWNER TO empresa;
+ALTER TABLE public."AffiliateLinks" OWNER TO imagem;
 
 --
--- Name: AffiliateLinks_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: AffiliateLinks_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."AffiliateLinks_id_seq"
@@ -221,17 +221,17 @@ CREATE SEQUENCE public."AffiliateLinks_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."AffiliateLinks_id_seq" OWNER TO empresa;
+ALTER TABLE public."AffiliateLinks_id_seq" OWNER TO imagem;
 
 --
--- Name: AffiliateLinks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: AffiliateLinks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."AffiliateLinks_id_seq" OWNED BY public."AffiliateLinks".id;
 
 
 --
--- Name: AffiliateWithdrawals; Type: TABLE; Schema: public; Owner: empresa
+-- Name: AffiliateWithdrawals; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."AffiliateWithdrawals" (
@@ -247,14 +247,14 @@ CREATE TABLE public."AffiliateWithdrawals" (
     "processedAt" timestamp without time zone,
     "processedBy" integer,
     "updatedAt" timestamp with time zone DEFAULT now() NOT NULL,
-    CONSTRAINT "AffiliateWithdrawals_status_check" CHECK (((status)::text = ANY ((ARRAY['pending'::character varying, 'approved'::character varying, 'rejected'::character varying])::text[])))
+    CONSTRAINT "AffiliateWithdrawals_status_check" CHECK (((status)::text = ANY (ARRAY[('pending'::character varying)::text, ('approved'::character varying)::text, ('rejected'::character varying)::text])))
 );
 
 
-ALTER TABLE public."AffiliateWithdrawals" OWNER TO empresa;
+ALTER TABLE public."AffiliateWithdrawals" OWNER TO imagem;
 
 --
--- Name: AffiliateWithdrawals_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: AffiliateWithdrawals_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."AffiliateWithdrawals_id_seq"
@@ -266,17 +266,17 @@ CREATE SEQUENCE public."AffiliateWithdrawals_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."AffiliateWithdrawals_id_seq" OWNER TO empresa;
+ALTER TABLE public."AffiliateWithdrawals_id_seq" OWNER TO imagem;
 
 --
--- Name: AffiliateWithdrawals_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: AffiliateWithdrawals_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."AffiliateWithdrawals_id_seq" OWNED BY public."AffiliateWithdrawals".id;
 
 
 --
--- Name: Affiliates; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Affiliates; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Affiliates" (
@@ -290,14 +290,14 @@ CREATE TABLE public."Affiliates" (
     status character varying(20) DEFAULT 'active'::character varying NOT NULL,
     "createdAt" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
     "updatedAt" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    CONSTRAINT "Affiliates_status_check" CHECK (((status)::text = ANY ((ARRAY['active'::character varying, 'inactive'::character varying, 'suspended'::character varying])::text[])))
+    CONSTRAINT "Affiliates_status_check" CHECK (((status)::text = ANY (ARRAY[('active'::character varying)::text, ('inactive'::character varying)::text, ('suspended'::character varying)::text])))
 );
 
 
-ALTER TABLE public."Affiliates" OWNER TO empresa;
+ALTER TABLE public."Affiliates" OWNER TO imagem;
 
 --
--- Name: Affiliates_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Affiliates_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Affiliates_id_seq"
@@ -309,17 +309,17 @@ CREATE SEQUENCE public."Affiliates_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Affiliates_id_seq" OWNER TO empresa;
+ALTER TABLE public."Affiliates_id_seq" OWNER TO imagem;
 
 --
--- Name: Affiliates_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Affiliates_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Affiliates_id_seq" OWNED BY public."Affiliates".id;
 
 
 --
--- Name: Announcements; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Announcements; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Announcements" (
@@ -336,10 +336,10 @@ CREATE TABLE public."Announcements" (
 );
 
 
-ALTER TABLE public."Announcements" OWNER TO empresa;
+ALTER TABLE public."Announcements" OWNER TO imagem;
 
 --
--- Name: Announcements_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Announcements_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Announcements_id_seq"
@@ -351,17 +351,17 @@ CREATE SEQUENCE public."Announcements_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Announcements_id_seq" OWNER TO empresa;
+ALTER TABLE public."Announcements_id_seq" OWNER TO imagem;
 
 --
--- Name: Announcements_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Announcements_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Announcements_id_seq" OWNED BY public."Announcements".id;
 
 
 --
--- Name: ApiUsages; Type: TABLE; Schema: public; Owner: empresa
+-- Name: ApiUsages; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."ApiUsages" (
@@ -380,10 +380,10 @@ CREATE TABLE public."ApiUsages" (
 );
 
 
-ALTER TABLE public."ApiUsages" OWNER TO empresa;
+ALTER TABLE public."ApiUsages" OWNER TO imagem;
 
 --
--- Name: ApiUsages_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: ApiUsages_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."ApiUsages_id_seq"
@@ -395,17 +395,17 @@ CREATE SEQUENCE public."ApiUsages_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."ApiUsages_id_seq" OWNER TO empresa;
+ALTER TABLE public."ApiUsages_id_seq" OWNER TO imagem;
 
 --
--- Name: ApiUsages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: ApiUsages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."ApiUsages_id_seq" OWNED BY public."ApiUsages".id;
 
 
 --
--- Name: AutomationActions; Type: TABLE; Schema: public; Owner: empresa
+-- Name: AutomationActions; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."AutomationActions" (
@@ -420,10 +420,10 @@ CREATE TABLE public."AutomationActions" (
 );
 
 
-ALTER TABLE public."AutomationActions" OWNER TO empresa;
+ALTER TABLE public."AutomationActions" OWNER TO imagem;
 
 --
--- Name: AutomationActions_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: AutomationActions_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."AutomationActions_id_seq"
@@ -435,17 +435,17 @@ CREATE SEQUENCE public."AutomationActions_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."AutomationActions_id_seq" OWNER TO empresa;
+ALTER TABLE public."AutomationActions_id_seq" OWNER TO imagem;
 
 --
--- Name: AutomationActions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: AutomationActions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."AutomationActions_id_seq" OWNED BY public."AutomationActions".id;
 
 
 --
--- Name: AutomationExecutions; Type: TABLE; Schema: public; Owner: empresa
+-- Name: AutomationExecutions; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."AutomationExecutions" (
@@ -466,10 +466,10 @@ CREATE TABLE public."AutomationExecutions" (
 );
 
 
-ALTER TABLE public."AutomationExecutions" OWNER TO empresa;
+ALTER TABLE public."AutomationExecutions" OWNER TO imagem;
 
 --
--- Name: AutomationExecutions_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: AutomationExecutions_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."AutomationExecutions_id_seq"
@@ -481,17 +481,17 @@ CREATE SEQUENCE public."AutomationExecutions_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."AutomationExecutions_id_seq" OWNER TO empresa;
+ALTER TABLE public."AutomationExecutions_id_seq" OWNER TO imagem;
 
 --
--- Name: AutomationExecutions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: AutomationExecutions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."AutomationExecutions_id_seq" OWNED BY public."AutomationExecutions".id;
 
 
 --
--- Name: AutomationLogs; Type: TABLE; Schema: public; Owner: empresa
+-- Name: AutomationLogs; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."AutomationLogs" (
@@ -508,10 +508,10 @@ CREATE TABLE public."AutomationLogs" (
 );
 
 
-ALTER TABLE public."AutomationLogs" OWNER TO empresa;
+ALTER TABLE public."AutomationLogs" OWNER TO imagem;
 
 --
--- Name: AutomationLogs_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: AutomationLogs_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."AutomationLogs_id_seq"
@@ -523,17 +523,17 @@ CREATE SEQUENCE public."AutomationLogs_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."AutomationLogs_id_seq" OWNER TO empresa;
+ALTER TABLE public."AutomationLogs_id_seq" OWNER TO imagem;
 
 --
--- Name: AutomationLogs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: AutomationLogs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."AutomationLogs_id_seq" OWNED BY public."AutomationLogs".id;
 
 
 --
--- Name: Automations; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Automations; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Automations" (
@@ -549,10 +549,10 @@ CREATE TABLE public."Automations" (
 );
 
 
-ALTER TABLE public."Automations" OWNER TO empresa;
+ALTER TABLE public."Automations" OWNER TO imagem;
 
 --
--- Name: Automations_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Automations_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Automations_id_seq"
@@ -564,17 +564,17 @@ CREATE SEQUENCE public."Automations_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Automations_id_seq" OWNER TO empresa;
+ALTER TABLE public."Automations_id_seq" OWNER TO imagem;
 
 --
--- Name: Automations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Automations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Automations_id_seq" OWNED BY public."Automations".id;
 
 
 --
--- Name: Baileys; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Baileys; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Baileys" (
@@ -587,10 +587,10 @@ CREATE TABLE public."Baileys" (
 );
 
 
-ALTER TABLE public."Baileys" OWNER TO empresa;
+ALTER TABLE public."Baileys" OWNER TO imagem;
 
 --
--- Name: Baileys_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Baileys_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Baileys_id_seq"
@@ -602,17 +602,17 @@ CREATE SEQUENCE public."Baileys_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Baileys_id_seq" OWNER TO empresa;
+ALTER TABLE public."Baileys_id_seq" OWNER TO imagem;
 
 --
--- Name: Baileys_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Baileys_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Baileys_id_seq" OWNED BY public."Baileys".id;
 
 
 --
--- Name: CallRecords; Type: TABLE; Schema: public; Owner: empresa
+-- Name: CallRecords; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."CallRecords" (
@@ -636,10 +636,10 @@ CREATE TABLE public."CallRecords" (
 );
 
 
-ALTER TABLE public."CallRecords" OWNER TO empresa;
+ALTER TABLE public."CallRecords" OWNER TO imagem;
 
 --
--- Name: CallRecords_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: CallRecords_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."CallRecords_id_seq"
@@ -651,17 +651,17 @@ CREATE SEQUENCE public."CallRecords_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."CallRecords_id_seq" OWNER TO empresa;
+ALTER TABLE public."CallRecords_id_seq" OWNER TO imagem;
 
 --
--- Name: CallRecords_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: CallRecords_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."CallRecords_id_seq" OWNED BY public."CallRecords".id;
 
 
 --
--- Name: CampaignSettings; Type: TABLE; Schema: public; Owner: empresa
+-- Name: CampaignSettings; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."CampaignSettings" (
@@ -674,10 +674,10 @@ CREATE TABLE public."CampaignSettings" (
 );
 
 
-ALTER TABLE public."CampaignSettings" OWNER TO empresa;
+ALTER TABLE public."CampaignSettings" OWNER TO imagem;
 
 --
--- Name: CampaignSettings_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: CampaignSettings_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."CampaignSettings_id_seq"
@@ -689,17 +689,17 @@ CREATE SEQUENCE public."CampaignSettings_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."CampaignSettings_id_seq" OWNER TO empresa;
+ALTER TABLE public."CampaignSettings_id_seq" OWNER TO imagem;
 
 --
--- Name: CampaignSettings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: CampaignSettings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."CampaignSettings_id_seq" OWNED BY public."CampaignSettings".id;
 
 
 --
--- Name: CampaignShipping; Type: TABLE; Schema: public; Owner: empresa
+-- Name: CampaignShipping; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."CampaignShipping" (
@@ -719,10 +719,10 @@ CREATE TABLE public."CampaignShipping" (
 );
 
 
-ALTER TABLE public."CampaignShipping" OWNER TO empresa;
+ALTER TABLE public."CampaignShipping" OWNER TO imagem;
 
 --
--- Name: CampaignShipping_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: CampaignShipping_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."CampaignShipping_id_seq"
@@ -734,17 +734,17 @@ CREATE SEQUENCE public."CampaignShipping_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."CampaignShipping_id_seq" OWNER TO empresa;
+ALTER TABLE public."CampaignShipping_id_seq" OWNER TO imagem;
 
 --
--- Name: CampaignShipping_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: CampaignShipping_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."CampaignShipping_id_seq" OWNED BY public."CampaignShipping".id;
 
 
 --
--- Name: Campaigns; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Campaigns; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Campaigns" (
@@ -778,10 +778,10 @@ CREATE TABLE public."Campaigns" (
 );
 
 
-ALTER TABLE public."Campaigns" OWNER TO empresa;
+ALTER TABLE public."Campaigns" OWNER TO imagem;
 
 --
--- Name: Campaigns_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Campaigns_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Campaigns_id_seq"
@@ -793,17 +793,17 @@ CREATE SEQUENCE public."Campaigns_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Campaigns_id_seq" OWNER TO empresa;
+ALTER TABLE public."Campaigns_id_seq" OWNER TO imagem;
 
 --
--- Name: Campaigns_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Campaigns_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Campaigns_id_seq" OWNED BY public."Campaigns".id;
 
 
 --
--- Name: ChatMessages; Type: TABLE; Schema: public; Owner: empresa
+-- Name: ChatMessages; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."ChatMessages" (
@@ -818,10 +818,10 @@ CREATE TABLE public."ChatMessages" (
 );
 
 
-ALTER TABLE public."ChatMessages" OWNER TO empresa;
+ALTER TABLE public."ChatMessages" OWNER TO imagem;
 
 --
--- Name: ChatMessages_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: ChatMessages_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."ChatMessages_id_seq"
@@ -833,17 +833,17 @@ CREATE SEQUENCE public."ChatMessages_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."ChatMessages_id_seq" OWNER TO empresa;
+ALTER TABLE public."ChatMessages_id_seq" OWNER TO imagem;
 
 --
--- Name: ChatMessages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: ChatMessages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."ChatMessages_id_seq" OWNED BY public."ChatMessages".id;
 
 
 --
--- Name: ChatUsers; Type: TABLE; Schema: public; Owner: empresa
+-- Name: ChatUsers; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."ChatUsers" (
@@ -856,10 +856,10 @@ CREATE TABLE public."ChatUsers" (
 );
 
 
-ALTER TABLE public."ChatUsers" OWNER TO empresa;
+ALTER TABLE public."ChatUsers" OWNER TO imagem;
 
 --
--- Name: ChatUsers_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: ChatUsers_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."ChatUsers_id_seq"
@@ -871,17 +871,17 @@ CREATE SEQUENCE public."ChatUsers_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."ChatUsers_id_seq" OWNER TO empresa;
+ALTER TABLE public."ChatUsers_id_seq" OWNER TO imagem;
 
 --
--- Name: ChatUsers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: ChatUsers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."ChatUsers_id_seq" OWNED BY public."ChatUsers".id;
 
 
 --
--- Name: Chatbots; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Chatbots; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Chatbots" (
@@ -902,10 +902,10 @@ CREATE TABLE public."Chatbots" (
 );
 
 
-ALTER TABLE public."Chatbots" OWNER TO empresa;
+ALTER TABLE public."Chatbots" OWNER TO imagem;
 
 --
--- Name: Chatbots_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Chatbots_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Chatbots_id_seq"
@@ -917,17 +917,17 @@ CREATE SEQUENCE public."Chatbots_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Chatbots_id_seq" OWNER TO empresa;
+ALTER TABLE public."Chatbots_id_seq" OWNER TO imagem;
 
 --
--- Name: Chatbots_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Chatbots_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Chatbots_id_seq" OWNED BY public."Chatbots".id;
 
 
 --
--- Name: Chats; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Chats; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Chats" (
@@ -942,10 +942,10 @@ CREATE TABLE public."Chats" (
 );
 
 
-ALTER TABLE public."Chats" OWNER TO empresa;
+ALTER TABLE public."Chats" OWNER TO imagem;
 
 --
--- Name: Chats_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Chats_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Chats_id_seq"
@@ -957,17 +957,17 @@ CREATE SEQUENCE public."Chats_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Chats_id_seq" OWNER TO empresa;
+ALTER TABLE public."Chats_id_seq" OWNER TO imagem;
 
 --
--- Name: Chats_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Chats_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Chats_id_seq" OWNED BY public."Chats".id;
 
 
 --
--- Name: Companies; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Companies; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Companies" (
@@ -998,10 +998,10 @@ CREATE TABLE public."Companies" (
 );
 
 
-ALTER TABLE public."Companies" OWNER TO empresa;
+ALTER TABLE public."Companies" OWNER TO imagem;
 
 --
--- Name: CompaniesSettings; Type: TABLE; Schema: public; Owner: empresa
+-- Name: CompaniesSettings; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."CompaniesSettings" (
@@ -1044,10 +1044,10 @@ CREATE TABLE public."CompaniesSettings" (
 );
 
 
-ALTER TABLE public."CompaniesSettings" OWNER TO empresa;
+ALTER TABLE public."CompaniesSettings" OWNER TO imagem;
 
 --
--- Name: CompaniesSettings_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: CompaniesSettings_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."CompaniesSettings_id_seq"
@@ -1059,17 +1059,17 @@ CREATE SEQUENCE public."CompaniesSettings_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."CompaniesSettings_id_seq" OWNER TO empresa;
+ALTER TABLE public."CompaniesSettings_id_seq" OWNER TO imagem;
 
 --
--- Name: CompaniesSettings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: CompaniesSettings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."CompaniesSettings_id_seq" OWNED BY public."CompaniesSettings".id;
 
 
 --
--- Name: Companies_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Companies_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Companies_id_seq"
@@ -1081,17 +1081,17 @@ CREATE SEQUENCE public."Companies_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Companies_id_seq" OWNER TO empresa;
+ALTER TABLE public."Companies_id_seq" OWNER TO imagem;
 
 --
--- Name: Companies_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Companies_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Companies_id_seq" OWNED BY public."Companies".id;
 
 
 --
--- Name: ContactCustomFields; Type: TABLE; Schema: public; Owner: empresa
+-- Name: ContactCustomFields; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."ContactCustomFields" (
@@ -1104,10 +1104,10 @@ CREATE TABLE public."ContactCustomFields" (
 );
 
 
-ALTER TABLE public."ContactCustomFields" OWNER TO empresa;
+ALTER TABLE public."ContactCustomFields" OWNER TO imagem;
 
 --
--- Name: ContactCustomFields_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: ContactCustomFields_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."ContactCustomFields_id_seq"
@@ -1119,17 +1119,17 @@ CREATE SEQUENCE public."ContactCustomFields_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."ContactCustomFields_id_seq" OWNER TO empresa;
+ALTER TABLE public."ContactCustomFields_id_seq" OWNER TO imagem;
 
 --
--- Name: ContactCustomFields_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: ContactCustomFields_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."ContactCustomFields_id_seq" OWNED BY public."ContactCustomFields".id;
 
 
 --
--- Name: ContactGroups; Type: TABLE; Schema: public; Owner: empresa
+-- Name: ContactGroups; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."ContactGroups" (
@@ -1142,10 +1142,10 @@ CREATE TABLE public."ContactGroups" (
 );
 
 
-ALTER TABLE public."ContactGroups" OWNER TO empresa;
+ALTER TABLE public."ContactGroups" OWNER TO imagem;
 
 --
--- Name: ContactGroups_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: ContactGroups_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."ContactGroups_id_seq"
@@ -1157,17 +1157,17 @@ CREATE SEQUENCE public."ContactGroups_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."ContactGroups_id_seq" OWNER TO empresa;
+ALTER TABLE public."ContactGroups_id_seq" OWNER TO imagem;
 
 --
--- Name: ContactGroups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: ContactGroups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."ContactGroups_id_seq" OWNED BY public."ContactGroups".id;
 
 
 --
--- Name: ContactListItems; Type: TABLE; Schema: public; Owner: empresa
+-- Name: ContactListItems; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."ContactListItems" (
@@ -1184,10 +1184,10 @@ CREATE TABLE public."ContactListItems" (
 );
 
 
-ALTER TABLE public."ContactListItems" OWNER TO empresa;
+ALTER TABLE public."ContactListItems" OWNER TO imagem;
 
 --
--- Name: ContactListItems_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: ContactListItems_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."ContactListItems_id_seq"
@@ -1199,17 +1199,17 @@ CREATE SEQUENCE public."ContactListItems_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."ContactListItems_id_seq" OWNER TO empresa;
+ALTER TABLE public."ContactListItems_id_seq" OWNER TO imagem;
 
 --
--- Name: ContactListItems_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: ContactListItems_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."ContactListItems_id_seq" OWNED BY public."ContactListItems".id;
 
 
 --
--- Name: ContactLists; Type: TABLE; Schema: public; Owner: empresa
+-- Name: ContactLists; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."ContactLists" (
@@ -1221,10 +1221,10 @@ CREATE TABLE public."ContactLists" (
 );
 
 
-ALTER TABLE public."ContactLists" OWNER TO empresa;
+ALTER TABLE public."ContactLists" OWNER TO imagem;
 
 --
--- Name: ContactLists_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: ContactLists_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."ContactLists_id_seq"
@@ -1236,17 +1236,17 @@ CREATE SEQUENCE public."ContactLists_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."ContactLists_id_seq" OWNER TO empresa;
+ALTER TABLE public."ContactLists_id_seq" OWNER TO imagem;
 
 --
--- Name: ContactLists_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: ContactLists_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."ContactLists_id_seq" OWNED BY public."ContactLists".id;
 
 
 --
--- Name: ContactTags; Type: TABLE; Schema: public; Owner: empresa
+-- Name: ContactTags; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."ContactTags" (
@@ -1257,10 +1257,10 @@ CREATE TABLE public."ContactTags" (
 );
 
 
-ALTER TABLE public."ContactTags" OWNER TO empresa;
+ALTER TABLE public."ContactTags" OWNER TO imagem;
 
 --
--- Name: ContactWallets; Type: TABLE; Schema: public; Owner: empresa
+-- Name: ContactWallets; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."ContactWallets" (
@@ -1273,10 +1273,10 @@ CREATE TABLE public."ContactWallets" (
 );
 
 
-ALTER TABLE public."ContactWallets" OWNER TO empresa;
+ALTER TABLE public."ContactWallets" OWNER TO imagem;
 
 --
--- Name: ContactWallets_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: ContactWallets_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."ContactWallets_id_seq"
@@ -1288,17 +1288,17 @@ CREATE SEQUENCE public."ContactWallets_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."ContactWallets_id_seq" OWNER TO empresa;
+ALTER TABLE public."ContactWallets_id_seq" OWNER TO imagem;
 
 --
--- Name: ContactWallets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: ContactWallets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."ContactWallets_id_seq" OWNED BY public."ContactWallets".id;
 
 
 --
--- Name: Contacts; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Contacts; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Contacts" (
@@ -1337,10 +1337,10 @@ CREATE TABLE public."Contacts" (
 );
 
 
-ALTER TABLE public."Contacts" OWNER TO empresa;
+ALTER TABLE public."Contacts" OWNER TO imagem;
 
 --
--- Name: Contacts_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Contacts_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Contacts_id_seq"
@@ -1352,17 +1352,17 @@ CREATE SEQUENCE public."Contacts_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Contacts_id_seq" OWNER TO empresa;
+ALTER TABLE public."Contacts_id_seq" OWNER TO imagem;
 
 --
--- Name: Contacts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Contacts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Contacts_id_seq" OWNED BY public."Contacts".id;
 
 
 --
--- Name: Coupons; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Coupons; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Coupons" (
@@ -1379,14 +1379,14 @@ CREATE TABLE public."Coupons" (
     description text,
     "createdAt" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
     "updatedAt" timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    CONSTRAINT "Coupons_discountType_check" CHECK ((("discountType")::text = ANY ((ARRAY['percentage'::character varying, 'fixed'::character varying])::text[])))
+    CONSTRAINT "Coupons_discountType_check" CHECK ((("discountType")::text = ANY (ARRAY[('percentage'::character varying)::text, ('fixed'::character varying)::text])))
 );
 
 
-ALTER TABLE public."Coupons" OWNER TO empresa;
+ALTER TABLE public."Coupons" OWNER TO imagem;
 
 --
--- Name: Coupons_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Coupons_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Coupons_id_seq"
@@ -1398,17 +1398,17 @@ CREATE SEQUENCE public."Coupons_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Coupons_id_seq" OWNER TO empresa;
+ALTER TABLE public."Coupons_id_seq" OWNER TO imagem;
 
 --
--- Name: Coupons_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Coupons_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Coupons_id_seq" OWNED BY public."Coupons".id;
 
 
 --
--- Name: DialogChatBots; Type: TABLE; Schema: public; Owner: empresa
+-- Name: DialogChatBots; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."DialogChatBots" (
@@ -1422,10 +1422,10 @@ CREATE TABLE public."DialogChatBots" (
 );
 
 
-ALTER TABLE public."DialogChatBots" OWNER TO empresa;
+ALTER TABLE public."DialogChatBots" OWNER TO imagem;
 
 --
--- Name: DialogChatBots_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: DialogChatBots_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."DialogChatBots_id_seq"
@@ -1437,17 +1437,17 @@ CREATE SEQUENCE public."DialogChatBots_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."DialogChatBots_id_seq" OWNER TO empresa;
+ALTER TABLE public."DialogChatBots_id_seq" OWNER TO imagem;
 
 --
--- Name: DialogChatBots_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: DialogChatBots_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."DialogChatBots_id_seq" OWNED BY public."DialogChatBots".id;
 
 
 --
--- Name: Faturas; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Faturas; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Faturas" (
@@ -1470,10 +1470,10 @@ CREATE TABLE public."Faturas" (
 );
 
 
-ALTER TABLE public."Faturas" OWNER TO empresa;
+ALTER TABLE public."Faturas" OWNER TO imagem;
 
 --
--- Name: Faturas_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Faturas_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Faturas_id_seq"
@@ -1485,17 +1485,17 @@ CREATE SEQUENCE public."Faturas_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Faturas_id_seq" OWNER TO empresa;
+ALTER TABLE public."Faturas_id_seq" OWNER TO imagem;
 
 --
--- Name: Faturas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Faturas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Faturas_id_seq" OWNED BY public."Faturas".id;
 
 
 --
--- Name: Ferramentas; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Ferramentas; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Ferramentas" (
@@ -1515,10 +1515,10 @@ CREATE TABLE public."Ferramentas" (
 );
 
 
-ALTER TABLE public."Ferramentas" OWNER TO empresa;
+ALTER TABLE public."Ferramentas" OWNER TO imagem;
 
 --
--- Name: Ferramentas_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Ferramentas_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Ferramentas_id_seq"
@@ -1530,17 +1530,17 @@ CREATE SEQUENCE public."Ferramentas_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Ferramentas_id_seq" OWNER TO empresa;
+ALTER TABLE public."Ferramentas_id_seq" OWNER TO imagem;
 
 --
--- Name: Ferramentas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Ferramentas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Ferramentas_id_seq" OWNED BY public."Ferramentas".id;
 
 
 --
--- Name: Files; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Files; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Files" (
@@ -1553,10 +1553,10 @@ CREATE TABLE public."Files" (
 );
 
 
-ALTER TABLE public."Files" OWNER TO empresa;
+ALTER TABLE public."Files" OWNER TO imagem;
 
 --
--- Name: FilesOptions; Type: TABLE; Schema: public; Owner: empresa
+-- Name: FilesOptions; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."FilesOptions" (
@@ -1570,10 +1570,10 @@ CREATE TABLE public."FilesOptions" (
 );
 
 
-ALTER TABLE public."FilesOptions" OWNER TO empresa;
+ALTER TABLE public."FilesOptions" OWNER TO imagem;
 
 --
--- Name: FilesOptions_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: FilesOptions_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."FilesOptions_id_seq"
@@ -1585,17 +1585,17 @@ CREATE SEQUENCE public."FilesOptions_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."FilesOptions_id_seq" OWNER TO empresa;
+ALTER TABLE public."FilesOptions_id_seq" OWNER TO imagem;
 
 --
--- Name: FilesOptions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: FilesOptions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."FilesOptions_id_seq" OWNED BY public."FilesOptions".id;
 
 
 --
--- Name: Files_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Files_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Files_id_seq"
@@ -1607,17 +1607,17 @@ CREATE SEQUENCE public."Files_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Files_id_seq" OWNER TO empresa;
+ALTER TABLE public."Files_id_seq" OWNER TO imagem;
 
 --
--- Name: Files_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Files_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Files_id_seq" OWNED BY public."Files".id;
 
 
 --
--- Name: FlowAudios; Type: TABLE; Schema: public; Owner: empresa
+-- Name: FlowAudios; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."FlowAudios" (
@@ -1630,10 +1630,10 @@ CREATE TABLE public."FlowAudios" (
 );
 
 
-ALTER TABLE public."FlowAudios" OWNER TO empresa;
+ALTER TABLE public."FlowAudios" OWNER TO imagem;
 
 --
--- Name: FlowAudios_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: FlowAudios_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."FlowAudios_id_seq"
@@ -1645,17 +1645,17 @@ CREATE SEQUENCE public."FlowAudios_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."FlowAudios_id_seq" OWNER TO empresa;
+ALTER TABLE public."FlowAudios_id_seq" OWNER TO imagem;
 
 --
--- Name: FlowAudios_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: FlowAudios_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."FlowAudios_id_seq" OWNED BY public."FlowAudios".id;
 
 
 --
--- Name: FlowBuilders; Type: TABLE; Schema: public; Owner: empresa
+-- Name: FlowBuilders; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."FlowBuilders" (
@@ -1671,10 +1671,10 @@ CREATE TABLE public."FlowBuilders" (
 );
 
 
-ALTER TABLE public."FlowBuilders" OWNER TO empresa;
+ALTER TABLE public."FlowBuilders" OWNER TO imagem;
 
 --
--- Name: FlowBuilders_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: FlowBuilders_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."FlowBuilders_id_seq"
@@ -1686,17 +1686,17 @@ CREATE SEQUENCE public."FlowBuilders_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."FlowBuilders_id_seq" OWNER TO empresa;
+ALTER TABLE public."FlowBuilders_id_seq" OWNER TO imagem;
 
 --
--- Name: FlowBuilders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: FlowBuilders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."FlowBuilders_id_seq" OWNED BY public."FlowBuilders".id;
 
 
 --
--- Name: FlowCampaigns; Type: TABLE; Schema: public; Owner: empresa
+-- Name: FlowCampaigns; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."FlowCampaigns" (
@@ -1715,10 +1715,10 @@ CREATE TABLE public."FlowCampaigns" (
 );
 
 
-ALTER TABLE public."FlowCampaigns" OWNER TO empresa;
+ALTER TABLE public."FlowCampaigns" OWNER TO imagem;
 
 --
--- Name: FlowCampaigns_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: FlowCampaigns_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."FlowCampaigns_id_seq"
@@ -1730,17 +1730,17 @@ CREATE SEQUENCE public."FlowCampaigns_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."FlowCampaigns_id_seq" OWNER TO empresa;
+ALTER TABLE public."FlowCampaigns_id_seq" OWNER TO imagem;
 
 --
--- Name: FlowCampaigns_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: FlowCampaigns_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."FlowCampaigns_id_seq" OWNED BY public."FlowCampaigns".id;
 
 
 --
--- Name: FlowDefaults; Type: TABLE; Schema: public; Owner: empresa
+-- Name: FlowDefaults; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."FlowDefaults" (
@@ -1754,10 +1754,10 @@ CREATE TABLE public."FlowDefaults" (
 );
 
 
-ALTER TABLE public."FlowDefaults" OWNER TO empresa;
+ALTER TABLE public."FlowDefaults" OWNER TO imagem;
 
 --
--- Name: FlowDefaults_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: FlowDefaults_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."FlowDefaults_id_seq"
@@ -1769,17 +1769,17 @@ CREATE SEQUENCE public."FlowDefaults_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."FlowDefaults_id_seq" OWNER TO empresa;
+ALTER TABLE public."FlowDefaults_id_seq" OWNER TO imagem;
 
 --
--- Name: FlowDefaults_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: FlowDefaults_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."FlowDefaults_id_seq" OWNED BY public."FlowDefaults".id;
 
 
 --
--- Name: FlowImgs; Type: TABLE; Schema: public; Owner: empresa
+-- Name: FlowImgs; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."FlowImgs" (
@@ -1792,10 +1792,10 @@ CREATE TABLE public."FlowImgs" (
 );
 
 
-ALTER TABLE public."FlowImgs" OWNER TO empresa;
+ALTER TABLE public."FlowImgs" OWNER TO imagem;
 
 --
--- Name: FlowImgs_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: FlowImgs_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."FlowImgs_id_seq"
@@ -1807,17 +1807,17 @@ CREATE SEQUENCE public."FlowImgs_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."FlowImgs_id_seq" OWNER TO empresa;
+ALTER TABLE public."FlowImgs_id_seq" OWNER TO imagem;
 
 --
--- Name: FlowImgs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: FlowImgs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."FlowImgs_id_seq" OWNED BY public."FlowImgs".id;
 
 
 --
--- Name: GoogleCalendarIntegrations; Type: TABLE; Schema: public; Owner: empresa
+-- Name: GoogleCalendarIntegrations; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."GoogleCalendarIntegrations" (
@@ -1835,10 +1835,10 @@ CREATE TABLE public."GoogleCalendarIntegrations" (
 );
 
 
-ALTER TABLE public."GoogleCalendarIntegrations" OWNER TO empresa;
+ALTER TABLE public."GoogleCalendarIntegrations" OWNER TO imagem;
 
 --
--- Name: GoogleCalendarIntegrations_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: GoogleCalendarIntegrations_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."GoogleCalendarIntegrations_id_seq"
@@ -1850,17 +1850,17 @@ CREATE SEQUENCE public."GoogleCalendarIntegrations_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."GoogleCalendarIntegrations_id_seq" OWNER TO empresa;
+ALTER TABLE public."GoogleCalendarIntegrations_id_seq" OWNER TO imagem;
 
 --
--- Name: GoogleCalendarIntegrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: GoogleCalendarIntegrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."GoogleCalendarIntegrations_id_seq" OWNED BY public."GoogleCalendarIntegrations".id;
 
 
 --
--- Name: GoogleSheetsTokens; Type: TABLE; Schema: public; Owner: empresa
+-- Name: GoogleSheetsTokens; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."GoogleSheetsTokens" (
@@ -1877,10 +1877,10 @@ CREATE TABLE public."GoogleSheetsTokens" (
 );
 
 
-ALTER TABLE public."GoogleSheetsTokens" OWNER TO empresa;
+ALTER TABLE public."GoogleSheetsTokens" OWNER TO imagem;
 
 --
--- Name: GoogleSheetsTokens_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: GoogleSheetsTokens_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."GoogleSheetsTokens_id_seq"
@@ -1892,17 +1892,17 @@ CREATE SEQUENCE public."GoogleSheetsTokens_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."GoogleSheetsTokens_id_seq" OWNER TO empresa;
+ALTER TABLE public."GoogleSheetsTokens_id_seq" OWNER TO imagem;
 
 --
--- Name: GoogleSheetsTokens_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: GoogleSheetsTokens_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."GoogleSheetsTokens_id_seq" OWNED BY public."GoogleSheetsTokens".id;
 
 
 --
--- Name: Helps; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Helps; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Helps" (
@@ -1916,10 +1916,10 @@ CREATE TABLE public."Helps" (
 );
 
 
-ALTER TABLE public."Helps" OWNER TO empresa;
+ALTER TABLE public."Helps" OWNER TO imagem;
 
 --
--- Name: Helps_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Helps_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Helps_id_seq"
@@ -1931,17 +1931,17 @@ CREATE SEQUENCE public."Helps_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Helps_id_seq" OWNER TO empresa;
+ALTER TABLE public."Helps_id_seq" OWNER TO imagem;
 
 --
--- Name: Helps_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Helps_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Helps_id_seq" OWNED BY public."Helps".id;
 
 
 --
--- Name: IaWorkflows; Type: TABLE; Schema: public; Owner: empresa
+-- Name: IaWorkflows; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."IaWorkflows" (
@@ -1955,10 +1955,10 @@ CREATE TABLE public."IaWorkflows" (
 );
 
 
-ALTER TABLE public."IaWorkflows" OWNER TO empresa;
+ALTER TABLE public."IaWorkflows" OWNER TO imagem;
 
 --
--- Name: IaWorkflows_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: IaWorkflows_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."IaWorkflows_id_seq"
@@ -1970,17 +1970,17 @@ CREATE SEQUENCE public."IaWorkflows_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."IaWorkflows_id_seq" OWNER TO empresa;
+ALTER TABLE public."IaWorkflows_id_seq" OWNER TO imagem;
 
 --
--- Name: IaWorkflows_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: IaWorkflows_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."IaWorkflows_id_seq" OWNED BY public."IaWorkflows".id;
 
 
 --
--- Name: Integrations; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Integrations; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Integrations" (
@@ -1999,10 +1999,10 @@ CREATE TABLE public."Integrations" (
 );
 
 
-ALTER TABLE public."Integrations" OWNER TO empresa;
+ALTER TABLE public."Integrations" OWNER TO imagem;
 
 --
--- Name: Integrations_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Integrations_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Integrations_id_seq"
@@ -2014,17 +2014,17 @@ CREATE SEQUENCE public."Integrations_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Integrations_id_seq" OWNER TO empresa;
+ALTER TABLE public."Integrations_id_seq" OWNER TO imagem;
 
 --
--- Name: Integrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Integrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Integrations_id_seq" OWNED BY public."Integrations".id;
 
 
 --
--- Name: Invoices; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Invoices; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Invoices" (
@@ -2050,10 +2050,10 @@ CREATE TABLE public."Invoices" (
 );
 
 
-ALTER TABLE public."Invoices" OWNER TO empresa;
+ALTER TABLE public."Invoices" OWNER TO imagem;
 
 --
--- Name: Invoices_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Invoices_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Invoices_id_seq"
@@ -2065,17 +2065,17 @@ CREATE SEQUENCE public."Invoices_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Invoices_id_seq" OWNER TO empresa;
+ALTER TABLE public."Invoices_id_seq" OWNER TO imagem;
 
 --
--- Name: Invoices_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Invoices_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Invoices_id_seq" OWNED BY public."Invoices".id;
 
 
 --
--- Name: Languages; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Languages; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Languages" (
@@ -2088,10 +2088,10 @@ CREATE TABLE public."Languages" (
 );
 
 
-ALTER TABLE public."Languages" OWNER TO empresa;
+ALTER TABLE public."Languages" OWNER TO imagem;
 
 --
--- Name: Languages_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Languages_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Languages_id_seq"
@@ -2103,17 +2103,17 @@ CREATE SEQUENCE public."Languages_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Languages_id_seq" OWNER TO empresa;
+ALTER TABLE public."Languages_id_seq" OWNER TO imagem;
 
 --
--- Name: Languages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Languages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Languages_id_seq" OWNED BY public."Languages".id;
 
 
 --
--- Name: LogTickets; Type: TABLE; Schema: public; Owner: empresa
+-- Name: LogTickets; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."LogTickets" (
@@ -2127,10 +2127,10 @@ CREATE TABLE public."LogTickets" (
 );
 
 
-ALTER TABLE public."LogTickets" OWNER TO empresa;
+ALTER TABLE public."LogTickets" OWNER TO imagem;
 
 --
--- Name: LogTickets_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: LogTickets_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."LogTickets_id_seq"
@@ -2142,17 +2142,17 @@ CREATE SEQUENCE public."LogTickets_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."LogTickets_id_seq" OWNER TO empresa;
+ALTER TABLE public."LogTickets_id_seq" OWNER TO imagem;
 
 --
--- Name: LogTickets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: LogTickets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."LogTickets_id_seq" OWNED BY public."LogTickets".id;
 
 
 --
--- Name: MediaFiles; Type: TABLE; Schema: public; Owner: empresa
+-- Name: MediaFiles; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."MediaFiles" (
@@ -2169,10 +2169,10 @@ CREATE TABLE public."MediaFiles" (
 );
 
 
-ALTER TABLE public."MediaFiles" OWNER TO empresa;
+ALTER TABLE public."MediaFiles" OWNER TO imagem;
 
 --
--- Name: MediaFiles_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: MediaFiles_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."MediaFiles_id_seq"
@@ -2184,17 +2184,17 @@ CREATE SEQUENCE public."MediaFiles_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."MediaFiles_id_seq" OWNER TO empresa;
+ALTER TABLE public."MediaFiles_id_seq" OWNER TO imagem;
 
 --
--- Name: MediaFiles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: MediaFiles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."MediaFiles_id_seq" OWNED BY public."MediaFiles".id;
 
 
 --
--- Name: MediaFolders; Type: TABLE; Schema: public; Owner: empresa
+-- Name: MediaFolders; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."MediaFolders" (
@@ -2207,10 +2207,10 @@ CREATE TABLE public."MediaFolders" (
 );
 
 
-ALTER TABLE public."MediaFolders" OWNER TO empresa;
+ALTER TABLE public."MediaFolders" OWNER TO imagem;
 
 --
--- Name: MediaFolders_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: MediaFolders_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."MediaFolders_id_seq"
@@ -2222,17 +2222,17 @@ CREATE SEQUENCE public."MediaFolders_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."MediaFolders_id_seq" OWNER TO empresa;
+ALTER TABLE public."MediaFolders_id_seq" OWNER TO imagem;
 
 --
--- Name: MediaFolders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: MediaFolders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."MediaFolders_id_seq" OWNED BY public."MediaFolders".id;
 
 
 --
--- Name: Messages; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Messages; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Messages" (
@@ -2264,10 +2264,10 @@ CREATE TABLE public."Messages" (
 );
 
 
-ALTER TABLE public."Messages" OWNER TO empresa;
+ALTER TABLE public."Messages" OWNER TO imagem;
 
 --
--- Name: Messages_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Messages_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Messages_id_seq"
@@ -2279,17 +2279,17 @@ CREATE SEQUENCE public."Messages_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Messages_id_seq" OWNER TO empresa;
+ALTER TABLE public."Messages_id_seq" OWNER TO imagem;
 
 --
--- Name: Messages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Messages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Messages_id_seq" OWNED BY public."Messages".id;
 
 
 --
--- Name: MobileWebhooks; Type: TABLE; Schema: public; Owner: empresa
+-- Name: MobileWebhooks; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."MobileWebhooks" (
@@ -2307,10 +2307,10 @@ CREATE TABLE public."MobileWebhooks" (
 );
 
 
-ALTER TABLE public."MobileWebhooks" OWNER TO empresa;
+ALTER TABLE public."MobileWebhooks" OWNER TO imagem;
 
 --
--- Name: MobileWebhooks_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: MobileWebhooks_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."MobileWebhooks_id_seq"
@@ -2322,17 +2322,17 @@ CREATE SEQUENCE public."MobileWebhooks_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."MobileWebhooks_id_seq" OWNER TO empresa;
+ALTER TABLE public."MobileWebhooks_id_seq" OWNER TO imagem;
 
 --
--- Name: MobileWebhooks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: MobileWebhooks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."MobileWebhooks_id_seq" OWNED BY public."MobileWebhooks".id;
 
 
 --
--- Name: Negocios; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Negocios; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Negocios" (
@@ -2347,10 +2347,10 @@ CREATE TABLE public."Negocios" (
 );
 
 
-ALTER TABLE public."Negocios" OWNER TO empresa;
+ALTER TABLE public."Negocios" OWNER TO imagem;
 
 --
--- Name: Negocios_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Negocios_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Negocios_id_seq"
@@ -2362,17 +2362,17 @@ CREATE SEQUENCE public."Negocios_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Negocios_id_seq" OWNER TO empresa;
+ALTER TABLE public."Negocios_id_seq" OWNER TO imagem;
 
 --
--- Name: Negocios_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Negocios_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Negocios_id_seq" OWNED BY public."Negocios".id;
 
 
 --
--- Name: Partners; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Partners; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Partners" (
@@ -2389,10 +2389,10 @@ CREATE TABLE public."Partners" (
 );
 
 
-ALTER TABLE public."Partners" OWNER TO empresa;
+ALTER TABLE public."Partners" OWNER TO imagem;
 
 --
--- Name: Partners_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Partners_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Partners_id_seq"
@@ -2404,17 +2404,17 @@ CREATE SEQUENCE public."Partners_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Partners_id_seq" OWNER TO empresa;
+ALTER TABLE public."Partners_id_seq" OWNER TO imagem;
 
 --
--- Name: Partners_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Partners_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Partners_id_seq" OWNED BY public."Partners".id;
 
 
 --
--- Name: Plans; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Plans; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Plans" (
@@ -2444,10 +2444,10 @@ CREATE TABLE public."Plans" (
 );
 
 
-ALTER TABLE public."Plans" OWNER TO empresa;
+ALTER TABLE public."Plans" OWNER TO imagem;
 
 --
--- Name: Plans_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Plans_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Plans_id_seq"
@@ -2459,17 +2459,17 @@ CREATE SEQUENCE public."Plans_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Plans_id_seq" OWNER TO empresa;
+ALTER TABLE public."Plans_id_seq" OWNER TO imagem;
 
 --
--- Name: Plans_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Plans_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Plans_id_seq" OWNED BY public."Plans".id;
 
 
 --
--- Name: ProdutoCategorias; Type: TABLE; Schema: public; Owner: empresa
+-- Name: ProdutoCategorias; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."ProdutoCategorias" (
@@ -2483,10 +2483,10 @@ CREATE TABLE public."ProdutoCategorias" (
 );
 
 
-ALTER TABLE public."ProdutoCategorias" OWNER TO empresa;
+ALTER TABLE public."ProdutoCategorias" OWNER TO imagem;
 
 --
--- Name: ProdutoCategorias_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: ProdutoCategorias_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."ProdutoCategorias_id_seq"
@@ -2498,17 +2498,17 @@ CREATE SEQUENCE public."ProdutoCategorias_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."ProdutoCategorias_id_seq" OWNER TO empresa;
+ALTER TABLE public."ProdutoCategorias_id_seq" OWNER TO imagem;
 
 --
--- Name: ProdutoCategorias_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: ProdutoCategorias_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."ProdutoCategorias_id_seq" OWNED BY public."ProdutoCategorias".id;
 
 
 --
--- Name: ProdutoVariacaoGrupos; Type: TABLE; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoGrupos; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."ProdutoVariacaoGrupos" (
@@ -2520,10 +2520,10 @@ CREATE TABLE public."ProdutoVariacaoGrupos" (
 );
 
 
-ALTER TABLE public."ProdutoVariacaoGrupos" OWNER TO empresa;
+ALTER TABLE public."ProdutoVariacaoGrupos" OWNER TO imagem;
 
 --
--- Name: ProdutoVariacaoGrupos_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoGrupos_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."ProdutoVariacaoGrupos_id_seq"
@@ -2535,17 +2535,17 @@ CREATE SEQUENCE public."ProdutoVariacaoGrupos_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."ProdutoVariacaoGrupos_id_seq" OWNER TO empresa;
+ALTER TABLE public."ProdutoVariacaoGrupos_id_seq" OWNER TO imagem;
 
 --
--- Name: ProdutoVariacaoGrupos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoGrupos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."ProdutoVariacaoGrupos_id_seq" OWNED BY public."ProdutoVariacaoGrupos".id;
 
 
 --
--- Name: ProdutoVariacaoItens; Type: TABLE; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoItens; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."ProdutoVariacaoItens" (
@@ -2559,10 +2559,10 @@ CREATE TABLE public."ProdutoVariacaoItens" (
 );
 
 
-ALTER TABLE public."ProdutoVariacaoItens" OWNER TO empresa;
+ALTER TABLE public."ProdutoVariacaoItens" OWNER TO imagem;
 
 --
--- Name: ProdutoVariacaoItens_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoItens_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."ProdutoVariacaoItens_id_seq"
@@ -2574,17 +2574,17 @@ CREATE SEQUENCE public."ProdutoVariacaoItens_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."ProdutoVariacaoItens_id_seq" OWNER TO empresa;
+ALTER TABLE public."ProdutoVariacaoItens_id_seq" OWNER TO imagem;
 
 --
--- Name: ProdutoVariacaoItens_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoItens_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."ProdutoVariacaoItens_id_seq" OWNED BY public."ProdutoVariacaoItens".id;
 
 
 --
--- Name: ProdutoVariacaoOpcoes; Type: TABLE; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoOpcoes; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."ProdutoVariacaoOpcoes" (
@@ -2597,10 +2597,10 @@ CREATE TABLE public."ProdutoVariacaoOpcoes" (
 );
 
 
-ALTER TABLE public."ProdutoVariacaoOpcoes" OWNER TO empresa;
+ALTER TABLE public."ProdutoVariacaoOpcoes" OWNER TO imagem;
 
 --
--- Name: ProdutoVariacaoOpcoes_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoOpcoes_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."ProdutoVariacaoOpcoes_id_seq"
@@ -2612,17 +2612,17 @@ CREATE SEQUENCE public."ProdutoVariacaoOpcoes_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."ProdutoVariacaoOpcoes_id_seq" OWNER TO empresa;
+ALTER TABLE public."ProdutoVariacaoOpcoes_id_seq" OWNER TO imagem;
 
 --
--- Name: ProdutoVariacaoOpcoes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoOpcoes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."ProdutoVariacaoOpcoes_id_seq" OWNED BY public."ProdutoVariacaoOpcoes".id;
 
 
 --
--- Name: Produtos; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Produtos; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Produtos" (
@@ -2645,10 +2645,10 @@ CREATE TABLE public."Produtos" (
 );
 
 
-ALTER TABLE public."Produtos" OWNER TO empresa;
+ALTER TABLE public."Produtos" OWNER TO imagem;
 
 --
--- Name: Produtos_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Produtos_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Produtos_id_seq"
@@ -2660,17 +2660,17 @@ CREATE SEQUENCE public."Produtos_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Produtos_id_seq" OWNER TO empresa;
+ALTER TABLE public."Produtos_id_seq" OWNER TO imagem;
 
 --
--- Name: Produtos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Produtos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Produtos_id_seq" OWNED BY public."Produtos".id;
 
 
 --
--- Name: PromptToolSettings; Type: TABLE; Schema: public; Owner: empresa
+-- Name: PromptToolSettings; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."PromptToolSettings" (
@@ -2684,10 +2684,10 @@ CREATE TABLE public."PromptToolSettings" (
 );
 
 
-ALTER TABLE public."PromptToolSettings" OWNER TO empresa;
+ALTER TABLE public."PromptToolSettings" OWNER TO imagem;
 
 --
--- Name: PromptToolSettings_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: PromptToolSettings_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."PromptToolSettings_id_seq"
@@ -2699,17 +2699,17 @@ CREATE SEQUENCE public."PromptToolSettings_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."PromptToolSettings_id_seq" OWNER TO empresa;
+ALTER TABLE public."PromptToolSettings_id_seq" OWNER TO imagem;
 
 --
--- Name: PromptToolSettings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: PromptToolSettings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."PromptToolSettings_id_seq" OWNED BY public."PromptToolSettings".id;
 
 
 --
--- Name: Prompts; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Prompts; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Prompts" (
@@ -2736,10 +2736,10 @@ CREATE TABLE public."Prompts" (
 );
 
 
-ALTER TABLE public."Prompts" OWNER TO empresa;
+ALTER TABLE public."Prompts" OWNER TO imagem;
 
 --
--- Name: Prompts_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Prompts_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Prompts_id_seq"
@@ -2751,17 +2751,17 @@ CREATE SEQUENCE public."Prompts_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Prompts_id_seq" OWNER TO empresa;
+ALTER TABLE public."Prompts_id_seq" OWNER TO imagem;
 
 --
--- Name: Prompts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Prompts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Prompts_id_seq" OWNED BY public."Prompts".id;
 
 
 --
--- Name: QueueIntegrations; Type: TABLE; Schema: public; Owner: empresa
+-- Name: QueueIntegrations; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."QueueIntegrations" (
@@ -2785,10 +2785,10 @@ CREATE TABLE public."QueueIntegrations" (
 );
 
 
-ALTER TABLE public."QueueIntegrations" OWNER TO empresa;
+ALTER TABLE public."QueueIntegrations" OWNER TO imagem;
 
 --
--- Name: QueueIntegrations_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: QueueIntegrations_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."QueueIntegrations_id_seq"
@@ -2800,17 +2800,17 @@ CREATE SEQUENCE public."QueueIntegrations_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."QueueIntegrations_id_seq" OWNER TO empresa;
+ALTER TABLE public."QueueIntegrations_id_seq" OWNER TO imagem;
 
 --
--- Name: QueueIntegrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: QueueIntegrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."QueueIntegrations_id_seq" OWNED BY public."QueueIntegrations".id;
 
 
 --
--- Name: QueueOptions; Type: TABLE; Schema: public; Owner: empresa
+-- Name: QueueOptions; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."QueueOptions" (
@@ -2825,10 +2825,10 @@ CREATE TABLE public."QueueOptions" (
 );
 
 
-ALTER TABLE public."QueueOptions" OWNER TO empresa;
+ALTER TABLE public."QueueOptions" OWNER TO imagem;
 
 --
--- Name: QueueOptions_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: QueueOptions_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."QueueOptions_id_seq"
@@ -2840,17 +2840,17 @@ CREATE SEQUENCE public."QueueOptions_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."QueueOptions_id_seq" OWNER TO empresa;
+ALTER TABLE public."QueueOptions_id_seq" OWNER TO imagem;
 
 --
--- Name: QueueOptions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: QueueOptions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."QueueOptions_id_seq" OWNED BY public."QueueOptions".id;
 
 
 --
--- Name: Queues; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Queues; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Queues" (
@@ -2872,10 +2872,10 @@ CREATE TABLE public."Queues" (
 );
 
 
-ALTER TABLE public."Queues" OWNER TO empresa;
+ALTER TABLE public."Queues" OWNER TO imagem;
 
 --
--- Name: Queues_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Queues_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Queues_id_seq"
@@ -2887,17 +2887,17 @@ CREATE SEQUENCE public."Queues_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Queues_id_seq" OWNER TO empresa;
+ALTER TABLE public."Queues_id_seq" OWNER TO imagem;
 
 --
--- Name: Queues_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Queues_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Queues_id_seq" OWNED BY public."Queues".id;
 
 
 --
--- Name: QuickMessages; Type: TABLE; Schema: public; Owner: empresa
+-- Name: QuickMessages; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."QuickMessages" (
@@ -2915,10 +2915,10 @@ CREATE TABLE public."QuickMessages" (
 );
 
 
-ALTER TABLE public."QuickMessages" OWNER TO empresa;
+ALTER TABLE public."QuickMessages" OWNER TO imagem;
 
 --
--- Name: QuickMessages_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: QuickMessages_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."QuickMessages_id_seq"
@@ -2930,17 +2930,17 @@ CREATE SEQUENCE public."QuickMessages_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."QuickMessages_id_seq" OWNER TO empresa;
+ALTER TABLE public."QuickMessages_id_seq" OWNER TO imagem;
 
 --
--- Name: QuickMessages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: QuickMessages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."QuickMessages_id_seq" OWNED BY public."QuickMessages".id;
 
 
 --
--- Name: ScheduledMessages; Type: TABLE; Schema: public; Owner: empresa
+-- Name: ScheduledMessages; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."ScheduledMessages" (
@@ -2967,10 +2967,10 @@ CREATE TABLE public."ScheduledMessages" (
 );
 
 
-ALTER TABLE public."ScheduledMessages" OWNER TO empresa;
+ALTER TABLE public."ScheduledMessages" OWNER TO imagem;
 
 --
--- Name: ScheduledMessagesEnvios; Type: TABLE; Schema: public; Owner: empresa
+-- Name: ScheduledMessagesEnvios; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."ScheduledMessagesEnvios" (
@@ -2987,10 +2987,10 @@ CREATE TABLE public."ScheduledMessagesEnvios" (
 );
 
 
-ALTER TABLE public."ScheduledMessagesEnvios" OWNER TO empresa;
+ALTER TABLE public."ScheduledMessagesEnvios" OWNER TO imagem;
 
 --
--- Name: ScheduledMessagesEnvios_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: ScheduledMessagesEnvios_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."ScheduledMessagesEnvios_id_seq"
@@ -3002,17 +3002,17 @@ CREATE SEQUENCE public."ScheduledMessagesEnvios_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."ScheduledMessagesEnvios_id_seq" OWNER TO empresa;
+ALTER TABLE public."ScheduledMessagesEnvios_id_seq" OWNER TO imagem;
 
 --
--- Name: ScheduledMessagesEnvios_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: ScheduledMessagesEnvios_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."ScheduledMessagesEnvios_id_seq" OWNED BY public."ScheduledMessagesEnvios".id;
 
 
 --
--- Name: ScheduledMessages_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: ScheduledMessages_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."ScheduledMessages_id_seq"
@@ -3024,17 +3024,17 @@ CREATE SEQUENCE public."ScheduledMessages_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."ScheduledMessages_id_seq" OWNER TO empresa;
+ALTER TABLE public."ScheduledMessages_id_seq" OWNER TO imagem;
 
 --
--- Name: ScheduledMessages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: ScheduledMessages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."ScheduledMessages_id_seq" OWNED BY public."ScheduledMessages".id;
 
 
 --
--- Name: Schedules; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Schedules; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Schedules" (
@@ -3066,10 +3066,10 @@ CREATE TABLE public."Schedules" (
 );
 
 
-ALTER TABLE public."Schedules" OWNER TO empresa;
+ALTER TABLE public."Schedules" OWNER TO imagem;
 
 --
--- Name: Schedules_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Schedules_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Schedules_id_seq"
@@ -3081,17 +3081,17 @@ CREATE SEQUENCE public."Schedules_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Schedules_id_seq" OWNER TO empresa;
+ALTER TABLE public."Schedules_id_seq" OWNER TO imagem;
 
 --
--- Name: Schedules_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Schedules_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Schedules_id_seq" OWNED BY public."Schedules".id;
 
 
 --
--- Name: SequelizeMeta; Type: TABLE; Schema: public; Owner: empresa
+-- Name: SequelizeMeta; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."SequelizeMeta" (
@@ -3099,10 +3099,10 @@ CREATE TABLE public."SequelizeMeta" (
 );
 
 
-ALTER TABLE public."SequelizeMeta" OWNER TO empresa;
+ALTER TABLE public."SequelizeMeta" OWNER TO imagem;
 
 --
--- Name: Settings; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Settings; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Settings" (
@@ -3115,10 +3115,10 @@ CREATE TABLE public."Settings" (
 );
 
 
-ALTER TABLE public."Settings" OWNER TO empresa;
+ALTER TABLE public."Settings" OWNER TO imagem;
 
 --
--- Name: Settings_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Settings_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Settings_id_seq"
@@ -3130,17 +3130,17 @@ CREATE SEQUENCE public."Settings_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Settings_id_seq" OWNER TO empresa;
+ALTER TABLE public."Settings_id_seq" OWNER TO imagem;
 
 --
--- Name: Settings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Settings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Settings_id_seq" OWNED BY public."Settings".id;
 
 
 --
--- Name: SliderBanners; Type: TABLE; Schema: public; Owner: empresa
+-- Name: SliderBanners; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."SliderBanners" (
@@ -3154,10 +3154,10 @@ CREATE TABLE public."SliderBanners" (
 );
 
 
-ALTER TABLE public."SliderBanners" OWNER TO empresa;
+ALTER TABLE public."SliderBanners" OWNER TO imagem;
 
 --
--- Name: SliderBanners_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: SliderBanners_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."SliderBanners_id_seq"
@@ -3169,17 +3169,17 @@ CREATE SEQUENCE public."SliderBanners_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."SliderBanners_id_seq" OWNER TO empresa;
+ALTER TABLE public."SliderBanners_id_seq" OWNER TO imagem;
 
 --
--- Name: SliderBanners_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: SliderBanners_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."SliderBanners_id_seq" OWNED BY public."SliderBanners".id;
 
 
 --
--- Name: Subscriptions; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Subscriptions; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Subscriptions" (
@@ -3197,10 +3197,10 @@ CREATE TABLE public."Subscriptions" (
 );
 
 
-ALTER TABLE public."Subscriptions" OWNER TO empresa;
+ALTER TABLE public."Subscriptions" OWNER TO imagem;
 
 --
--- Name: Subscriptions_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Subscriptions_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Subscriptions_id_seq"
@@ -3212,17 +3212,17 @@ CREATE SEQUENCE public."Subscriptions_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Subscriptions_id_seq" OWNER TO empresa;
+ALTER TABLE public."Subscriptions_id_seq" OWNER TO imagem;
 
 --
--- Name: Subscriptions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Subscriptions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Subscriptions_id_seq" OWNED BY public."Subscriptions".id;
 
 
 --
--- Name: Tags; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Tags; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Tags" (
@@ -3240,10 +3240,10 @@ CREATE TABLE public."Tags" (
 );
 
 
-ALTER TABLE public."Tags" OWNER TO empresa;
+ALTER TABLE public."Tags" OWNER TO imagem;
 
 --
--- Name: Tags_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Tags_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Tags_id_seq"
@@ -3255,17 +3255,17 @@ CREATE SEQUENCE public."Tags_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Tags_id_seq" OWNER TO empresa;
+ALTER TABLE public."Tags_id_seq" OWNER TO imagem;
 
 --
--- Name: Tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Tags_id_seq" OWNED BY public."Tags".id;
 
 
 --
--- Name: TicketNotes; Type: TABLE; Schema: public; Owner: empresa
+-- Name: TicketNotes; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."TicketNotes" (
@@ -3279,10 +3279,10 @@ CREATE TABLE public."TicketNotes" (
 );
 
 
-ALTER TABLE public."TicketNotes" OWNER TO empresa;
+ALTER TABLE public."TicketNotes" OWNER TO imagem;
 
 --
--- Name: TicketNotes_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: TicketNotes_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."TicketNotes_id_seq"
@@ -3294,17 +3294,17 @@ CREATE SEQUENCE public."TicketNotes_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."TicketNotes_id_seq" OWNER TO empresa;
+ALTER TABLE public."TicketNotes_id_seq" OWNER TO imagem;
 
 --
--- Name: TicketNotes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: TicketNotes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."TicketNotes_id_seq" OWNED BY public."TicketNotes".id;
 
 
 --
--- Name: TicketTags; Type: TABLE; Schema: public; Owner: empresa
+-- Name: TicketTags; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."TicketTags" (
@@ -3315,10 +3315,10 @@ CREATE TABLE public."TicketTags" (
 );
 
 
-ALTER TABLE public."TicketTags" OWNER TO empresa;
+ALTER TABLE public."TicketTags" OWNER TO imagem;
 
 --
--- Name: TicketTraking; Type: TABLE; Schema: public; Owner: empresa
+-- Name: TicketTraking; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."TicketTraking" (
@@ -3340,10 +3340,10 @@ CREATE TABLE public."TicketTraking" (
 );
 
 
-ALTER TABLE public."TicketTraking" OWNER TO empresa;
+ALTER TABLE public."TicketTraking" OWNER TO imagem;
 
 --
--- Name: TicketTraking_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: TicketTraking_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."TicketTraking_id_seq"
@@ -3355,17 +3355,17 @@ CREATE SEQUENCE public."TicketTraking_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."TicketTraking_id_seq" OWNER TO empresa;
+ALTER TABLE public."TicketTraking_id_seq" OWNER TO imagem;
 
 --
--- Name: TicketTraking_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: TicketTraking_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."TicketTraking_id_seq" OWNED BY public."TicketTraking".id;
 
 
 --
--- Name: Tickets; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Tickets; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Tickets" (
@@ -3403,7 +3403,7 @@ CREATE TABLE public."Tickets" (
     "flowStopped" character varying(255),
     "isActiveDemand" boolean DEFAULT false,
     "typebotSessionId" character varying(255) DEFAULT NULL::character varying,
-    "typebotStatus" boolean DEFAULT false NOT NULL,
+    "typebotStatus" character varying(50) NOT NULL,
     "typebotSessionTime" timestamp with time zone,
     "productsSent" jsonb DEFAULT '[]'::jsonb NOT NULL,
     crm_lead_id bigint,
@@ -3414,14 +3414,17 @@ CREATE TABLE public."Tickets" (
     "questionNodeId" character varying(255),
     "questionOptions" jsonb,
     "timeoutEnabled" boolean DEFAULT false,
-    "timeoutAt" timestamp without time zone
+    "timeoutAt" timestamp without time zone,
+    "questionAttempts" integer DEFAULT 0,
+    "maxQuestionAttempts" integer DEFAULT 3,
+    "botAttempts" integer DEFAULT 0
 );
 
 
-ALTER TABLE public."Tickets" OWNER TO empresa;
+ALTER TABLE public."Tickets" OWNER TO imagem;
 
 --
--- Name: Tickets_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Tickets_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Tickets_id_seq"
@@ -3433,17 +3436,17 @@ CREATE SEQUENCE public."Tickets_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Tickets_id_seq" OWNER TO empresa;
+ALTER TABLE public."Tickets_id_seq" OWNER TO imagem;
 
 --
--- Name: Tickets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Tickets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Tickets_id_seq" OWNED BY public."Tickets".id;
 
 
 --
--- Name: Translations; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Translations; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Translations" (
@@ -3456,10 +3459,10 @@ CREATE TABLE public."Translations" (
 );
 
 
-ALTER TABLE public."Translations" OWNER TO empresa;
+ALTER TABLE public."Translations" OWNER TO imagem;
 
 --
--- Name: Translations_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Translations_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Translations_id_seq"
@@ -3471,17 +3474,17 @@ CREATE SEQUENCE public."Translations_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Translations_id_seq" OWNER TO empresa;
+ALTER TABLE public."Translations_id_seq" OWNER TO imagem;
 
 --
--- Name: Translations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Translations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Translations_id_seq" OWNED BY public."Translations".id;
 
 
 --
--- Name: UserDevices; Type: TABLE; Schema: public; Owner: empresa
+-- Name: UserDevices; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."UserDevices" (
@@ -3495,10 +3498,10 @@ CREATE TABLE public."UserDevices" (
 );
 
 
-ALTER TABLE public."UserDevices" OWNER TO empresa;
+ALTER TABLE public."UserDevices" OWNER TO imagem;
 
 --
--- Name: UserDevices_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: UserDevices_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."UserDevices_id_seq"
@@ -3510,17 +3513,17 @@ CREATE SEQUENCE public."UserDevices_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."UserDevices_id_seq" OWNER TO empresa;
+ALTER TABLE public."UserDevices_id_seq" OWNER TO imagem;
 
 --
--- Name: UserDevices_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: UserDevices_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."UserDevices_id_seq" OWNED BY public."UserDevices".id;
 
 
 --
--- Name: UserGoogleCalendarIntegrations; Type: TABLE; Schema: public; Owner: empresa
+-- Name: UserGoogleCalendarIntegrations; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."UserGoogleCalendarIntegrations" (
@@ -3541,17 +3544,17 @@ CREATE TABLE public."UserGoogleCalendarIntegrations" (
 );
 
 
-ALTER TABLE public."UserGoogleCalendarIntegrations" OWNER TO empresa;
+ALTER TABLE public."UserGoogleCalendarIntegrations" OWNER TO imagem;
 
 --
--- Name: TABLE "UserGoogleCalendarIntegrations"; Type: COMMENT; Schema: public; Owner: empresa
+-- Name: TABLE "UserGoogleCalendarIntegrations"; Type: COMMENT; Schema: public; Owner: imagem
 --
 
 COMMENT ON TABLE public."UserGoogleCalendarIntegrations" IS 'Tabela de integrações individuais do Google Calendar por usuário';
 
 
 --
--- Name: UserGoogleCalendarIntegrations_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: UserGoogleCalendarIntegrations_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."UserGoogleCalendarIntegrations_id_seq"
@@ -3563,17 +3566,17 @@ CREATE SEQUENCE public."UserGoogleCalendarIntegrations_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."UserGoogleCalendarIntegrations_id_seq" OWNER TO empresa;
+ALTER TABLE public."UserGoogleCalendarIntegrations_id_seq" OWNER TO imagem;
 
 --
--- Name: UserGoogleCalendarIntegrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: UserGoogleCalendarIntegrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."UserGoogleCalendarIntegrations_id_seq" OWNED BY public."UserGoogleCalendarIntegrations".id;
 
 
 --
--- Name: UserPagePermissions; Type: TABLE; Schema: public; Owner: empresa
+-- Name: UserPagePermissions; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."UserPagePermissions" (
@@ -3586,52 +3589,52 @@ CREATE TABLE public."UserPagePermissions" (
 );
 
 
-ALTER TABLE public."UserPagePermissions" OWNER TO empresa;
+ALTER TABLE public."UserPagePermissions" OWNER TO imagem;
 
 --
--- Name: TABLE "UserPagePermissions"; Type: COMMENT; Schema: public; Owner: empresa
+-- Name: TABLE "UserPagePermissions"; Type: COMMENT; Schema: public; Owner: imagem
 --
 
 COMMENT ON TABLE public."UserPagePermissions" IS 'Tabela para armazenar permissões de acesso a páginas por usuário';
 
 
 --
--- Name: COLUMN "UserPagePermissions"."userId"; Type: COMMENT; Schema: public; Owner: empresa
+-- Name: COLUMN "UserPagePermissions"."userId"; Type: COMMENT; Schema: public; Owner: imagem
 --
 
 COMMENT ON COLUMN public."UserPagePermissions"."userId" IS 'ID do usuário';
 
 
 --
--- Name: COLUMN "UserPagePermissions"."pagePath"; Type: COMMENT; Schema: public; Owner: empresa
+-- Name: COLUMN "UserPagePermissions"."pagePath"; Type: COMMENT; Schema: public; Owner: imagem
 --
 
 COMMENT ON COLUMN public."UserPagePermissions"."pagePath" IS 'Caminho da página (ex: /atendimentos, /users)';
 
 
 --
--- Name: COLUMN "UserPagePermissions"."canAccess"; Type: COMMENT; Schema: public; Owner: empresa
+-- Name: COLUMN "UserPagePermissions"."canAccess"; Type: COMMENT; Schema: public; Owner: imagem
 --
 
 COMMENT ON COLUMN public."UserPagePermissions"."canAccess" IS 'Indica se o usuário tem acesso à página';
 
 
 --
--- Name: COLUMN "UserPagePermissions"."createdAt"; Type: COMMENT; Schema: public; Owner: empresa
+-- Name: COLUMN "UserPagePermissions"."createdAt"; Type: COMMENT; Schema: public; Owner: imagem
 --
 
 COMMENT ON COLUMN public."UserPagePermissions"."createdAt" IS 'Data de criação do registro';
 
 
 --
--- Name: COLUMN "UserPagePermissions"."updatedAt"; Type: COMMENT; Schema: public; Owner: empresa
+-- Name: COLUMN "UserPagePermissions"."updatedAt"; Type: COMMENT; Schema: public; Owner: imagem
 --
 
 COMMENT ON COLUMN public."UserPagePermissions"."updatedAt" IS 'Data de atualização do registro';
 
 
 --
--- Name: UserPagePermissions_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: UserPagePermissions_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."UserPagePermissions_id_seq"
@@ -3643,17 +3646,17 @@ CREATE SEQUENCE public."UserPagePermissions_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."UserPagePermissions_id_seq" OWNER TO empresa;
+ALTER TABLE public."UserPagePermissions_id_seq" OWNER TO imagem;
 
 --
--- Name: UserPagePermissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: UserPagePermissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."UserPagePermissions_id_seq" OWNED BY public."UserPagePermissions".id;
 
 
 --
--- Name: UserQueues; Type: TABLE; Schema: public; Owner: empresa
+-- Name: UserQueues; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."UserQueues" (
@@ -3664,10 +3667,10 @@ CREATE TABLE public."UserQueues" (
 );
 
 
-ALTER TABLE public."UserQueues" OWNER TO empresa;
+ALTER TABLE public."UserQueues" OWNER TO imagem;
 
 --
--- Name: UserRatings; Type: TABLE; Schema: public; Owner: empresa
+-- Name: UserRatings; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."UserRatings" (
@@ -3681,10 +3684,10 @@ CREATE TABLE public."UserRatings" (
 );
 
 
-ALTER TABLE public."UserRatings" OWNER TO empresa;
+ALTER TABLE public."UserRatings" OWNER TO imagem;
 
 --
--- Name: UserRatings_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: UserRatings_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."UserRatings_id_seq"
@@ -3696,17 +3699,17 @@ CREATE SEQUENCE public."UserRatings_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."UserRatings_id_seq" OWNER TO empresa;
+ALTER TABLE public."UserRatings_id_seq" OWNER TO imagem;
 
 --
--- Name: UserRatings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: UserRatings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."UserRatings_id_seq" OWNED BY public."UserRatings".id;
 
 
 --
--- Name: UserServices; Type: TABLE; Schema: public; Owner: empresa
+-- Name: UserServices; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."UserServices" (
@@ -3718,10 +3721,10 @@ CREATE TABLE public."UserServices" (
 );
 
 
-ALTER TABLE public."UserServices" OWNER TO empresa;
+ALTER TABLE public."UserServices" OWNER TO imagem;
 
 --
--- Name: UserServices_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: UserServices_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."UserServices_id_seq"
@@ -3733,17 +3736,17 @@ CREATE SEQUENCE public."UserServices_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."UserServices_id_seq" OWNER TO empresa;
+ALTER TABLE public."UserServices_id_seq" OWNER TO imagem;
 
 --
--- Name: UserServices_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: UserServices_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."UserServices_id_seq" OWNED BY public."UserServices".id;
 
 
 --
--- Name: Users; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Users; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Users" (
@@ -3768,14 +3771,14 @@ CREATE TABLE public."Users" (
     "defaultMenu" character varying(255) DEFAULT 'closed'::character varying NOT NULL,
     "defaultTheme" character varying(255) DEFAULT 'light'::character varying NOT NULL,
     "profileImage" character varying(255),
-    "allHistoric" character varying(255) DEFAULT 'disabled'::character varying NOT NULL,
-    "allUserChat" character varying(255) DEFAULT 'disabled'::character varying NOT NULL,
+    "allHistoric" character varying(20) DEFAULT 'disabled'::character varying NOT NULL,
+    "allUserChat" character varying(20) DEFAULT 'disabled'::character varying NOT NULL,
     "resetPassword" character varying(255),
-    "userClosePendingTicket" character varying(255) DEFAULT 'enabled'::character varying NOT NULL,
-    "showDashboard" character varying(255) DEFAULT 'disabled'::character varying NOT NULL,
+    "userClosePendingTicket" character varying(20) DEFAULT 'enabled'::character varying NOT NULL,
+    "showDashboard" character varying(20) DEFAULT 'disabled'::character varying NOT NULL,
     "defaultTicketsManagerWidth" integer DEFAULT 550 NOT NULL,
-    "allowRealTime" character varying(255) DEFAULT 'disabled'::character varying NOT NULL,
-    "allowConnections" character varying(255) DEFAULT 'disabled'::character varying NOT NULL,
+    "allowRealTime" character varying(20) DEFAULT 'disabled'::character varying NOT NULL,
+    "allowConnections" character varying(20) DEFAULT 'disabled'::character varying NOT NULL,
     "userType" character varying(255) DEFAULT 'attendant'::character varying,
     "workDays" character varying(255) DEFAULT '1,2,3,4,5'::character varying,
     "lunchStart" character varying(255) DEFAULT NULL::character varying,
@@ -3783,21 +3786,22 @@ CREATE TABLE public."Users" (
     "twoFactorSecret" character varying(255),
     "twoFactorEnabled" boolean DEFAULT false,
     "pagePermissionsMode" character varying(20) DEFAULT 'inherit'::character varying NOT NULL,
-    CONSTRAINT chk_users_page_permissions_mode CHECK ((("pagePermissionsMode")::text = ANY ((ARRAY['inherit'::character varying, 'custom'::character varying])::text[])))
+    "allowContacts" character varying(20) DEFAULT false,
+    CONSTRAINT chk_users_page_permissions_mode CHECK ((("pagePermissionsMode")::text = ANY (ARRAY[('inherit'::character varying)::text, ('custom'::character varying)::text])))
 );
 
 
-ALTER TABLE public."Users" OWNER TO empresa;
+ALTER TABLE public."Users" OWNER TO imagem;
 
 --
--- Name: COLUMN "Users"."pagePermissionsMode"; Type: COMMENT; Schema: public; Owner: empresa
+-- Name: COLUMN "Users"."pagePermissionsMode"; Type: COMMENT; Schema: public; Owner: imagem
 --
 
 COMMENT ON COLUMN public."Users"."pagePermissionsMode" IS 'Modo de permissões de páginas: inherit (herdar do perfil) ou custom (personalizadas)';
 
 
 --
--- Name: Users_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Users_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Users_id_seq"
@@ -3809,17 +3813,17 @@ CREATE SEQUENCE public."Users_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Users_id_seq" OWNER TO empresa;
+ALTER TABLE public."Users_id_seq" OWNER TO imagem;
 
 --
--- Name: Users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Users_id_seq" OWNED BY public."Users".id;
 
 
 --
--- Name: Versions; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Versions; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Versions" (
@@ -3831,10 +3835,10 @@ CREATE TABLE public."Versions" (
 );
 
 
-ALTER TABLE public."Versions" OWNER TO empresa;
+ALTER TABLE public."Versions" OWNER TO imagem;
 
 --
--- Name: Versions_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Versions_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Versions_id_seq"
@@ -3846,17 +3850,17 @@ CREATE SEQUENCE public."Versions_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Versions_id_seq" OWNER TO empresa;
+ALTER TABLE public."Versions_id_seq" OWNER TO imagem;
 
 --
--- Name: Versions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Versions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Versions_id_seq" OWNED BY public."Versions".id;
 
 
 --
--- Name: Webhooks; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Webhooks; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Webhooks" (
@@ -3874,10 +3878,10 @@ CREATE TABLE public."Webhooks" (
 );
 
 
-ALTER TABLE public."Webhooks" OWNER TO empresa;
+ALTER TABLE public."Webhooks" OWNER TO imagem;
 
 --
--- Name: Webhooks_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Webhooks_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Webhooks_id_seq"
@@ -3889,17 +3893,17 @@ CREATE SEQUENCE public."Webhooks_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Webhooks_id_seq" OWNER TO empresa;
+ALTER TABLE public."Webhooks_id_seq" OWNER TO imagem;
 
 --
--- Name: Webhooks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Webhooks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Webhooks_id_seq" OWNED BY public."Webhooks".id;
 
 
 --
--- Name: WhatsappQueues; Type: TABLE; Schema: public; Owner: empresa
+-- Name: WhatsappQueues; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."WhatsappQueues" (
@@ -3910,10 +3914,10 @@ CREATE TABLE public."WhatsappQueues" (
 );
 
 
-ALTER TABLE public."WhatsappQueues" OWNER TO empresa;
+ALTER TABLE public."WhatsappQueues" OWNER TO imagem;
 
 --
--- Name: Whatsapps; Type: TABLE; Schema: public; Owner: empresa
+-- Name: Whatsapps; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public."Whatsapps" (
@@ -3984,10 +3988,10 @@ CREATE TABLE public."Whatsapps" (
 );
 
 
-ALTER TABLE public."Whatsapps" OWNER TO empresa;
+ALTER TABLE public."Whatsapps" OWNER TO imagem;
 
 --
--- Name: Whatsapps_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: Whatsapps_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public."Whatsapps_id_seq"
@@ -3999,17 +4003,17 @@ CREATE SEQUENCE public."Whatsapps_id_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Whatsapps_id_seq" OWNER TO empresa;
+ALTER TABLE public."Whatsapps_id_seq" OWNER TO imagem;
 
 --
--- Name: Whatsapps_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: Whatsapps_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public."Whatsapps_id_seq" OWNED BY public."Whatsapps".id;
 
 
 --
--- Name: appointments; Type: TABLE; Schema: public; Owner: empresa
+-- Name: appointments; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.appointments (
@@ -4030,17 +4034,17 @@ CREATE TABLE public.appointments (
 );
 
 
-ALTER TABLE public.appointments OWNER TO empresa;
+ALTER TABLE public.appointments OWNER TO imagem;
 
 --
--- Name: COLUMN appointments.google_event_id; Type: COMMENT; Schema: public; Owner: empresa
+-- Name: COLUMN appointments.google_event_id; Type: COMMENT; Schema: public; Owner: imagem
 --
 
 COMMENT ON COLUMN public.appointments.google_event_id IS 'ID do evento correspondente no Google Calendar';
 
 
 --
--- Name: appointments_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: appointments_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.appointments_id_seq
@@ -4052,17 +4056,17 @@ CREATE SEQUENCE public.appointments_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.appointments_id_seq OWNER TO empresa;
+ALTER TABLE public.appointments_id_seq OWNER TO imagem;
 
 --
--- Name: appointments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: appointments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.appointments_id_seq OWNED BY public.appointments.id;
 
 
 --
--- Name: company_api_keys; Type: TABLE; Schema: public; Owner: empresa
+-- Name: company_api_keys; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.company_api_keys (
@@ -4079,10 +4083,10 @@ CREATE TABLE public.company_api_keys (
 );
 
 
-ALTER TABLE public.company_api_keys OWNER TO empresa;
+ALTER TABLE public.company_api_keys OWNER TO imagem;
 
 --
--- Name: company_api_keys_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: company_api_keys_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.company_api_keys_id_seq
@@ -4094,17 +4098,17 @@ CREATE SEQUENCE public.company_api_keys_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.company_api_keys_id_seq OWNER TO empresa;
+ALTER TABLE public.company_api_keys_id_seq OWNER TO imagem;
 
 --
--- Name: company_api_keys_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: company_api_keys_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.company_api_keys_id_seq OWNED BY public.company_api_keys.id;
 
 
 --
--- Name: company_integration_field_maps; Type: TABLE; Schema: public; Owner: empresa
+-- Name: company_integration_field_maps; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.company_integration_field_maps (
@@ -4119,10 +4123,10 @@ CREATE TABLE public.company_integration_field_maps (
 );
 
 
-ALTER TABLE public.company_integration_field_maps OWNER TO empresa;
+ALTER TABLE public.company_integration_field_maps OWNER TO imagem;
 
 --
--- Name: company_integration_field_maps_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: company_integration_field_maps_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.company_integration_field_maps_id_seq
@@ -4134,17 +4138,17 @@ CREATE SEQUENCE public.company_integration_field_maps_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.company_integration_field_maps_id_seq OWNER TO empresa;
+ALTER TABLE public.company_integration_field_maps_id_seq OWNER TO imagem;
 
 --
--- Name: company_integration_field_maps_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: company_integration_field_maps_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.company_integration_field_maps_id_seq OWNED BY public.company_integration_field_maps.id;
 
 
 --
--- Name: company_integration_settings; Type: TABLE; Schema: public; Owner: empresa
+-- Name: company_integration_settings; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.company_integration_settings (
@@ -4163,10 +4167,10 @@ CREATE TABLE public.company_integration_settings (
 );
 
 
-ALTER TABLE public.company_integration_settings OWNER TO empresa;
+ALTER TABLE public.company_integration_settings OWNER TO imagem;
 
 --
--- Name: company_integration_settings_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: company_integration_settings_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.company_integration_settings_id_seq
@@ -4178,17 +4182,17 @@ CREATE SEQUENCE public.company_integration_settings_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.company_integration_settings_id_seq OWNER TO empresa;
+ALTER TABLE public.company_integration_settings_id_seq OWNER TO imagem;
 
 --
--- Name: company_integration_settings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: company_integration_settings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.company_integration_settings_id_seq OWNED BY public.company_integration_settings.id;
 
 
 --
--- Name: company_payment_settings; Type: TABLE; Schema: public; Owner: empresa
+-- Name: company_payment_settings; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.company_payment_settings (
@@ -4203,10 +4207,10 @@ CREATE TABLE public.company_payment_settings (
 );
 
 
-ALTER TABLE public.company_payment_settings OWNER TO empresa;
+ALTER TABLE public.company_payment_settings OWNER TO imagem;
 
 --
--- Name: company_payment_settings_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: company_payment_settings_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.company_payment_settings_id_seq
@@ -4218,17 +4222,17 @@ CREATE SEQUENCE public.company_payment_settings_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.company_payment_settings_id_seq OWNER TO empresa;
+ALTER TABLE public.company_payment_settings_id_seq OWNER TO imagem;
 
 --
--- Name: company_payment_settings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: company_payment_settings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.company_payment_settings_id_seq OWNED BY public.company_payment_settings.id;
 
 
 --
--- Name: crm_client_contacts; Type: TABLE; Schema: public; Owner: empresa
+-- Name: crm_client_contacts; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.crm_client_contacts (
@@ -4241,10 +4245,10 @@ CREATE TABLE public.crm_client_contacts (
 );
 
 
-ALTER TABLE public.crm_client_contacts OWNER TO empresa;
+ALTER TABLE public.crm_client_contacts OWNER TO imagem;
 
 --
--- Name: crm_client_contacts_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: crm_client_contacts_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.crm_client_contacts_id_seq
@@ -4255,17 +4259,17 @@ CREATE SEQUENCE public.crm_client_contacts_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.crm_client_contacts_id_seq OWNER TO empresa;
+ALTER TABLE public.crm_client_contacts_id_seq OWNER TO imagem;
 
 --
--- Name: crm_client_contacts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: crm_client_contacts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.crm_client_contacts_id_seq OWNED BY public.crm_client_contacts.id;
 
 
 --
--- Name: crm_clients; Type: TABLE; Schema: public; Owner: empresa
+-- Name: crm_clients; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.crm_clients (
@@ -4298,10 +4302,10 @@ CREATE TABLE public.crm_clients (
 );
 
 
-ALTER TABLE public.crm_clients OWNER TO empresa;
+ALTER TABLE public.crm_clients OWNER TO imagem;
 
 --
--- Name: crm_clients_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: crm_clients_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.crm_clients_id_seq
@@ -4312,17 +4316,17 @@ CREATE SEQUENCE public.crm_clients_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.crm_clients_id_seq OWNER TO empresa;
+ALTER TABLE public.crm_clients_id_seq OWNER TO imagem;
 
 --
--- Name: crm_clients_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: crm_clients_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.crm_clients_id_seq OWNED BY public.crm_clients.id;
 
 
 --
--- Name: crm_leads; Type: TABLE; Schema: public; Owner: empresa
+-- Name: crm_leads; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.crm_leads (
@@ -4355,10 +4359,10 @@ CREATE TABLE public.crm_leads (
 );
 
 
-ALTER TABLE public.crm_leads OWNER TO empresa;
+ALTER TABLE public.crm_leads OWNER TO imagem;
 
 --
--- Name: crm_leads_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: crm_leads_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.crm_leads_id_seq
@@ -4369,17 +4373,17 @@ CREATE SEQUENCE public.crm_leads_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.crm_leads_id_seq OWNER TO empresa;
+ALTER TABLE public.crm_leads_id_seq OWNER TO imagem;
 
 --
--- Name: crm_leads_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: crm_leads_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.crm_leads_id_seq OWNED BY public.crm_leads.id;
 
 
 --
--- Name: financeiro_faturas; Type: TABLE; Schema: public; Owner: empresa
+-- Name: financeiro_faturas; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.financeiro_faturas (
@@ -4414,10 +4418,10 @@ CREATE TABLE public.financeiro_faturas (
 );
 
 
-ALTER TABLE public.financeiro_faturas OWNER TO empresa;
+ALTER TABLE public.financeiro_faturas OWNER TO imagem;
 
 --
--- Name: financeiro_faturas_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: financeiro_faturas_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.financeiro_faturas_id_seq
@@ -4428,17 +4432,17 @@ CREATE SEQUENCE public.financeiro_faturas_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.financeiro_faturas_id_seq OWNER TO empresa;
+ALTER TABLE public.financeiro_faturas_id_seq OWNER TO imagem;
 
 --
--- Name: financeiro_faturas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: financeiro_faturas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.financeiro_faturas_id_seq OWNED BY public.financeiro_faturas.id;
 
 
 --
--- Name: financeiro_pagamentos; Type: TABLE; Schema: public; Owner: empresa
+-- Name: financeiro_pagamentos; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.financeiro_pagamentos (
@@ -4453,10 +4457,10 @@ CREATE TABLE public.financeiro_pagamentos (
 );
 
 
-ALTER TABLE public.financeiro_pagamentos OWNER TO empresa;
+ALTER TABLE public.financeiro_pagamentos OWNER TO imagem;
 
 --
--- Name: financeiro_pagamentos_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: financeiro_pagamentos_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.financeiro_pagamentos_id_seq
@@ -4467,17 +4471,17 @@ CREATE SEQUENCE public.financeiro_pagamentos_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.financeiro_pagamentos_id_seq OWNER TO empresa;
+ALTER TABLE public.financeiro_pagamentos_id_seq OWNER TO imagem;
 
 --
--- Name: financeiro_pagamentos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: financeiro_pagamentos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.financeiro_pagamentos_id_seq OWNED BY public.financeiro_pagamentos.id;
 
 
 --
--- Name: media_files; Type: TABLE; Schema: public; Owner: empresa
+-- Name: media_files; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.media_files (
@@ -4494,10 +4498,10 @@ CREATE TABLE public.media_files (
 );
 
 
-ALTER TABLE public.media_files OWNER TO empresa;
+ALTER TABLE public.media_files OWNER TO imagem;
 
 --
--- Name: media_files_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: media_files_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.media_files_id_seq
@@ -4509,17 +4513,17 @@ CREATE SEQUENCE public.media_files_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.media_files_id_seq OWNER TO empresa;
+ALTER TABLE public.media_files_id_seq OWNER TO imagem;
 
 --
--- Name: media_files_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: media_files_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.media_files_id_seq OWNED BY public.media_files.id;
 
 
 --
--- Name: media_folders; Type: TABLE; Schema: public; Owner: empresa
+-- Name: media_folders; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.media_folders (
@@ -4532,10 +4536,10 @@ CREATE TABLE public.media_folders (
 );
 
 
-ALTER TABLE public.media_folders OWNER TO empresa;
+ALTER TABLE public.media_folders OWNER TO imagem;
 
 --
--- Name: media_folders_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: media_folders_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.media_folders_id_seq
@@ -4547,17 +4551,17 @@ CREATE SEQUENCE public.media_folders_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.media_folders_id_seq OWNER TO empresa;
+ALTER TABLE public.media_folders_id_seq OWNER TO imagem;
 
 --
--- Name: media_folders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: media_folders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.media_folders_id_seq OWNED BY public.media_folders.id;
 
 
 --
--- Name: profissionais; Type: TABLE; Schema: public; Owner: empresa
+-- Name: profissionais; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.profissionais (
@@ -4576,10 +4580,10 @@ CREATE TABLE public.profissionais (
 );
 
 
-ALTER TABLE public.profissionais OWNER TO empresa;
+ALTER TABLE public.profissionais OWNER TO imagem;
 
 --
--- Name: profissionais_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: profissionais_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.profissionais_id_seq
@@ -4591,17 +4595,17 @@ CREATE SEQUENCE public.profissionais_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.profissionais_id_seq OWNER TO empresa;
+ALTER TABLE public.profissionais_id_seq OWNER TO imagem;
 
 --
--- Name: profissionais_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: profissionais_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.profissionais_id_seq OWNED BY public.profissionais.id;
 
 
 --
--- Name: project_products; Type: TABLE; Schema: public; Owner: empresa
+-- Name: project_products; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.project_products (
@@ -4617,10 +4621,10 @@ CREATE TABLE public.project_products (
 );
 
 
-ALTER TABLE public.project_products OWNER TO empresa;
+ALTER TABLE public.project_products OWNER TO imagem;
 
 --
--- Name: project_products_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: project_products_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.project_products_id_seq
@@ -4632,17 +4636,17 @@ CREATE SEQUENCE public.project_products_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.project_products_id_seq OWNER TO empresa;
+ALTER TABLE public.project_products_id_seq OWNER TO imagem;
 
 --
--- Name: project_products_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: project_products_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.project_products_id_seq OWNED BY public.project_products.id;
 
 
 --
--- Name: project_services; Type: TABLE; Schema: public; Owner: empresa
+-- Name: project_services; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.project_services (
@@ -4658,10 +4662,10 @@ CREATE TABLE public.project_services (
 );
 
 
-ALTER TABLE public.project_services OWNER TO empresa;
+ALTER TABLE public.project_services OWNER TO imagem;
 
 --
--- Name: project_services_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: project_services_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.project_services_id_seq
@@ -4673,17 +4677,17 @@ CREATE SEQUENCE public.project_services_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.project_services_id_seq OWNER TO empresa;
+ALTER TABLE public.project_services_id_seq OWNER TO imagem;
 
 --
--- Name: project_services_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: project_services_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.project_services_id_seq OWNED BY public.project_services.id;
 
 
 --
--- Name: project_task_users; Type: TABLE; Schema: public; Owner: empresa
+-- Name: project_task_users; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.project_task_users (
@@ -4697,10 +4701,10 @@ CREATE TABLE public.project_task_users (
 );
 
 
-ALTER TABLE public.project_task_users OWNER TO empresa;
+ALTER TABLE public.project_task_users OWNER TO imagem;
 
 --
--- Name: project_task_users_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: project_task_users_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.project_task_users_id_seq
@@ -4712,17 +4716,17 @@ CREATE SEQUENCE public.project_task_users_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.project_task_users_id_seq OWNER TO empresa;
+ALTER TABLE public.project_task_users_id_seq OWNER TO imagem;
 
 --
--- Name: project_task_users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: project_task_users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.project_task_users_id_seq OWNED BY public.project_task_users.id;
 
 
 --
--- Name: project_tasks; Type: TABLE; Schema: public; Owner: empresa
+-- Name: project_tasks; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.project_tasks (
@@ -4741,10 +4745,10 @@ CREATE TABLE public.project_tasks (
 );
 
 
-ALTER TABLE public.project_tasks OWNER TO empresa;
+ALTER TABLE public.project_tasks OWNER TO imagem;
 
 --
--- Name: project_tasks_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: project_tasks_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.project_tasks_id_seq
@@ -4756,17 +4760,17 @@ CREATE SEQUENCE public.project_tasks_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.project_tasks_id_seq OWNER TO empresa;
+ALTER TABLE public.project_tasks_id_seq OWNER TO imagem;
 
 --
--- Name: project_tasks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: project_tasks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.project_tasks_id_seq OWNED BY public.project_tasks.id;
 
 
 --
--- Name: project_users; Type: TABLE; Schema: public; Owner: empresa
+-- Name: project_users; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.project_users (
@@ -4781,10 +4785,10 @@ CREATE TABLE public.project_users (
 );
 
 
-ALTER TABLE public.project_users OWNER TO empresa;
+ALTER TABLE public.project_users OWNER TO imagem;
 
 --
--- Name: project_users_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: project_users_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.project_users_id_seq
@@ -4796,17 +4800,17 @@ CREATE SEQUENCE public.project_users_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.project_users_id_seq OWNER TO empresa;
+ALTER TABLE public.project_users_id_seq OWNER TO imagem;
 
 --
--- Name: project_users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: project_users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.project_users_id_seq OWNED BY public.project_users.id;
 
 
 --
--- Name: projects; Type: TABLE; Schema: public; Owner: empresa
+-- Name: projects; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.projects (
@@ -4827,10 +4831,10 @@ CREATE TABLE public.projects (
 );
 
 
-ALTER TABLE public.projects OWNER TO empresa;
+ALTER TABLE public.projects OWNER TO imagem;
 
 --
--- Name: projects_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: projects_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.projects_id_seq
@@ -4842,17 +4846,17 @@ CREATE SEQUENCE public.projects_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.projects_id_seq OWNER TO empresa;
+ALTER TABLE public.projects_id_seq OWNER TO imagem;
 
 --
--- Name: projects_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: projects_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.projects_id_seq OWNED BY public.projects.id;
 
 
 --
--- Name: scheduled_dispatch_logs; Type: TABLE; Schema: public; Owner: empresa
+-- Name: scheduled_dispatch_logs; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.scheduled_dispatch_logs (
@@ -4869,10 +4873,10 @@ CREATE TABLE public.scheduled_dispatch_logs (
 );
 
 
-ALTER TABLE public.scheduled_dispatch_logs OWNER TO empresa;
+ALTER TABLE public.scheduled_dispatch_logs OWNER TO imagem;
 
 --
--- Name: scheduled_dispatch_logs_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: scheduled_dispatch_logs_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.scheduled_dispatch_logs_id_seq
@@ -4884,17 +4888,17 @@ CREATE SEQUENCE public.scheduled_dispatch_logs_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.scheduled_dispatch_logs_id_seq OWNER TO empresa;
+ALTER TABLE public.scheduled_dispatch_logs_id_seq OWNER TO imagem;
 
 --
--- Name: scheduled_dispatch_logs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: scheduled_dispatch_logs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.scheduled_dispatch_logs_id_seq OWNED BY public.scheduled_dispatch_logs.id;
 
 
 --
--- Name: scheduled_dispatchers; Type: TABLE; Schema: public; Owner: empresa
+-- Name: scheduled_dispatchers; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.scheduled_dispatchers (
@@ -4914,10 +4918,10 @@ CREATE TABLE public.scheduled_dispatchers (
 );
 
 
-ALTER TABLE public.scheduled_dispatchers OWNER TO empresa;
+ALTER TABLE public.scheduled_dispatchers OWNER TO imagem;
 
 --
--- Name: scheduled_dispatchers_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: scheduled_dispatchers_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.scheduled_dispatchers_id_seq
@@ -4929,17 +4933,17 @@ CREATE SEQUENCE public.scheduled_dispatchers_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.scheduled_dispatchers_id_seq OWNER TO empresa;
+ALTER TABLE public.scheduled_dispatchers_id_seq OWNER TO imagem;
 
 --
--- Name: scheduled_dispatchers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: scheduled_dispatchers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.scheduled_dispatchers_id_seq OWNED BY public.scheduled_dispatchers.id;
 
 
 --
--- Name: servicos; Type: TABLE; Schema: public; Owner: empresa
+-- Name: servicos; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.servicos (
@@ -4955,10 +4959,10 @@ CREATE TABLE public.servicos (
 );
 
 
-ALTER TABLE public.servicos OWNER TO empresa;
+ALTER TABLE public.servicos OWNER TO imagem;
 
 --
--- Name: servicos_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: servicos_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.servicos_id_seq
@@ -4970,17 +4974,17 @@ CREATE SEQUENCE public.servicos_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.servicos_id_seq OWNER TO empresa;
+ALTER TABLE public.servicos_id_seq OWNER TO imagem;
 
 --
--- Name: servicos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: servicos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.servicos_id_seq OWNED BY public.servicos.id;
 
 
 --
--- Name: slider_home; Type: TABLE; Schema: public; Owner: empresa
+-- Name: slider_home; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.slider_home (
@@ -4994,10 +4998,10 @@ CREATE TABLE public.slider_home (
 );
 
 
-ALTER TABLE public.slider_home OWNER TO empresa;
+ALTER TABLE public.slider_home OWNER TO imagem;
 
 --
--- Name: slider_home_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: slider_home_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.slider_home_id_seq
@@ -5009,17 +5013,17 @@ CREATE SEQUENCE public.slider_home_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.slider_home_id_seq OWNER TO empresa;
+ALTER TABLE public.slider_home_id_seq OWNER TO imagem;
 
 --
--- Name: slider_home_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: slider_home_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.slider_home_id_seq OWNED BY public.slider_home.id;
 
 
 --
--- Name: tutorial_videos; Type: TABLE; Schema: public; Owner: empresa
+-- Name: tutorial_videos; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.tutorial_videos (
@@ -5038,10 +5042,10 @@ CREATE TABLE public.tutorial_videos (
 );
 
 
-ALTER TABLE public.tutorial_videos OWNER TO empresa;
+ALTER TABLE public.tutorial_videos OWNER TO imagem;
 
 --
--- Name: tutorial_videos_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: tutorial_videos_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.tutorial_videos_id_seq
@@ -5053,17 +5057,17 @@ CREATE SEQUENCE public.tutorial_videos_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.tutorial_videos_id_seq OWNER TO empresa;
+ALTER TABLE public.tutorial_videos_id_seq OWNER TO imagem;
 
 --
--- Name: tutorial_videos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: tutorial_videos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.tutorial_videos_id_seq OWNED BY public.tutorial_videos.id;
 
 
 --
--- Name: user_schedules; Type: TABLE; Schema: public; Owner: empresa
+-- Name: user_schedules; Type: TABLE; Schema: public; Owner: imagem
 --
 
 CREATE TABLE public.user_schedules (
@@ -5079,17 +5083,17 @@ CREATE TABLE public.user_schedules (
 );
 
 
-ALTER TABLE public.user_schedules OWNER TO empresa;
+ALTER TABLE public.user_schedules OWNER TO imagem;
 
 --
--- Name: COLUMN user_schedules.user_google_calendar_integration_id; Type: COMMENT; Schema: public; Owner: empresa
+-- Name: COLUMN user_schedules.user_google_calendar_integration_id; Type: COMMENT; Schema: public; Owner: imagem
 --
 
 COMMENT ON COLUMN public.user_schedules.user_google_calendar_integration_id IS 'ID da integração Google Calendar vinculada a esta agenda';
 
 
 --
--- Name: user_schedules_id_seq; Type: SEQUENCE; Schema: public; Owner: empresa
+-- Name: user_schedules_id_seq; Type: SEQUENCE; Schema: public; Owner: imagem
 --
 
 CREATE SEQUENCE public.user_schedules_id_seq
@@ -5101,780 +5105,780 @@ CREATE SEQUENCE public.user_schedules_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.user_schedules_id_seq OWNER TO empresa;
+ALTER TABLE public.user_schedules_id_seq OWNER TO imagem;
 
 --
--- Name: user_schedules_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: empresa
+-- Name: user_schedules_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: imagem
 --
 
 ALTER SEQUENCE public.user_schedules_id_seq OWNED BY public.user_schedules.id;
 
 
 --
--- Name: AffiliateCommissions id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: AffiliateCommissions id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AffiliateCommissions" ALTER COLUMN id SET DEFAULT nextval('public."AffiliateCommissions_id_seq"'::regclass);
 
 
 --
--- Name: AffiliateLinks id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: AffiliateLinks id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AffiliateLinks" ALTER COLUMN id SET DEFAULT nextval('public."AffiliateLinks_id_seq"'::regclass);
 
 
 --
--- Name: AffiliateWithdrawals id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: AffiliateWithdrawals id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AffiliateWithdrawals" ALTER COLUMN id SET DEFAULT nextval('public."AffiliateWithdrawals_id_seq"'::regclass);
 
 
 --
--- Name: Affiliates id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Affiliates id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Affiliates" ALTER COLUMN id SET DEFAULT nextval('public."Affiliates_id_seq"'::regclass);
 
 
 --
--- Name: Announcements id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Announcements id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Announcements" ALTER COLUMN id SET DEFAULT nextval('public."Announcements_id_seq"'::regclass);
 
 
 --
--- Name: ApiUsages id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: ApiUsages id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ApiUsages" ALTER COLUMN id SET DEFAULT nextval('public."ApiUsages_id_seq"'::regclass);
 
 
 --
--- Name: AutomationActions id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: AutomationActions id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AutomationActions" ALTER COLUMN id SET DEFAULT nextval('public."AutomationActions_id_seq"'::regclass);
 
 
 --
--- Name: AutomationExecutions id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: AutomationExecutions id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AutomationExecutions" ALTER COLUMN id SET DEFAULT nextval('public."AutomationExecutions_id_seq"'::regclass);
 
 
 --
--- Name: AutomationLogs id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: AutomationLogs id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AutomationLogs" ALTER COLUMN id SET DEFAULT nextval('public."AutomationLogs_id_seq"'::regclass);
 
 
 --
--- Name: Automations id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Automations id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Automations" ALTER COLUMN id SET DEFAULT nextval('public."Automations_id_seq"'::regclass);
 
 
 --
--- Name: Baileys id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Baileys id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Baileys" ALTER COLUMN id SET DEFAULT nextval('public."Baileys_id_seq"'::regclass);
 
 
 --
--- Name: CallRecords id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: CallRecords id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."CallRecords" ALTER COLUMN id SET DEFAULT nextval('public."CallRecords_id_seq"'::regclass);
 
 
 --
--- Name: CampaignSettings id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: CampaignSettings id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."CampaignSettings" ALTER COLUMN id SET DEFAULT nextval('public."CampaignSettings_id_seq"'::regclass);
 
 
 --
--- Name: CampaignShipping id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: CampaignShipping id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."CampaignShipping" ALTER COLUMN id SET DEFAULT nextval('public."CampaignShipping_id_seq"'::regclass);
 
 
 --
--- Name: Campaigns id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Campaigns id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Campaigns" ALTER COLUMN id SET DEFAULT nextval('public."Campaigns_id_seq"'::regclass);
 
 
 --
--- Name: ChatMessages id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: ChatMessages id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ChatMessages" ALTER COLUMN id SET DEFAULT nextval('public."ChatMessages_id_seq"'::regclass);
 
 
 --
--- Name: ChatUsers id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: ChatUsers id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ChatUsers" ALTER COLUMN id SET DEFAULT nextval('public."ChatUsers_id_seq"'::regclass);
 
 
 --
--- Name: Chatbots id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Chatbots id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Chatbots" ALTER COLUMN id SET DEFAULT nextval('public."Chatbots_id_seq"'::regclass);
 
 
 --
--- Name: Chats id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Chats id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Chats" ALTER COLUMN id SET DEFAULT nextval('public."Chats_id_seq"'::regclass);
 
 
 --
--- Name: Companies id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Companies id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Companies" ALTER COLUMN id SET DEFAULT nextval('public."Companies_id_seq"'::regclass);
 
 
 --
--- Name: CompaniesSettings id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: CompaniesSettings id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."CompaniesSettings" ALTER COLUMN id SET DEFAULT nextval('public."CompaniesSettings_id_seq"'::regclass);
 
 
 --
--- Name: ContactCustomFields id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: ContactCustomFields id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ContactCustomFields" ALTER COLUMN id SET DEFAULT nextval('public."ContactCustomFields_id_seq"'::regclass);
 
 
 --
--- Name: ContactGroups id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: ContactGroups id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ContactGroups" ALTER COLUMN id SET DEFAULT nextval('public."ContactGroups_id_seq"'::regclass);
 
 
 --
--- Name: ContactListItems id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: ContactListItems id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ContactListItems" ALTER COLUMN id SET DEFAULT nextval('public."ContactListItems_id_seq"'::regclass);
 
 
 --
--- Name: ContactLists id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: ContactLists id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ContactLists" ALTER COLUMN id SET DEFAULT nextval('public."ContactLists_id_seq"'::regclass);
 
 
 --
--- Name: ContactWallets id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: ContactWallets id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ContactWallets" ALTER COLUMN id SET DEFAULT nextval('public."ContactWallets_id_seq"'::regclass);
 
 
 --
--- Name: Contacts id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Contacts id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Contacts" ALTER COLUMN id SET DEFAULT nextval('public."Contacts_id_seq"'::regclass);
 
 
 --
--- Name: Coupons id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Coupons id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Coupons" ALTER COLUMN id SET DEFAULT nextval('public."Coupons_id_seq"'::regclass);
 
 
 --
--- Name: DialogChatBots id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: DialogChatBots id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."DialogChatBots" ALTER COLUMN id SET DEFAULT nextval('public."DialogChatBots_id_seq"'::regclass);
 
 
 --
--- Name: Faturas id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Faturas id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Faturas" ALTER COLUMN id SET DEFAULT nextval('public."Faturas_id_seq"'::regclass);
 
 
 --
--- Name: Ferramentas id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Ferramentas id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Ferramentas" ALTER COLUMN id SET DEFAULT nextval('public."Ferramentas_id_seq"'::regclass);
 
 
 --
--- Name: Files id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Files id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Files" ALTER COLUMN id SET DEFAULT nextval('public."Files_id_seq"'::regclass);
 
 
 --
--- Name: FilesOptions id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: FilesOptions id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."FilesOptions" ALTER COLUMN id SET DEFAULT nextval('public."FilesOptions_id_seq"'::regclass);
 
 
 --
--- Name: FlowAudios id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: FlowAudios id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."FlowAudios" ALTER COLUMN id SET DEFAULT nextval('public."FlowAudios_id_seq"'::regclass);
 
 
 --
--- Name: FlowBuilders id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: FlowBuilders id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."FlowBuilders" ALTER COLUMN id SET DEFAULT nextval('public."FlowBuilders_id_seq"'::regclass);
 
 
 --
--- Name: FlowCampaigns id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: FlowCampaigns id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."FlowCampaigns" ALTER COLUMN id SET DEFAULT nextval('public."FlowCampaigns_id_seq"'::regclass);
 
 
 --
--- Name: FlowDefaults id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: FlowDefaults id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."FlowDefaults" ALTER COLUMN id SET DEFAULT nextval('public."FlowDefaults_id_seq"'::regclass);
 
 
 --
--- Name: FlowImgs id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: FlowImgs id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."FlowImgs" ALTER COLUMN id SET DEFAULT nextval('public."FlowImgs_id_seq"'::regclass);
 
 
 --
--- Name: GoogleCalendarIntegrations id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: GoogleCalendarIntegrations id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."GoogleCalendarIntegrations" ALTER COLUMN id SET DEFAULT nextval('public."GoogleCalendarIntegrations_id_seq"'::regclass);
 
 
 --
--- Name: GoogleSheetsTokens id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: GoogleSheetsTokens id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."GoogleSheetsTokens" ALTER COLUMN id SET DEFAULT nextval('public."GoogleSheetsTokens_id_seq"'::regclass);
 
 
 --
--- Name: Helps id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Helps id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Helps" ALTER COLUMN id SET DEFAULT nextval('public."Helps_id_seq"'::regclass);
 
 
 --
--- Name: IaWorkflows id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: IaWorkflows id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."IaWorkflows" ALTER COLUMN id SET DEFAULT nextval('public."IaWorkflows_id_seq"'::regclass);
 
 
 --
--- Name: Integrations id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Integrations id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Integrations" ALTER COLUMN id SET DEFAULT nextval('public."Integrations_id_seq"'::regclass);
 
 
 --
--- Name: Invoices id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Invoices id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Invoices" ALTER COLUMN id SET DEFAULT nextval('public."Invoices_id_seq"'::regclass);
 
 
 --
--- Name: Languages id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Languages id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Languages" ALTER COLUMN id SET DEFAULT nextval('public."Languages_id_seq"'::regclass);
 
 
 --
--- Name: LogTickets id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: LogTickets id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."LogTickets" ALTER COLUMN id SET DEFAULT nextval('public."LogTickets_id_seq"'::regclass);
 
 
 --
--- Name: MediaFiles id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: MediaFiles id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."MediaFiles" ALTER COLUMN id SET DEFAULT nextval('public."MediaFiles_id_seq"'::regclass);
 
 
 --
--- Name: MediaFolders id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: MediaFolders id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."MediaFolders" ALTER COLUMN id SET DEFAULT nextval('public."MediaFolders_id_seq"'::regclass);
 
 
 --
--- Name: Messages id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Messages id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Messages" ALTER COLUMN id SET DEFAULT nextval('public."Messages_id_seq"'::regclass);
 
 
 --
--- Name: MobileWebhooks id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: MobileWebhooks id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."MobileWebhooks" ALTER COLUMN id SET DEFAULT nextval('public."MobileWebhooks_id_seq"'::regclass);
 
 
 --
--- Name: Negocios id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Negocios id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Negocios" ALTER COLUMN id SET DEFAULT nextval('public."Negocios_id_seq"'::regclass);
 
 
 --
--- Name: Partners id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Partners id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Partners" ALTER COLUMN id SET DEFAULT nextval('public."Partners_id_seq"'::regclass);
 
 
 --
--- Name: Plans id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Plans id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Plans" ALTER COLUMN id SET DEFAULT nextval('public."Plans_id_seq"'::regclass);
 
 
 --
--- Name: ProdutoCategorias id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: ProdutoCategorias id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ProdutoCategorias" ALTER COLUMN id SET DEFAULT nextval('public."ProdutoCategorias_id_seq"'::regclass);
 
 
 --
--- Name: ProdutoVariacaoGrupos id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoGrupos id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ProdutoVariacaoGrupos" ALTER COLUMN id SET DEFAULT nextval('public."ProdutoVariacaoGrupos_id_seq"'::regclass);
 
 
 --
--- Name: ProdutoVariacaoItens id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoItens id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ProdutoVariacaoItens" ALTER COLUMN id SET DEFAULT nextval('public."ProdutoVariacaoItens_id_seq"'::regclass);
 
 
 --
--- Name: ProdutoVariacaoOpcoes id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoOpcoes id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ProdutoVariacaoOpcoes" ALTER COLUMN id SET DEFAULT nextval('public."ProdutoVariacaoOpcoes_id_seq"'::regclass);
 
 
 --
--- Name: Produtos id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Produtos id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Produtos" ALTER COLUMN id SET DEFAULT nextval('public."Produtos_id_seq"'::regclass);
 
 
 --
--- Name: PromptToolSettings id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: PromptToolSettings id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."PromptToolSettings" ALTER COLUMN id SET DEFAULT nextval('public."PromptToolSettings_id_seq"'::regclass);
 
 
 --
--- Name: Prompts id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Prompts id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Prompts" ALTER COLUMN id SET DEFAULT nextval('public."Prompts_id_seq"'::regclass);
 
 
 --
--- Name: QueueIntegrations id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: QueueIntegrations id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."QueueIntegrations" ALTER COLUMN id SET DEFAULT nextval('public."QueueIntegrations_id_seq"'::regclass);
 
 
 --
--- Name: QueueOptions id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: QueueOptions id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."QueueOptions" ALTER COLUMN id SET DEFAULT nextval('public."QueueOptions_id_seq"'::regclass);
 
 
 --
--- Name: Queues id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Queues id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Queues" ALTER COLUMN id SET DEFAULT nextval('public."Queues_id_seq"'::regclass);
 
 
 --
--- Name: QuickMessages id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: QuickMessages id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."QuickMessages" ALTER COLUMN id SET DEFAULT nextval('public."QuickMessages_id_seq"'::regclass);
 
 
 --
--- Name: ScheduledMessages id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: ScheduledMessages id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ScheduledMessages" ALTER COLUMN id SET DEFAULT nextval('public."ScheduledMessages_id_seq"'::regclass);
 
 
 --
--- Name: ScheduledMessagesEnvios id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: ScheduledMessagesEnvios id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ScheduledMessagesEnvios" ALTER COLUMN id SET DEFAULT nextval('public."ScheduledMessagesEnvios_id_seq"'::regclass);
 
 
 --
--- Name: Schedules id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Schedules id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Schedules" ALTER COLUMN id SET DEFAULT nextval('public."Schedules_id_seq"'::regclass);
 
 
 --
--- Name: Settings id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Settings id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Settings" ALTER COLUMN id SET DEFAULT nextval('public."Settings_id_seq"'::regclass);
 
 
 --
--- Name: SliderBanners id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: SliderBanners id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."SliderBanners" ALTER COLUMN id SET DEFAULT nextval('public."SliderBanners_id_seq"'::regclass);
 
 
 --
--- Name: Subscriptions id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Subscriptions id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Subscriptions" ALTER COLUMN id SET DEFAULT nextval('public."Subscriptions_id_seq"'::regclass);
 
 
 --
--- Name: Tags id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Tags id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Tags" ALTER COLUMN id SET DEFAULT nextval('public."Tags_id_seq"'::regclass);
 
 
 --
--- Name: TicketNotes id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: TicketNotes id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."TicketNotes" ALTER COLUMN id SET DEFAULT nextval('public."TicketNotes_id_seq"'::regclass);
 
 
 --
--- Name: TicketTraking id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: TicketTraking id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."TicketTraking" ALTER COLUMN id SET DEFAULT nextval('public."TicketTraking_id_seq"'::regclass);
 
 
 --
--- Name: Tickets id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Tickets id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Tickets" ALTER COLUMN id SET DEFAULT nextval('public."Tickets_id_seq"'::regclass);
 
 
 --
--- Name: Translations id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Translations id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Translations" ALTER COLUMN id SET DEFAULT nextval('public."Translations_id_seq"'::regclass);
 
 
 --
--- Name: UserDevices id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: UserDevices id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserDevices" ALTER COLUMN id SET DEFAULT nextval('public."UserDevices_id_seq"'::regclass);
 
 
 --
--- Name: UserGoogleCalendarIntegrations id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: UserGoogleCalendarIntegrations id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserGoogleCalendarIntegrations" ALTER COLUMN id SET DEFAULT nextval('public."UserGoogleCalendarIntegrations_id_seq"'::regclass);
 
 
 --
--- Name: UserPagePermissions id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: UserPagePermissions id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserPagePermissions" ALTER COLUMN id SET DEFAULT nextval('public."UserPagePermissions_id_seq"'::regclass);
 
 
 --
--- Name: UserRatings id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: UserRatings id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserRatings" ALTER COLUMN id SET DEFAULT nextval('public."UserRatings_id_seq"'::regclass);
 
 
 --
--- Name: UserServices id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: UserServices id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserServices" ALTER COLUMN id SET DEFAULT nextval('public."UserServices_id_seq"'::regclass);
 
 
 --
--- Name: Users id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Users id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Users" ALTER COLUMN id SET DEFAULT nextval('public."Users_id_seq"'::regclass);
 
 
 --
--- Name: Versions id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Versions id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Versions" ALTER COLUMN id SET DEFAULT nextval('public."Versions_id_seq"'::regclass);
 
 
 --
--- Name: Webhooks id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Webhooks id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Webhooks" ALTER COLUMN id SET DEFAULT nextval('public."Webhooks_id_seq"'::regclass);
 
 
 --
--- Name: Whatsapps id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: Whatsapps id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Whatsapps" ALTER COLUMN id SET DEFAULT nextval('public."Whatsapps_id_seq"'::regclass);
 
 
 --
--- Name: appointments id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: appointments id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.appointments ALTER COLUMN id SET DEFAULT nextval('public.appointments_id_seq'::regclass);
 
 
 --
--- Name: company_api_keys id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: company_api_keys id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.company_api_keys ALTER COLUMN id SET DEFAULT nextval('public.company_api_keys_id_seq'::regclass);
 
 
 --
--- Name: company_integration_field_maps id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: company_integration_field_maps id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.company_integration_field_maps ALTER COLUMN id SET DEFAULT nextval('public.company_integration_field_maps_id_seq'::regclass);
 
 
 --
--- Name: company_integration_settings id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: company_integration_settings id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.company_integration_settings ALTER COLUMN id SET DEFAULT nextval('public.company_integration_settings_id_seq'::regclass);
 
 
 --
--- Name: company_payment_settings id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: company_payment_settings id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.company_payment_settings ALTER COLUMN id SET DEFAULT nextval('public.company_payment_settings_id_seq'::regclass);
 
 
 --
--- Name: crm_client_contacts id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: crm_client_contacts id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.crm_client_contacts ALTER COLUMN id SET DEFAULT nextval('public.crm_client_contacts_id_seq'::regclass);
 
 
 --
--- Name: crm_clients id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: crm_clients id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.crm_clients ALTER COLUMN id SET DEFAULT nextval('public.crm_clients_id_seq'::regclass);
 
 
 --
--- Name: crm_leads id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: crm_leads id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.crm_leads ALTER COLUMN id SET DEFAULT nextval('public.crm_leads_id_seq'::regclass);
 
 
 --
--- Name: financeiro_faturas id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: financeiro_faturas id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.financeiro_faturas ALTER COLUMN id SET DEFAULT nextval('public.financeiro_faturas_id_seq'::regclass);
 
 
 --
--- Name: financeiro_pagamentos id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: financeiro_pagamentos id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.financeiro_pagamentos ALTER COLUMN id SET DEFAULT nextval('public.financeiro_pagamentos_id_seq'::regclass);
 
 
 --
--- Name: media_files id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: media_files id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.media_files ALTER COLUMN id SET DEFAULT nextval('public.media_files_id_seq'::regclass);
 
 
 --
--- Name: media_folders id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: media_folders id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.media_folders ALTER COLUMN id SET DEFAULT nextval('public.media_folders_id_seq'::regclass);
 
 
 --
--- Name: profissionais id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: profissionais id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.profissionais ALTER COLUMN id SET DEFAULT nextval('public.profissionais_id_seq'::regclass);
 
 
 --
--- Name: project_products id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: project_products id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_products ALTER COLUMN id SET DEFAULT nextval('public.project_products_id_seq'::regclass);
 
 
 --
--- Name: project_services id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: project_services id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_services ALTER COLUMN id SET DEFAULT nextval('public.project_services_id_seq'::regclass);
 
 
 --
--- Name: project_task_users id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: project_task_users id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_task_users ALTER COLUMN id SET DEFAULT nextval('public.project_task_users_id_seq'::regclass);
 
 
 --
--- Name: project_tasks id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: project_tasks id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_tasks ALTER COLUMN id SET DEFAULT nextval('public.project_tasks_id_seq'::regclass);
 
 
 --
--- Name: project_users id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: project_users id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_users ALTER COLUMN id SET DEFAULT nextval('public.project_users_id_seq'::regclass);
 
 
 --
--- Name: projects id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: projects id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.projects ALTER COLUMN id SET DEFAULT nextval('public.projects_id_seq'::regclass);
 
 
 --
--- Name: scheduled_dispatch_logs id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: scheduled_dispatch_logs id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.scheduled_dispatch_logs ALTER COLUMN id SET DEFAULT nextval('public.scheduled_dispatch_logs_id_seq'::regclass);
 
 
 --
--- Name: scheduled_dispatchers id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: scheduled_dispatchers id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.scheduled_dispatchers ALTER COLUMN id SET DEFAULT nextval('public.scheduled_dispatchers_id_seq'::regclass);
 
 
 --
--- Name: servicos id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: servicos id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.servicos ALTER COLUMN id SET DEFAULT nextval('public.servicos_id_seq'::regclass);
 
 
 --
--- Name: slider_home id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: slider_home id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.slider_home ALTER COLUMN id SET DEFAULT nextval('public.slider_home_id_seq'::regclass);
 
 
 --
--- Name: tutorial_videos id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: tutorial_videos id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.tutorial_videos ALTER COLUMN id SET DEFAULT nextval('public.tutorial_videos_id_seq'::regclass);
 
 
 --
--- Name: user_schedules id; Type: DEFAULT; Schema: public; Owner: empresa
+-- Name: user_schedules id; Type: DEFAULT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.user_schedules ALTER COLUMN id SET DEFAULT nextval('public.user_schedules_id_seq'::regclass);
 
 
 --
--- Data for Name: AffiliateCommissions; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: AffiliateCommissions; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."AffiliateCommissions" (id, "affiliateId", "referredCompanyId", "invoiceId", "commissionAmount", "commissionRate", status, notes, metadata, "createdAt", "paidAt", "updatedAt", "faturaId") FROM stdin;
@@ -5882,7 +5886,7 @@ COPY public."AffiliateCommissions" (id, "affiliateId", "referredCompanyId", "inv
 
 
 --
--- Data for Name: AffiliateLinks; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: AffiliateLinks; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."AffiliateLinks" (id, "affiliateId", code, url, clicks, signups, conversions, "trackingData", "createdAt", "updatedAt") FROM stdin;
@@ -5890,7 +5894,7 @@ COPY public."AffiliateLinks" (id, "affiliateId", code, url, clicks, signups, con
 
 
 --
--- Data for Name: AffiliateWithdrawals; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: AffiliateWithdrawals; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."AffiliateWithdrawals" (id, "affiliateId", amount, status, "paymentMethod", "paymentDetails", notes, "rejectionReason", "createdAt", "processedAt", "processedBy", "updatedAt") FROM stdin;
@@ -5898,7 +5902,7 @@ COPY public."AffiliateWithdrawals" (id, "affiliateId", amount, status, "paymentM
 
 
 --
--- Data for Name: Affiliates; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Affiliates; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Affiliates" (id, "companyId", "affiliateCode", "commissionRate", "minWithdrawAmount", "totalEarned", "totalWithdrawn", status, "createdAt", "updatedAt") FROM stdin;
@@ -5907,7 +5911,7 @@ COPY public."Affiliates" (id, "companyId", "affiliateCode", "commissionRate", "m
 
 
 --
--- Data for Name: Announcements; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Announcements; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Announcements" (id, priority, title, text, "mediaPath", "mediaName", "companyId", status, "createdAt", "updatedAt") FROM stdin;
@@ -5915,7 +5919,7 @@ COPY public."Announcements" (id, priority, title, text, "mediaPath", "mediaName"
 
 
 --
--- Data for Name: ApiUsages; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: ApiUsages; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."ApiUsages" (id, "companyId", "dateUsed", "UsedOnDay", "usedText", "usedPDF", "usedImage", "usedVideo", "usedOther", "usedCheckNumber", "createdAt", "updatedAt") FROM stdin;
@@ -5926,7 +5930,7 @@ COPY public."ApiUsages" (id, "companyId", "dateUsed", "UsedOnDay", "usedText", "
 
 
 --
--- Data for Name: AutomationActions; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: AutomationActions; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."AutomationActions" (id, "automationId", "actionType", "actionConfig", "order", "delayMinutes", "createdAt", "updatedAt") FROM stdin;
@@ -5934,7 +5938,7 @@ COPY public."AutomationActions" (id, "automationId", "actionType", "actionConfig
 
 
 --
--- Data for Name: AutomationExecutions; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: AutomationExecutions; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."AutomationExecutions" (id, "automationId", "automationActionId", "contactId", "ticketId", "scheduledAt", status, attempts, "lastAttemptAt", "completedAt", error, metadata, "createdAt", "updatedAt") FROM stdin;
@@ -5942,7 +5946,7 @@ COPY public."AutomationExecutions" (id, "automationId", "automationActionId", "c
 
 
 --
--- Data for Name: AutomationLogs; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: AutomationLogs; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."AutomationLogs" (id, "automationId", "contactId", "ticketId", status, "executedAt", result, error, "createdAt", "updatedAt") FROM stdin;
@@ -5950,7 +5954,7 @@ COPY public."AutomationLogs" (id, "automationId", "contactId", "ticketId", statu
 
 
 --
--- Data for Name: Automations; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Automations; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Automations" (id, "companyId", name, description, "triggerType", "triggerConfig", "isActive", "createdAt", "updatedAt") FROM stdin;
@@ -5958,7 +5962,7 @@ COPY public."Automations" (id, "companyId", name, description, "triggerType", "t
 
 
 --
--- Data for Name: Baileys; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Baileys; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Baileys" (id, "whatsappId", contacts, chats, "createdAt", "updatedAt") FROM stdin;
@@ -8392,19 +8396,21 @@ COPY public."Baileys" (id, "whatsappId", contacts, chats, "createdAt", "updatedA
 1429	60	[]	\N	2025-12-08 23:22:49.757+00	2025-12-08 23:22:49.757+00
 1524	60	[]	\N	2025-12-08 23:22:49.799+00	2025-12-08 23:22:49.799+00
 120	53	[]	\N	2025-11-26 17:19:25.441+00	2025-11-26 17:19:25.441+00
+3589	2	[{"id": "556286290765@s.whatsapp.net", "name": "Felipin"}, {"id": "556298541240@s.whatsapp.net", "name": "Rafaela"}, {"id": "556298351982@s.whatsapp.net", "name": "Dorvane"}, {"id": "556296106956@s.whatsapp.net", "name": "Bruno"}, {"id": "556285120803@s.whatsapp.net", "name": "Glaucio Evereste Telecom 2"}, {"id": "556299890172@s.whatsapp.net", "name": "Motoca Araão"}, {"id": "556299967413@s.whatsapp.net", "name": "‪+556299967413‬"}, {"id": "556299937010@s.whatsapp.net", "name": "‪+5562999937010‬"}, {"id": "556298099707@s.whatsapp.net", "name": "Cookie🍪"}, {"id": "556285733789@s.whatsapp.net", "name": "Pai Lindão😂?"}, {"id": "556282844738@s.whatsapp.net", "name": "Giovana"}, {"id": "556284939310@s.whatsapp.net", "name": "Kamilly"}, {"id": "556299411833@s.whatsapp.net", "name": "Bia"}, {"id": "556299532930@s.whatsapp.net", "name": "Renysson Kayky"}, {"id": "556281722585@s.whatsapp.net", "name": "CARRO FÁCIL"}, {"id": "556296671171@s.whatsapp.net", "name": "62996671171"}, {"id": "556292440221@s.whatsapp.net", "name": "Rato"}, {"id": "556299159072@s.whatsapp.net", "name": "Ronaldo"}, {"id": "556295270532@s.whatsapp.net", "name": "Talyson"}, {"id": "556299102503@s.whatsapp.net", "name": "Isa❤"}, {"id": "556294514967@s.whatsapp.net", "name": "Henrique"}, {"id": "556298254131@s.whatsapp.net", "name": "Duda"}, {"id": "556299956121@s.whatsapp.net", "name": "Gil"}, {"id": "556286650009@s.whatsapp.net", "name": "Reset Uniformes"}, {"id": "556281002562@s.whatsapp.net", "name": "‪+5562981002562‬"}, {"id": "556296094040@s.whatsapp.net", "name": "Wagner Fotografo"}, {"id": "556299531427@s.whatsapp.net", "name": "Rubem Astro"}, {"id": "556297007017@s.whatsapp.net", "name": "Ciddy"}, {"id": "556296695270@s.whatsapp.net", "name": "Gabi"}, {"id": "555596482106@s.whatsapp.net", "name": "‪+55996482106‬"}, {"id": "556284457972@s.whatsapp.net", "name": "JOÃO"}, {"id": "556281422041@s.whatsapp.net", "name": "Gabriel Borba"}, {"id": "556298381430@s.whatsapp.net", "name": "Brian"}, {"id": "556298566373@s.whatsapp.net", "name": "Guilherme"}, {"id": "556299894782@s.whatsapp.net", "name": "Vitória"}, {"id": "556281611203@s.whatsapp.net", "name": "Felipe"}, {"id": "556281229414@s.whatsapp.net", "name": "Dona Da Raja"}, {"id": "556296631263@s.whatsapp.net", "name": "Maria Cecilia"}, {"id": "556284608795@s.whatsapp.net", "name": "Johannes"}, {"id": "556296698459@s.whatsapp.net", "name": "Jonas Ferreira Martins Fi"}, {"id": "556298441866@s.whatsapp.net", "name": "Felipão🤠"}, {"id": "556297003934@s.whatsapp.net", "name": "Theus Pires"}, {"id": "556282662550@s.whatsapp.net", "name": "Casa 2"}, {"id": "556284974253@s.whatsapp.net", "name": "Isaque"}, {"id": "556281666310@s.whatsapp.net", "name": "Pedro Gabriel"}, {"id": "556281559062@s.whatsapp.net", "name": "‪+5562981559062‬"}, {"id": "556281880444@s.whatsapp.net", "name": "Tolledo Sports"}, {"id": "556299956092@s.whatsapp.net", "name": "Analdina"}, {"id": "556295185624@s.whatsapp.net", "name": "Mariana Caravelas"}, {"id": "556296578364@s.whatsapp.net", "name": "·Ronystur ·"}, {"id": "556296362084@s.whatsapp.net", "name": "Safadão"}, {"id": "556296575687@s.whatsapp.net", "name": "Daniel"}, {"id": "556299352683@s.whatsapp.net", "name": "Vozinha Do ❤"}, {"id": "556281019257@s.whatsapp.net", "name": "Raissa"}, {"id": "556496476109@s.whatsapp.net", "name": "João Pedro"}, {"id": "556296652703@s.whatsapp.net", "name": "Ana Gabriela"}, {"id": "556298283937@s.whatsapp.net", "name": "Verônica ❤"}, {"id": "556281717001@s.whatsapp.net", "name": "Pnh Edinicio"}, {"id": "556296459050@s.whatsapp.net", "name": "Bruna"}, {"id": "556296468357@s.whatsapp.net", "name": "Marta Rodrigues"}, {"id": "556299831417@s.whatsapp.net", "name": "Nicolly"}, {"id": "556285708563@s.whatsapp.net", "name": "Tia Do Meu❤"}, {"id": "556285992824@s.whatsapp.net", "name": "Farinha"}, {"id": "556296893658@s.whatsapp.net", "name": "Gogo"}, {"id": "556286265532@s.whatsapp.net", "name": "Kaio"}, {"id": "556299628160@s.whatsapp.net", "name": "‪+5562999628160‬"}, {"id": "5521999434231@s.whatsapp.net", "name": "Dra. Verusca Ferreira"}, {"id": "556299398850@s.whatsapp.net", "name": "Olívia"}, {"id": "556298649176@s.whatsapp.net", "name": "Anna Luiza❤"}, {"id": "556299094389@s.whatsapp.net", "name": "Yago"}, {"id": "556298720714@s.whatsapp.net", "name": "Verônica"}, {"id": "556284645704@s.whatsapp.net", "name": "Lhayane"}, {"id": "556296202047@s.whatsapp.net", "name": "Sara"}, {"id": "556285324919@s.whatsapp.net", "name": "Fabiano Nex Cell"}, {"id": "5527999943523@s.whatsapp.net", "name": "Marcos Kayky"}, {"id": "556282195660@s.whatsapp.net", "name": "Street Barber"}, {"id": "5521983234787@s.whatsapp.net", "name": "Felipe"}, {"id": "556299326341@s.whatsapp.net", "name": "‪+5562999326341‬"}, {"id": "556299855915@s.whatsapp.net", "name": "Vitinho"}, {"id": "556282108813@s.whatsapp.net", "name": "Minha Princesa😍"}, {"id": "556296517353@s.whatsapp.net", "name": "Mesquita"}, {"id": "556298063913@s.whatsapp.net", "name": "Yasmin Seca"}, {"id": "556282531019@s.whatsapp.net", "name": "Fabio"}, {"id": "556299876813@s.whatsapp.net", "name": "Ayanny"}, {"id": "556284027355@s.whatsapp.net", "name": "Gabriel 🧃"}, {"id": "554499754918@s.whatsapp.net", "name": "Adiprime / Meinerz"}, {"id": "556298609234@s.whatsapp.net", "name": "Biel"}, {"id": "556284975522@s.whatsapp.net", "name": "Japao (link-callendar)"}, {"id": "558000111952@s.whatsapp.net", "name": "Reclama"}, {"id": "556282431181@s.whatsapp.net", "name": "Dheyne BB💕"}, {"id": "556299800123@s.whatsapp.net", "name": "‪+5562999800123‬"}, {"id": "556294649707@s.whatsapp.net", "name": "Sr. Frankin"}, {"id": "556296746516@s.whatsapp.net", "name": "Maria"}, {"id": "556298466595@s.whatsapp.net", "name": "Helder (sistema Estoque)"}, {"id": "556296768367@s.whatsapp.net", "name": "Li Broxante 😎?"}, {"id": "556296767573@s.whatsapp.net", "name": "‪+5562996767573‬"}, {"id": "556281103214@s.whatsapp.net", "name": "Joao Colares"}, {"id": "556193679615@s.whatsapp.net", "name": "Lua Souza"}, {"id": "5519992639185@s.whatsapp.net", "name": "Samuel (EMPRESARIAL)"}, {"id": "556233215163@s.whatsapp.net", "name": "Harmonia Musical"}, {"id": "556299402633@s.whatsapp.net", "name": "Paulo Victor"}, {"id": "556298338100@s.whatsapp.net", "name": "Ana Clara❤"}, {"id": "556296952472@s.whatsapp.net", "name": "Vitor hugo"}, {"id": "556296388696@s.whatsapp.net", "name": "Felipe."}, {"id": "556299744376@s.whatsapp.net", "name": "Wemerson Açougue"}, {"id": "556296487373@s.whatsapp.net", "name": "Bianca"}, {"id": "556299829309@s.whatsapp.net", "name": "Cleber"}, {"id": "556284731568@s.whatsapp.net", "name": "‪+5562984731568‬"}, {"id": "556298217905@s.whatsapp.net", "name": "Tatiane"}, {"id": "556296184729@s.whatsapp.net", "name": "Laerte Dias"}, {"id": "556296385641@s.whatsapp.net", "name": "Diego Sindicato"}, {"id": "556281692916@s.whatsapp.net", "name": "Karine"}, {"id": "556299347260@s.whatsapp.net", "name": "Cristiago"}, {"id": "556286270205@s.whatsapp.net", "name": "Luizin Do ff"}, {"id": "556291196946@s.whatsapp.net", "name": "+5562991196946"}, {"id": "555596671171@s.whatsapp.net", "name": "‪+55996671171‬"}, {"id": "556298326225@s.whatsapp.net", "name": "Franciel Nunes"}, {"id": "556282670244@s.whatsapp.net", "name": "Felipe Gabriel🤠"}, {"id": "556285740993@s.whatsapp.net", "name": "‪+5562985740993‬"}, {"id": "556481723731@s.whatsapp.net", "name": "Sofa Sesi"}, {"id": "556294984726@s.whatsapp.net", "name": "Marcos-APP(elite For Man)"}, {"id": "556285781273@s.whatsapp.net", "name": "Açaiteria Mix"}, {"id": "556286279462@s.whatsapp.net", "name": "Shekinah"}, {"id": "556296366817@s.whatsapp.net", "name": "Tiago"}, {"id": "556281042732@s.whatsapp.net", "name": "Elisangela (IMG )"}, {"id": "556296996191@s.whatsapp.net", "name": "Manu"}, {"id": "556284152970@s.whatsapp.net", "name": "Peixe"}, {"id": "556299887955@s.whatsapp.net", "name": "Luciano"}, {"id": "556298741716@s.whatsapp.net", "name": "Daniel (plus One)"}, {"id": "5521993007665@s.whatsapp.net", "name": "Matheus Amorim"}, {"id": "556285111704@s.whatsapp.net", "name": "Heberth Moreira de Melo"}, {"id": "556299097477@s.whatsapp.net", "name": "Rayssa 😍"}, {"id": "556299569611@s.whatsapp.net", "name": "Nando Lima"}, {"id": "556298032175@s.whatsapp.net", "name": "‪+5562998032175‬"}, {"id": "556298301957@s.whatsapp.net", "name": "Bianca"}, {"id": "556298419908@s.whatsapp.net", "name": "Kiky"}, {"id": "556281330647@s.whatsapp.net", "name": "Empresarial"}, {"id": "556282338785@s.whatsapp.net", "name": "Rádio 7"}, {"id": "556298235823@s.whatsapp.net", "name": "Manu Maia"}, {"id": "556296957313@s.whatsapp.net", "name": "Javali"}, {"id": "556298283078@s.whatsapp.net", "name": "Hp"}, {"id": "556282106210@s.whatsapp.net", "name": "Mano Isaac"}, {"id": "556295311672@s.whatsapp.net", "name": "Vexor Barbearia"}, {"id": "556296699656@s.whatsapp.net", "name": "Helder Pessoal"}, {"id": "556296809881@s.whatsapp.net", "name": "Maria"}, {"id": "556298002468@s.whatsapp.net", "name": "Magal"}, {"id": "556295304014@s.whatsapp.net", "name": "Gabriel Borba"}, {"id": "554174019696@s.whatsapp.net", "name": "Eduardo"}, {"id": "556298208526@s.whatsapp.net", "name": "RiverArt"}, {"id": "556298427942@s.whatsapp.net", "name": "JP"}, {"id": "556285400089@s.whatsapp.net", "name": "Maestro🎵"}, {"id": "556286027221@s.whatsapp.net", "name": "Aldisel"}, {"id": "556298632983@s.whatsapp.net", "name": "Joao Marcos"}, {"id": "556294418129@s.whatsapp.net", "name": "‪+5562994418129‬"}, {"id": "556296517670@s.whatsapp.net", "name": "Michelle Toledo 🧘?🏻?‍"}, {"id": "5516997497547@s.whatsapp.net", "name": "Nilson"}, {"id": "556285267890@s.whatsapp.net", "name": "Bia❤"}, {"id": "556285558906@s.whatsapp.net", "name": "Nex Cell"}, {"id": "556284529671@s.whatsapp.net", "name": "Rodrigo"}, {"id": "559199666607@s.whatsapp.net", "name": "Brutus"}, {"id": "556298432569@s.whatsapp.net", "name": "Davi"}, {"id": "556299362425@s.whatsapp.net", "name": "Fabii"}, {"id": "556296731334@s.whatsapp.net", "name": "Jenison"}, {"id": "556298144845@s.whatsapp.net", "name": "Millena"}, {"id": "556299278725@s.whatsapp.net", "name": "Aluguel Carlos Lider"}, {"id": "556295348059@s.whatsapp.net", "name": "‪+556295348059‬"}, {"id": "556299096076@s.whatsapp.net", "name": "Nathan"}, {"id": "556294948709@s.whatsapp.net", "name": "‪+5562994948709‬"}, {"id": "555599583568@s.whatsapp.net", "name": "Casa 1"}, {"id": "556296908501@s.whatsapp.net", "name": "Magal"}, {"id": "556296605514@s.whatsapp.net", "name": "Marília ♥"}, {"id": "556233541370@s.whatsapp.net", "name": "Ribeiro 1"}, {"id": "556297008927@s.whatsapp.net", "name": "Adria Camanda"}, {"id": "556291706848@s.whatsapp.net", "name": "Emilly"}, {"id": "556285127754@s.whatsapp.net", "name": "Don Peixoto Barber Club"}, {"id": "556282064298@s.whatsapp.net", "name": "Dieguito (divulgacao)"}, {"id": "559985466595@s.whatsapp.net", "name": "Helder Gas"}, {"id": "556299682050@s.whatsapp.net", "name": "Carlos Da Lider"}, {"id": "556298267802@s.whatsapp.net", "name": "‪+5562998267802‬"}, {"id": "556299175351@s.whatsapp.net", "name": "Rayssa"}, {"id": "556281044180@s.whatsapp.net", "name": "Mundial"}, {"id": "556298002149@s.whatsapp.net", "name": "Cibelly"}, {"id": "556292330591@s.whatsapp.net", "name": "Gabriel Empresarial"}, {"id": "556299125773@s.whatsapp.net", "name": "Chico"}, {"id": "5524993959492@s.whatsapp.net", "name": "Rafael Automacao"}, {"id": "556296132360@s.whatsapp.net", "name": "‪+5562996132360‬"}, {"id": "556284048353@s.whatsapp.net", "name": "João Gabriel"}, {"id": "553191060576@s.whatsapp.net", "name": "Ibeleza Sistemas"}, {"id": "556298003051@s.whatsapp.net", "name": "Dilene"}, {"id": "556285601396@s.whatsapp.net", "name": "Isadir"}, {"id": "556299063992@s.whatsapp.net", "name": "Roberta Olliber"}, {"id": "556285042829@s.whatsapp.net", "name": "Geovanna❤❤❤❤❤❤"}, {"id": "556296579119@s.whatsapp.net", "name": "Jovanir"}, {"id": "556281527923@s.whatsapp.net", "name": "98152-7923"}, {"id": "556298028310@s.whatsapp.net", "name": "Kaique"}, {"id": "556286021051@s.whatsapp.net", "name": "Joselio"}, {"id": "556296766801@s.whatsapp.net", "name": "Luana"}, {"id": "556281670059@s.whatsapp.net", "name": "‪+5562981670059‬"}, {"id": "556596405767@s.whatsapp.net", "name": "Ryan Matheus"}, {"id": "556296094027@s.whatsapp.net", "name": "Miqueias Duarte"}, {"id": "556296629604@s.whatsapp.net", "name": "Rafa"}, {"id": "556296712017@s.whatsapp.net", "name": "‪+5562996712017‬"}, {"id": "556296122180@s.whatsapp.net", "name": "Matheus Lobo"}, {"id": "556291415782@s.whatsapp.net", "name": "‪+5562991415782‬"}, {"id": "556286441758@s.whatsapp.net", "name": "Júlia"}, {"id": "556299103664@s.whatsapp.net", "name": "Robson Damas"}, {"id": "556296664683@s.whatsapp.net", "name": "Lairia♥️"}, {"id": "556282180076@s.whatsapp.net", "name": "Andréa"}, {"id": "556299428232@s.whatsapp.net", "name": "Fabricio Bom Clima"}, {"id": "556298516080@s.whatsapp.net", "name": "Link Callendar"}, {"id": "556298388343@s.whatsapp.net", "name": "Rhay❤"}, {"id": "556291581858@s.whatsapp.net", "name": "Laylla"}, {"id": "556296418389@s.whatsapp.net", "name": "Fernanda Hp"}, {"id": "556282394459@s.whatsapp.net", "name": "Walisley Ramos"}, {"id": "556284741458@s.whatsapp.net", "name": "Casa Setha"}, {"id": "556298225417@s.whatsapp.net", "name": "Gleicy"}, {"id": "556298624126@s.whatsapp.net", "name": "Zé Elias"}, {"id": "556294234892@s.whatsapp.net", "name": "62 9 9423-4892"}, {"id": "556284300356@s.whatsapp.net", "name": "Jantinha Do Farinha"}, {"id": "17349337738@s.whatsapp.net", "name": "‪+17349337738‬"}, {"id": "556285528099@s.whatsapp.net", "name": "Anny❤"}, {"id": "559885540803@s.whatsapp.net", "name": "‪+5598985540803‬"}, {"id": "556299112680@s.whatsapp.net", "name": "Jefferson Epifanio"}, {"id": "558540427062@s.whatsapp.net", "name": "‪+558540427062‬"}, {"id": "556298411688@s.whatsapp.net", "name": "Kelita Paixão💕"}, {"id": "556296991291@s.whatsapp.net", "name": "‪+5562996991291‬"}, {"id": "556284361650@s.whatsapp.net", "name": "Elias"}, {"id": "556697188219@s.whatsapp.net", "name": "‪+5566997188219‬"}, {"id": "556284306185@s.whatsapp.net", "name": "‪+5562984306185‬"}, {"id": "556281762590@s.whatsapp.net", "name": "Andre E. Comerce"}, {"id": "556299021255@s.whatsapp.net", "name": "Anitta Floricultura"}, {"id": "556296371618@s.whatsapp.net", "name": "Lote"}, {"id": "556296763938@s.whatsapp.net", "name": "Benevam"}, {"id": "556296417476@s.whatsapp.net", "name": "Valdivino"}, {"id": "559484033345@s.whatsapp.net", "name": "Duda ❤️"}, {"id": "556296369637@s.whatsapp.net", "name": "Felipe Martins"}, {"id": "556298658430@s.whatsapp.net", "name": "Patrícia"}, {"id": "5516988722750@s.whatsapp.net", "name": "Renan"}, {"id": "556299134230@s.whatsapp.net", "name": "Emily Linda"}, {"id": "556284172229@s.whatsapp.net", "name": "Cintia Lote"}, {"id": "556282361921@s.whatsapp.net", "name": "Ganso👊?"}, {"id": "556299814062@s.whatsapp.net", "name": "Chic uniforme"}, {"id": "556296999988@s.whatsapp.net", "name": "Gabriel(mkt)"}, {"id": "5519981263730@s.whatsapp.net", "name": "Marcos Alves"}, {"id": "556295535819@s.whatsapp.net", "name": "Kayo Victor"}, {"id": "556193051987@s.whatsapp.net", "name": "Jonas"}, {"id": "556281853997@s.whatsapp.net", "name": "‪+5562981853997‬"}, {"id": "556298369664@s.whatsapp.net", "name": "Sayuri"}, {"id": "556285552072@s.whatsapp.net", "name": "Gabriel Ferreira "}, {"id": "556299260799@s.whatsapp.net", "name": "Robert/Assessor licitação"}, {"id": "5511932313806@s.whatsapp.net", "name": "Fabrício"}, {"id": "556296408225@s.whatsapp.net", "name": "Paulo Cesar"}, {"id": "556299676009@s.whatsapp.net", "name": "‪+5562999676009‬"}, {"id": "556296317025@s.whatsapp.net", "name": "Sara"}, {"id": "556299666358@s.whatsapp.net", "name": "Nara"}, {"id": "556299442355@s.whatsapp.net", "name": "‪+5562999442355‬"}, {"id": "556299172448@s.whatsapp.net", "name": "Apartamento (tillapas)"}, {"id": "556296341186@s.whatsapp.net", "name": "Natalya"}, {"id": "556296643619@s.whatsapp.net", "name": "Jennifer"}, {"id": "556298229098@s.whatsapp.net", "name": "Neto"}, {"id": "554191427760@s.whatsapp.net", "name": "‪+554191427760‬"}, {"id": "556299296010@s.whatsapp.net", "name": "Dr. Leandro"}, {"id": "556299901331@s.whatsapp.net", "name": "David Barbearia"}, {"id": "556282770142@s.whatsapp.net", "name": "Deyvison Leal"}, {"id": "556298335711@s.whatsapp.net", "name": "Divino"}, {"id": "556294168310@s.whatsapp.net", "name": "Financiamento"}, {"id": "556298246463@s.whatsapp.net", "name": "Tequinha"}, {"id": "556296682050@s.whatsapp.net", "name": "‪+5562996682050‬"}, {"id": "556299778195@s.whatsapp.net", "name": "Lari❤"}, {"id": "556296033257@s.whatsapp.net", "name": "‪+556296033257‬"}, {"id": "556298280291@s.whatsapp.net", "name": "Letícia"}, {"id": "556281878386@s.whatsapp.net", "name": "Ramon"}, {"id": "556299617963@s.whatsapp.net", "name": "Lhoreny Silva✨"}, {"id": "556296573108@s.whatsapp.net", "name": "Jão"}, {"id": "556298520885@s.whatsapp.net", "name": "Gabriel"}, {"id": "556282483238@s.whatsapp.net", "name": "Comuniq"}, {"id": "556285566091@s.whatsapp.net", "name": "Jão Brother🤠"}, {"id": "556298324882@s.whatsapp.net", "name": "Joabi"}, {"id": "556296227505@s.whatsapp.net", "name": "Fernandes barbearia"}, {"id": "554684008982@s.whatsapp.net", "name": "Gustavo Miranda"}, {"id": "556286030950@s.whatsapp.net", "name": "Hebrom Instrumento"}, {"id": "556296038624@s.whatsapp.net", "name": "Lavínia"}, {"id": "556295357209@s.whatsapp.net", "name": "Guilherme"}, {"id": "556297019845@s.whatsapp.net", "name": "Joao teles"}, {"id": "556286180025@s.whatsapp.net", "name": "Fabricio"}, {"id": "556282203575@s.whatsapp.net", "name": "Daniel"}, {"id": "556298684026@s.whatsapp.net", "name": "Tainá"}, {"id": "556296550636@s.whatsapp.net", "name": "Renata"}, {"id": "554198838651@s.whatsapp.net", "name": "Frizzar"}, {"id": "556284290296@s.whatsapp.net", "name": "André"}, {"id": "556281854457@s.whatsapp.net", "name": "Kamila"}, {"id": "556296337779@s.whatsapp.net", "name": "Marcos Kayky"}, {"id": "556296603877@s.whatsapp.net", "name": "Paulo"}, {"id": "556296575315@s.whatsapp.net", "name": "Pastor Gilberto"}, {"id": "556281719329@s.whatsapp.net", "name": "DANIEL"}, {"id": "556298279326@s.whatsapp.net", "name": "62 9827-9326"}, {"id": "556298454829@s.whatsapp.net", "name": "Ellen"}, {"id": "556233541096@s.whatsapp.net", "name": "Confec Gab"}, {"id": "556296595971@s.whatsapp.net", "name": "Gustavo Henrique"}, {"id": "556299651929@s.whatsapp.net", "name": "Mauricio Barber"}, {"id": "553499354568@s.whatsapp.net", "name": "‪+5534999354568‬"}, {"id": "556296610419@s.whatsapp.net", "name": "Tiago Pereira"}, {"id": "556196673643@s.whatsapp.net", "name": "‪+556196673643‬"}, {"id": "556699942610@s.whatsapp.net", "name": "Henrique"}, {"id": "556233542644@s.whatsapp.net", "name": "Letro Art"}, {"id": "556299769360@s.whatsapp.net", "name": "Nicolly Fernandes"}, {"id": "554195606800@s.whatsapp.net", "name": "+5541995606800"}, {"id": "5527995100259@s.whatsapp.net", "name": "MicheGoGo❤"}, {"id": "556284743747@s.whatsapp.net", "name": "André"}, {"id": "556298431587@s.whatsapp.net", "name": "Vagna"}, {"id": "556284958185@s.whatsapp.net", "name": "Eduardo"}, {"id": "556296315718@s.whatsapp.net", "name": "‪+5562996315718‬"}, {"id": "556296376124@s.whatsapp.net", "name": "Kadu"}, {"id": "556296524894@s.whatsapp.net", "name": "Kesther"}, {"id": "556299670002@s.whatsapp.net", "name": "Sérgio Engenheiro"}, {"id": "556284928064@s.whatsapp.net", "name": "Isa"}, {"id": "556298392834@s.whatsapp.net", "name": "Daniel Basilio"}, {"id": "556199915797@s.whatsapp.net", "name": "Godoi Brasal Volkswagen "}, {"id": "556296195685@s.whatsapp.net", "name": "Maria Dhiovanna"}, {"id": "556296612038@s.whatsapp.net", "name": "Victor"}, {"id": "556296589419@s.whatsapp.net", "name": "Maria Clara"}, {"id": "556296573923@s.whatsapp.net", "name": "Amor💞"}, {"id": "555192052353@s.whatsapp.net", "name": "‪+5551992052353‬"}, {"id": "556291284924@s.whatsapp.net", "name": "Isa"}, {"id": "556296648720@s.whatsapp.net", "name": "Casa da Picanha"}, {"id": "556298543240@s.whatsapp.net", "name": "Jf Modas"}, {"id": "556233541017@s.whatsapp.net", "name": "Ultra Popular"}, {"id": "556298678598@s.whatsapp.net", "name": "Sarinha❤😘"}, {"id": "556298292487@s.whatsapp.net", "name": "Jose Fornecedor"}, {"id": "556299039788@s.whatsapp.net", "name": "Pitoco"}, {"id": "5562986480338@s.whatsapp.net", "name": "Dom Lay barbearia"}, {"id": "556296461524@s.whatsapp.net", "name": "Link-eats"}, {"id": "556284860050@s.whatsapp.net", "name": "Marcos"}, {"id": "557574003866@s.whatsapp.net", "name": "Guil Vitor"}, {"id": "556481193531@s.whatsapp.net", "name": "Gabriel Basilio"}, {"id": "556299679424@s.whatsapp.net", "name": "Ricardão"}, {"id": "556285291152@s.whatsapp.net", "name": "Elisama Gomes"}, {"id": "554195355781@s.whatsapp.net", "name": "Vinny"}, {"id": "556296662146@s.whatsapp.net", "name": "Tawany"}, {"id": "556296470108@s.whatsapp.net", "name": "‪+556296470108‬"}, {"id": "556283208493@s.whatsapp.net", "name": "Esio Uniformes"}, {"id": "556281647164@s.whatsapp.net", "name": "Giovanna/MD"}, {"id": "556233541637@s.whatsapp.net", "name": "Cacau Show"}, {"id": "556298225484@s.whatsapp.net", "name": "Gabriella"}, {"id": "556281654131@s.whatsapp.net", "name": "‪+5562981654131‬"}, {"id": "556281297678@s.whatsapp.net", "name": "Leo (phisical)"}, {"id": "556299982224@s.whatsapp.net", "name": "Kauan"}, {"id": "556298212456@s.whatsapp.net", "name": "Pedro"}, {"id": "557583140424@s.whatsapp.net", "name": "‪+5575983140424‬"}, {"id": "556299107731@s.whatsapp.net", "name": "Trilha Dos Calçaldos"}, {"id": "556296218540@s.whatsapp.net", "name": "Rosilene Rocha"}, {"id": "556299155143@s.whatsapp.net", "name": "Paulo Rodrigues"}, {"id": "556299470792@s.whatsapp.net", "name": "Don Souza"}, {"id": "556299471276@s.whatsapp.net", "name": "Nando"}, {"id": "556284388361@s.whatsapp.net", "name": "Valmir Zap"}, {"id": "556294502016@s.whatsapp.net", "name": "Guilherme"}, {"id": "556298314220@s.whatsapp.net", "name": "Cadu"}, {"id": "556299776030@s.whatsapp.net", "name": "Victor"}, {"id": "556299698033@s.whatsapp.net", "name": "‪+556299698033‬"}, {"id": "558188916620@s.whatsapp.net", "name": "Naylla"}, {"id": "556298666138@s.whatsapp.net", "name": "Isaa"}, {"id": "556291894969@s.whatsapp.net", "name": "Arthur"}, {"id": "556282793649@s.whatsapp.net", "name": "Iza❤"}, {"id": "556296466400@s.whatsapp.net", "name": "Carlin"}, {"id": "556299336903@s.whatsapp.net", "name": "Leticia"}, {"id": "556233541093@s.whatsapp.net", "name": "Ideal"}, {"id": "556284961111@s.whatsapp.net", "name": "‪+5562984961111‬"}, {"id": "556281861355@s.whatsapp.net", "name": "‪+5562981861355‬"}, {"id": "556281631648@s.whatsapp.net", "name": "‪+5562981631648‬"}, {"id": "556296645236@s.whatsapp.net", "name": "Weder"}, {"id": "556294092979@s.whatsapp.net", "name": "Link System"}, {"id": "5521968080995@s.whatsapp.net", "name": "‪+5521968080995‬"}, {"id": "556298624760@s.whatsapp.net", "name": "Império Do Churrasco"}, {"id": "556281684206@s.whatsapp.net", "name": "Fábio"}, {"id": "556299481637@s.whatsapp.net", "name": "Paulo Vitor"}, {"id": "556298285859@s.whatsapp.net", "name": "Arthur Guimaraes"}, {"id": "556299422398@s.whatsapp.net", "name": "Giseli Moura"}, {"id": "556298898316@s.whatsapp.net", "name": "Ronilson Catinho Do Sabor"}, {"id": "556282447879@s.whatsapp.net", "name": "David Pires"}, {"id": "556286480338@s.whatsapp.net", "name": "Dom Lay barbearia"}, {"id": "556281688257@s.whatsapp.net", "name": "Shirley"}]	\N	2026-04-14 20:43:37.662+00	2026-04-14 20:43:37.662+00
 \.
 
 
 --
--- Data for Name: CallRecords; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: CallRecords; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."CallRecords" (id, "callId", type, status, "fromNumber", "toNumber", duration, "recordingUrl", "contactId", "whatsappId", "ticketId", "userId", "companyId", "callStartedAt", "callEndedAt", "createdAt", "updatedAt") FROM stdin;
+1	008CE0BB9FFAD701984B97117BCFFA77	incoming	answered	69372446019766	556292330591	10	\N	\N	2	\N	\N	1	2026-04-14 19:23:39.779	2026-04-14 19:23:49.6	2026-04-14 19:23:39.779	2026-04-14 19:23:49.6
 \.
 
 
 --
--- Data for Name: CampaignSettings; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: CampaignSettings; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."CampaignSettings" (id, key, value, "companyId", "createdAt", "updatedAt") FROM stdin;
@@ -8412,7 +8418,7 @@ COPY public."CampaignSettings" (id, key, value, "companyId", "createdAt", "updat
 
 
 --
--- Data for Name: CampaignShipping; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: CampaignShipping; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."CampaignShipping" (id, "jobId", number, message, "confirmationMessage", confirmation, "contactId", "campaignId", "confirmationRequestedAt", "confirmedAt", "deliveredAt", "createdAt", "updatedAt") FROM stdin;
@@ -8420,7 +8426,7 @@ COPY public."CampaignShipping" (id, "jobId", number, message, "confirmationMessa
 
 
 --
--- Data for Name: Campaigns; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Campaigns; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Campaigns" (id, name, message1, message2, message3, message4, message5, "confirmationMessage1", "confirmationMessage2", "confirmationMessage3", "confirmationMessage4", "confirmationMessage5", status, confirmation, "mediaPath", "mediaName", "companyId", "contactListId", "whatsappId", "scheduledAt", "completedAt", "createdAt", "updatedAt", "userId", "queueId", "statusTicket", "openTicket") FROM stdin;
@@ -8428,7 +8434,7 @@ COPY public."Campaigns" (id, name, message1, message2, message3, message4, messa
 
 
 --
--- Data for Name: ChatMessages; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: ChatMessages; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."ChatMessages" (id, "chatId", "senderId", message, "mediaPath", "mediaName", "createdAt", "updatedAt") FROM stdin;
@@ -8436,7 +8442,7 @@ COPY public."ChatMessages" (id, "chatId", "senderId", message, "mediaPath", "med
 
 
 --
--- Data for Name: ChatUsers; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: ChatUsers; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."ChatUsers" (id, "chatId", "userId", unreads, "createdAt", "updatedAt") FROM stdin;
@@ -8444,7 +8450,7 @@ COPY public."ChatUsers" (id, "chatId", "userId", unreads, "createdAt", "updatedA
 
 
 --
--- Data for Name: Chatbots; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Chatbots; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Chatbots" (id, name, "queueId", "chatbotId", "greetingMessage", "createdAt", "updatedAt", "isAgent", "optQueueId", "optUserId", "queueType", "optIntegrationId", "optFileId", "closeTicket") FROM stdin;
@@ -8452,7 +8458,7 @@ COPY public."Chatbots" (id, name, "queueId", "chatbotId", "greetingMessage", "cr
 
 
 --
--- Data for Name: Chats; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Chats; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Chats" (id, title, uuid, "ownerId", "lastMessage", "companyId", "createdAt", "updatedAt") FROM stdin;
@@ -8460,19 +8466,19 @@ COPY public."Chats" (id, title, uuid, "ownerId", "lastMessage", "companyId", "cr
 
 
 --
--- Data for Name: Companies; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Companies; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Companies" (id, name, phone, email, "createdAt", "updatedAt", "planId", status, schedules, "dueDate", recurrence, document, "paymentMethod", "lastLogin", "folderSize", "numberFileFolder", "updatedAtFolder", type, segment, "loadingImage", "affiliateId", "couponId", "referredBy", "affiliateLinkId") FROM stdin;
-157	Thrivex	5592994235447	thiagocorreaoficial121212@gmail.com	2026-02-22 16:47:48.255+00	2026-02-22 19:23:34.421+00	1	t	[]	2026-02-27 16:47:45+00	MENSAL	05804199242		2026-02-22 19:23:34.42+00	\N	\N	\N	pf	outros	\N	\N	\N	\N	\N
-156	Link System	5562992330591	teste@gmail.com	2026-02-21 16:28:47.935+00	2026-02-23 13:01:49.033+00	1	t	[]	2026-02-26 16:28:45+00	MENSAL	05074409195		2026-02-23 13:01:49.033+00	\N	\N	\N	pf	outros	\N	\N	\N	\N	\N
-1	Empresa Admin - Não Deletar	\N	\N	2025-10-10 02:50:00.266+00	2026-02-24 18:38:36.613+00	1	t	[]	2099-12-31 03:00:00+00				2026-02-24 18:38:36.613+00	\N	\N	\N	pf	outros	\N	\N	\N	\N	\N
-158	teste	5569993256149	teste3@teste3.com	2026-02-24 21:13:44.479+00	2026-02-24 21:13:58.192+00	1	t	[]	2026-03-01 21:13:42+00	MENSAL	46151060091		2026-02-24 21:13:58.192+00	\N	\N	\N	pf	outros	\N	\N	\N	\N	\N
+158	teste	5569993256149	teste3@teste3.com	2026-02-24 21:13:44.479+00	2026-04-14 20:29:30.135+00	1	f	[]	2026-03-01 21:13:42+00	MENSAL	46151060091		2026-02-24 21:13:58.192+00	\N	\N	\N	pf	outros	\N	\N	\N	\N	\N
+156	Link System	5562992330591	teste@gmail.com	2026-02-21 16:28:47.935+00	2026-04-14 20:29:30.133+00	1	f	[]	2026-02-26 16:28:45+00	MENSAL	05074409195		2026-02-23 13:01:49.033+00	\N	\N	\N	pf	outros	\N	\N	\N	\N	\N
+157	Thrivex	5592994235447	thiagocorreaoficial121212@gmail.com	2026-02-22 16:47:48.255+00	2026-04-14 20:29:30.132+00	1	f	[]	2026-02-27 16:47:45+00	MENSAL	05804199242		2026-02-22 19:23:34.42+00	\N	\N	\N	pf	outros	\N	\N	\N	\N	\N
+1	Empresa Admin - Não Deletar	\N	\N	2025-10-10 02:50:00.266+00	2026-04-15 09:21:05.035+00	1	t	[]	2099-12-31 03:00:00+00				2026-04-15 09:21:05.035+00	\N	\N	\N	pf	outros	\N	\N	\N	\N	\N
 \.
 
 
 --
--- Data for Name: CompaniesSettings; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: CompaniesSettings; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."CompaniesSettings" (id, "companyId", "hoursCloseTicketsAuto", "chatBotType", "acceptCallWhatsapp", "userRandom", "sendGreetingMessageOneQueues", "sendSignMessage", "sendFarewellWaitingTicket", "userRating", "sendGreetingAccepted", "CheckMsgIsGroup", "sendQueuePosition", "scheduleType", "acceptAudioMessageContact", "enableLGPD", "sendMsgTransfTicket", "requiredTag", "lgpdDeleteMessage", "lgpdHideNumber", "lgpdConsent", "lgpdLink", "lgpdMessage", "createdAt", "updatedAt", "DirectTicketsToWallets", "closeTicketOnTransfer", "greetingAcceptedMessage", "AcceptCallWhatsappMessage", "sendQueuePositionMessage", "transferMessage", "showNotificationPending", "notificameHub", "autoSaveContacts", "autoSaveContactsScore", "autoSaveContactsReason") FROM stdin;
@@ -8484,7 +8490,7 @@ COPY public."CompaniesSettings" (id, "companyId", "hoursCloseTicketsAuto", "chat
 
 
 --
--- Data for Name: ContactCustomFields; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: ContactCustomFields; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."ContactCustomFields" (id, name, value, "contactId", "createdAt", "updatedAt") FROM stdin;
@@ -8492,7 +8498,7 @@ COPY public."ContactCustomFields" (id, name, value, "contactId", "createdAt", "u
 
 
 --
--- Data for Name: ContactGroups; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: ContactGroups; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."ContactGroups" (id, "createdAt", "updatedAt", "contactId", "companyId", "userId") FROM stdin;
@@ -8500,7 +8506,7 @@ COPY public."ContactGroups" (id, "createdAt", "updatedAt", "contactId", "company
 
 
 --
--- Data for Name: ContactListItems; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: ContactListItems; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."ContactListItems" (id, name, number, email, "contactListId", "isWhatsappValid", "companyId", "createdAt", "updatedAt", "isGroup") FROM stdin;
@@ -8508,7 +8514,7 @@ COPY public."ContactListItems" (id, name, number, email, "contactListId", "isWha
 
 
 --
--- Data for Name: ContactLists; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: ContactLists; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."ContactLists" (id, name, "companyId", "createdAt", "updatedAt") FROM stdin;
@@ -8516,7 +8522,7 @@ COPY public."ContactLists" (id, name, "companyId", "createdAt", "updatedAt") FRO
 
 
 --
--- Data for Name: ContactTags; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: ContactTags; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."ContactTags" ("contactId", "tagId", "createdAt", "updatedAt") FROM stdin;
@@ -8524,7 +8530,7 @@ COPY public."ContactTags" ("contactId", "tagId", "createdAt", "updatedAt") FROM 
 
 
 --
--- Data for Name: ContactWallets; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: ContactWallets; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."ContactWallets" (id, "walletId", "contactId", "companyId", "createdAt", "updatedAt") FROM stdin;
@@ -8532,15 +8538,21 @@ COPY public."ContactWallets" (id, "walletId", "contactId", "companyId", "created
 
 
 --
--- Data for Name: Contacts; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Contacts; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Contacts" (id, name, number, "profilePicUrl", "createdAt", "updatedAt", email, "isGroup", "companyId", "acceptAudioMessage", channel, active, "disableBot", "remoteJid", "lgpdAcceptedAt", "urlPicture", "pictureUpdated", "whatsappId", "isLid", birthday, anniversary, info, files, "cpfCnpj", address, lid, "savedToPhone", "savedToPhoneAt", "savedToPhoneReason", "potentialScore", "isPotential", "lidStability") FROM stdin;
+9	Fabrício	5511932313806	https://pps.whatsapp.net/v/t61.24694-24/594356859_848182904733010_8098402702038871008_n.jpg?ccb=11-4&oh=01_Q5Aa4QF5KTtGjNnwcMamzE8dZ00spmxXwGGhAVmpT_u4HeH62Q&oe=69EBBAB5&_nc_sid=5e03e0&_nc_cat=110	2026-04-14 22:24:41.521+00	2026-04-14 22:39:17.266+00		f	1	t	whatsapp	t	f	5511932313806@s.whatsapp.net	\N	1776206357265.jpeg	t	2	f	\N	\N	\N	\N	\N	\N	\N	f	\N	\N	0	f	unknown
+6	Build In Public [ Open ]	120363403381177652	https://pps.whatsapp.net/v/t61.24694-24/534415242_1176009990829364_452343187846846094_n.jpg?ccb=11-4&oh=01_Q5Aa4QGS0Eu9ZqGJzgGWh5p6oWJGLGE5x-VKHQDQq176sEswGw&oe=69EC0FF8&_nc_sid=5e03e0&_nc_cat=111	2026-04-14 20:52:31.836+00	2026-04-15 03:58:28.944+00		t	1	t	whatsapp	t	f	120363403381177652@g.us	\N	1776225508943.jpeg	t	2	f	\N	\N	\N	\N	\N	\N	120363403381177652	f	\N	\N	0	f	unknown
+7	Gabriel Ferreira	556285552072	https://pps.whatsapp.net/v/t61.24694-24/412332518_749511083863073_5807903227065171830_n.jpg?ccb=11-4&oh=01_Q5Aa4QGyIf-t0KYZ0MnCe8g4Q_8f1p5pxOVJESLMOeacdvS-RA&oe=69EC84BD&_nc_sid=5e03e0&_nc_cat=107	2026-04-14 21:19:55.267+00	2026-04-15 10:40:46.442+00		f	1	t	whatsapp	t	f	556285552072@s.whatsapp.net	\N	1776249646441.jpeg	t	2	f	\N	\N	\N	\N	\N	\N	\N	f	\N	\N	0	f	unknown
+8	Matheus Amorim	5521993007665	https://pps.whatsapp.net/v/t61.24694-24/589194674_1267548021374450_7052938599699502487_n.jpg?ccb=11-4&oh=01_Q5Aa4QEaMnbymrsaVLJIiA65AwJj3-JJD-hYCqKm1kCUbahkmw&oe=69EBBDC7&_nc_sid=5e03e0&_nc_cat=101	2026-04-14 22:23:58.317+00	2026-04-14 22:25:30.04+00		f	1	t	whatsapp	t	f	5521993007665@s.whatsapp.net	\N	1776205530039.jpeg	t	2	f	\N	\N	\N	\N	\N	\N	\N	f	\N	\N	0	f	unknown
+5	Rafael Sousa	5524993959492	https://pps.whatsapp.net/v/t61.24694-24/665195396_928209103393741_6143674728776449603_n.jpg?ccb=11-4&oh=01_Q5Aa4QERmlpGAwdcnDAXWmByKCe6g3VpLNvPz8uyt1z4GcbnBA&oe=69EBDB70&_nc_sid=5e03e0&_nc_cat=106	2026-04-14 20:50:55.882+00	2026-04-15 00:24:27.902+00		f	1	t	whatsapp	t	f	5524993959492@s.whatsapp.net	\N	1776212667901.jpeg	t	2	f	\N	\N	\N	\N	\N	\N	\N	f	\N	\N	0	f	unknown
+10	Construindo uma Startup #2	120363419625067096	https://pps.whatsapp.net/v/t61.24694-24/491868302_1203655180888905_6892151017315161512_n.jpg?ccb=11-4&oh=01_Q5Aa4QFEOH2OSVAV4CzIYNBEv0sictcXxKWty3vtI5LmTZDq5g&oe=69EC6F73&_nc_sid=5e03e0&_nc_cat=104	2026-04-14 23:01:54.214+00	2026-04-15 10:22:55.601+00		t	1	t	whatsapp	t	f	120363419625067096@g.us	\N	1776248575601.jpeg	t	2	f	\N	\N	\N	\N	\N	\N	120363419625067096	f	\N	\N	0	f	unknown
 \.
 
 
 --
--- Data for Name: Coupons; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Coupons; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Coupons" (id, name, code, "discountType", "discountValue", "minPlanAmount", "maxUses", "usedCount", "validUntil", "isActive", description, "createdAt", "updatedAt") FROM stdin;
@@ -8548,7 +8560,7 @@ COPY public."Coupons" (id, name, code, "discountType", "discountValue", "minPlan
 
 
 --
--- Data for Name: DialogChatBots; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: DialogChatBots; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."DialogChatBots" (id, awaiting, "contactId", "chatbotId", "createdAt", "updatedAt", "queueId") FROM stdin;
@@ -8556,7 +8568,7 @@ COPY public."DialogChatBots" (id, awaiting, "contactId", "chatbotId", "createdAt
 
 
 --
--- Data for Name: Faturas; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Faturas; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Faturas" (id, "companyId", "contactId", valor, descricao, status, "dataCriacao", "dataVencimento", "dataPagamento", recorrente, intervalo, "proximaCobranca", "limiteRecorrencias", "recorrenciasRealizadas", "createdAt", "updatedAt") FROM stdin;
@@ -8564,7 +8576,7 @@ COPY public."Faturas" (id, "companyId", "contactId", valor, descricao, status, "
 
 
 --
--- Data for Name: Ferramentas; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Ferramentas; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Ferramentas" (id, nome, descricao, url, metodo, headers, body, query_params, placeholders, status, "createdAt", "updatedAt", "companyId") FROM stdin;
@@ -8573,7 +8585,7 @@ COPY public."Ferramentas" (id, nome, descricao, url, metodo, headers, body, quer
 
 
 --
--- Data for Name: Files; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Files; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Files" (id, "companyId", name, message, "createdAt", "updatedAt") FROM stdin;
@@ -8581,7 +8593,7 @@ COPY public."Files" (id, "companyId", name, message, "createdAt", "updatedAt") F
 
 
 --
--- Data for Name: FilesOptions; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: FilesOptions; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."FilesOptions" (id, name, path, "fileId", "createdAt", "updatedAt", "mediaType") FROM stdin;
@@ -8589,7 +8601,7 @@ COPY public."FilesOptions" (id, name, path, "fileId", "createdAt", "updatedAt", 
 
 
 --
--- Data for Name: FlowAudios; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: FlowAudios; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."FlowAudios" (id, "companyId", "userId", name, "createdAt", "updatedAt") FROM stdin;
@@ -8597,7 +8609,7 @@ COPY public."FlowAudios" (id, "companyId", "userId", name, "createdAt", "updated
 
 
 --
--- Data for Name: FlowBuilders; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: FlowBuilders; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."FlowBuilders" (id, user_id, name, active, flow, "createdAt", "updatedAt", company_id, variables) FROM stdin;
@@ -8631,11 +8643,13 @@ COPY public."FlowBuilders" (id, user_id, name, active, flow, "createdAt", "updat
 51	125	teste	t	\N	2026-01-29 23:43:45.69+00	2026-01-29 23:43:45.69+00	122	\N
 56	131	czxczx	t	\N	2026-02-03 04:37:54.007+00	2026-02-03 04:37:54.007+00	132	\N
 71	7	teste	t	\N	2026-02-21 16:29:29.288+00	2026-02-21 16:29:29.288+00	156	\N
+72	1	teste	t	{"nodes":[{"id":"1","position":{"x":250,"y":100},"data":{"label":"Inicio do fluxo","title":"Início do Fluxo"},"type":"start","width":280,"height":229,"selected":false},{"id":"EfVp3ZEuO7ZyU8xL9T2pVaQ7jgcs3o","position":{"x":570,"y":100},"data":{"message":"QUal vc desej?","arrayOption":[{"number":1,"value":"op1"},{"number":2,"value":"op2"}],"title":"Menu"},"type":"menu","width":280,"height":326,"selected":false},{"id":"t19pFYSp5QwD0WCcTvn5lT2S4JbkOb","position":{"x":935.0731480369295,"y":110.90479387990231},"data":{"message":"Ok","arrayOption":[{"number":1,"value":"continuar"},{"number":2,"value":"Voltar"}],"title":"Menu"},"type":"menu","width":280,"height":326,"selected":false,"positionAbsolute":{"x":935.0731480369295,"y":110.90479387990231},"dragging":false}],"connections":[{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss1180","source":"1","sourceHandle":"a","target":"EfVp3ZEuO7ZyU8xL9T2pVaQ7jgcs3o","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-1a-EfVp3ZEuO7ZyU8xL9T2pVaQ7jgcs3o","data":{},"selected":false},{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss1180","source":"EfVp3ZEuO7ZyU8xL9T2pVaQ7jgcs3o","sourceHandle":"a1","target":"t19pFYSp5QwD0WCcTvn5lT2S4JbkOb","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-EfVp3ZEuO7ZyU8xL9T2pVaQ7jgcs3oa1-t19pFYSp5QwD0WCcTvn5lT2S4JbkOb","data":{},"selected":false},{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss1180","source":"t19pFYSp5QwD0WCcTvn5lT2S4JbkOb","sourceHandle":"a1","target":"EfVp3ZEuO7ZyU8xL9T2pVaQ7jgcs3o","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-t19pFYSp5QwD0WCcTvn5lT2S4JbkOba1-EfVp3ZEuO7ZyU8xL9T2pVaQ7jgcs3o","data":{},"selected":false},{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss1180","source":"t19pFYSp5QwD0WCcTvn5lT2S4JbkOb","sourceHandle":"a2","target":"EfVp3ZEuO7ZyU8xL9T2pVaQ7jgcs3o","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-t19pFYSp5QwD0WCcTvn5lT2S4JbkOba2-EfVp3ZEuO7ZyU8xL9T2pVaQ7jgcs3o","data":{},"selected":false},{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss1180","source":"EfVp3ZEuO7ZyU8xL9T2pVaQ7jgcs3o","sourceHandle":"a2","target":"t19pFYSp5QwD0WCcTvn5lT2S4JbkOb","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-EfVp3ZEuO7ZyU8xL9T2pVaQ7jgcs3oa2-t19pFYSp5QwD0WCcTvn5lT2S4JbkOb","data":{},"selected":false}]}	2026-04-14 20:44:08.051+00	2026-04-14 20:45:20.351+00	1	\N
+73	11	FLUXO-IMG	t	{"nodes":[{"id":"1","position":{"x":107.7187833711132,"y":64.6092705465183},"data":{"label":"Inicio do fluxo","title":"Início do Fluxo"},"type":"start","width":280,"height":229,"selected":false,"positionAbsolute":{"x":107.7187833711132,"y":64.6092705465183},"dragging":false,"style":{"backgroundColor":"#ffffff","padding":0,"borderRadius":8,"pointerEvents":"auto"}},{"id":"0Wuj0b4xJLQpJAvInHIxGPNrk9VWc6","position":{"x":442.17810631657073,"y":63.16333825197256},"data":{"seq":["message0"],"elements":[{"type":"message","value":"Oi, {{firstName}}! {{ms}} 👋  \\nÉ um prazer ter você aqui na *Imagem Clínica* 💙\\n\\nMe conta, como posso te ajudar hoje?","number":"message0"}],"title":"Conteúdo"},"type":"singleBlock","width":300,"height":218,"selected":false,"style":{"backgroundColor":"#3b82f6","padding":1,"borderRadius":8,"pointerEvents":"auto"},"positionAbsolute":{"x":442.17810631657073,"y":63.16333825197256},"dragging":false},{"id":"6vGQervRoo1lZQj3nzOQOcOyp4F6Ou","position":{"x":824.1101428583974,"y":67.50113513560981},"data":{"message":"Digite o número da opção desejada 👇","arrayOption":[{"number":1,"value":"🩺 Consultas médicas"},{"number":2,"value":"🧪 Exames clínicos"},{"number":3,"value":"🔬 Laboratório"},{"number":4,"value":"📄 Ver resultados"},{"number":5,"value":"💰 Solicitar orçamento"},{"number":6,"value":"❓ Tirar dúvidas"}],"title":"Menu"},"type":"menu","width":280,"height":572,"selected":false,"style":{"backgroundColor":"#ffffff","padding":0,"borderRadius":8,"pointerEvents":"auto"}},{"width":280,"height":688,"id":"O9vIzMuCtD4Uf8Lrelecfa8d8LII4j","position":{"x":1176.6014300700285,"y":63.01957827883311},"data":{"message":"Perfeito! Escolha a especialidade 👇","arrayOption":[{"number":1,"value":"👩‍⚕️ Fale com um atendente"},{"number":2,"value":"🔙 Continuar procurando"},{"number":3,"value":"🦴 Ortopedia"},{"number":4,"value":"👩‍⚕️ Ginecologia"},{"number":5,"value":"🚹 Urologia"},{"number":6,"value":"🫃 Gastroenterologia"},{"number":7,"value":"➡️ Ver mais"},{"number":8,"value":"🔙 Voltar"}],"title":"Menu"},"type":"menu","selected":false,"positionAbsolute":{"x":1176.6014300700285,"y":63.01957827883311},"dragging":false,"style":{"backgroundColor":"#ffffff","padding":0,"borderRadius":8,"pointerEvents":"auto"}},{"width":280,"height":732,"id":"SrgOGvxfq6UazD8l8zw7qZy0GOr0Z2","position":{"x":1542.1266632461038,"y":57.163596963731834},"data":{"message":"Mais especialidades 👇","arrayOption":[{"number":1,"value":"❤️ Cardiologia "},{"number":2,"value":"🫁 Pneumologia"},{"number":3,"value":"🧴 Dermatologia"},{"number":4,"value":"🧠 Neurologia"},{"number":5,"value":"⚖️ Endocrinologia"},{"number":6,"value":"🩸 Vascular / Angiologia"},{"number":7,"value":"➡️ Ver mais"},{"number":8,"value":"🔙 Voltar"},{"number":9,"value":"🏠 Menu inicial"}],"title":"Menu"},"type":"menu","selected":false,"positionAbsolute":{"x":1542.1266632461038,"y":57.163596963731834},"dragging":false,"style":{"backgroundColor":"#ffffff","padding":0,"borderRadius":8,"pointerEvents":"auto"}},{"width":280,"height":732,"id":"DC9DgQYQNZZHV7f5KemXw0njlbogeD","position":{"x":1879.318577835154,"y":65.17003676818764},"data":{"message":"Continuando 👇","arrayOption":[{"number":1,"value":"🧑‍⚕️ Psiquiatria "},{"number":2,"value":"👶 Pediatria"},{"number":3,"value":"🩺 Clínico Geral "},{"number":4,"value":"🥗 Nutricionista"},{"number":5,"value":"😬 Disfunção Temporomandibular (DTM)"},{"number":6,"value":"✨ Depilação a Laser "},{"number":7,"value":"➡️ Ver mais"},{"number":8,"value":"🔙 Voltar"},{"number":9,"value":"🏠 Menu inicial"}],"title":"Menu"},"type":"menu","selected":false,"positionAbsolute":{"x":1879.318577835154,"y":65.17003676818764},"dragging":false,"style":{"backgroundColor":"#ffffff","padding":0,"borderRadius":8,"pointerEvents":"auto"}},{"width":280,"height":398,"id":"sUWbKoOq2DyQbCyYIvjTiN20ulSJxA","position":{"x":1738.656298696826,"y":-414.72062613095505},"data":{"message":"Não encontrou sua especialidade? 🤔","arrayOption":[{"number":1,"value":"👩‍⚕️ Fale com um atendente"},{"number":2,"value":"🔙 Continuar procurando"},{"number":3,"value":"🏠 Menu inicial"}],"title":"Menu"},"type":"menu","selected":false,"positionAbsolute":{"x":1738.656298696826,"y":-414.72062613095505},"dragging":false,"style":{"backgroundColor":"#ffffff","padding":0,"borderRadius":8,"pointerEvents":"auto"}},{"id":"dVQlJZJp9hS1zBw2bfwlHUu0NTeDej","position":{"x":91.57527686060484,"y":574.945435013706},"data":{"seq":["message0"],"elements":[{"type":"message","value":"Perfeito! 🔬\\n\\nVou te direcionar para nosso atendimento de *Laboratório* 👇\\n\\nClique no link abaixo para continuar pelo WhatsApp:\\n\\n👉 https://wa.me/55XXXXXXXXXXX?text=Olá,%20me%20chamo%20{{firstName}}%20e%20gostaria%20de%20informações%20sobre%20exames\\n\\nAssim nossa equipe já consegue te atender mais rápido 😊","number":"message0"}],"title":"Conteúdo"},"type":"singleBlock","width":300,"height":218,"selected":false,"positionAbsolute":{"x":91.57527686060484,"y":574.945435013706},"dragging":false,"style":{"backgroundColor":"#ffffff","padding":0,"borderRadius":8,"pointerEvents":"auto"}},{"width":280,"height":630,"id":"38dkP13oKniV1fWM85W9A2jespfPdy","position":{"x":433.60353338129903,"y":821.7541582651845},"data":{"message":"Perfeito! 🧪\\n\\nQual tipo de exame você precisa?","arrayOption":[{"number":1,"value":"🎗️ Mamografia"},{"number":2,"value":"🚗 Toxicológico (Detran)"},{"number":3,"value":"❤️ Ecocardiograma"},{"number":4,"value":"🔙 Voltar"},{"number":5,"value":""},{"number":6,"value":"➡️ Ver mais"},{"number":7,"value":"🏠 Menu inicial"}],"title":"Menu"},"type":"menu","selected":false,"positionAbsolute":{"x":433.60353338129903,"y":821.7541582651845},"dragging":false,"style":{"backgroundColor":"#ffffff","padding":0,"borderRadius":8,"pointerEvents":"auto"}},{"width":282,"height":502,"id":"M7URKgVjwrsWURrWhseppshIiJML8Q","position":{"x":783.318577835154,"y":817.7541582651845},"data":{"message":"Mais opções de exames 👇","arrayOption":[{"number":1,"value":"🎗️ Mamografia"},{"number":2,"value":"🚗 Toxicológico (Detran)"},{"number":3,"value":"❤️ Ecocardiograma"},{"number":4,"value":"🔙 Voltar"},{"number":5,"value":"🏠 Menu inicial"}],"title":"Menu"},"type":"menu","selected":false,"positionAbsolute":{"x":783.318577835154,"y":817.7541582651845},"dragging":false,"style":{"backgroundColor":"#ffffff","padding":0,"borderRadius":8,"pointerEvents":"auto"}}],"connections":[{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss2096","source":"1","sourceHandle":"a","target":"0Wuj0b4xJLQpJAvInHIxGPNrk9VWc6","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-1a-0Wuj0b4xJLQpJAvInHIxGPNrk9VWc6","data":{},"selected":false},{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss2096","source":"0Wuj0b4xJLQpJAvInHIxGPNrk9VWc6","sourceHandle":"a","target":"6vGQervRoo1lZQj3nzOQOcOyp4F6Ou","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-0Wuj0b4xJLQpJAvInHIxGPNrk9VWc6a-6vGQervRoo1lZQj3nzOQOcOyp4F6Ou","data":{},"selected":false},{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss2096","source":"6vGQervRoo1lZQj3nzOQOcOyp4F6Ou","sourceHandle":"a1","target":"O9vIzMuCtD4Uf8Lrelecfa8d8LII4j","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-6vGQervRoo1lZQj3nzOQOcOyp4F6Oua1-O9vIzMuCtD4Uf8Lrelecfa8d8LII4j","data":{},"selected":false},{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss2096","source":"O9vIzMuCtD4Uf8Lrelecfa8d8LII4j","sourceHandle":"a7","target":"SrgOGvxfq6UazD8l8zw7qZy0GOr0Z2","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-O9vIzMuCtD4Uf8Lrelecfa8d8LII4ja7-SrgOGvxfq6UazD8l8zw7qZy0GOr0Z2","data":{},"selected":false},{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss959","source":"SrgOGvxfq6UazD8l8zw7qZy0GOr0Z2","sourceHandle":"a7","target":"DC9DgQYQNZZHV7f5KemXw0njlbogeD","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-SrgOGvxfq6UazD8l8zw7qZy0GOr0Z2a7-DC9DgQYQNZZHV7f5KemXw0njlbogeD","data":{},"selected":false},{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss959","source":"DC9DgQYQNZZHV7f5KemXw0njlbogeD","sourceHandle":"a8","target":"SrgOGvxfq6UazD8l8zw7qZy0GOr0Z2","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-DC9DgQYQNZZHV7f5KemXw0njlbogeDa8-SrgOGvxfq6UazD8l8zw7qZy0GOr0Z2","data":{},"selected":false},{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss959","source":"SrgOGvxfq6UazD8l8zw7qZy0GOr0Z2","sourceHandle":"a8","target":"O9vIzMuCtD4Uf8Lrelecfa8d8LII4j","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-SrgOGvxfq6UazD8l8zw7qZy0GOr0Z2a8-O9vIzMuCtD4Uf8Lrelecfa8d8LII4j","data":{},"selected":false},{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss959","source":"O9vIzMuCtD4Uf8Lrelecfa8d8LII4j","sourceHandle":"a8","target":"6vGQervRoo1lZQj3nzOQOcOyp4F6Ou","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-O9vIzMuCtD4Uf8Lrelecfa8d8LII4ja8-6vGQervRoo1lZQj3nzOQOcOyp4F6Ou","data":{},"selected":false},{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss959","source":"SrgOGvxfq6UazD8l8zw7qZy0GOr0Z2","sourceHandle":"a9","target":"6vGQervRoo1lZQj3nzOQOcOyp4F6Ou","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-SrgOGvxfq6UazD8l8zw7qZy0GOr0Z2a9-6vGQervRoo1lZQj3nzOQOcOyp4F6Ou","data":{},"selected":false},{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss959","source":"DC9DgQYQNZZHV7f5KemXw0njlbogeD","sourceHandle":"a9","target":"6vGQervRoo1lZQj3nzOQOcOyp4F6Ou","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-DC9DgQYQNZZHV7f5KemXw0njlbogeDa9-6vGQervRoo1lZQj3nzOQOcOyp4F6Ou","data":{},"selected":false},{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss959","source":"DC9DgQYQNZZHV7f5KemXw0njlbogeD","sourceHandle":"a7","target":"sUWbKoOq2DyQbCyYIvjTiN20ulSJxA","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-DC9DgQYQNZZHV7f5KemXw0njlbogeDa7-sUWbKoOq2DyQbCyYIvjTiN20ulSJxA","data":{},"selected":false},{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss959","source":"sUWbKoOq2DyQbCyYIvjTiN20ulSJxA","sourceHandle":"a2","target":"O9vIzMuCtD4Uf8Lrelecfa8d8LII4j","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-sUWbKoOq2DyQbCyYIvjTiN20ulSJxAa2-O9vIzMuCtD4Uf8Lrelecfa8d8LII4j","data":{},"selected":false},{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss959","source":"sUWbKoOq2DyQbCyYIvjTiN20ulSJxA","sourceHandle":"a3","target":"6vGQervRoo1lZQj3nzOQOcOyp4F6Ou","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-sUWbKoOq2DyQbCyYIvjTiN20ulSJxAa3-6vGQervRoo1lZQj3nzOQOcOyp4F6Ou","data":{},"selected":false},{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss959","source":"6vGQervRoo1lZQj3nzOQOcOyp4F6Ou","sourceHandle":"a3","target":"dVQlJZJp9hS1zBw2bfwlHUu0NTeDej","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-6vGQervRoo1lZQj3nzOQOcOyp4F6Oua3-dVQlJZJp9hS1zBw2bfwlHUu0NTeDej","data":{},"selected":false},{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss959","source":"6vGQervRoo1lZQj3nzOQOcOyp4F6Ou","sourceHandle":"a2","target":"38dkP13oKniV1fWM85W9A2jespfPdy","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-6vGQervRoo1lZQj3nzOQOcOyp4F6Oua2-38dkP13oKniV1fWM85W9A2jespfPdy","data":{},"selected":false},{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss959","source":"38dkP13oKniV1fWM85W9A2jespfPdy","sourceHandle":"a7","target":"6vGQervRoo1lZQj3nzOQOcOyp4F6Ou","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-38dkP13oKniV1fWM85W9A2jespfPdya7-6vGQervRoo1lZQj3nzOQOcOyp4F6Ou","data":{},"selected":false},{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss959","source":"38dkP13oKniV1fWM85W9A2jespfPdy","sourceHandle":"a6","target":"M7URKgVjwrsWURrWhseppshIiJML8Q","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-38dkP13oKniV1fWM85W9A2jespfPdya6-M7URKgVjwrsWURrWhseppshIiJML8Q","data":{},"selected":false},{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss959","source":"M7URKgVjwrsWURrWhseppshIiJML8Q","sourceHandle":"a4","target":"38dkP13oKniV1fWM85W9A2jespfPdy","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-M7URKgVjwrsWURrWhseppshIiJML8Qa4-38dkP13oKniV1fWM85W9A2jespfPdy","data":{},"selected":false},{"style":{"stroke":"#6366f1","strokeWidth":"3px"},"animated":true,"className":"jss959","source":"M7URKgVjwrsWURrWhseppshIiJML8Q","sourceHandle":"a5","target":"6vGQervRoo1lZQj3nzOQOcOyp4F6Ou","targetHandle":null,"type":"buttonedge","id":"reactflow__edge-M7URKgVjwrsWURrWhseppshIiJML8Qa5-6vGQervRoo1lZQj3nzOQOcOyp4F6Ou","data":{},"selected":false}]}	2026-04-15 10:27:41.462+00	2026-04-15 10:27:41.462+00	1	\N
 \.
 
 
 --
--- Data for Name: FlowCampaigns; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: FlowCampaigns; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."FlowCampaigns" (id, "companyId", "userId", name, "flowId", phrase, status, "createdAt", "updatedAt", "whatsappId", phrases, "matchType") FROM stdin;
@@ -8643,7 +8657,7 @@ COPY public."FlowCampaigns" (id, "companyId", "userId", name, "flowId", phrase, 
 
 
 --
--- Data for Name: FlowDefaults; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: FlowDefaults; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."FlowDefaults" (id, "companyId", "userId", "flowIdWelcome", "flowIdNotPhrase", "createdAt", "updatedAt") FROM stdin;
@@ -8651,7 +8665,7 @@ COPY public."FlowDefaults" (id, "companyId", "userId", "flowIdWelcome", "flowIdN
 
 
 --
--- Data for Name: FlowImgs; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: FlowImgs; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."FlowImgs" (id, "companyId", "userId", name, "createdAt", "updatedAt") FROM stdin;
@@ -8671,7 +8685,7 @@ COPY public."FlowImgs" (id, "companyId", "userId", name, "createdAt", "updatedAt
 
 
 --
--- Data for Name: GoogleCalendarIntegrations; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: GoogleCalendarIntegrations; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."GoogleCalendarIntegrations" (id, "companyId", "googleUserId", email, "accessToken", "refreshToken", "expiryDate", "calendarId", "createdAt", "updatedAt", "userId") FROM stdin;
@@ -8679,7 +8693,7 @@ COPY public."GoogleCalendarIntegrations" (id, "companyId", "googleUserId", email
 
 
 --
--- Data for Name: GoogleSheetsTokens; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: GoogleSheetsTokens; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."GoogleSheetsTokens" (id, "companyId", "googleUserId", email, "accessToken", "refreshToken", "expiryDate", "rawTokens", "createdAt", "updatedAt") FROM stdin;
@@ -8687,7 +8701,7 @@ COPY public."GoogleSheetsTokens" (id, "companyId", "googleUserId", email, "acces
 
 
 --
--- Data for Name: Helps; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Helps; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Helps" (id, title, description, video, link, "createdAt", "updatedAt") FROM stdin;
@@ -8695,7 +8709,7 @@ COPY public."Helps" (id, title, description, video, link, "createdAt", "updatedA
 
 
 --
--- Data for Name: IaWorkflows; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: IaWorkflows; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."IaWorkflows" (id, "companyId", "orchestratorPromptId", "agentPromptId", alias, "createdAt", "updatedAt") FROM stdin;
@@ -8703,7 +8717,7 @@ COPY public."IaWorkflows" (id, "companyId", "orchestratorPromptId", "agentPrompt
 
 
 --
--- Data for Name: Integrations; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Integrations; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Integrations" (id, "companyId", name, "isActive", token, "foneContact", "userLogin", "passLogin", "finalCurrentMonth", "initialCurrentMonth", "createdAt", "updatedAt") FROM stdin;
@@ -8711,7 +8725,7 @@ COPY public."Integrations" (id, "companyId", name, "isActive", token, "foneConta
 
 
 --
--- Data for Name: Invoices; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Invoices; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Invoices" (id, "companyId", "dueDate", detail, status, value, users, connections, queues, "useWhatsapp", "useFacebook", "useInstagram", "useCampaigns", "useSchedules", "useInternalChat", "useExternalApi", "createdAt", "updatedAt", "linkInvoice") FROM stdin;
@@ -8723,7 +8737,7 @@ COPY public."Invoices" (id, "companyId", "dueDate", detail, status, value, users
 
 
 --
--- Data for Name: Languages; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Languages; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Languages" (id, code, name, active, "createdAt", "updatedAt") FROM stdin;
@@ -8732,15 +8746,20 @@ COPY public."Languages" (id, code, name, active, "createdAt", "updatedAt") FROM 
 
 
 --
--- Data for Name: LogTickets; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: LogTickets; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."LogTickets" (id, "userId", "ticketId", "queueId", type, "createdAt", "updatedAt") FROM stdin;
+37	\N	5	\N	create	2026-04-15 09:28:13.419+00	2026-04-15 09:28:13.419+00
+64	11	5	\N	access	2026-04-15 09:58:08.764+00	2026-04-15 09:58:08.764+00
+73	11	5	\N	access	2026-04-15 10:26:15.82+00	2026-04-15 10:26:15.82+00
+75	\N	10	\N	create	2026-04-15 10:30:23.068+00	2026-04-15 10:30:23.068+00
+76	11	10	\N	access	2026-04-15 10:32:56.223+00	2026-04-15 10:32:56.223+00
 \.
 
 
 --
--- Data for Name: MediaFiles; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: MediaFiles; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."MediaFiles" (id, folder_id, company_id, original_name, custom_name, mime_type, size, storage_path, created_at, updated_at) FROM stdin;
@@ -8748,7 +8767,7 @@ COPY public."MediaFiles" (id, folder_id, company_id, original_name, custom_name,
 
 
 --
--- Data for Name: MediaFolders; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: MediaFolders; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."MediaFolders" (id, name, description, company_id, created_at, updated_at) FROM stdin;
@@ -8756,15 +8775,44 @@ COPY public."MediaFolders" (id, name, description, company_id, created_at, updat
 
 
 --
--- Data for Name: Messages; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Messages; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Messages" (body, ack, read, "mediaType", "mediaUrl", "ticketId", "createdAt", "updatedAt", "fromMe", "isDeleted", "contactId", "companyId", "remoteJid", "dataJson", participant, "queueId", "ticketTrakingId", "quotedMsgId", wid, id, "isPrivate", "isEdited", "isForwarded", "fromAgent", "userId") FROM stdin;
+1	4	f	extendedTextMessage	\N	10	2026-04-15 10:31:31+00	2026-04-15 11:13:47.936+00	f	f	7	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"153545231867906@lid","remoteJidAlt":"556285552072@s.whatsapp.net","fromMe":false,"id":"3A1B82EC0C123003DC08","participant":"","addressingMode":"lid"},"messageTimestamp":1776249091,"pushName":"Gabriel Ferreira","broadcast":false,"message":{"extendedTextMessage":{"text":"1","contextInfo":{"expiration":0,"ephemeralSettingTimestamp":"1743130762","disappearingMode":{"initiator":"CHANGED_IN_CHAT","trigger":"CHAT_SETTING","initiatedByMe":true}}},"messageContextInfo":{"deviceListMetadata":{"senderKeyHash":"fiydUNRg7OiDpQ==","senderTimestamp":"1775653322","recipientKeyHash":"7bqybhCjRQE6FA==","recipientTimestamp":"1776177039"},"deviceListMetadataVersion":2,"messageSecret":"33gn80AADER2IfI0JrRsS6ZcnZLtmEjdcV3UlNbfmsQ="}}}		\N	13	\N	3A1B82EC0C123003DC08	65	f	f	f	f	\N
+Perfeito! Escolha a especialidade 👇\n\n[1] 👩‍⚕️ Fale com um atendente\n[2] 🔙 Continuar procurando\n[3] 🦴 Ortopedia\n[4] 👩‍⚕️ Ginecologia\n[5] 🚹 Urologia\n[6] 🫃 Gastroenterologia\n[7] ➡️ Ver mais\n[8] 🔙 Voltar\n	4	t	extendedTextMessage	\N	10	2026-04-15 10:31:44+00	2026-04-15 10:31:46.024+00	t	f	\N	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"556285552072@s.whatsapp.net","fromMe":true,"id":"3EB08E1CC9E7B688A00EBE"},"message":{"extendedTextMessage":{"text":"Perfeito! Escolha a especialidade 👇\\n\\n[1] 👩‍⚕️ Fale com um atendente\\n[2] 🔙 Continuar procurando\\n[3] 🦴 Ortopedia\\n[4] 👩‍⚕️ Ginecologia\\n[5] 🚹 Urologia\\n[6] 🫃 Gastroenterologia\\n[7] ➡️ Ver mais\\n[8] 🔙 Voltar\\n","contextInfo":{"forwardingScore":0,"isForwarded":false}}},"messageTimestamp":"1776249104","status":"PENDING"}	\N	\N	\N	\N	3EB08E1CC9E7B688A00EBE	66	f	f	f	t	\N
+-	4	f	extendedTextMessage	\N	10	2026-04-15 10:39:33+00	2026-04-15 11:13:48.094+00	f	f	7	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"153545231867906@lid","remoteJidAlt":"556285552072@s.whatsapp.net","fromMe":false,"id":"3AFBD81907B10C5D4646","participant":"","addressingMode":"lid"},"messageTimestamp":1776249573,"pushName":"Gabriel Ferreira","broadcast":false,"message":{"extendedTextMessage":{"text":"-","contextInfo":{"expiration":0,"ephemeralSettingTimestamp":"1743130762","disappearingMode":{"initiator":"CHANGED_IN_CHAT","trigger":"CHAT_SETTING","initiatedByMe":true}}},"messageContextInfo":{"deviceListMetadata":{"senderKeyHash":"fiydUNRg7OiDpQ==","senderTimestamp":"1775653322","recipientKeyHash":"7bqybhCjRQE6FA==","recipientTimestamp":"1776177039"},"deviceListMetadataVersion":2,"messageSecret":"MzdBuCASE6xUSj4o3D+3y3laSSvrP0EsQfD6uBZc8BU="}}}		\N	13	\N	3AFBD81907B10C5D4646	77	f	f	f	f	\N
+Digite o número da opção desejada 👇\n\n[1] 🩺 Consultas médicas\n[2] 🧪 Exames clínicos\n[3] 🔬 Laboratório\n[4] 📄 Ver resultados\n[5] 💰 Solicitar orçamento\n[6] ❓ Tirar dúvidas\n	4	t	extendedTextMessage	\N	10	2026-04-15 10:36:18+00	2026-04-15 10:36:19.595+00	t	f	\N	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"556285552072@s.whatsapp.net","fromMe":true,"id":"3EB00BB3B66C2473FCA234"},"message":{"extendedTextMessage":{"text":"Digite o número da opção desejada 👇\\n\\n[1] 🩺 Consultas médicas\\n[2] 🧪 Exames clínicos\\n[3] 🔬 Laboratório\\n[4] 📄 Ver resultados\\n[5] 💰 Solicitar orçamento\\n[6] ❓ Tirar dúvidas\\n","contextInfo":{"forwardingScore":0,"isForwarded":false}}},"messageTimestamp":"1776249378","status":"PENDING"}	\N	\N	\N	\N	3EB00BB3B66C2473FCA234	72	f	f	f	t	\N
+Rapaz bem que minha vó dizia que eu ia ver coisa	2	t	conversation	\N	5	2026-04-15 09:28:10+00	2026-04-15 09:58:08.869+00	f	f	10	1	120363419625067096@g.us	{"key":{"remoteJid":"120363419625067096@g.us","fromMe":false,"id":"A5B3AA47F3460FC9E6D2B774A9C781D5","participant":"154404225347799@lid","participantAlt":"556281059606@s.whatsapp.net","addressingMode":"lid"},"messageTimestamp":1776245290,"pushName":"Fabio Xavier","broadcast":false,"message":{"conversation":"Rapaz bem que minha vó dizia que eu ia ver coisa","senderKeyDistributionMessage":{"groupId":"120363419625067096@g.us","axolotlSenderKeyDistributionMessage":"Mwj4mtvaBhAOGiDfaIWsP5nH2pQYsgVS1vAy5YzLKn4v2cBncFLm66SEzyIhBeb7+1GnyNtFUiwTCvWVjoqoDOx0azryTDWqcwb7+j9V"},"messageContextInfo":{"messageSecret":"2q0AK3nEFXBim3WQIVZ7PDFYVMObEdwZ8wHQu5aJbc4="}},"verifiedBizName":"Fabio Xavier"}	556281059606@s.whatsapp.net	\N	6	\N	A5B3AA47F3460FC9E6D2B774A9C781D5	19	f	f	f	f	\N
+Digite o número da opção desejada 👇\n\n[1] 🩺 Consultas médicas\n[2] 🧪 Exames clínicos\n[3] 🔬 Laboratório\n[4] 📄 Ver resultados\n[5] 💰 Solicitar orçamento\n[6] ❓ Tirar dúvidas\n	4	t	extendedTextMessage	\N	10	2026-04-15 10:32:24+00	2026-04-15 10:32:26.103+00	t	f	\N	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"556285552072@s.whatsapp.net","fromMe":true,"id":"3EB0262D3A74B61505768C"},"message":{"extendedTextMessage":{"text":"Digite o número da opção desejada 👇\\n\\n[1] 🩺 Consultas médicas\\n[2] 🧪 Exames clínicos\\n[3] 🔬 Laboratório\\n[4] 📄 Ver resultados\\n[5] 💰 Solicitar orçamento\\n[6] ❓ Tirar dúvidas\\n","contextInfo":{"forwardingScore":0,"isForwarded":false}}},"messageTimestamp":"1776249144","status":"PENDING"}	\N	\N	\N	\N	3EB0262D3A74B61505768C	68	f	f	f	t	\N
+8	4	f	extendedTextMessage	\N	10	2026-04-15 10:32:11+00	2026-04-15 11:13:47.936+00	f	f	7	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"153545231867906@lid","remoteJidAlt":"556285552072@s.whatsapp.net","fromMe":false,"id":"3A5F1F27D3F175C4B618","participant":"","addressingMode":"lid"},"messageTimestamp":1776249131,"pushName":"Gabriel Ferreira","broadcast":false,"message":{"extendedTextMessage":{"text":"8","contextInfo":{"expiration":0,"ephemeralSettingTimestamp":"1743130762","disappearingMode":{"initiator":"CHANGED_IN_CHAT","trigger":"CHAT_SETTING","initiatedByMe":true}}},"messageContextInfo":{"deviceListMetadata":{"senderKeyHash":"fiydUNRg7OiDpQ==","senderTimestamp":"1775653322","recipientKeyHash":"7bqybhCjRQE6FA==","recipientTimestamp":"1776177039"},"deviceListMetadataVersion":2,"messageSecret":"pJ+cVNyMPF4PIz7jgjBEF0H2TiauN2SiqpaE20zjc+c="}}}		\N	13	\N	3A5F1F27D3F175C4B618	67	f	f	f	f	\N
+Opção inválida. Por favor, digite uma das opções abaixo:\n\n[1] 🩺 Consultas médicas\n[2] 🧪 Exames clínicos\n[3] 🔬 Laboratório\n[4] 📄 Ver resultados\n[5] 💰 Solicitar orçamento\n[6] ❓ Tirar dúvidas	4	t	extendedTextMessage	\N	10	2026-04-15 10:39:34+00	2026-04-15 10:39:35.905+00	t	f	\N	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"556285552072@s.whatsapp.net","fromMe":true,"id":"3EB0C2F87640CE1EC39A46"},"message":{"extendedTextMessage":{"text":"Opção inválida. Por favor, digite uma das opções abaixo:\\n\\n[1] 🩺 Consultas médicas\\n[2] 🧪 Exames clínicos\\n[3] 🔬 Laboratório\\n[4] 📄 Ver resultados\\n[5] 💰 Solicitar orçamento\\n[6] ❓ Tirar dúvidas"}},"messageTimestamp":"1776249574","status":"PENDING"}	\N	\N	13	\N	3EB0C2F87640CE1EC39A46	78	f	f	f	f	\N
+7	4	f	extendedTextMessage	\N	10	2026-04-15 10:40:21+00	2026-04-15 11:13:48.094+00	f	f	7	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"153545231867906@lid","remoteJidAlt":"556285552072@s.whatsapp.net","fromMe":false,"id":"3AE955598123567C77BD","participant":"","addressingMode":"lid"},"messageTimestamp":1776249621,"pushName":"Gabriel Ferreira","broadcast":false,"message":{"extendedTextMessage":{"text":"7","contextInfo":{"expiration":0,"ephemeralSettingTimestamp":"1743130762","disappearingMode":{"initiator":"CHANGED_IN_CHAT","trigger":"CHAT_SETTING","initiatedByMe":true}}},"messageContextInfo":{"deviceListMetadata":{"senderKeyHash":"fiydUNRg7OiDpQ==","senderTimestamp":"1775653322","recipientKeyHash":"7bqybhCjRQE6FA==","recipientTimestamp":"1776177039"},"deviceListMetadataVersion":2,"messageSecret":"fwjHS63VhcXVSoWVR31S3b5e9WKLxAaMhg/8CDSoNnM="}}}		\N	13	\N	3AE955598123567C77BD	81	f	f	f	f	\N
+1	4	f	extendedTextMessage	\N	10	2026-04-15 10:39:42+00	2026-04-15 11:13:48.094+00	f	f	7	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"153545231867906@lid","remoteJidAlt":"556285552072@s.whatsapp.net","fromMe":false,"id":"3A7CC920A59F672F7F90","participant":"","addressingMode":"lid"},"messageTimestamp":1776249582,"pushName":"Gabriel Ferreira","broadcast":false,"message":{"extendedTextMessage":{"text":"1","contextInfo":{"expiration":0,"ephemeralSettingTimestamp":"1743130762","disappearingMode":{"initiator":"CHANGED_IN_CHAT","trigger":"CHAT_SETTING","initiatedByMe":true}}},"messageContextInfo":{"deviceListMetadata":{"senderKeyHash":"fiydUNRg7OiDpQ==","senderTimestamp":"1775653322","recipientKeyHash":"7bqybhCjRQE6FA==","recipientTimestamp":"1776177039"},"deviceListMetadataVersion":2,"messageSecret":"BBjYVQcRR4HECuenvE+Z1uZ+xJsjeJpLbng5ASeS/IA="}}}		\N	13	\N	3A7CC920A59F672F7F90	79	f	f	f	f	\N
+Digite o número da opção desejada 👇\n\n[1] 🩺 Consultas médicas\n[2] 🧪 Exames clínicos\n[3] 🔬 Laboratório\n[4] 📄 Ver resultados\n[5] 💰 Solicitar orçamento\n[6] ❓ Tirar dúvidas\n	4	t	extendedTextMessage	\N	10	2026-04-15 10:40:51+00	2026-04-15 10:40:52.893+00	t	f	\N	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"556285552072@s.whatsapp.net","fromMe":true,"id":"3EB04DE5178116C20660DB"},"message":{"extendedTextMessage":{"text":"Digite o número da opção desejada 👇\\n\\n[1] 🩺 Consultas médicas\\n[2] 🧪 Exames clínicos\\n[3] 🔬 Laboratório\\n[4] 📄 Ver resultados\\n[5] 💰 Solicitar orçamento\\n[6] ❓ Tirar dúvidas\\n","contextInfo":{"forwardingScore":0,"isForwarded":false}}},"messageTimestamp":"1776249651","status":"PENDING"}	\N	\N	\N	\N	3EB04DE5178116C20660DB	86	f	f	f	t	\N
+Perfeito! Escolha a especialidade 👇\n\n[1] 👩‍⚕️ Fale com um atendente\n[2] 🔙 Continuar procurando\n[3] 🦴 Ortopedia\n[4] 👩‍⚕️ Ginecologia\n[5] 🚹 Urologia\n[6] 🫃 Gastroenterologia\n[7] ➡️ Ver mais\n[8] 🔙 Voltar\n	4	t	extendedTextMessage	\N	10	2026-04-15 10:39:17+00	2026-04-15 10:39:19.883+00	t	f	\N	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"556285552072@s.whatsapp.net","fromMe":true,"id":"3EB0F45E9FC3E47C401E9B"},"message":{"extendedTextMessage":{"text":"Perfeito! Escolha a especialidade 👇\\n\\n[1] 👩‍⚕️ Fale com um atendente\\n[2] 🔙 Continuar procurando\\n[3] 🦴 Ortopedia\\n[4] 👩‍⚕️ Ginecologia\\n[5] 🚹 Urologia\\n[6] 🫃 Gastroenterologia\\n[7] ➡️ Ver mais\\n[8] 🔙 Voltar\\n","contextInfo":{"forwardingScore":0,"isForwarded":false}}},"messageTimestamp":"1776249557","status":"PENDING"}	\N	\N	\N	\N	3EB0F45E9FC3E47C401E9B	74	f	f	f	t	\N
+Perfeito! Escolha a especialidade 👇\n\n[1] 👩‍⚕️ Fale com um atendente\n[2] 🔙 Continuar procurando\n[3] 🦴 Ortopedia\n[4] 👩‍⚕️ Ginecologia\n[5] 🚹 Urologia\n[6] 🫃 Gastroenterologia\n[7] ➡️ Ver mais\n[8] 🔙 Voltar\n	4	t	extendedTextMessage	\N	10	2026-04-15 10:40:40+00	2026-04-15 10:40:41.918+00	t	f	\N	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"556285552072@s.whatsapp.net","fromMe":true,"id":"3EB06F6041950F0134D617"},"message":{"extendedTextMessage":{"text":"Perfeito! Escolha a especialidade 👇\\n\\n[1] 👩‍⚕️ Fale com um atendente\\n[2] 🔙 Continuar procurando\\n[3] 🦴 Ortopedia\\n[4] 👩‍⚕️ Ginecologia\\n[5] 🚹 Urologia\\n[6] 🫃 Gastroenterologia\\n[7] ➡️ Ver mais\\n[8] 🔙 Voltar\\n","contextInfo":{"forwardingScore":0,"isForwarded":false}}},"messageTimestamp":"1776249640","status":"PENDING"}	\N	\N	\N	\N	3EB06F6041950F0134D617	84	f	f	f	t	\N
+Mais especialidades 👇\n\n[1] ❤️ Cardiologia \n[2] 🫁 Pneumologia\n[3] 🧴 Dermatologia\n[4] 🧠 Neurologia\n[5] ⚖️ Endocrinologia\n[6] 🩸 Vascular / Angiologia\n[7] ➡️ Ver mais\n[8] 🔙 Voltar\n[9] 🏠 Menu inicial\n	4	t	extendedTextMessage	\N	10	2026-04-15 10:40:27+00	2026-04-15 10:40:28.654+00	t	f	\N	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"556285552072@s.whatsapp.net","fromMe":true,"id":"3EB0D2CA06735A47840303"},"message":{"extendedTextMessage":{"text":"Mais especialidades 👇\\n\\n[1] ❤️ Cardiologia \\n[2] 🫁 Pneumologia\\n[3] 🧴 Dermatologia\\n[4] 🧠 Neurologia\\n[5] ⚖️ Endocrinologia\\n[6] 🩸 Vascular / Angiologia\\n[7] ➡️ Ver mais\\n[8] 🔙 Voltar\\n[9] 🏠 Menu inicial\\n","contextInfo":{"forwardingScore":0,"isForwarded":false}}},"messageTimestamp":"1776249627","status":"PENDING"}	\N	\N	\N	\N	3EB0D2CA06735A47840303	82	f	f	f	t	\N
+Kkk poxa tem potencial	2	t	conversation	\N	5	2026-04-15 10:16:05+00	2026-04-15 10:22:39.12+00	f	f	10	1	120363419625067096@g.us	{"key":{"remoteJid":"120363419625067096@g.us","fromMe":false,"id":"ACE4D1B5073462283B4464A33A1EFC44","participant":"81475596771476@lid","participantAlt":"5511947004444@s.whatsapp.net","addressingMode":"lid"},"messageTimestamp":1776248165,"pushName":"Marcos VIEIRA","broadcast":false,"message":{"conversation":"Kkk poxa tem potencial","senderKeyDistributionMessage":{"groupId":"120363419625067096@g.us","axolotlSenderKeyDistributionMessage":"MwjR7tI8EAcaIAhd7PzUmzcdrgpgC/gYprd2TFxagqwhR+Hd5/wU6nFrIiEFb/gnZQ2FDaFO/YmgkVHKwehKNWc5hV27pdjh4eeuxTs="},"messageContextInfo":{"messageSecret":"j37/cZezU+nNQtbtCV/ume1XFH+AOQk5m75LKq24DD4="}}}	5511947004444@s.whatsapp.net	\N	6	\N	ACE4D1B5073462283B4464A33A1EFC44	54	f	f	f	f	\N
+1	4	f	extendedTextMessage	\N	10	2026-04-15 10:35:45+00	2026-04-15 11:13:47.936+00	f	f	7	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"153545231867906@lid","remoteJidAlt":"556285552072@s.whatsapp.net","fromMe":false,"id":"3A6F2AB839E1491911F2","participant":"","addressingMode":"lid"},"messageTimestamp":1776249345,"pushName":"Gabriel Ferreira","broadcast":false,"message":{"extendedTextMessage":{"text":"1","contextInfo":{"expiration":0,"ephemeralSettingTimestamp":"1743130762","disappearingMode":{"initiator":"CHANGED_IN_CHAT","trigger":"CHAT_SETTING","initiatedByMe":true}}},"messageContextInfo":{"deviceListMetadata":{"senderKeyHash":"fiydUNRg7OiDpQ==","senderTimestamp":"1775653322","recipientKeyHash":"7bqybhCjRQE6FA==","recipientTimestamp":"1776177039"},"deviceListMetadataVersion":2,"messageSecret":"u0Wv13TsdB9nw6mRJ+qfPUSKWR4YknaNT07sRBZ0BeI="}}}		\N	13	\N	3A6F2AB839E1491911F2	69	f	f	f	f	\N
+É um resumo do que rolou no grupo, em formato de podcast	2	t	extendedTextMessage	\N	5	2026-04-15 10:20:57+00	2026-04-15 10:22:39.12+00	f	t	10	1	120363419625067096@g.us	{"key":{"remoteJid":"120363419625067096@g.us","fromMe":false,"id":"A521D06BE1BF07FA03695D46ED7856B3","participant":"226577325531194@lid","participantAlt":"5511965729953@s.whatsapp.net","addressingMode":"lid"},"messageTimestamp":1776248457,"pushName":"TRAXER","broadcast":false,"message":{"senderKeyDistributionMessage":{"groupId":"120363419625067096@g.us","axolotlSenderKeyDistributionMessage":"MwitytHBAxAAGiAX8EKk55vw93Ijjq/fAELmBlcVD44DmGH/CUqCJ43dXCIhBR7kF2XgHIGedS+9+7187eObFmmx90YtsavDYhrlm+gW"},"extendedTextMessage":{"text":"É um resumo do que rolou no grupo, em formato de podcast","previewType":"NONE","contextInfo":{"stanzaId":"3EB0756CF4575419C21AA4","participant":"84568409395348@lid","quotedMessage":{"conversation":"q porraa é essa meu deuss"},"quotedType":"EXPLICIT"},"inviteLinkGroupTypeV2":"DEFAULT"},"messageContextInfo":{"messageSecret":"4JOyR4j03nC8UI7BZ2fHSd4wRlSmPQC9+EiolaAuMSw="}},"verifiedBizName":"TRAXER"}	5511965729953@s.whatsapp.net	\N	6	\N	A521D06BE1BF07FA03695D46ED7856B3	55	f	f	f	f	\N
+1	4	f	extendedTextMessage	\N	10	2026-04-15 10:39:11+00	2026-04-15 11:13:48.097+00	f	f	7	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"153545231867906@lid","remoteJidAlt":"556285552072@s.whatsapp.net","fromMe":false,"id":"3ACBD16849997EC333DE","participant":"","addressingMode":"lid"},"messageTimestamp":1776249551,"pushName":"Gabriel Ferreira","broadcast":false,"message":{"extendedTextMessage":{"text":"1","contextInfo":{"expiration":0,"ephemeralSettingTimestamp":"1743130762","disappearingMode":{"initiator":"CHANGED_IN_CHAT","trigger":"CHAT_SETTING","initiatedByMe":true}}},"messageContextInfo":{"deviceListMetadata":{"senderKeyHash":"fiydUNRg7OiDpQ==","senderTimestamp":"1775653322","recipientKeyHash":"7bqybhCjRQE6FA==","recipientTimestamp":"1776177039"},"deviceListMetadataVersion":2,"messageSecret":"68J6awF6HWF6p04HWzsBbCpn5LiIpVdIaVqdGoE9EPA="}}}		\N	13	\N	3ACBD16849997EC333DE	73	f	f	f	f	\N
+Perfeito! Escolha a especialidade 👇\n\n[1] 👩‍⚕️ Fale com um atendente\n[2] 🔙 Continuar procurando\n[3] 🦴 Ortopedia\n[4] 👩‍⚕️ Ginecologia\n[5] 🚹 Urologia\n[6] 🫃 Gastroenterologia\n[7] ➡️ Ver mais\n[8] 🔙 Voltar\n	4	t	extendedTextMessage	\N	10	2026-04-15 10:35:57+00	2026-04-15 10:35:59.038+00	t	f	\N	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"556285552072@s.whatsapp.net","fromMe":true,"id":"3EB08D00475B9C7102AFE4"},"message":{"extendedTextMessage":{"text":"Perfeito! Escolha a especialidade 👇\\n\\n[1] 👩‍⚕️ Fale com um atendente\\n[2] 🔙 Continuar procurando\\n[3] 🦴 Ortopedia\\n[4] 👩‍⚕️ Ginecologia\\n[5] 🚹 Urologia\\n[6] 🫃 Gastroenterologia\\n[7] ➡️ Ver mais\\n[8] 🔙 Voltar\\n","contextInfo":{"forwardingScore":0,"isForwarded":false}}},"messageTimestamp":"1776249357","status":"PENDING"}	\N	\N	\N	\N	3EB08D00475B9C7102AFE4	70	f	f	f	t	\N
+8	4	f	extendedTextMessage	\N	10	2026-04-15 10:40:45+00	2026-04-15 11:13:48.05+00	f	f	7	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"153545231867906@lid","remoteJidAlt":"556285552072@s.whatsapp.net","fromMe":false,"id":"3AEE8AE5D3530E8BBD15","participant":"","addressingMode":"lid"},"messageTimestamp":1776249645,"pushName":"Gabriel Ferreira","broadcast":false,"message":{"extendedTextMessage":{"text":"8","contextInfo":{"expiration":0,"ephemeralSettingTimestamp":"1743130762","disappearingMode":{"initiator":"CHANGED_IN_CHAT","trigger":"CHAT_SETTING","initiatedByMe":true}}},"messageContextInfo":{"deviceListMetadata":{"senderKeyHash":"fiydUNRg7OiDpQ==","senderTimestamp":"1775653322","recipientKeyHash":"7bqybhCjRQE6FA==","recipientTimestamp":"1776177039"},"deviceListMetadataVersion":2,"messageSecret":"t9l2UN0PN52pKoOr3f6qLrXSC1hKyjJgdXPEz7YAIm8="}}}		\N	13	\N	3AEE8AE5D3530E8BBD15	85	f	f	f	f	\N
+8	4	f	extendedTextMessage	\N	10	2026-04-15 10:39:27+00	2026-04-15 11:13:48.097+00	f	f	7	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"153545231867906@lid","remoteJidAlt":"556285552072@s.whatsapp.net","fromMe":false,"id":"3A65F14C7BD8691D36FB","participant":"","addressingMode":"lid"},"messageTimestamp":1776249567,"pushName":"Gabriel Ferreira","broadcast":false,"message":{"extendedTextMessage":{"text":"8","contextInfo":{"expiration":0,"ephemeralSettingTimestamp":"1743130762","disappearingMode":{"initiator":"CHANGED_IN_CHAT","trigger":"CHAT_SETTING","initiatedByMe":true}}},"messageContextInfo":{"deviceListMetadata":{"senderKeyHash":"fiydUNRg7OiDpQ==","senderTimestamp":"1775653322","recipientKeyHash":"7bqybhCjRQE6FA==","recipientTimestamp":"1776177039"},"deviceListMetadataVersion":2,"messageSecret":"P5D8i+VCnNjc0lNndqFw5ZH5dHQfCEEEO5TIUQtcRzg="}}}		\N	13	\N	3A65F14C7BD8691D36FB	75	f	f	f	f	\N
+É um resumo do que rolou no grupo, em formato de podcast	2	t	conversation	\N	5	2026-04-15 10:22:52+00	2026-04-15 10:26:15.834+00	f	f	10	1	120363419625067096@g.us	{"key":{"remoteJid":"120363419625067096@g.us","fromMe":false,"id":"AC09E9359C7F285C73E214BD7EB8B4B0","participant":"220538635030592@lid","participantAlt":"5511960240963@s.whatsapp.net","addressingMode":"lid"},"messageTimestamp":1776248572,"pushName":"Bruno Quelmes","broadcast":false,"message":{"conversation":"É um resumo do que rolou no grupo, em formato de podcast","senderKeyDistributionMessage":{"groupId":"120363419625067096@g.us","axolotlSenderKeyDistributionMessage":"MwiwmZyNBRADGiCVeMugYlWSCt01cREACOIqEGp/MF0mZrMrt8goodmIWCIhBfMQuSEtyczsAXSnvNvnTQkdjZczdopnHkc+0wN1xWkQ"},"messageContextInfo":{"messageSecret":"NcPtQxyf/1I8lwxrLce4uVh7VuiOl2BLFP3Hut5Y1ek="}}}	5511960240963@s.whatsapp.net	\N	6	\N	AC09E9359C7F285C73E214BD7EB8B4B0	56	f	f	f	f	\N
+Perfeito! Escolha a especialidade 👇\n\n[1] 👩‍⚕️ Fale com um atendente\n[2] 🔙 Continuar procurando\n[3] 🦴 Ortopedia\n[4] 👩‍⚕️ Ginecologia\n[5] 🚹 Urologia\n[6] 🫃 Gastroenterologia\n[7] ➡️ Ver mais\n[8] 🔙 Voltar\n	4	t	extendedTextMessage	\N	10	2026-04-15 10:39:48+00	2026-04-15 10:39:49.892+00	t	f	\N	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"556285552072@s.whatsapp.net","fromMe":true,"id":"3EB0150663D772916ABA2D"},"message":{"extendedTextMessage":{"text":"Perfeito! Escolha a especialidade 👇\\n\\n[1] 👩‍⚕️ Fale com um atendente\\n[2] 🔙 Continuar procurando\\n[3] 🦴 Ortopedia\\n[4] 👩‍⚕️ Ginecologia\\n[5] 🚹 Urologia\\n[6] 🫃 Gastroenterologia\\n[7] ➡️ Ver mais\\n[8] 🔙 Voltar\\n","contextInfo":{"forwardingScore":0,"isForwarded":false}}},"messageTimestamp":"1776249588","status":"PENDING"}	\N	\N	\N	\N	3EB0150663D772916ABA2D	80	f	f	f	t	\N
+Digite o número da opção desejada 👇\n\n[1] 🩺 Consultas médicas\n[2] 🧪 Exames clínicos\n[3] 🔬 Laboratório\n[4] 📄 Ver resultados\n[5] 💰 Solicitar orçamento\n[6] ❓ Tirar dúvidas\n	4	t	extendedTextMessage	\N	10	2026-04-15 10:39:33+00	2026-04-15 10:39:34.777+00	t	f	\N	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"556285552072@s.whatsapp.net","fromMe":true,"id":"3EB02327A5010A9D6E77D2"},"message":{"extendedTextMessage":{"text":"Digite o número da opção desejada 👇\\n\\n[1] 🩺 Consultas médicas\\n[2] 🧪 Exames clínicos\\n[3] 🔬 Laboratório\\n[4] 📄 Ver resultados\\n[5] 💰 Solicitar orçamento\\n[6] ❓ Tirar dúvidas\\n","contextInfo":{"forwardingScore":0,"isForwarded":false}}},"messageTimestamp":"1776249573","status":"PENDING"}	\N	\N	\N	\N	3EB02327A5010A9D6E77D2	76	f	f	f	t	\N
+Oi, Gabriel! Bom dia 👋  \nÉ um prazer ter você aqui na *Imagem Clínica* 💙\n\nMe conta, como posso te ajudar hoje?	4	t	extendedTextMessage	\N	10	2026-04-15 10:30:35+00	2026-04-15 10:30:38.433+00	t	f	\N	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"556285552072@s.whatsapp.net","fromMe":true,"id":"3EB08F08B7C3F01BF85F76"},"message":{"extendedTextMessage":{"text":"Oi, Gabriel! Bom dia 👋  \\nÉ um prazer ter você aqui na *Imagem Clínica* 💙\\n\\nMe conta, como posso te ajudar hoje?","contextInfo":{"forwardingScore":0,"isForwarded":false}}},"messageTimestamp":"1776249035","status":"PENDING"}	\N	\N	\N	\N	3EB08F08B7C3F01BF85F76	63	f	f	f	t	\N
+Opa	4	f	extendedTextMessage	\N	10	2026-04-15 10:30:22+00	2026-04-15 11:13:47.936+00	f	f	7	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"153545231867906@lid","remoteJidAlt":"556285552072@s.whatsapp.net","fromMe":false,"id":"3A583126963BAF9565E9","participant":"","addressingMode":"lid"},"messageTimestamp":1776249022,"pushName":"Gabriel Ferreira","broadcast":false,"message":{"extendedTextMessage":{"text":"Opa","contextInfo":{"expiration":0,"ephemeralSettingTimestamp":"1743130762","disappearingMode":{"initiator":"CHANGED_IN_CHAT","trigger":"CHAT_SETTING","initiatedByMe":true}}},"messageContextInfo":{"deviceListMetadata":{"senderKeyHash":"fiydUNRg7OiDpQ==","senderTimestamp":"1775653322","recipientKeyHash":"7bqybhCjRQE6FA==","recipientTimestamp":"1776177039"},"deviceListMetadataVersion":2,"messageSecret":"I8pZl8lAlpuO1pBTsrmMj3my/KPs4zjMKzQbxKmblG8="}}}		\N	13	\N	3A583126963BAF9565E9	62	f	f	f	f	\N
+Digite o número da opção desejada 👇\n\n[1] 🩺 Consultas médicas\n[2] 🧪 Exames clínicos\n[3] 🔬 Laboratório\n[4] 📄 Ver resultados\n[5] 💰 Solicitar orçamento\n[6] ❓ Tirar dúvidas\n	4	t	extendedTextMessage	\N	10	2026-04-15 10:30:50+00	2026-04-15 10:30:51.526+00	t	f	\N	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"556285552072@s.whatsapp.net","fromMe":true,"id":"3EB0BB09D65D8F983952D6"},"message":{"extendedTextMessage":{"text":"Digite o número da opção desejada 👇\\n\\n[1] 🩺 Consultas médicas\\n[2] 🧪 Exames clínicos\\n[3] 🔬 Laboratório\\n[4] 📄 Ver resultados\\n[5] 💰 Solicitar orçamento\\n[6] ❓ Tirar dúvidas\\n","contextInfo":{"forwardingScore":0,"isForwarded":false}}},"messageTimestamp":"1776249050","status":"PENDING"}	\N	\N	\N	\N	3EB0BB09D65D8F983952D6	64	f	f	f	t	\N
+8	4	f	extendedTextMessage	\N	10	2026-04-15 10:36:07+00	2026-04-15 11:13:47.936+00	f	f	7	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"153545231867906@lid","remoteJidAlt":"556285552072@s.whatsapp.net","fromMe":false,"id":"3A7436F50384D5D2616F","participant":"","addressingMode":"lid"},"messageTimestamp":1776249367,"pushName":"Gabriel Ferreira","broadcast":false,"message":{"extendedTextMessage":{"text":"8","contextInfo":{"expiration":0,"ephemeralSettingTimestamp":"1743130762","disappearingMode":{"initiator":"CHANGED_IN_CHAT","trigger":"CHAT_SETTING","initiatedByMe":true}}},"messageContextInfo":{"deviceListMetadata":{"senderKeyHash":"fiydUNRg7OiDpQ==","senderTimestamp":"1775653322","recipientKeyHash":"7bqybhCjRQE6FA==","recipientTimestamp":"1776177039"},"deviceListMetadataVersion":2,"messageSecret":"q43s3Eik5VMQK6Djm2qJ4yDqM1P0RcfGAU4RGRByYJ0="}}}		\N	13	\N	3A7436F50384D5D2616F	71	f	f	f	f	\N
+8	4	f	extendedTextMessage	\N	10	2026-04-15 10:40:34+00	2026-04-15 11:13:48.05+00	f	f	7	1	556285552072@s.whatsapp.net	{"key":{"remoteJid":"153545231867906@lid","remoteJidAlt":"556285552072@s.whatsapp.net","fromMe":false,"id":"3AC8AA2FE30768D489B8","participant":"","addressingMode":"lid"},"messageTimestamp":1776249634,"pushName":"Gabriel Ferreira","broadcast":false,"message":{"extendedTextMessage":{"text":"8","contextInfo":{"expiration":0,"ephemeralSettingTimestamp":"1743130762","disappearingMode":{"initiator":"CHANGED_IN_CHAT","trigger":"CHAT_SETTING","initiatedByMe":true}}},"messageContextInfo":{"deviceListMetadata":{"senderKeyHash":"fiydUNRg7OiDpQ==","senderTimestamp":"1775653322","recipientKeyHash":"7bqybhCjRQE6FA==","recipientTimestamp":"1776177039"},"deviceListMetadataVersion":2,"messageSecret":"Dd9CJSE+a3sZyOwH7HmR9dJLWSXdo4t82zFQKajuRug="}}}		\N	13	\N	3AC8AA2FE30768D489B8	83	f	f	f	f	\N
 \.
 
 
 --
--- Data for Name: MobileWebhooks; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: MobileWebhooks; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."MobileWebhooks" (id, "userId", "companyId", "webhookUrl", "deviceToken", platform, "isActive", "failureCount", "lastUsed", "createdAt", "updatedAt") FROM stdin;
@@ -8772,7 +8820,7 @@ COPY public."MobileWebhooks" (id, "userId", "companyId", "webhookUrl", "deviceTo
 
 
 --
--- Data for Name: Negocios; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Negocios; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Negocios" (id, "companyId", name, description, "kanbanBoards", users, "createdAt", "updatedAt") FROM stdin;
@@ -8780,7 +8828,7 @@ COPY public."Negocios" (id, "companyId", name, description, "kanbanBoards", user
 
 
 --
--- Data for Name: Partners; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Partners; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Partners" (id, name, phone, email, document, commission, "typeCommission", "walletId", "createdAt", "updatedAt") FROM stdin;
@@ -8788,7 +8836,7 @@ COPY public."Partners" (id, name, phone, email, document, commission, "typeCommi
 
 
 --
--- Data for Name: Plans; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Plans; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Plans" (id, name, users, connections, queues, "createdAt", "updatedAt", amount, "useFacebook", "useInstagram", "useWhatsapp", "useCampaigns", "useExternalApi", "useInternalChat", "useSchedules", "useKanban", "isPublic", recurrence, trial, "trialDays", "useIntegrations", "useOpenAi", "affiliateCommissionRate") FROM stdin;
@@ -8797,7 +8845,7 @@ COPY public."Plans" (id, name, users, connections, queues, "createdAt", "updated
 
 
 --
--- Data for Name: ProdutoCategorias; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: ProdutoCategorias; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."ProdutoCategorias" (id, "companyId", nome, slug, descricao, "createdAt", "updatedAt") FROM stdin;
@@ -8805,7 +8853,7 @@ COPY public."ProdutoCategorias" (id, "companyId", nome, slug, descricao, "create
 
 
 --
--- Data for Name: ProdutoVariacaoGrupos; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: ProdutoVariacaoGrupos; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."ProdutoVariacaoGrupos" (id, "companyId", nome, "createdAt", "updatedAt") FROM stdin;
@@ -8813,7 +8861,7 @@ COPY public."ProdutoVariacaoGrupos" (id, "companyId", nome, "createdAt", "update
 
 
 --
--- Data for Name: ProdutoVariacaoItens; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: ProdutoVariacaoItens; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."ProdutoVariacaoItens" (id, "produtoId", "opcaoId", "valorOverride", "estoqueOverride", "createdAt", "updatedAt") FROM stdin;
@@ -8821,7 +8869,7 @@ COPY public."ProdutoVariacaoItens" (id, "produtoId", "opcaoId", "valorOverride",
 
 
 --
--- Data for Name: ProdutoVariacaoOpcoes; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: ProdutoVariacaoOpcoes; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."ProdutoVariacaoOpcoes" (id, "grupoId", nome, ordem, "createdAt", "updatedAt") FROM stdin;
@@ -8829,7 +8877,7 @@ COPY public."ProdutoVariacaoOpcoes" (id, "grupoId", nome, ordem, "createdAt", "u
 
 
 --
--- Data for Name: Produtos; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Produtos; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Produtos" (id, "companyId", tipo, nome, descricao, valor, status, imagem_principal, galeria, dados_especificos, "createdAt", "updatedAt", "categoriaId", "controleEstoque", "estoqueAtual", "estoqueMinimo") FROM stdin;
@@ -8846,7 +8894,7 @@ COPY public."Produtos" (id, "companyId", tipo, nome, descricao, valor, status, i
 
 
 --
--- Data for Name: PromptToolSettings; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: PromptToolSettings; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."PromptToolSettings" (id, "companyId", "promptId", "toolName", enabled, "createdAt", "updatedAt") FROM stdin;
@@ -8854,7 +8902,7 @@ COPY public."PromptToolSettings" (id, "companyId", "promptId", "toolName", enabl
 
 
 --
--- Data for Name: Prompts; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Prompts; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Prompts" (id, name, "apiKey", prompt, "maxTokens", "maxMessages", temperature, "promptTokens", "completionTokens", "totalTokens", voice, "voiceKey", "voiceRegion", "queueId", "companyId", "createdAt", "updatedAt", model, provider, "knowledgeBase") FROM stdin;
@@ -8862,7 +8910,7 @@ COPY public."Prompts" (id, name, "apiKey", prompt, "maxTokens", "maxMessages", t
 
 
 --
--- Data for Name: QueueIntegrations; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: QueueIntegrations; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."QueueIntegrations" (id, type, name, "projectName", "jsonContent", language, "createdAt", "updatedAt", "urlN8N", "companyId", "typebotExpires", "typebotKeywordFinish", "typebotUnknownMessage", "typebotSlug", "typebotDelayMessage", "typebotKeywordRestart", "typebotRestartMessage") FROM stdin;
@@ -8874,7 +8922,7 @@ COPY public."QueueIntegrations" (id, type, name, "projectName", "jsonContent", l
 
 
 --
--- Data for Name: QueueOptions; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: QueueOptions; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."QueueOptions" (id, title, message, option, "queueId", "parentId", "createdAt", "updatedAt") FROM stdin;
@@ -8882,15 +8930,16 @@ COPY public."QueueOptions" (id, title, message, option, "queueId", "parentId", "
 
 
 --
--- Data for Name: Queues; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Queues; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Queues" (id, name, color, "greetingMessage", "createdAt", "updatedAt", "companyId", schedules, "outOfHoursMessage", "orderQueue", "tempoRoteador", "ativarRoteador", "integrationId", "fileListId", "closeTicket") FROM stdin;
+57	teste	#A82B2B		2026-04-15 10:29:09.317+00	2026-04-15 10:29:09.317+00	1	[{"weekday": "Segunda-feira", "endTimeA": "12:00", "endTimeB": "23:00", "weekdayEn": "monday", "startTimeA": "08:00", "startTimeB": "12:01"}, {"weekday": "Terça-feira", "endTimeA": "12:00", "endTimeB": "23:00", "weekdayEn": "tuesday", "startTimeA": "08:00", "startTimeB": "12:01"}, {"weekday": "Quarta-feira", "endTimeA": "12:00", "endTimeB": "23:00", "weekdayEn": "wednesday", "startTimeA": "08:00", "startTimeB": "12:01"}, {"weekday": "Quinta-feira", "endTimeA": "12:00", "endTimeB": "23:00", "weekdayEn": "thursday", "startTimeA": "08:00", "startTimeB": "12:01"}, {"weekday": "Sexta-feira", "endTimeA": "12:00", "endTimeB": "23:00", "weekdayEn": "friday", "startTimeA": "08:00", "startTimeB": "12:01"}, {"weekday": "Sábado", "endTimeA": "12:00", "endTimeB": "23:00", "weekdayEn": "saturday", "startTimeA": "08:00", "startTimeB": "12:01"}, {"weekday": "Domingo", "endTimeA": "12:00", "endTimeB": "23:00", "weekdayEn": "sunday", "startTimeA": "08:00", "startTimeB": "12:01"}]		\N	0	f	\N	\N	f
 \.
 
 
 --
--- Data for Name: QuickMessages; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: QuickMessages; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."QuickMessages" (id, shortcode, message, "companyId", "createdAt", "updatedAt", "userId", "mediaPath", "mediaName", geral, visao) FROM stdin;
@@ -8898,7 +8947,7 @@ COPY public."QuickMessages" (id, shortcode, message, "companyId", "createdAt", "
 
 
 --
--- Data for Name: ScheduledMessages; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: ScheduledMessages; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."ScheduledMessages" (id, data_mensagem_programada, id_conexao, intervalo, valor_intervalo, mensagem, tipo_dias_envio, mostrar_usuario_mensagem, criar_ticket, contatos, tags, "companyId", nome, "createdAt", "updatedAt", "mediaPath", "mediaName", tipo_arquivo, usuario_envio, enviar_quantas_vezes) FROM stdin;
@@ -8906,7 +8955,7 @@ COPY public."ScheduledMessages" (id, data_mensagem_programada, id_conexao, inter
 
 
 --
--- Data for Name: ScheduledMessagesEnvios; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: ScheduledMessagesEnvios; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."ScheduledMessagesEnvios" (id, "createdAt", "updatedAt", "mediaPath", "mediaName", mensagem, "companyId", data_envio, scheduledmessages, key) FROM stdin;
@@ -8914,15 +8963,16 @@ COPY public."ScheduledMessagesEnvios" (id, "createdAt", "updatedAt", "mediaPath"
 
 
 --
--- Data for Name: Schedules; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Schedules; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Schedules" (id, body, "sendAt", "sentAt", "contactId", "ticketId", "userId", "companyId", "createdAt", "updatedAt", status, "ticketUserId", "whatsappId", "statusTicket", "queueId", "openTicket", "mediaName", "mediaPath", intervalo, "valorIntervalo", "enviarQuantasVezes", "tipoDias", "contadorEnvio", assinar, "googleEventId") FROM stdin;
+1	aaaaa	2026-04-15 09:57:00+00	2026-04-15 09:57:00+00	7	\N	11	1	2026-04-15 09:57:03.684+00	2026-04-15 09:57:30.103+00	ENVIADA	\N	2	closed	\N	enabled	\N	\N	1	0	1	4	0	f	\N
 \.
 
 
 --
--- Data for Name: SequelizeMeta; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: SequelizeMeta; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."SequelizeMeta" (name) FROM stdin;
@@ -9255,7 +9305,7 @@ COPY public."SequelizeMeta" (name) FROM stdin;
 
 
 --
--- Data for Name: Settings; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Settings; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Settings" (key, value, "createdAt", "updatedAt", "companyId", id) FROM stdin;
@@ -9308,20 +9358,78 @@ facebookAppSecret		2026-01-13 05:52:01.032+00	2026-02-09 00:57:42.363+00	1	55
 googleClientId		2026-01-13 05:53:06.729+00	2026-02-09 00:57:43.64+00	1	59
 googleClientSecret		2026-01-13 05:53:20.664+00	2026-02-09 00:57:44.614+00	1	60
 googleRedirectUri		2026-01-13 05:53:29.911+00	2026-02-09 00:57:45.403+00	1	61
-appLogoLight	logolp.png	2025-10-10 03:39:23.927+00	2026-02-21 18:25:49.807+00	1	29
-appLogoFavicon	whatsapp.png	2025-10-10 03:39:27.943+00	2026-02-21 18:26:05.402+00	1	30
-appName	Atend Zappy	2025-10-10 03:39:16.401+00	2026-02-21 18:26:12.792+00	1	28
-appLogoLoading	nopicture.png	2026-01-30 13:37:23.913+00	2026-02-21 18:26:28.099+00	1	85
-primaryColorLight	#1E1F20	2025-10-10 03:39:07.034+00	2026-02-06 08:42:44.909+00	1	27
 welcomeWhatsappText		2026-01-09 21:49:31.841+00	2026-02-09 00:57:28.691+00	1	42
 campaignsEnabled	true	2026-02-21 16:28:47.984+00	2026-02-21 16:28:47.984+00	156	109
 campaignsEnabled	true	2026-02-22 16:47:48.349+00	2026-02-22 16:47:48.349+00	157	110
 campaignsEnabled	true	2026-02-24 21:13:44.557+00	2026-02-24 21:13:44.557+00	158	111
+userCreation	enabled	2025-10-10 02:50:00.272+00	2025-10-10 02:50:00.272+00	\N	1
+hoursCloseTicketsAuto	9999999999	2025-10-10 02:50:00.274+00	2025-10-10 02:50:00.274+00	1	2
+chatBotType	text	2025-10-10 02:50:00.276+00	2025-10-10 02:50:00.276+00	1	3
+acceptCallWhatsapp	enabled	2025-10-10 02:50:00.278+00	2025-10-10 02:50:00.278+00	1	4
+userRandom	enabled	2025-10-10 02:50:00.28+00	2025-10-10 02:50:00.28+00	1	5
+sendGreetingMessageOneQueues	enabled	2025-10-10 02:50:00.282+00	2025-10-10 02:50:00.282+00	1	6
+sendSignMessage	enabled	2025-10-10 02:50:00.284+00	2025-10-10 02:50:00.284+00	1	7
+sendFarewellWaitingTicket	disabled	2025-10-10 02:50:00.288+00	2025-10-10 02:50:00.288+00	1	8
+userRating	disabled	2025-10-10 02:50:00.29+00	2025-10-10 02:50:00.29+00	1	9
+sendGreetingAccepted	enabled	2025-10-10 02:50:00.291+00	2025-10-10 02:50:00.291+00	1	10
+CheckMsgIsGroup	enabled	2025-10-10 02:50:00.293+00	2025-10-10 02:50:00.293+00	1	11
+sendQueuePosition	enabled	2025-10-10 02:50:00.294+00	2025-10-10 02:50:00.294+00	1	12
+scheduleType	disabled	2025-10-10 02:50:00.296+00	2025-10-10 02:50:00.296+00	1	13
+acceptAudioMessageContact	enabled	2025-10-10 02:50:00.297+00	2025-10-10 02:50:00.297+00	1	14
+enableLGPD	disabled	2025-10-10 02:50:00.299+00	2025-10-10 02:50:00.299+00	1	15
+requiredTag	disabled	2025-10-10 02:50:00.3+00	2025-10-10 02:50:00.3+00	1	16
+wtV	disabled	2025-10-10 02:50:00.303+00	2025-10-10 02:50:00.303+00	\N	18
+asaas		2025-10-10 02:50:00.342+00	2025-10-10 02:50:00.342+00	1	19
+efichavepix		2025-10-10 02:50:00.342+00	2025-10-10 02:50:00.342+00	1	20
+eficlientid		2025-10-10 02:50:00.342+00	2025-10-10 02:50:00.342+00	1	21
+eficlientsecret		2025-10-10 02:50:00.342+00	2025-10-10 02:50:00.342+00	1	22
+mpaccesstoken		2025-10-10 02:50:00.342+00	2025-10-10 02:50:00.342+00	1	23
+stripeprivatekey		2025-10-10 02:50:00.342+00	2025-10-10 02:50:00.342+00	1	24
+asaastoken		2025-10-10 02:50:00.342+00	2025-10-10 02:50:00.342+00	1	25
+downloadLimit	2048	2025-10-10 02:50:00.302+00	2025-10-11 05:07:50.687+00	1	17
+userCreation	enabled	2025-10-11 05:07:54.188+00	2025-10-11 05:07:54.188+00	1	31
+backendUrl	https://api.faedeveloper.com.br	2026-01-13 05:52:38.638+00	2026-01-13 05:52:38.638+00	1	57
+frontendUrl	https://app.faedeveloper.com.br	2026-01-13 05:52:49.348+00	2026-01-13 05:52:49.348+00	1	58
+openaikeyaudio		2025-10-10 02:50:00.342+00	2025-12-27 19:05:44.374+00	1	26
+termsImage		2026-01-09 20:37:29.673+00	2026-01-09 20:55:54.917+00	1	39
+dashboardImage3		2026-01-26 07:01:13.025+00	2026-01-26 07:27:40.244+00	1	81
+dashboardImage2		2026-01-26 07:01:07.247+00	2026-01-26 07:27:41.618+00	1	80
+dashboardImage1		2026-01-26 07:01:02.159+00	2026-01-26 07:31:03.886+00	1	79
+termsText		2026-01-09 20:24:45.712+00	2026-02-09 00:57:21.624+00	1	38
+trialDays	5	2026-01-09 21:49:19.965+00	2026-02-09 00:57:24.017+00	1	40
+welcomeEmailText		2026-01-09 21:49:20.849+00	2026-02-09 00:57:26.178+00	1	41
+smtpHost		2026-01-09 21:49:34.816+00	2026-02-09 00:57:30.924+00	1	44
+smtpPort		2026-01-09 22:13:39.735+00	2026-02-09 00:57:31.949+00	1	48
+smtpFrom		2026-01-09 21:49:33.404+00	2026-02-09 00:57:32.912+00	1	43
+smtpPass		2026-01-09 21:49:38.364+00	2026-02-09 00:57:33.881+00	1	46
+smtpUser		2026-01-09 21:49:36.109+00	2026-02-09 00:57:35.367+00	1	45
+openaiApiKey		2026-01-13 05:45:27.749+00	2026-02-09 00:57:36.292+00	1	52
+geminiApiKey		2026-01-13 05:45:29.982+00	2026-02-09 00:57:38.203+00	1	53
+verifyToken		2026-01-13 05:52:13.47+00	2026-02-09 00:57:39.187+00	1	56
+facebookAppId		2026-01-13 05:51:50.179+00	2026-02-09 00:57:40.371+00	1	54
+facebookAppSecret		2026-01-13 05:52:01.032+00	2026-02-09 00:57:42.363+00	1	55
+googleClientId		2026-01-13 05:53:06.729+00	2026-02-09 00:57:43.64+00	1	59
+googleClientSecret		2026-01-13 05:53:20.664+00	2026-02-09 00:57:44.614+00	1	60
+googleRedirectUri		2026-01-13 05:53:29.911+00	2026-02-09 00:57:45.403+00	1	61
+appName	CDI - Atendimentos	2025-10-10 03:39:16.401+00	2026-04-15 09:13:10.708+00	1	28
+appLogoLight	logo-imagemclinica-retina-branca-completa.png	2025-10-10 03:39:23.927+00	2026-04-15 09:17:31.699+00	1	29
+appLogoLoading	logo-imagem-barca-1024x1024-02-02.png	2026-01-30 13:37:23.913+00	2026-04-15 09:18:00.184+00	1	85
+welcomeWhatsappText		2026-01-09 21:49:31.841+00	2026-02-09 00:57:28.691+00	1	42
+campaignsEnabled	true	2026-02-21 16:28:47.984+00	2026-02-21 16:28:47.984+00	156	109
+campaignsEnabled	true	2026-02-22 16:47:48.349+00	2026-02-22 16:47:48.349+00	157	110
+campaignsEnabled	true	2026-02-24 21:13:44.557+00	2026-02-24 21:13:44.557+00	158	111
+primaryColorLight	#005586	2025-10-10 03:39:07.034+00	2026-04-15 09:12:39.087+00	1	27
+primaryColorLight	#005586	2025-10-10 03:39:07.034+00	2026-04-15 09:12:39.087+00	1	27
+appName	CDI - Atendimentos	2025-10-10 03:39:16.401+00	2026-04-15 09:13:10.708+00	1	28
+appLogoFavicon	logo-imagem-barca-1024x1024-02-02.png	2025-10-10 03:39:27.943+00	2026-04-15 09:16:56.732+00	1	30
+appLogoFavicon	logo-imagem-barca-1024x1024-02-02.png	2025-10-10 03:39:27.943+00	2026-04-15 09:16:56.732+00	1	30
+appLogoLight	logo-imagemclinica-retina-branca-completa.png	2025-10-10 03:39:23.927+00	2026-04-15 09:17:31.699+00	1	29
+appLogoLoading	logo-imagem-barca-1024x1024-02-02.png	2026-01-30 13:37:23.913+00	2026-04-15 09:18:00.184+00	1	85
 \.
 
 
 --
--- Data for Name: SliderBanners; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: SliderBanners; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."SliderBanners" (id, image, url, "companyId", "createdAt", "updatedAt") FROM stdin;
@@ -9329,7 +9437,7 @@ COPY public."SliderBanners" (id, image, url, "companyId", "createdAt", "updatedA
 
 
 --
--- Data for Name: Subscriptions; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Subscriptions; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Subscriptions" (id, "isActive", "expiresAt", "userPriceCents", "whatsPriceCents", "lastInvoiceUrl", "lastPlanChange", "companyId", "providerSubscriptionId", "createdAt", "updatedAt") FROM stdin;
@@ -9337,7 +9445,7 @@ COPY public."Subscriptions" (id, "isActive", "expiresAt", "userPriceCents", "wha
 
 
 --
--- Data for Name: Tags; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Tags; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Tags" (id, name, color, "companyId", "createdAt", "updatedAt", kanban, "timeLane", "nextLaneId", "greetingMessageLane", "rollbackLaneId") FROM stdin;
@@ -9345,7 +9453,7 @@ COPY public."Tags" (id, name, color, "companyId", "createdAt", "updatedAt", kanb
 
 
 --
--- Data for Name: TicketNotes; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: TicketNotes; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."TicketNotes" (id, note, "userId", "contactId", "ticketId", "createdAt", "updatedAt") FROM stdin;
@@ -9353,7 +9461,7 @@ COPY public."TicketNotes" (id, note, "userId", "contactId", "ticketId", "created
 
 
 --
--- Data for Name: TicketTags; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: TicketTags; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."TicketTags" ("ticketId", "tagId", "createdAt", "updatedAt") FROM stdin;
@@ -9361,23 +9469,27 @@ COPY public."TicketTags" ("ticketId", "tagId", "createdAt", "updatedAt") FROM st
 
 
 --
--- Data for Name: TicketTraking; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: TicketTraking; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."TicketTraking" (id, "ticketId", "companyId", "whatsappId", "userId", "createdAt", "updatedAt", "queuedAt", "startedAt", "finishedAt", "ratingAt", rated, "closedAt", "chatbotAt", "queueId") FROM stdin;
+6	5	1	2	\N	2026-04-15 09:28:13.433+00	2026-04-15 10:26:15.854+00	2026-04-15 10:26:15.838+00	\N	\N	\N	f	\N	\N	\N
+13	10	1	2	\N	2026-04-15 10:30:23.088+00	2026-04-15 10:32:56.257+00	2026-04-15 10:32:56.241+00	\N	\N	\N	f	\N	\N	\N
 \.
 
 
 --
--- Data for Name: Tickets; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Tickets; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
-COPY public."Tickets" (id, status, "lastMessage", "contactId", "userId", "createdAt", "updatedAt", "whatsappId", "isGroup", "unreadMessages", "queueId", "companyId", uuid, chatbot, "queueOptionId", "isBot", channel, "amountUsedBotQueues", "fromMe", "amountUsedBotQueuesNPS", "sendInactiveMessage", "lgpdSendMessageAt", "lgpdAcceptedAt", imported, "flowWebhook", "lastFlowId", "dataWebhook", "hashFlowId", "useIntegration", "integrationId", "isOutOfHour", "flowStopped", "isActiveDemand", "typebotSessionId", "typebotStatus", "typebotSessionTime", "productsSent", crm_lead_id, crm_client_id, "leadValue", lid, "waitingQuestion", "questionNodeId", "questionOptions", "timeoutEnabled", "timeoutAt") FROM stdin;
+COPY public."Tickets" (id, status, "lastMessage", "contactId", "userId", "createdAt", "updatedAt", "whatsappId", "isGroup", "unreadMessages", "queueId", "companyId", uuid, chatbot, "queueOptionId", "isBot", channel, "amountUsedBotQueues", "fromMe", "amountUsedBotQueuesNPS", "sendInactiveMessage", "lgpdSendMessageAt", "lgpdAcceptedAt", imported, "flowWebhook", "lastFlowId", "dataWebhook", "hashFlowId", "useIntegration", "integrationId", "isOutOfHour", "flowStopped", "isActiveDemand", "typebotSessionId", "typebotStatus", "typebotSessionTime", "productsSent", crm_lead_id, crm_client_id, "leadValue", lid, "waitingQuestion", "questionNodeId", "questionOptions", "timeoutEnabled", "timeoutAt", "questionAttempts", "maxQuestionAttempts", "botAttempts") FROM stdin;
+10	pending	Digite o número da opção desejada 👇\n\n[1] 🩺 Consultas médicas\n[2] 🧪 Exames clínicos\n[3] 🔬 Laboratório\n[4] 📄 Ver resultados\n[5] 💰 Solicitar orçamento\n[6] ❓ Tirar dúvidas\n	7	\N	2026-04-15 10:30:23.041+00	2026-04-15 10:40:52.618+00	2	f	4	\N	1	e1b6212e-c6b1-4718-a995-156813db1439	f	\N	f	whatsapp	0	f	0	f	\N	\N	\N	t	6vGQervRoo1lZQj3nzOQOcOyp4F6Ou	\N		f	\N	f	73	f	\N	false	\N	[]	6	\N	\N	\N	f	\N	\N	f	\N	0	3	0
+5	group	É um resumo do que rolou no grupo, em formato de podcast	10	\N	2026-04-15 09:28:13.396+00	2026-04-15 10:26:15.83+00	2	t	0	\N	1	8878971f-272b-465b-bd6a-1ad444a869b1	f	\N	f	whatsapp	0	f	0	f	\N	\N	\N	f	\N	\N	\N	f	\N	f	\N	f	\N	false	\N	[]	\N	\N	\N	\N	f	\N	\N	f	\N	0	3	0
 \.
 
 
 --
--- Data for Name: Translations; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Translations; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Translations" (id, "languageCode", key, value, "createdAt", "updatedAt") FROM stdin;
@@ -9386,7 +9498,7 @@ COPY public."Translations" (id, "languageCode", key, value, "createdAt", "update
 
 
 --
--- Data for Name: UserDevices; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: UserDevices; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."UserDevices" (id, "userId", "deviceToken", platform, "createdAt", "updatedAt") FROM stdin;
@@ -9394,7 +9506,7 @@ COPY public."UserDevices" (id, "userId", "deviceToken", platform, "createdAt", "
 
 
 --
--- Data for Name: UserGoogleCalendarIntegrations; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: UserGoogleCalendarIntegrations; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."UserGoogleCalendarIntegrations" (id, user_id, company_id, "googleUserId", email, "accessToken", "refreshToken", "expiryDate", "calendarId", active, "syncToken", "lastSyncAt", "createdAt", "updatedAt") FROM stdin;
@@ -9402,7 +9514,7 @@ COPY public."UserGoogleCalendarIntegrations" (id, user_id, company_id, "googleUs
 
 
 --
--- Data for Name: UserPagePermissions; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: UserPagePermissions; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."UserPagePermissions" (id, "userId", "pagePath", "canAccess", "createdAt", "updatedAt") FROM stdin;
@@ -9410,7 +9522,7 @@ COPY public."UserPagePermissions" (id, "userId", "pagePath", "canAccess", "creat
 
 
 --
--- Data for Name: UserQueues; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: UserQueues; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."UserQueues" ("userId", "queueId", "createdAt", "updatedAt") FROM stdin;
@@ -9453,11 +9565,12 @@ COPY public."UserQueues" ("userId", "queueId", "createdAt", "updatedAt") FROM st
 5	55	2026-02-21 14:14:36.295+00	2026-02-21 14:14:36.295+00
 6	55	2026-02-21 14:16:35.401+00	2026-02-21 14:16:35.401+00
 5	56	2026-02-21 14:17:05.328+00	2026-02-21 14:17:05.328+00
+11	57	2026-04-15 10:29:25.789+00	2026-04-15 10:29:25.789+00
 \.
 
 
 --
--- Data for Name: UserRatings; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: UserRatings; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."UserRatings" (id, "ticketId", "companyId", "userId", rate, "createdAt", "updatedAt") FROM stdin;
@@ -9465,7 +9578,7 @@ COPY public."UserRatings" (id, "ticketId", "companyId", "userId", rate, "created
 
 
 --
--- Data for Name: UserServices; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: UserServices; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."UserServices" (id, "userId", "serviceId", "createdAt", "updatedAt") FROM stdin;
@@ -9473,19 +9586,20 @@ COPY public."UserServices" (id, "userId", "serviceId", "createdAt", "updatedAt")
 
 
 --
--- Data for Name: Users; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Users; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
-COPY public."Users" (id, name, email, "passwordHash", "createdAt", "updatedAt", profile, "tokenVersion", "companyId", super, online, "endWork", "startWork", color, "farewellMessage", "whatsappId", "allTicket", "allowGroup", "defaultMenu", "defaultTheme", "profileImage", "allHistoric", "allUserChat", "resetPassword", "userClosePendingTicket", "showDashboard", "defaultTicketsManagerWidth", "allowRealTime", "allowConnections", "userType", "workDays", "lunchStart", "lunchEnd", "twoFactorSecret", "twoFactorEnabled", "pagePermissionsMode") FROM stdin;
-9	teste	teste3@teste3.com	$2a$08$LpryaA3EubwoYk5LANp6zODnq8HpxRHruRyD7ckEpBZ5Wrtayk9Gm	2026-02-24 21:13:44.513+00	2026-02-25 00:02:10.461+00	admin	0	158	f	f	23:59	00:00			\N	disable	f	closed	light	\N	disabled	disabled	\N	enabled	disabled	550	disable	disable	admin	1,2,3,4,5	\N	\N	\N	f	inherit
-7	Gabriel	teste@gmail.com	$2a$08$gJ3DQ3ZjV5oCbaLepqmcZuLtcKmvpuI1HiElPOkZuwVTHYcC0i8jK	2026-02-21 16:28:47.942+00	2026-02-23 16:50:12.887+00	admin	0	156	f	f	23:59	00:00			\N	disable	f	closed	light	\N	disabled	disabled	\N	enabled	disabled	550	disable	disable	administrador	1,2,3,4,5	\N	\N	\N	f	inherit
-1	Administrador	user@faedeveloper.com.br	$2a$08$fNxIeNjdfBPHnsgy8uGwZOZkx6gEiP3PIb//rccyoxgTB/SfoJCpO	2026-02-09 01:20:03.86568+00	2026-02-25 01:19:30.67+00	admin	0	1	t	t	23:59	00:00	\N	\N	\N	disable	f	closed	light	\N	disabled	disabled	\N	enabled	disabled	550	disabled	disabled	administrador	1,2,3,4,5	\N	\N	\N	f	inherit
-8	Thiago	thiagocorreaoficial121212@gmail.com	$2a$08$qUQpb5GF9daFJuCP1GokmOiDP.apSgq6jHCNZNcfRVPWet4fUqFJy	2026-02-22 16:47:48.294+00	2026-02-22 23:03:32.492+00	admin	0	157	f	f	23:59	00:00			\N	disable	f	closed	light	\N	disabled	disabled	\N	enabled	disabled	550	disable	disable	administrador	1,2,3,4,5	\N	\N	\N	f	inherit
+COPY public."Users" (id, name, email, "passwordHash", "createdAt", "updatedAt", profile, "tokenVersion", "companyId", super, online, "endWork", "startWork", color, "farewellMessage", "whatsappId", "allTicket", "allowGroup", "defaultMenu", "defaultTheme", "profileImage", "allHistoric", "allUserChat", "resetPassword", "userClosePendingTicket", "showDashboard", "defaultTicketsManagerWidth", "allowRealTime", "allowConnections", "userType", "workDays", "lunchStart", "lunchEnd", "twoFactorSecret", "twoFactorEnabled", "pagePermissionsMode", "allowContacts") FROM stdin;
+9	teste	teste3@teste3.com	$2a$08$LpryaA3EubwoYk5LANp6zODnq8HpxRHruRyD7ckEpBZ5Wrtayk9Gm	2026-02-24 21:13:44.513+00	2026-02-25 00:02:10.461+00	admin	0	158	f	f	23:59	00:00			\N	disable	f	closed	light	\N	disabled	disabled	\N	enabled	disabled	550	disable	disable	admin	1,2,3,4,5	\N	\N	\N	f	inherit	false
+7	Gabriel	teste@gmail.com	$2a$08$gJ3DQ3ZjV5oCbaLepqmcZuLtcKmvpuI1HiElPOkZuwVTHYcC0i8jK	2026-02-21 16:28:47.942+00	2026-02-23 16:50:12.887+00	admin	0	156	f	f	23:59	00:00			\N	disable	f	closed	light	\N	disabled	disabled	\N	enabled	disabled	550	disable	disable	administrador	1,2,3,4,5	\N	\N	\N	f	inherit	false
+8	Thiago	thiagocorreaoficial121212@gmail.com	$2a$08$qUQpb5GF9daFJuCP1GokmOiDP.apSgq6jHCNZNcfRVPWet4fUqFJy	2026-02-22 16:47:48.294+00	2026-02-22 23:03:32.492+00	admin	0	157	f	f	23:59	00:00			\N	disable	f	closed	light	\N	disabled	disabled	\N	enabled	disabled	550	disable	disable	administrador	1,2,3,4,5	\N	\N	\N	f	inherit	false
+11	gabriel	gabriel@gmail.com	$2a$08$.CHWccTT3n9YoYYDpxJhWOSrfSTuEla73/JtMl9RB4RCsqUEZZDEu	2026-04-15 09:19:14.886+00	2026-04-15 10:48:00.052+00	admin	0	1	f	f	23:59	00:00			2	enable	t	open	light	\N	enabled	enabled	\N	enabled	disabled	550	disabled	enabled	manager	1,2,3,4,5	\N	\N	\N	f	inherit	enabled
+1	Administrador	user@faedeveloper.com.br	$2a$08$fNxIeNjdfBPHnsgy8uGwZOZkx6gEiP3PIb//rccyoxgTB/SfoJCpO	2026-02-09 01:20:03.86568+00	2026-04-15 11:26:51.55+00	admin	0	1	t	t	23:59	00:00	\N	\N	\N	disable	f	closed	light	\N	disabled	disabled	\N	enabled	disabled	550	disabled	disabled	administrador	1,2,3,4,5	\N	\N	\N	f	inherit	false
 \.
 
 
 --
--- Data for Name: Versions; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Versions; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Versions" (id, "versionFrontend", "versionBackend", "createdAt", "updatedAt") FROM stdin;
@@ -9494,7 +9608,7 @@ COPY public."Versions" (id, "versionFrontend", "versionBackend", "createdAt", "u
 
 
 --
--- Data for Name: Webhooks; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Webhooks; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Webhooks" (id, user_id, name, hash_id, config, "createdAt", "updatedAt", active, "requestMonth", "requestAll", company_id) FROM stdin;
@@ -9516,11 +9630,12 @@ COPY public."Webhooks" (id, user_id, name, hash_id, config, "createdAt", "update
 16	147	flowbuilder	CYkuF3mbmB5RKQ0fhfzerCM7UzwGSwrYAi6sFnabqX	\N	2026-02-08 18:19:53.688+00	2026-02-08 18:19:53.688+00	t	0	0	149
 17	5	flowbuilder	7fd7xf5Qz9tXaYRCdpNeLAGrTBhhPzBhpljXlVpF5A	\N	2026-02-21 15:08:10.079+00	2026-02-21 15:08:10.079+00	t	0	0	155
 18	7	flowbuilder	u5cC05rbNclljDy0PifovOmV3SXCv4w859sLJiqwdz	\N	2026-02-21 16:29:29.3+00	2026-02-21 16:29:29.3+00	t	0	0	156
+19	1	flowbuilder	bfPBUyizHDXtlSVyAfceoUWgS4AbpP4l02xKqKINrt	\N	2026-04-14 20:44:08.063+00	2026-04-14 20:44:08.063+00	t	0	0	1
 \.
 
 
 --
--- Data for Name: WhatsappQueues; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: WhatsappQueues; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."WhatsappQueues" ("whatsappId", "queueId", "createdAt", "updatedAt") FROM stdin;
@@ -9541,15 +9656,16 @@ COPY public."WhatsappQueues" ("whatsappId", "queueId", "createdAt", "updatedAt")
 
 
 --
--- Data for Name: Whatsapps; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: Whatsapps; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public."Whatsapps" (id, session, qrcode, status, battery, plugged, "createdAt", "updatedAt", name, "isDefault", retries, "greetingMessage", "companyId", "complationMessage", "outOfHoursMessage", token, "farewellMessage", provider, number, channel, "facebookUserToken", "tokenMeta", "facebookPageUserId", "facebookUserId", "maxUseBotQueues", "expiresTicket", "allowGroup", "timeUseBotQueues", "timeSendQueue", "sendIdQueue", "expiresInactiveMessage", "maxUseBotQueuesNPS", "inactiveMessage", "whenExpiresTicket", "expiresTicketNPS", "timeInactiveMessage", "ratingMessage", "groupAsTicket", "importOldMessages", "importRecentMessages", "statusImportMessages", "closedTicketsPostImported", "importOldMessagesGroups", "timeCreateNewTicket", "greetingMediaAttachment", "promptId", "integrationId", schedules, "collectiveVacationEnd", "collectiveVacationStart", "collectiveVacationMessage", "queueIdImportMessages", "flowIdNotPhrase", "flowIdWelcome", wavoip, "notificameHub", "coexistencePhoneNumberId", "coexistenceWabaId", "coexistencePermanentToken", "coexistenceEnabled", "businessAppConnected", "messageRoutingMode", "routingRules", "lastCoexistenceSync") FROM stdin;
+2	\N		CONNECTED	\N	\N	2026-04-14 20:43:02.996+00	2026-04-15 10:38:51.306+00	Teste	t	0		1			4g2UGMuLhN3ivpKMHDX7ordVVa0iPs		beta	556292330591	whatsapp	\N	\N	\N	\N	3	0	f	0	0	0		3		0	0			disabled	\N	\N	\N	\N	\N	0	\N	\N	5	[{"weekday": "Segunda-feira", "endTimeA": "12:00", "endTimeB": "18:00", "weekdayEn": "monday", "startTimeA": "08:00", "startTimeB": "13:00"}, {"weekday": "Terça-feira", "endTimeA": "12:00", "endTimeB": "18:00", "weekdayEn": "tuesday", "startTimeA": "08:00", "startTimeB": "13:00"}, {"weekday": "Quarta-feira", "endTimeA": "12:00", "endTimeB": "18:00", "weekdayEn": "wednesday", "startTimeA": "08:00", "startTimeB": "13:00"}, {"weekday": "Quinta-feira", "endTimeA": "12:00", "endTimeB": "18:00", "weekdayEn": "thursday", "startTimeA": "08:00", "startTimeB": "13:00"}, {"weekday": "Sexta-feira", "endTimeA": "12:00", "endTimeB": "18:00", "weekdayEn": "friday", "startTimeA": "08:00", "startTimeB": "13:00"}, {"weekday": "Sábado", "endTimeA": "12:00", "endTimeB": "18:00", "weekdayEn": "saturday", "startTimeA": "08:00", "startTimeB": "13:00"}, {"weekday": "Domingo", "endTimeA": "12:00", "endTimeB": "18:00", "weekdayEn": "sunday", "startTimeA": "08:00", "startTimeB": "13:00"}]				\N	73	73	\N	f	\N	\N	\N	f	f	automatic	\N	\N
 \.
 
 
 --
--- Data for Name: appointments; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: appointments; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.appointments (id, title, description, start_datetime, duration_minutes, status, schedule_id, service_id, client_id, contact_id, company_id, created_at, updated_at, google_event_id) FROM stdin;
@@ -9557,7 +9673,7 @@ COPY public.appointments (id, title, description, start_datetime, duration_minut
 
 
 --
--- Data for Name: company_api_keys; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: company_api_keys; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.company_api_keys (id, company_id, label, token, webhook_url, webhook_secret, active, last_used_at, "createdAt", "updatedAt") FROM stdin;
@@ -9566,7 +9682,7 @@ COPY public.company_api_keys (id, company_id, label, token, webhook_url, webhook
 
 
 --
--- Data for Name: company_integration_field_maps; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: company_integration_field_maps; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.company_integration_field_maps (id, integration_id, external_field, crm_field, transform_expression, options, "createdAt", "updatedAt") FROM stdin;
@@ -9574,7 +9690,7 @@ COPY public.company_integration_field_maps (id, integration_id, external_field, 
 
 
 --
--- Data for Name: company_integration_settings; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: company_integration_settings; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.company_integration_settings (id, company_id, name, provider, base_url, api_key, api_secret, webhook_secret, metadata, active, "createdAt", "updatedAt") FROM stdin;
@@ -9582,7 +9698,7 @@ COPY public.company_integration_settings (id, company_id, name, provider, base_u
 
 
 --
--- Data for Name: company_payment_settings; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: company_payment_settings; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.company_payment_settings (id, company_id, provider, token, additional_data, active, created_at, updated_at) FROM stdin;
@@ -9590,7 +9706,7 @@ COPY public.company_payment_settings (id, company_id, provider, token, additiona
 
 
 --
--- Data for Name: crm_client_contacts; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: crm_client_contacts; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.crm_client_contacts (id, client_id, contact_id, role, created_at, updated_at) FROM stdin;
@@ -9598,7 +9714,7 @@ COPY public.crm_client_contacts (id, client_id, contact_id, role, created_at, up
 
 
 --
--- Data for Name: crm_clients; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: crm_clients; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.crm_clients (id, company_id, type, name, company_name, document, birth_date, email, phone, zip_code, address, number, complement, neighborhood, city, state, status, client_since, owner_user_id, notes, created_at, updated_at, contact_id, primary_ticket_id, asaas_customer_id, lid) FROM stdin;
@@ -9606,15 +9722,19 @@ COPY public.crm_clients (id, company_id, type, name, company_name, document, bir
 
 
 --
--- Data for Name: crm_leads; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: crm_leads; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.crm_leads (id, company_id, name, email, phone, birth_date, document, company_name, "position", source, campaign, medium, status, score, temperature, owner_user_id, notes, last_activity_at, created_at, updated_at, contact_id, primary_ticket_id, converted_client_id, converted_at, lead_status, lid) FROM stdin;
+5	1	Rafael Sousa	\N	5524993959492	\N	\N	\N	\N	\N	\N	\N	new	0	\N	\N	\N	2026-04-14 20:50:55.93+00	2026-04-14 20:50:55.93+00	2026-04-14 20:52:44.123+00	5	\N	\N	\N	novo	\N
+7	1	Matheus Amorim	\N	5521993007665	\N	\N	\N	\N	\N	\N	\N	new	0	\N	\N	\N	2026-04-14 22:23:58.4+00	2026-04-14 22:23:58.4+00	2026-04-14 22:24:05.423+00	8	\N	\N	\N	novo	\N
+8	1	Fabrício	\N	5511932313806	\N	\N	\N	\N	\N	\N	\N	new	0	\N	\N	\N	2026-04-14 22:24:41.545+00	2026-04-14 22:24:41.545+00	2026-04-14 22:24:41.545+00	9	\N	\N	\N	novo	\N
+6	1	Gabriel Ferreira	\N	556285552072	\N	\N	\N	\N	\N	\N	\N	new	0	\N	\N	\N	2026-04-15 10:40:46.461+00	2026-04-14 21:19:55.315+00	2026-04-15 10:40:46.461+00	7	\N	\N	\N	novo	\N
 \.
 
 
 --
--- Data for Name: financeiro_faturas; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: financeiro_faturas; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.financeiro_faturas (id, company_id, client_id, descricao, valor, status, data_vencimento, data_pagamento, tipo_referencia, referencia_id, tipo_recorrencia, quantidade_ciclos, ciclo_atual, data_inicio, data_fim, ativa, observacoes, created_at, updated_at, valor_pago, payment_provider, payment_link, payment_external_id, checkout_token, project_id) FROM stdin;
@@ -9622,7 +9742,7 @@ COPY public.financeiro_faturas (id, company_id, client_id, descricao, valor, sta
 
 
 --
--- Data for Name: financeiro_pagamentos; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: financeiro_pagamentos; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.financeiro_pagamentos (id, company_id, fatura_id, metodo_pagamento, valor, data_pagamento, observacoes, created_at) FROM stdin;
@@ -9630,7 +9750,7 @@ COPY public.financeiro_pagamentos (id, company_id, fatura_id, metodo_pagamento, 
 
 
 --
--- Data for Name: media_files; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: media_files; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.media_files (id, folder_id, company_id, original_name, custom_name, mime_type, size, storage_path, created_at, updated_at) FROM stdin;
@@ -9638,7 +9758,7 @@ COPY public.media_files (id, folder_id, company_id, original_name, custom_name, 
 
 
 --
--- Data for Name: media_folders; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: media_folders; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.media_folders (id, name, description, company_id, created_at, updated_at) FROM stdin;
@@ -9646,7 +9766,7 @@ COPY public.media_folders (id, name, description, company_id, created_at, update
 
 
 --
--- Data for Name: profissionais; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: profissionais; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.profissionais (id, "companyId", nome, servicos, agenda, ativo, comissao, "valorEmAberto", "valoresRecebidos", "valoresAReceber", "createdAt", "updatedAt") FROM stdin;
@@ -9656,7 +9776,7 @@ COPY public.profissionais (id, "companyId", nome, servicos, agenda, ativo, comis
 
 
 --
--- Data for Name: project_products; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: project_products; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.project_products (id, "companyId", "projectId", "productId", quantity, "unitPrice", notes, "createdAt", "updatedAt") FROM stdin;
@@ -9664,7 +9784,7 @@ COPY public.project_products (id, "companyId", "projectId", "productId", quantit
 
 
 --
--- Data for Name: project_services; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: project_services; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.project_services (id, "companyId", "projectId", "serviceId", quantity, "unitPrice", notes, "createdAt", "updatedAt") FROM stdin;
@@ -9672,7 +9792,7 @@ COPY public.project_services (id, "companyId", "projectId", "serviceId", quantit
 
 
 --
--- Data for Name: project_task_users; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: project_task_users; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.project_task_users (id, "companyId", "taskId", "userId", responsibility, "createdAt", "updatedAt") FROM stdin;
@@ -9680,7 +9800,7 @@ COPY public.project_task_users (id, "companyId", "taskId", "userId", responsibil
 
 
 --
--- Data for Name: project_tasks; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: project_tasks; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.project_tasks (id, "companyId", "projectId", title, description, status, "order", "startDate", "dueDate", "completedAt", "createdAt", "updatedAt") FROM stdin;
@@ -9688,7 +9808,7 @@ COPY public.project_tasks (id, "companyId", "projectId", title, description, sta
 
 
 --
--- Data for Name: project_users; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: project_users; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.project_users (id, "companyId", "projectId", "userId", role, "effortAllocation", "createdAt", "updatedAt") FROM stdin;
@@ -9696,7 +9816,7 @@ COPY public.project_users (id, "companyId", "projectId", "userId", role, "effort
 
 
 --
--- Data for Name: projects; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: projects; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.projects (id, "companyId", "clientId", "invoiceId", name, description, "deliveryTime", warranty, terms, status, "startDate", "endDate", "createdAt", "updatedAt") FROM stdin;
@@ -9704,7 +9824,7 @@ COPY public.projects (id, "companyId", "clientId", "invoiceId", name, descriptio
 
 
 --
--- Data for Name: scheduled_dispatch_logs; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: scheduled_dispatch_logs; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.scheduled_dispatch_logs (id, dispatcher_id, contact_id, ticket_id, company_id, status, error_message, sent_at, created_at, updated_at) FROM stdin;
@@ -9712,7 +9832,7 @@ COPY public.scheduled_dispatch_logs (id, dispatcher_id, contact_id, ticket_id, c
 
 
 --
--- Data for Name: scheduled_dispatchers; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: scheduled_dispatchers; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.scheduled_dispatchers (id, company_id, title, message_template, event_type, whatsapp_id, start_time, send_interval_seconds, days_before_due, days_after_due, active, created_at, updated_at) FROM stdin;
@@ -9720,7 +9840,7 @@ COPY public.scheduled_dispatchers (id, company_id, title, message_template, even
 
 
 --
--- Data for Name: servicos; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: servicos; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.servicos (id, "companyId", nome, descricao, "valorOriginal", "possuiDesconto", "valorComDesconto", "createdAt", "updatedAt") FROM stdin;
@@ -9728,7 +9848,7 @@ COPY public.servicos (id, "companyId", nome, descricao, "valorOriginal", "possui
 
 
 --
--- Data for Name: slider_home; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: slider_home; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.slider_home (id, name, image, "companyId", "createdAt", "updatedAt") FROM stdin;
@@ -9736,7 +9856,7 @@ COPY public.slider_home (id, name, image, "companyId", "createdAt", "updatedAt")
 
 
 --
--- Data for Name: tutorial_videos; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: tutorial_videos; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.tutorial_videos (id, title, description, video_url, thumbnail_url, company_id, user_id, is_active, views_count, created_at, updated_at) FROM stdin;
@@ -9744,7 +9864,7 @@ COPY public.tutorial_videos (id, title, description, video_url, thumbnail_url, c
 
 
 --
--- Data for Name: user_schedules; Type: TABLE DATA; Schema: public; Owner: empresa
+-- Data for Name: user_schedules; Type: TABLE DATA; Schema: public; Owner: imagem
 --
 
 COPY public.user_schedules (id, name, description, active, user_id, company_id, created_at, updated_at, user_google_calendar_integration_id) FROM stdin;
@@ -9752,770 +9872,770 @@ COPY public.user_schedules (id, name, description, active, user_id, company_id, 
 
 
 --
--- Name: AffiliateCommissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: AffiliateCommissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."AffiliateCommissions_id_seq"', 1, false);
 
 
 --
--- Name: AffiliateLinks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: AffiliateLinks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."AffiliateLinks_id_seq"', 5, true);
 
 
 --
--- Name: AffiliateWithdrawals_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: AffiliateWithdrawals_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."AffiliateWithdrawals_id_seq"', 1, false);
 
 
 --
--- Name: Affiliates_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Affiliates_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Affiliates_id_seq"', 3, true);
 
 
 --
--- Name: Announcements_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Announcements_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Announcements_id_seq"', 1, true);
 
 
 --
--- Name: ApiUsages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: ApiUsages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."ApiUsages_id_seq"', 4, true);
 
 
 --
--- Name: AutomationActions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: AutomationActions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."AutomationActions_id_seq"', 7, true);
 
 
 --
--- Name: AutomationExecutions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: AutomationExecutions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."AutomationExecutions_id_seq"', 1, false);
 
 
 --
--- Name: AutomationLogs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: AutomationLogs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."AutomationLogs_id_seq"', 1, false);
 
 
 --
--- Name: Automations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Automations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Automations_id_seq"', 5, true);
 
 
 --
--- Name: Baileys_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Baileys_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
-SELECT pg_catalog.setval('public."Baileys_id_seq"', 3588, true);
-
-
---
--- Name: CallRecords_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
---
-
-SELECT pg_catalog.setval('public."CallRecords_id_seq"', 1, false);
+SELECT pg_catalog.setval('public."Baileys_id_seq"', 3589, true);
 
 
 --
--- Name: CampaignSettings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: CallRecords_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
+--
+
+SELECT pg_catalog.setval('public."CallRecords_id_seq"', 1, true);
+
+
+--
+-- Name: CampaignSettings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."CampaignSettings_id_seq"', 16, true);
 
 
 --
--- Name: CampaignShipping_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: CampaignShipping_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."CampaignShipping_id_seq"', 1, false);
 
 
 --
--- Name: Campaigns_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Campaigns_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Campaigns_id_seq"', 1, false);
 
 
 --
--- Name: ChatMessages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: ChatMessages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."ChatMessages_id_seq"', 1, false);
 
 
 --
--- Name: ChatUsers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: ChatUsers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."ChatUsers_id_seq"', 1, false);
 
 
 --
--- Name: Chatbots_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Chatbots_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Chatbots_id_seq"', 1, false);
 
 
 --
--- Name: Chats_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Chats_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Chats_id_seq"', 1, false);
 
 
 --
--- Name: CompaniesSettings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: CompaniesSettings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."CompaniesSettings_id_seq"', 117, true);
 
 
 --
--- Name: Companies_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Companies_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Companies_id_seq"', 158, true);
 
 
 --
--- Name: ContactCustomFields_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: ContactCustomFields_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."ContactCustomFields_id_seq"', 1, false);
 
 
 --
--- Name: ContactGroups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: ContactGroups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."ContactGroups_id_seq"', 1, false);
 
 
 --
--- Name: ContactListItems_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: ContactListItems_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."ContactListItems_id_seq"', 1, false);
 
 
 --
--- Name: ContactLists_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: ContactLists_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."ContactLists_id_seq"', 1, false);
 
 
 --
--- Name: ContactWallets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: ContactWallets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."ContactWallets_id_seq"', 1, false);
 
 
 --
--- Name: Contacts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Contacts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
-SELECT pg_catalog.setval('public."Contacts_id_seq"', 4, true);
+SELECT pg_catalog.setval('public."Contacts_id_seq"', 10, true);
 
 
 --
--- Name: Coupons_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Coupons_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Coupons_id_seq"', 2, true);
 
 
 --
--- Name: DialogChatBots_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: DialogChatBots_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."DialogChatBots_id_seq"', 1, false);
 
 
 --
--- Name: Faturas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Faturas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Faturas_id_seq"', 1, false);
 
 
 --
--- Name: Ferramentas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Ferramentas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Ferramentas_id_seq"', 15, true);
 
 
 --
--- Name: FilesOptions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: FilesOptions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."FilesOptions_id_seq"', 3, true);
 
 
 --
--- Name: Files_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Files_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Files_id_seq"', 3, true);
 
 
 --
--- Name: FlowAudios_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: FlowAudios_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."FlowAudios_id_seq"', 1, false);
 
 
 --
--- Name: FlowBuilders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: FlowBuilders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
-SELECT pg_catalog.setval('public."FlowBuilders_id_seq"', 71, true);
+SELECT pg_catalog.setval('public."FlowBuilders_id_seq"', 73, true);
 
 
 --
--- Name: FlowCampaigns_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: FlowCampaigns_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."FlowCampaigns_id_seq"', 1, false);
 
 
 --
--- Name: FlowDefaults_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: FlowDefaults_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."FlowDefaults_id_seq"', 1, false);
 
 
 --
--- Name: FlowImgs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: FlowImgs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."FlowImgs_id_seq"', 18, true);
 
 
 --
--- Name: GoogleCalendarIntegrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: GoogleCalendarIntegrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."GoogleCalendarIntegrations_id_seq"', 1, false);
 
 
 --
--- Name: GoogleSheetsTokens_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: GoogleSheetsTokens_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."GoogleSheetsTokens_id_seq"', 1, false);
 
 
 --
--- Name: Helps_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Helps_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Helps_id_seq"', 1, false);
 
 
 --
--- Name: IaWorkflows_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: IaWorkflows_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."IaWorkflows_id_seq"', 32, true);
 
 
 --
--- Name: Integrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Integrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Integrations_id_seq"', 1, false);
 
 
 --
--- Name: Invoices_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Invoices_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Invoices_id_seq"', 128, true);
 
 
 --
--- Name: Languages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Languages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Languages_id_seq"', 3, true);
 
 
 --
--- Name: LogTickets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: LogTickets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
-SELECT pg_catalog.setval('public."LogTickets_id_seq"', 34, true);
+SELECT pg_catalog.setval('public."LogTickets_id_seq"', 76, true);
 
 
 --
--- Name: MediaFiles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: MediaFiles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."MediaFiles_id_seq"', 1, false);
 
 
 --
--- Name: MediaFolders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: MediaFolders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."MediaFolders_id_seq"', 1, false);
 
 
 --
--- Name: Messages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Messages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
-SELECT pg_catalog.setval('public."Messages_id_seq"', 14, true);
+SELECT pg_catalog.setval('public."Messages_id_seq"', 86, true);
 
 
 --
--- Name: MobileWebhooks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: MobileWebhooks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."MobileWebhooks_id_seq"', 1, false);
 
 
 --
--- Name: Negocios_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Negocios_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Negocios_id_seq"', 32, true);
 
 
 --
--- Name: Partners_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Partners_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Partners_id_seq"', 1, false);
 
 
 --
--- Name: Plans_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Plans_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Plans_id_seq"', 5, true);
 
 
 --
--- Name: ProdutoCategorias_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: ProdutoCategorias_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."ProdutoCategorias_id_seq"', 3, true);
 
 
 --
--- Name: ProdutoVariacaoGrupos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoGrupos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."ProdutoVariacaoGrupos_id_seq"', 3, true);
 
 
 --
--- Name: ProdutoVariacaoItens_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoItens_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."ProdutoVariacaoItens_id_seq"', 1, true);
 
 
 --
--- Name: ProdutoVariacaoOpcoes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoOpcoes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."ProdutoVariacaoOpcoes_id_seq"', 4, true);
 
 
 --
--- Name: Produtos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Produtos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Produtos_id_seq"', 23, true);
 
 
 --
--- Name: PromptToolSettings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: PromptToolSettings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."PromptToolSettings_id_seq"', 1, false);
 
 
 --
--- Name: Prompts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Prompts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Prompts_id_seq"', 1, false);
 
 
 --
--- Name: QueueIntegrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: QueueIntegrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."QueueIntegrations_id_seq"', 13, true);
 
 
 --
--- Name: QueueOptions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: QueueOptions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."QueueOptions_id_seq"', 1, false);
 
 
 --
--- Name: Queues_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Queues_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
-SELECT pg_catalog.setval('public."Queues_id_seq"', 56, true);
+SELECT pg_catalog.setval('public."Queues_id_seq"', 57, true);
 
 
 --
--- Name: QuickMessages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: QuickMessages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."QuickMessages_id_seq"', 1, false);
 
 
 --
--- Name: ScheduledMessagesEnvios_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: ScheduledMessagesEnvios_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."ScheduledMessagesEnvios_id_seq"', 1, false);
 
 
 --
--- Name: ScheduledMessages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: ScheduledMessages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."ScheduledMessages_id_seq"', 1, false);
 
 
 --
--- Name: Schedules_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Schedules_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
-SELECT pg_catalog.setval('public."Schedules_id_seq"', 1, false);
+SELECT pg_catalog.setval('public."Schedules_id_seq"', 1, true);
 
 
 --
--- Name: Settings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Settings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Settings_id_seq"', 111, true);
 
 
 --
--- Name: SliderBanners_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: SliderBanners_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."SliderBanners_id_seq"', 1, false);
 
 
 --
--- Name: Subscriptions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Subscriptions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Subscriptions_id_seq"', 1, false);
 
 
 --
--- Name: Tags_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Tags_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Tags_id_seq"', 107, true);
 
 
 --
--- Name: TicketNotes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: TicketNotes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."TicketNotes_id_seq"', 1, false);
 
 
 --
--- Name: TicketTraking_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: TicketTraking_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
-SELECT pg_catalog.setval('public."TicketTraking_id_seq"', 4, true);
-
-
---
--- Name: Tickets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
---
-
-SELECT pg_catalog.setval('public."Tickets_id_seq"', 3, true);
+SELECT pg_catalog.setval('public."TicketTraking_id_seq"', 13, true);
 
 
 --
--- Name: Translations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Tickets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
+--
+
+SELECT pg_catalog.setval('public."Tickets_id_seq"', 10, true);
+
+
+--
+-- Name: Translations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Translations_id_seq"', 353, true);
 
 
 --
--- Name: UserDevices_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: UserDevices_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."UserDevices_id_seq"', 1, false);
 
 
 --
--- Name: UserGoogleCalendarIntegrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: UserGoogleCalendarIntegrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."UserGoogleCalendarIntegrations_id_seq"', 1, false);
 
 
 --
--- Name: UserPagePermissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: UserPagePermissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."UserPagePermissions_id_seq"', 1215, true);
 
 
 --
--- Name: UserRatings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: UserRatings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."UserRatings_id_seq"', 1, false);
 
 
 --
--- Name: UserServices_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: UserServices_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."UserServices_id_seq"', 1, false);
 
 
 --
--- Name: Users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
-SELECT pg_catalog.setval('public."Users_id_seq"', 9, true);
+SELECT pg_catalog.setval('public."Users_id_seq"', 11, true);
 
 
 --
--- Name: Versions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Versions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public."Versions_id_seq"', 1, false);
 
 
 --
--- Name: Webhooks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Webhooks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
-SELECT pg_catalog.setval('public."Webhooks_id_seq"', 18, true);
-
-
---
--- Name: Whatsapps_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
---
-
-SELECT pg_catalog.setval('public."Whatsapps_id_seq"', 1, true);
+SELECT pg_catalog.setval('public."Webhooks_id_seq"', 19, true);
 
 
 --
--- Name: appointments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: Whatsapps_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
+--
+
+SELECT pg_catalog.setval('public."Whatsapps_id_seq"', 2, true);
+
+
+--
+-- Name: appointments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.appointments_id_seq', 1, false);
 
 
 --
--- Name: company_api_keys_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: company_api_keys_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.company_api_keys_id_seq', 1, true);
 
 
 --
--- Name: company_integration_field_maps_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: company_integration_field_maps_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.company_integration_field_maps_id_seq', 1, false);
 
 
 --
--- Name: company_integration_settings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: company_integration_settings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.company_integration_settings_id_seq', 1, false);
 
 
 --
--- Name: company_payment_settings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: company_payment_settings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.company_payment_settings_id_seq', 3, true);
 
 
 --
--- Name: crm_client_contacts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: crm_client_contacts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.crm_client_contacts_id_seq', 1, false);
 
 
 --
--- Name: crm_clients_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: crm_clients_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.crm_clients_id_seq', 1, false);
 
 
 --
--- Name: crm_leads_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: crm_leads_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
-SELECT pg_catalog.setval('public.crm_leads_id_seq', 4, true);
+SELECT pg_catalog.setval('public.crm_leads_id_seq', 8, true);
 
 
 --
--- Name: financeiro_faturas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: financeiro_faturas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.financeiro_faturas_id_seq', 1, false);
 
 
 --
--- Name: financeiro_pagamentos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: financeiro_pagamentos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.financeiro_pagamentos_id_seq', 1, false);
 
 
 --
--- Name: media_files_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: media_files_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.media_files_id_seq', 1, false);
 
 
 --
--- Name: media_folders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: media_folders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.media_folders_id_seq', 1, false);
 
 
 --
--- Name: profissionais_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: profissionais_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.profissionais_id_seq', 2, true);
 
 
 --
--- Name: project_products_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: project_products_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.project_products_id_seq', 1, false);
 
 
 --
--- Name: project_services_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: project_services_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.project_services_id_seq', 1, false);
 
 
 --
--- Name: project_task_users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: project_task_users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.project_task_users_id_seq', 1, false);
 
 
 --
--- Name: project_tasks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: project_tasks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.project_tasks_id_seq', 1, false);
 
 
 --
--- Name: project_users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: project_users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.project_users_id_seq', 1, false);
 
 
 --
--- Name: projects_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: projects_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.projects_id_seq', 1, false);
 
 
 --
--- Name: scheduled_dispatch_logs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: scheduled_dispatch_logs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.scheduled_dispatch_logs_id_seq', 1, false);
 
 
 --
--- Name: scheduled_dispatchers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: scheduled_dispatchers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.scheduled_dispatchers_id_seq', 1, false);
 
 
 --
--- Name: servicos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: servicos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.servicos_id_seq', 7, true);
 
 
 --
--- Name: slider_home_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: slider_home_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.slider_home_id_seq', 8, true);
 
 
 --
--- Name: tutorial_videos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: tutorial_videos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.tutorial_videos_id_seq', 1, false);
 
 
 --
--- Name: user_schedules_id_seq; Type: SEQUENCE SET; Schema: public; Owner: empresa
+-- Name: user_schedules_id_seq; Type: SEQUENCE SET; Schema: public; Owner: imagem
 --
 
 SELECT pg_catalog.setval('public.user_schedules_id_seq', 1, false);
 
 
 --
--- Name: AffiliateCommissions AffiliateCommissions_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: AffiliateCommissions AffiliateCommissions_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AffiliateCommissions"
@@ -10523,7 +10643,7 @@ ALTER TABLE ONLY public."AffiliateCommissions"
 
 
 --
--- Name: AffiliateLinks AffiliateLinks_code_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: AffiliateLinks AffiliateLinks_code_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AffiliateLinks"
@@ -10531,7 +10651,7 @@ ALTER TABLE ONLY public."AffiliateLinks"
 
 
 --
--- Name: AffiliateLinks AffiliateLinks_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: AffiliateLinks AffiliateLinks_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AffiliateLinks"
@@ -10539,7 +10659,7 @@ ALTER TABLE ONLY public."AffiliateLinks"
 
 
 --
--- Name: AffiliateWithdrawals AffiliateWithdrawals_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: AffiliateWithdrawals AffiliateWithdrawals_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AffiliateWithdrawals"
@@ -10547,7 +10667,7 @@ ALTER TABLE ONLY public."AffiliateWithdrawals"
 
 
 --
--- Name: Affiliates Affiliates_affiliateCode_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Affiliates Affiliates_affiliateCode_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Affiliates"
@@ -10555,7 +10675,7 @@ ALTER TABLE ONLY public."Affiliates"
 
 
 --
--- Name: Affiliates Affiliates_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Affiliates Affiliates_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Affiliates"
@@ -10563,7 +10683,7 @@ ALTER TABLE ONLY public."Affiliates"
 
 
 --
--- Name: Announcements Announcements_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Announcements Announcements_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Announcements"
@@ -10571,7 +10691,7 @@ ALTER TABLE ONLY public."Announcements"
 
 
 --
--- Name: ApiUsages ApiUsages_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ApiUsages ApiUsages_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ApiUsages"
@@ -10579,7 +10699,7 @@ ALTER TABLE ONLY public."ApiUsages"
 
 
 --
--- Name: AutomationActions AutomationActions_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: AutomationActions AutomationActions_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AutomationActions"
@@ -10587,7 +10707,7 @@ ALTER TABLE ONLY public."AutomationActions"
 
 
 --
--- Name: AutomationExecutions AutomationExecutions_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: AutomationExecutions AutomationExecutions_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AutomationExecutions"
@@ -10595,7 +10715,7 @@ ALTER TABLE ONLY public."AutomationExecutions"
 
 
 --
--- Name: AutomationLogs AutomationLogs_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: AutomationLogs AutomationLogs_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AutomationLogs"
@@ -10603,7 +10723,7 @@ ALTER TABLE ONLY public."AutomationLogs"
 
 
 --
--- Name: Automations Automations_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Automations Automations_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Automations"
@@ -10611,7 +10731,7 @@ ALTER TABLE ONLY public."Automations"
 
 
 --
--- Name: Baileys Baileys_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Baileys Baileys_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Baileys"
@@ -10619,7 +10739,7 @@ ALTER TABLE ONLY public."Baileys"
 
 
 --
--- Name: CallRecords CallRecords_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: CallRecords CallRecords_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."CallRecords"
@@ -10627,7 +10747,7 @@ ALTER TABLE ONLY public."CallRecords"
 
 
 --
--- Name: CampaignSettings CampaignSettings_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: CampaignSettings CampaignSettings_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."CampaignSettings"
@@ -10635,7 +10755,7 @@ ALTER TABLE ONLY public."CampaignSettings"
 
 
 --
--- Name: CampaignShipping CampaignShipping_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: CampaignShipping CampaignShipping_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."CampaignShipping"
@@ -10643,7 +10763,7 @@ ALTER TABLE ONLY public."CampaignShipping"
 
 
 --
--- Name: Campaigns Campaigns_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Campaigns Campaigns_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Campaigns"
@@ -10651,7 +10771,7 @@ ALTER TABLE ONLY public."Campaigns"
 
 
 --
--- Name: ChatMessages ChatMessages_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ChatMessages ChatMessages_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ChatMessages"
@@ -10659,7 +10779,7 @@ ALTER TABLE ONLY public."ChatMessages"
 
 
 --
--- Name: ChatUsers ChatUsers_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ChatUsers ChatUsers_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ChatUsers"
@@ -10667,7 +10787,7 @@ ALTER TABLE ONLY public."ChatUsers"
 
 
 --
--- Name: Chatbots Chatbots_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Chatbots Chatbots_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Chatbots"
@@ -10675,7 +10795,7 @@ ALTER TABLE ONLY public."Chatbots"
 
 
 --
--- Name: Chats Chats_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Chats Chats_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Chats"
@@ -10683,7 +10803,7 @@ ALTER TABLE ONLY public."Chats"
 
 
 --
--- Name: CompaniesSettings CompaniesSettings_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: CompaniesSettings CompaniesSettings_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."CompaniesSettings"
@@ -10691,7 +10811,7 @@ ALTER TABLE ONLY public."CompaniesSettings"
 
 
 --
--- Name: Companies Companies_name_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Companies Companies_name_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Companies"
@@ -10699,7 +10819,7 @@ ALTER TABLE ONLY public."Companies"
 
 
 --
--- Name: Companies Companies_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Companies Companies_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Companies"
@@ -10707,7 +10827,7 @@ ALTER TABLE ONLY public."Companies"
 
 
 --
--- Name: ContactCustomFields ContactCustomFields_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ContactCustomFields ContactCustomFields_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ContactCustomFields"
@@ -10715,7 +10835,7 @@ ALTER TABLE ONLY public."ContactCustomFields"
 
 
 --
--- Name: ContactGroups ContactGroups_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ContactGroups ContactGroups_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ContactGroups"
@@ -10723,7 +10843,7 @@ ALTER TABLE ONLY public."ContactGroups"
 
 
 --
--- Name: ContactListItems ContactListItems_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ContactListItems ContactListItems_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ContactListItems"
@@ -10731,7 +10851,7 @@ ALTER TABLE ONLY public."ContactListItems"
 
 
 --
--- Name: ContactLists ContactLists_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ContactLists ContactLists_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ContactLists"
@@ -10739,7 +10859,7 @@ ALTER TABLE ONLY public."ContactLists"
 
 
 --
--- Name: ContactWallets ContactWallets_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ContactWallets ContactWallets_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ContactWallets"
@@ -10747,7 +10867,7 @@ ALTER TABLE ONLY public."ContactWallets"
 
 
 --
--- Name: Contacts Contacts_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Contacts Contacts_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Contacts"
@@ -10755,7 +10875,7 @@ ALTER TABLE ONLY public."Contacts"
 
 
 --
--- Name: Coupons Coupons_code_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Coupons Coupons_code_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Coupons"
@@ -10763,7 +10883,7 @@ ALTER TABLE ONLY public."Coupons"
 
 
 --
--- Name: Coupons Coupons_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Coupons Coupons_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Coupons"
@@ -10771,7 +10891,7 @@ ALTER TABLE ONLY public."Coupons"
 
 
 --
--- Name: DialogChatBots DialogChatBots_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: DialogChatBots DialogChatBots_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."DialogChatBots"
@@ -10779,7 +10899,7 @@ ALTER TABLE ONLY public."DialogChatBots"
 
 
 --
--- Name: Faturas Faturas_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Faturas Faturas_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Faturas"
@@ -10787,7 +10907,7 @@ ALTER TABLE ONLY public."Faturas"
 
 
 --
--- Name: Ferramentas Ferramentas_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Ferramentas Ferramentas_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Ferramentas"
@@ -10795,7 +10915,7 @@ ALTER TABLE ONLY public."Ferramentas"
 
 
 --
--- Name: FilesOptions FilesOptions_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: FilesOptions FilesOptions_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."FilesOptions"
@@ -10803,7 +10923,7 @@ ALTER TABLE ONLY public."FilesOptions"
 
 
 --
--- Name: Files Files_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Files Files_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Files"
@@ -10811,7 +10931,7 @@ ALTER TABLE ONLY public."Files"
 
 
 --
--- Name: FlowAudios FlowAudios_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: FlowAudios FlowAudios_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."FlowAudios"
@@ -10819,7 +10939,7 @@ ALTER TABLE ONLY public."FlowAudios"
 
 
 --
--- Name: FlowBuilders FlowBuilders_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: FlowBuilders FlowBuilders_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."FlowBuilders"
@@ -10827,7 +10947,7 @@ ALTER TABLE ONLY public."FlowBuilders"
 
 
 --
--- Name: FlowCampaigns FlowCampaigns_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: FlowCampaigns FlowCampaigns_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."FlowCampaigns"
@@ -10835,7 +10955,7 @@ ALTER TABLE ONLY public."FlowCampaigns"
 
 
 --
--- Name: FlowDefaults FlowDefaults_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: FlowDefaults FlowDefaults_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."FlowDefaults"
@@ -10843,7 +10963,7 @@ ALTER TABLE ONLY public."FlowDefaults"
 
 
 --
--- Name: FlowImgs FlowImgs_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: FlowImgs FlowImgs_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."FlowImgs"
@@ -10851,7 +10971,7 @@ ALTER TABLE ONLY public."FlowImgs"
 
 
 --
--- Name: GoogleCalendarIntegrations GoogleCalendarIntegrations_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: GoogleCalendarIntegrations GoogleCalendarIntegrations_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."GoogleCalendarIntegrations"
@@ -10859,7 +10979,7 @@ ALTER TABLE ONLY public."GoogleCalendarIntegrations"
 
 
 --
--- Name: GoogleSheetsTokens GoogleSheetsTokens_companyId_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: GoogleSheetsTokens GoogleSheetsTokens_companyId_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."GoogleSheetsTokens"
@@ -10867,7 +10987,7 @@ ALTER TABLE ONLY public."GoogleSheetsTokens"
 
 
 --
--- Name: GoogleSheetsTokens GoogleSheetsTokens_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: GoogleSheetsTokens GoogleSheetsTokens_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."GoogleSheetsTokens"
@@ -10875,7 +10995,7 @@ ALTER TABLE ONLY public."GoogleSheetsTokens"
 
 
 --
--- Name: Helps Helps_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Helps Helps_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Helps"
@@ -10883,7 +11003,7 @@ ALTER TABLE ONLY public."Helps"
 
 
 --
--- Name: IaWorkflows IaWorkflows_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: IaWorkflows IaWorkflows_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."IaWorkflows"
@@ -10891,7 +11011,7 @@ ALTER TABLE ONLY public."IaWorkflows"
 
 
 --
--- Name: Integrations Integrations_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Integrations Integrations_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Integrations"
@@ -10899,7 +11019,7 @@ ALTER TABLE ONLY public."Integrations"
 
 
 --
--- Name: Invoices Invoices_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Invoices Invoices_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Invoices"
@@ -10907,7 +11027,7 @@ ALTER TABLE ONLY public."Invoices"
 
 
 --
--- Name: Languages Languages_code_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Languages Languages_code_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Languages"
@@ -10915,7 +11035,7 @@ ALTER TABLE ONLY public."Languages"
 
 
 --
--- Name: Languages Languages_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Languages Languages_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Languages"
@@ -10923,7 +11043,7 @@ ALTER TABLE ONLY public."Languages"
 
 
 --
--- Name: LogTickets LogTickets_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: LogTickets LogTickets_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."LogTickets"
@@ -10931,7 +11051,7 @@ ALTER TABLE ONLY public."LogTickets"
 
 
 --
--- Name: MediaFiles MediaFiles_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: MediaFiles MediaFiles_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."MediaFiles"
@@ -10939,7 +11059,7 @@ ALTER TABLE ONLY public."MediaFiles"
 
 
 --
--- Name: MediaFolders MediaFolders_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: MediaFolders MediaFolders_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."MediaFolders"
@@ -10947,7 +11067,7 @@ ALTER TABLE ONLY public."MediaFolders"
 
 
 --
--- Name: Messages Messages_id_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Messages Messages_id_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Messages"
@@ -10955,7 +11075,7 @@ ALTER TABLE ONLY public."Messages"
 
 
 --
--- Name: Messages Messages_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Messages Messages_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Messages"
@@ -10963,7 +11083,7 @@ ALTER TABLE ONLY public."Messages"
 
 
 --
--- Name: MobileWebhooks MobileWebhooks_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: MobileWebhooks MobileWebhooks_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."MobileWebhooks"
@@ -10971,7 +11091,7 @@ ALTER TABLE ONLY public."MobileWebhooks"
 
 
 --
--- Name: Negocios Negocios_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Negocios Negocios_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Negocios"
@@ -10979,7 +11099,7 @@ ALTER TABLE ONLY public."Negocios"
 
 
 --
--- Name: Partners Partners_document_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Partners Partners_document_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Partners"
@@ -10987,7 +11107,7 @@ ALTER TABLE ONLY public."Partners"
 
 
 --
--- Name: Partners Partners_name_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Partners Partners_name_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Partners"
@@ -10995,7 +11115,7 @@ ALTER TABLE ONLY public."Partners"
 
 
 --
--- Name: Partners Partners_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Partners Partners_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Partners"
@@ -11003,7 +11123,7 @@ ALTER TABLE ONLY public."Partners"
 
 
 --
--- Name: Plans Plans_name_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Plans Plans_name_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Plans"
@@ -11011,7 +11131,7 @@ ALTER TABLE ONLY public."Plans"
 
 
 --
--- Name: Plans Plans_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Plans Plans_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Plans"
@@ -11019,7 +11139,7 @@ ALTER TABLE ONLY public."Plans"
 
 
 --
--- Name: ProdutoCategorias ProdutoCategorias_companyId_nome_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ProdutoCategorias ProdutoCategorias_companyId_nome_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ProdutoCategorias"
@@ -11027,7 +11147,7 @@ ALTER TABLE ONLY public."ProdutoCategorias"
 
 
 --
--- Name: ProdutoCategorias ProdutoCategorias_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ProdutoCategorias ProdutoCategorias_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ProdutoCategorias"
@@ -11035,7 +11155,7 @@ ALTER TABLE ONLY public."ProdutoCategorias"
 
 
 --
--- Name: ProdutoVariacaoGrupos ProdutoVariacaoGrupos_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoGrupos ProdutoVariacaoGrupos_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ProdutoVariacaoGrupos"
@@ -11043,7 +11163,7 @@ ALTER TABLE ONLY public."ProdutoVariacaoGrupos"
 
 
 --
--- Name: ProdutoVariacaoItens ProdutoVariacaoItens_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoItens ProdutoVariacaoItens_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ProdutoVariacaoItens"
@@ -11051,7 +11171,7 @@ ALTER TABLE ONLY public."ProdutoVariacaoItens"
 
 
 --
--- Name: ProdutoVariacaoOpcoes ProdutoVariacaoOpcoes_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoOpcoes ProdutoVariacaoOpcoes_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ProdutoVariacaoOpcoes"
@@ -11059,7 +11179,7 @@ ALTER TABLE ONLY public."ProdutoVariacaoOpcoes"
 
 
 --
--- Name: Produtos Produtos_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Produtos Produtos_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Produtos"
@@ -11067,7 +11187,7 @@ ALTER TABLE ONLY public."Produtos"
 
 
 --
--- Name: PromptToolSettings PromptToolSettings_company_prompt_tool_unique; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: PromptToolSettings PromptToolSettings_company_prompt_tool_unique; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."PromptToolSettings"
@@ -11075,7 +11195,7 @@ ALTER TABLE ONLY public."PromptToolSettings"
 
 
 --
--- Name: PromptToolSettings PromptToolSettings_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: PromptToolSettings PromptToolSettings_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."PromptToolSettings"
@@ -11083,7 +11203,7 @@ ALTER TABLE ONLY public."PromptToolSettings"
 
 
 --
--- Name: Prompts Prompts_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Prompts Prompts_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Prompts"
@@ -11091,7 +11211,7 @@ ALTER TABLE ONLY public."Prompts"
 
 
 --
--- Name: QueueIntegrations QueueIntegrations_name_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: QueueIntegrations QueueIntegrations_name_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."QueueIntegrations"
@@ -11099,7 +11219,7 @@ ALTER TABLE ONLY public."QueueIntegrations"
 
 
 --
--- Name: QueueIntegrations QueueIntegrations_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: QueueIntegrations QueueIntegrations_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."QueueIntegrations"
@@ -11107,7 +11227,7 @@ ALTER TABLE ONLY public."QueueIntegrations"
 
 
 --
--- Name: QueueIntegrations QueueIntegrations_projectName_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: QueueIntegrations QueueIntegrations_projectName_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."QueueIntegrations"
@@ -11115,7 +11235,7 @@ ALTER TABLE ONLY public."QueueIntegrations"
 
 
 --
--- Name: QueueOptions QueueOptions_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: QueueOptions QueueOptions_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."QueueOptions"
@@ -11123,7 +11243,7 @@ ALTER TABLE ONLY public."QueueOptions"
 
 
 --
--- Name: Queues Queues_color_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Queues Queues_color_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Queues"
@@ -11131,7 +11251,7 @@ ALTER TABLE ONLY public."Queues"
 
 
 --
--- Name: Queues Queues_name_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Queues Queues_name_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Queues"
@@ -11139,7 +11259,7 @@ ALTER TABLE ONLY public."Queues"
 
 
 --
--- Name: Queues Queues_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Queues Queues_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Queues"
@@ -11147,7 +11267,7 @@ ALTER TABLE ONLY public."Queues"
 
 
 --
--- Name: QuickMessages QuickMessages_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: QuickMessages QuickMessages_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."QuickMessages"
@@ -11155,7 +11275,7 @@ ALTER TABLE ONLY public."QuickMessages"
 
 
 --
--- Name: ScheduledMessagesEnvios ScheduledMessagesEnvios_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ScheduledMessagesEnvios ScheduledMessagesEnvios_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ScheduledMessagesEnvios"
@@ -11163,7 +11283,7 @@ ALTER TABLE ONLY public."ScheduledMessagesEnvios"
 
 
 --
--- Name: ScheduledMessages ScheduledMessages_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ScheduledMessages ScheduledMessages_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ScheduledMessages"
@@ -11171,7 +11291,7 @@ ALTER TABLE ONLY public."ScheduledMessages"
 
 
 --
--- Name: Schedules Schedules_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Schedules Schedules_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Schedules"
@@ -11179,7 +11299,7 @@ ALTER TABLE ONLY public."Schedules"
 
 
 --
--- Name: SequelizeMeta SequelizeMeta_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: SequelizeMeta SequelizeMeta_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."SequelizeMeta"
@@ -11187,7 +11307,7 @@ ALTER TABLE ONLY public."SequelizeMeta"
 
 
 --
--- Name: SliderBanners SliderBanners_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: SliderBanners SliderBanners_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."SliderBanners"
@@ -11195,7 +11315,7 @@ ALTER TABLE ONLY public."SliderBanners"
 
 
 --
--- Name: Subscriptions Subscriptions_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Subscriptions Subscriptions_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Subscriptions"
@@ -11203,7 +11323,7 @@ ALTER TABLE ONLY public."Subscriptions"
 
 
 --
--- Name: Tags Tags_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Tags Tags_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Tags"
@@ -11211,7 +11331,7 @@ ALTER TABLE ONLY public."Tags"
 
 
 --
--- Name: TicketNotes TicketNotes_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: TicketNotes TicketNotes_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."TicketNotes"
@@ -11219,7 +11339,7 @@ ALTER TABLE ONLY public."TicketNotes"
 
 
 --
--- Name: TicketTraking TicketTraking_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: TicketTraking TicketTraking_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."TicketTraking"
@@ -11227,7 +11347,7 @@ ALTER TABLE ONLY public."TicketTraking"
 
 
 --
--- Name: Tickets Tickets_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Tickets Tickets_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Tickets"
@@ -11235,7 +11355,7 @@ ALTER TABLE ONLY public."Tickets"
 
 
 --
--- Name: Translations Translations_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Translations Translations_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Translations"
@@ -11243,7 +11363,7 @@ ALTER TABLE ONLY public."Translations"
 
 
 --
--- Name: UserDevices UserDevices_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: UserDevices UserDevices_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserDevices"
@@ -11251,7 +11371,7 @@ ALTER TABLE ONLY public."UserDevices"
 
 
 --
--- Name: UserDevices UserDevices_userId_deviceToken_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: UserDevices UserDevices_userId_deviceToken_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserDevices"
@@ -11259,7 +11379,7 @@ ALTER TABLE ONLY public."UserDevices"
 
 
 --
--- Name: UserGoogleCalendarIntegrations UserGoogleCalendarIntegrations_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: UserGoogleCalendarIntegrations UserGoogleCalendarIntegrations_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserGoogleCalendarIntegrations"
@@ -11267,7 +11387,7 @@ ALTER TABLE ONLY public."UserGoogleCalendarIntegrations"
 
 
 --
--- Name: UserPagePermissions UserPagePermissions_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: UserPagePermissions UserPagePermissions_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserPagePermissions"
@@ -11275,7 +11395,7 @@ ALTER TABLE ONLY public."UserPagePermissions"
 
 
 --
--- Name: UserPagePermissions UserPagePermissions_userId_pagePath_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: UserPagePermissions UserPagePermissions_userId_pagePath_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserPagePermissions"
@@ -11283,7 +11403,7 @@ ALTER TABLE ONLY public."UserPagePermissions"
 
 
 --
--- Name: UserQueues UserQueues_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: UserQueues UserQueues_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserQueues"
@@ -11291,7 +11411,7 @@ ALTER TABLE ONLY public."UserQueues"
 
 
 --
--- Name: UserRatings UserRatings_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: UserRatings UserRatings_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserRatings"
@@ -11299,7 +11419,7 @@ ALTER TABLE ONLY public."UserRatings"
 
 
 --
--- Name: UserServices UserServices_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: UserServices UserServices_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserServices"
@@ -11307,7 +11427,7 @@ ALTER TABLE ONLY public."UserServices"
 
 
 --
--- Name: UserServices UserServices_userId_serviceId_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: UserServices UserServices_userId_serviceId_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserServices"
@@ -11315,7 +11435,7 @@ ALTER TABLE ONLY public."UserServices"
 
 
 --
--- Name: Users Users_email_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Users Users_email_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Users"
@@ -11323,7 +11443,7 @@ ALTER TABLE ONLY public."Users"
 
 
 --
--- Name: Users Users_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Users Users_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Users"
@@ -11331,7 +11451,7 @@ ALTER TABLE ONLY public."Users"
 
 
 --
--- Name: Versions Versions_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Versions Versions_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Versions"
@@ -11339,7 +11459,7 @@ ALTER TABLE ONLY public."Versions"
 
 
 --
--- Name: Webhooks Webhooks_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Webhooks Webhooks_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Webhooks"
@@ -11347,7 +11467,7 @@ ALTER TABLE ONLY public."Webhooks"
 
 
 --
--- Name: WhatsappQueues WhatsappQueues_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: WhatsappQueues WhatsappQueues_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."WhatsappQueues"
@@ -11355,7 +11475,7 @@ ALTER TABLE ONLY public."WhatsappQueues"
 
 
 --
--- Name: Whatsapps Whatsapps_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Whatsapps Whatsapps_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Whatsapps"
@@ -11363,7 +11483,7 @@ ALTER TABLE ONLY public."Whatsapps"
 
 
 --
--- Name: appointments appointments_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: appointments appointments_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.appointments
@@ -11371,7 +11491,7 @@ ALTER TABLE ONLY public.appointments
 
 
 --
--- Name: company_api_keys company_api_keys_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: company_api_keys company_api_keys_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.company_api_keys
@@ -11379,7 +11499,7 @@ ALTER TABLE ONLY public.company_api_keys
 
 
 --
--- Name: company_api_keys company_api_keys_token_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: company_api_keys company_api_keys_token_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.company_api_keys
@@ -11387,7 +11507,7 @@ ALTER TABLE ONLY public.company_api_keys
 
 
 --
--- Name: company_integration_field_maps company_integration_field_maps_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: company_integration_field_maps company_integration_field_maps_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.company_integration_field_maps
@@ -11395,7 +11515,7 @@ ALTER TABLE ONLY public.company_integration_field_maps
 
 
 --
--- Name: company_integration_settings company_integration_settings_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: company_integration_settings company_integration_settings_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.company_integration_settings
@@ -11403,7 +11523,7 @@ ALTER TABLE ONLY public.company_integration_settings
 
 
 --
--- Name: company_payment_settings company_payment_settings_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: company_payment_settings company_payment_settings_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.company_payment_settings
@@ -11411,7 +11531,7 @@ ALTER TABLE ONLY public.company_payment_settings
 
 
 --
--- Name: Tickets contactid_companyid_whatsappid_unique; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Tickets contactid_companyid_whatsappid_unique; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Tickets"
@@ -11419,7 +11539,7 @@ ALTER TABLE ONLY public."Tickets"
 
 
 --
--- Name: Contacts contacts_company_number_unique; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Contacts contacts_company_number_unique; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Contacts"
@@ -11427,7 +11547,7 @@ ALTER TABLE ONLY public."Contacts"
 
 
 --
--- Name: crm_client_contacts crm_client_contacts_client_id_contact_id_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: crm_client_contacts crm_client_contacts_client_id_contact_id_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.crm_client_contacts
@@ -11435,7 +11555,7 @@ ALTER TABLE ONLY public.crm_client_contacts
 
 
 --
--- Name: crm_client_contacts crm_client_contacts_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: crm_client_contacts crm_client_contacts_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.crm_client_contacts
@@ -11443,7 +11563,7 @@ ALTER TABLE ONLY public.crm_client_contacts
 
 
 --
--- Name: crm_clients crm_clients_company_id_document_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: crm_clients crm_clients_company_id_document_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.crm_clients
@@ -11451,7 +11571,7 @@ ALTER TABLE ONLY public.crm_clients
 
 
 --
--- Name: crm_clients crm_clients_company_id_document_unique; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: crm_clients crm_clients_company_id_document_unique; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.crm_clients
@@ -11459,7 +11579,7 @@ ALTER TABLE ONLY public.crm_clients
 
 
 --
--- Name: crm_clients crm_clients_company_id_email_unique; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: crm_clients crm_clients_company_id_email_unique; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.crm_clients
@@ -11467,7 +11587,7 @@ ALTER TABLE ONLY public.crm_clients
 
 
 --
--- Name: crm_clients crm_clients_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: crm_clients crm_clients_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.crm_clients
@@ -11475,7 +11595,7 @@ ALTER TABLE ONLY public.crm_clients
 
 
 --
--- Name: crm_leads crm_leads_company_id_email_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: crm_leads crm_leads_company_id_email_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.crm_leads
@@ -11483,7 +11603,7 @@ ALTER TABLE ONLY public.crm_leads
 
 
 --
--- Name: crm_leads crm_leads_company_id_email_unique; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: crm_leads crm_leads_company_id_email_unique; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.crm_leads
@@ -11491,7 +11611,7 @@ ALTER TABLE ONLY public.crm_leads
 
 
 --
--- Name: crm_leads crm_leads_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: crm_leads crm_leads_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.crm_leads
@@ -11499,7 +11619,7 @@ ALTER TABLE ONLY public.crm_leads
 
 
 --
--- Name: financeiro_faturas financeiro_faturas_id_company_unique; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: financeiro_faturas financeiro_faturas_id_company_unique; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.financeiro_faturas
@@ -11507,7 +11627,7 @@ ALTER TABLE ONLY public.financeiro_faturas
 
 
 --
--- Name: financeiro_faturas financeiro_faturas_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: financeiro_faturas financeiro_faturas_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.financeiro_faturas
@@ -11515,7 +11635,7 @@ ALTER TABLE ONLY public.financeiro_faturas
 
 
 --
--- Name: financeiro_pagamentos financeiro_pagamentos_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: financeiro_pagamentos financeiro_pagamentos_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.financeiro_pagamentos
@@ -11523,7 +11643,7 @@ ALTER TABLE ONLY public.financeiro_pagamentos
 
 
 --
--- Name: media_files media_files_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: media_files media_files_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.media_files
@@ -11531,7 +11651,7 @@ ALTER TABLE ONLY public.media_files
 
 
 --
--- Name: media_folders media_folders_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: media_folders media_folders_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.media_folders
@@ -11539,7 +11659,7 @@ ALTER TABLE ONLY public.media_folders
 
 
 --
--- Name: Contacts number_companyid_unique; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Contacts number_companyid_unique; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Contacts"
@@ -11547,7 +11667,7 @@ ALTER TABLE ONLY public."Contacts"
 
 
 --
--- Name: ProdutoVariacaoItens produto_variacao_unique; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoItens produto_variacao_unique; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ProdutoVariacaoItens"
@@ -11555,7 +11675,7 @@ ALTER TABLE ONLY public."ProdutoVariacaoItens"
 
 
 --
--- Name: profissionais profissionais_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: profissionais profissionais_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.profissionais
@@ -11563,7 +11683,7 @@ ALTER TABLE ONLY public.profissionais
 
 
 --
--- Name: project_products project_products_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: project_products project_products_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_products
@@ -11571,7 +11691,7 @@ ALTER TABLE ONLY public.project_products
 
 
 --
--- Name: project_services project_services_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: project_services project_services_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_services
@@ -11579,7 +11699,7 @@ ALTER TABLE ONLY public.project_services
 
 
 --
--- Name: project_task_users project_task_users_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: project_task_users project_task_users_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_task_users
@@ -11587,7 +11707,7 @@ ALTER TABLE ONLY public.project_task_users
 
 
 --
--- Name: project_tasks project_tasks_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: project_tasks project_tasks_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_tasks
@@ -11595,7 +11715,7 @@ ALTER TABLE ONLY public.project_tasks
 
 
 --
--- Name: project_users project_users_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: project_users project_users_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_users
@@ -11603,7 +11723,7 @@ ALTER TABLE ONLY public.project_users
 
 
 --
--- Name: projects projects_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: projects projects_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.projects
@@ -11611,7 +11731,7 @@ ALTER TABLE ONLY public.projects
 
 
 --
--- Name: scheduled_dispatch_logs scheduled_dispatch_logs_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: scheduled_dispatch_logs scheduled_dispatch_logs_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.scheduled_dispatch_logs
@@ -11619,7 +11739,7 @@ ALTER TABLE ONLY public.scheduled_dispatch_logs
 
 
 --
--- Name: scheduled_dispatchers scheduled_dispatchers_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: scheduled_dispatchers scheduled_dispatchers_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.scheduled_dispatchers
@@ -11627,7 +11747,7 @@ ALTER TABLE ONLY public.scheduled_dispatchers
 
 
 --
--- Name: servicos servicos_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: servicos servicos_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.servicos
@@ -11635,7 +11755,7 @@ ALTER TABLE ONLY public.servicos
 
 
 --
--- Name: slider_home slider_home_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: slider_home slider_home_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.slider_home
@@ -11643,7 +11763,7 @@ ALTER TABLE ONLY public.slider_home
 
 
 --
--- Name: tutorial_videos tutorial_videos_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: tutorial_videos tutorial_videos_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.tutorial_videos
@@ -11651,7 +11771,7 @@ ALTER TABLE ONLY public.tutorial_videos
 
 
 --
--- Name: user_schedules user_schedules_pkey; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: user_schedules user_schedules_pkey; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.user_schedules
@@ -11659,7 +11779,7 @@ ALTER TABLE ONLY public.user_schedules
 
 
 --
--- Name: user_schedules user_schedules_user_id_key; Type: CONSTRAINT; Schema: public; Owner: empresa
+-- Name: user_schedules user_schedules_user_id_key; Type: CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.user_schedules
@@ -11667,1015 +11787,1015 @@ ALTER TABLE ONLY public.user_schedules
 
 
 --
--- Name: MediaFiles_company_id_idx; Type: INDEX; Schema: public; Owner: empresa
+-- Name: MediaFiles_company_id_idx; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX "MediaFiles_company_id_idx" ON public."MediaFiles" USING btree (company_id);
 
 
 --
--- Name: MediaFiles_folder_id_idx; Type: INDEX; Schema: public; Owner: empresa
+-- Name: MediaFiles_folder_id_idx; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX "MediaFiles_folder_id_idx" ON public."MediaFiles" USING btree (folder_id);
 
 
 --
--- Name: MediaFolders_company_id_idx; Type: INDEX; Schema: public; Owner: empresa
+-- Name: MediaFolders_company_id_idx; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX "MediaFolders_company_id_idx" ON public."MediaFolders" USING btree (company_id);
 
 
 --
--- Name: automation_actions_automation_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: automation_actions_automation_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX automation_actions_automation_id ON public."AutomationActions" USING btree ("automationId");
 
 
 --
--- Name: automation_actions_order; Type: INDEX; Schema: public; Owner: empresa
+-- Name: automation_actions_order; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX automation_actions_order ON public."AutomationActions" USING btree ("order");
 
 
 --
--- Name: automation_executions_automation_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: automation_executions_automation_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX automation_executions_automation_id ON public."AutomationExecutions" USING btree ("automationId");
 
 
 --
--- Name: automation_executions_contact_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: automation_executions_contact_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX automation_executions_contact_id ON public."AutomationExecutions" USING btree ("contactId");
 
 
 --
--- Name: automation_executions_scheduled_at; Type: INDEX; Schema: public; Owner: empresa
+-- Name: automation_executions_scheduled_at; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX automation_executions_scheduled_at ON public."AutomationExecutions" USING btree ("scheduledAt");
 
 
 --
--- Name: automation_executions_status; Type: INDEX; Schema: public; Owner: empresa
+-- Name: automation_executions_status; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX automation_executions_status ON public."AutomationExecutions" USING btree (status);
 
 
 --
--- Name: automation_logs_automation_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: automation_logs_automation_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX automation_logs_automation_id ON public."AutomationLogs" USING btree ("automationId");
 
 
 --
--- Name: automation_logs_contact_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: automation_logs_contact_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX automation_logs_contact_id ON public."AutomationLogs" USING btree ("contactId");
 
 
 --
--- Name: automation_logs_executed_at; Type: INDEX; Schema: public; Owner: empresa
+-- Name: automation_logs_executed_at; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX automation_logs_executed_at ON public."AutomationLogs" USING btree ("executedAt");
 
 
 --
--- Name: automation_logs_status; Type: INDEX; Schema: public; Owner: empresa
+-- Name: automation_logs_status; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX automation_logs_status ON public."AutomationLogs" USING btree (status);
 
 
 --
--- Name: automation_logs_ticket_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: automation_logs_ticket_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX automation_logs_ticket_id ON public."AutomationLogs" USING btree ("ticketId");
 
 
 --
--- Name: automations_company_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: automations_company_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX automations_company_id ON public."Automations" USING btree ("companyId");
 
 
 --
--- Name: automations_is_active; Type: INDEX; Schema: public; Owner: empresa
+-- Name: automations_is_active; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX automations_is_active ON public."Automations" USING btree ("isActive");
 
 
 --
--- Name: automations_trigger_type; Type: INDEX; Schema: public; Owner: empresa
+-- Name: automations_trigger_type; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX automations_trigger_type ON public."Automations" USING btree ("triggerType");
 
 
 --
--- Name: company_api_keys_company_active; Type: INDEX; Schema: public; Owner: empresa
+-- Name: company_api_keys_company_active; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX company_api_keys_company_active ON public.company_api_keys USING btree (company_id, active);
 
 
 --
--- Name: company_integration_field_maps_unique; Type: INDEX; Schema: public; Owner: empresa
+-- Name: company_integration_field_maps_unique; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE UNIQUE INDEX company_integration_field_maps_unique ON public.company_integration_field_maps USING btree (integration_id, external_field);
 
 
 --
--- Name: company_integration_settings_company_name; Type: INDEX; Schema: public; Owner: empresa
+-- Name: company_integration_settings_company_name; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE UNIQUE INDEX company_integration_settings_company_name ON public.company_integration_settings USING btree (company_id, name);
 
 
 --
--- Name: company_payment_settings_company_provider; Type: INDEX; Schema: public; Owner: empresa
+-- Name: company_payment_settings_company_provider; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE UNIQUE INDEX company_payment_settings_company_provider ON public.company_payment_settings USING btree (company_id, provider);
 
 
 --
--- Name: contacts_lid_index; Type: INDEX; Schema: public; Owner: empresa
+-- Name: contacts_lid_index; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX contacts_lid_index ON public."Contacts" USING btree (lid);
 
 
 --
--- Name: crm_clients_asaas_customer_id_idx; Type: INDEX; Schema: public; Owner: empresa
+-- Name: crm_clients_asaas_customer_id_idx; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE UNIQUE INDEX crm_clients_asaas_customer_id_idx ON public.crm_clients USING btree (asaas_customer_id) WHERE (asaas_customer_id IS NOT NULL);
 
 
 --
--- Name: financeiro_faturas_checkout_token_idx; Type: INDEX; Schema: public; Owner: empresa
+-- Name: financeiro_faturas_checkout_token_idx; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE UNIQUE INDEX financeiro_faturas_checkout_token_idx ON public.financeiro_faturas USING btree (checkout_token) WHERE (checkout_token IS NOT NULL);
 
 
 --
--- Name: google_calendar_integrations_company_user_unique; Type: INDEX; Schema: public; Owner: empresa
+-- Name: google_calendar_integrations_company_user_unique; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE UNIQUE INDEX google_calendar_integrations_company_user_unique ON public."GoogleCalendarIntegrations" USING btree ("companyId", "userId");
 
 
 --
--- Name: idx_ContactCustomFields_contact_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_ContactCustomFields_contact_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX "idx_ContactCustomFields_contact_id" ON public."ContactCustomFields" USING btree ("contactId");
 
 
 --
--- Name: idx_LogTickets_ticket_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_LogTickets_ticket_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX "idx_LogTickets_ticket_id" ON public."LogTickets" USING btree ("ticketId");
 
 
 --
--- Name: idx_Messages_contact_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_Messages_contact_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX "idx_Messages_contact_id" ON public."Messages" USING btree ("contactId");
 
 
 --
--- Name: idx_TicketTags_tag_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_TicketTags_tag_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX "idx_TicketTags_tag_id" ON public."TicketTags" USING btree ("tagId");
 
 
 --
--- Name: idx_TicketTags_ticket_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_TicketTags_ticket_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX "idx_TicketTags_ticket_id" ON public."TicketTags" USING btree ("ticketId");
 
 
 --
--- Name: idx_TicketTraking_company_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_TicketTraking_company_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX "idx_TicketTraking_company_id" ON public."TicketTraking" USING btree ("companyId");
 
 
 --
--- Name: idx_TicketTraking_ticket_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_TicketTraking_ticket_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX "idx_TicketTraking_ticket_id" ON public."TicketTraking" USING btree ("ticketId");
 
 
 --
--- Name: idx_affiliate_commissions_affiliateId; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_affiliate_commissions_affiliateId; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX "idx_affiliate_commissions_affiliateId" ON public."AffiliateCommissions" USING btree ("affiliateId");
 
 
 --
--- Name: idx_affiliate_commissions_status; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_affiliate_commissions_status; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_affiliate_commissions_status ON public."AffiliateCommissions" USING btree (status);
 
 
 --
--- Name: idx_affiliate_links_affiliateId; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_affiliate_links_affiliateId; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX "idx_affiliate_links_affiliateId" ON public."AffiliateLinks" USING btree ("affiliateId");
 
 
 --
--- Name: idx_affiliate_links_code; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_affiliate_links_code; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_affiliate_links_code ON public."AffiliateLinks" USING btree (code);
 
 
 --
--- Name: idx_affiliate_withdrawals_affiliateId; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_affiliate_withdrawals_affiliateId; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX "idx_affiliate_withdrawals_affiliateId" ON public."AffiliateWithdrawals" USING btree ("affiliateId");
 
 
 --
--- Name: idx_affiliate_withdrawals_status; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_affiliate_withdrawals_status; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_affiliate_withdrawals_status ON public."AffiliateWithdrawals" USING btree (status);
 
 
 --
--- Name: idx_appointments_google_event_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_appointments_google_event_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_appointments_google_event_id ON public.appointments USING btree (google_event_id);
 
 
 --
--- Name: idx_client_contacts_contact; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_client_contacts_contact; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_client_contacts_contact ON public.crm_client_contacts USING btree (contact_id);
 
 
 --
--- Name: idx_clients_company; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_clients_company; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_clients_company ON public.crm_clients USING btree (company_id);
 
 
 --
--- Name: idx_clients_status; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_clients_status; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_clients_status ON public.crm_clients USING btree (company_id, status);
 
 
 --
--- Name: idx_cont_company_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_cont_company_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_cont_company_id ON public."Contacts" USING btree ("companyId");
 
 
 --
--- Name: idx_contactTag_contact_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_contactTag_contact_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX "idx_contactTag_contact_id" ON public."ContactTags" USING btree ("contactId");
 
 
 --
--- Name: idx_contactTag_tagId; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_contactTag_tagId; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX "idx_contactTag_tagId" ON public."ContactTags" USING btree ("tagId");
 
 
 --
--- Name: idx_contactTag_tag_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_contactTag_tag_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX "idx_contactTag_tag_id" ON public."ContactTags" USING btree ("tagId");
 
 
 --
--- Name: idx_contact_company_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_contact_company_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_contact_company_id ON public."Contacts" USING btree ("companyId");
 
 
 --
--- Name: idx_contact_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_contact_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_contact_id ON public."Contacts" USING btree (id);
 
 
 --
--- Name: idx_contact_name; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_contact_name; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_contact_name ON public."Contacts" USING btree (name);
 
 
 --
--- Name: idx_contact_number; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_contact_number; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_contact_number ON public."Contacts" USING btree (number);
 
 
 --
--- Name: idx_contact_whatsapp_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_contact_whatsapp_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_contact_whatsapp_id ON public."Contacts" USING btree ("whatsappId");
 
 
 --
--- Name: idx_coupons_active; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_coupons_active; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_coupons_active ON public."Coupons" USING btree ("isActive");
 
 
 --
--- Name: idx_coupons_code; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_coupons_code; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_coupons_code ON public."Coupons" USING btree (code);
 
 
 --
--- Name: idx_cpsh_campaign_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_cpsh_campaign_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_cpsh_campaign_id ON public."CampaignShipping" USING btree ("campaignId");
 
 
 --
--- Name: idx_crm_clients_contact_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_crm_clients_contact_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_crm_clients_contact_id ON public.crm_clients USING btree (contact_id);
 
 
 --
--- Name: idx_crm_leads_contact_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_crm_leads_contact_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_crm_leads_contact_id ON public.crm_leads USING btree (contact_id);
 
 
 --
--- Name: idx_crm_leads_lead_status; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_crm_leads_lead_status; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_crm_leads_lead_status ON public.crm_leads USING btree (lead_status);
 
 
 --
--- Name: idx_ctli_contact_list_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_ctli_contact_list_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_ctli_contact_list_id ON public."ContactListItems" USING btree ("contactListId");
 
 
 --
--- Name: idx_faturas_company; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_faturas_company; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_faturas_company ON public.financeiro_faturas USING btree (company_id);
 
 
 --
--- Name: idx_faturas_recorrencia; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_faturas_recorrencia; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_faturas_recorrencia ON public.financeiro_faturas USING btree (company_id, tipo_recorrencia, ativa);
 
 
 --
--- Name: idx_faturas_status; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_faturas_status; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_faturas_status ON public.financeiro_faturas USING btree (company_id, status);
 
 
 --
--- Name: idx_financeiro_faturas_company; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_financeiro_faturas_company; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_financeiro_faturas_company ON public.financeiro_faturas USING btree (company_id);
 
 
 --
--- Name: idx_financeiro_faturas_project_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_financeiro_faturas_project_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_financeiro_faturas_project_id ON public.financeiro_faturas USING btree (project_id);
 
 
 --
--- Name: idx_financeiro_faturas_recorrencia; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_financeiro_faturas_recorrencia; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_financeiro_faturas_recorrencia ON public.financeiro_faturas USING btree (company_id, tipo_recorrencia, ativa);
 
 
 --
--- Name: idx_financeiro_faturas_status; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_financeiro_faturas_status; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_financeiro_faturas_status ON public.financeiro_faturas USING btree (company_id, status);
 
 
 --
--- Name: idx_financeiro_pagamentos_company; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_financeiro_pagamentos_company; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_financeiro_pagamentos_company ON public.financeiro_pagamentos USING btree (company_id);
 
 
 --
--- Name: idx_flowbui_id_user_id_active; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_flowbui_id_user_id_active; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_flowbui_id_user_id_active ON public."FlowBuilders" USING btree (id, user_id, active);
 
 
 --
--- Name: idx_flowcamp_id_company_id_phrase; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_flowcamp_id_company_id_phrase; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_flowcamp_id_company_id_phrase ON public."FlowCampaigns" USING btree (id, "companyId", phrase);
 
 
 --
--- Name: idx_flowdefa_id_company_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_flowdefa_id_company_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_flowdefa_id_company_id ON public."FlowDefaults" USING btree (id, "companyId");
 
 
 --
--- Name: idx_languages_active; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_languages_active; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_languages_active ON public."Languages" USING btree (active);
 
 
 --
--- Name: idx_languages_code; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_languages_code; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_languages_code ON public."Languages" USING btree (code);
 
 
 --
--- Name: idx_leads_company; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_leads_company; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_leads_company ON public.crm_leads USING btree (company_id);
 
 
 --
--- Name: idx_leads_owner; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_leads_owner; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_leads_owner ON public.crm_leads USING btree (company_id, owner_user_id);
 
 
 --
--- Name: idx_leads_status; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_leads_status; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_leads_status ON public.crm_leads USING btree (company_id, status);
 
 
 --
--- Name: idx_message_company_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_message_company_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_message_company_id ON public."Messages" USING btree ("companyId");
 
 
 --
--- Name: idx_message_quoted_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_message_quoted_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_message_quoted_id ON public."Messages" USING btree ("quotedMsgId");
 
 
 --
--- Name: idx_message_ticket_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_message_ticket_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_message_ticket_id ON public."Messages" USING btree ("ticketId");
 
 
 --
--- Name: idx_messages_wid; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_messages_wid; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_messages_wid ON public."Messages" USING btree (wid);
 
 
 --
--- Name: idx_ms_company_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_ms_company_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_ms_company_id ON public."Messages" USING btree ("companyId");
 
 
 --
--- Name: idx_ms_company_id_ticket_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_ms_company_id_ticket_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_ms_company_id_ticket_id ON public."Messages" USING btree ("companyId", "ticketId");
 
 
 --
--- Name: idx_produtocategorias_company; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_produtocategorias_company; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_produtocategorias_company ON public."ProdutoCategorias" USING btree ("companyId");
 
 
 --
--- Name: idx_produtos_categoria; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_produtos_categoria; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_produtos_categoria ON public."Produtos" USING btree ("categoriaId");
 
 
 --
--- Name: idx_queues_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_queues_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_queues_id ON public."Queues" USING btree (id);
 
 
 --
--- Name: idx_sched_company_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_sched_company_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_sched_company_id ON public."Schedules" USING btree ("companyId");
 
 
 --
--- Name: idx_tg_company_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_tg_company_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_tg_company_id ON public."Tags" USING btree ("companyId");
 
 
 --
--- Name: idx_ticket_company_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_ticket_company_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_ticket_company_id ON public."Tickets" USING btree ("companyId");
 
 
 --
--- Name: idx_ticket_contact_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_ticket_contact_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_ticket_contact_id ON public."Tickets" USING btree ("contactId");
 
 
 --
--- Name: idx_ticket_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_ticket_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_ticket_id ON public."Tickets" USING btree (id);
 
 
 --
--- Name: idx_ticket_queue_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_ticket_queue_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_ticket_queue_id ON public."Tickets" USING btree ("queueId");
 
 
 --
--- Name: idx_ticket_status; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_ticket_status; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_ticket_status ON public."Tickets" USING btree (status);
 
 
 --
--- Name: idx_ticket_user_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_ticket_user_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_ticket_user_id ON public."Tickets" USING btree ("userId");
 
 
 --
--- Name: idx_ticket_whatsapp_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_ticket_whatsapp_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_ticket_whatsapp_id ON public."Tickets" USING btree ("whatsappId");
 
 
 --
--- Name: idx_tickets_crm_client_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_tickets_crm_client_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_tickets_crm_client_id ON public."Tickets" USING btree (crm_client_id);
 
 
 --
--- Name: idx_tickets_crm_lead_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_tickets_crm_lead_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_tickets_crm_lead_id ON public."Tickets" USING btree (crm_lead_id);
 
 
 --
--- Name: idx_translations_key; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_translations_key; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_translations_key ON public."Translations" USING btree (key);
 
 
 --
--- Name: idx_translations_lang_key; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_translations_lang_key; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_translations_lang_key ON public."Translations" USING btree ("languageCode", key);
 
 
 --
--- Name: idx_translations_languageCode; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_translations_languageCode; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX "idx_translations_languageCode" ON public."Translations" USING btree ("languageCode");
 
 
 --
--- Name: idx_tutorial_videos_active; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_tutorial_videos_active; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_tutorial_videos_active ON public.tutorial_videos USING btree (is_active);
 
 
 --
--- Name: idx_tutorial_videos_company_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_tutorial_videos_company_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_tutorial_videos_company_id ON public.tutorial_videos USING btree (company_id);
 
 
 --
--- Name: idx_tutorial_videos_created_at; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_tutorial_videos_created_at; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_tutorial_videos_created_at ON public.tutorial_videos USING btree (created_at DESC);
 
 
 --
--- Name: idx_tutorial_videos_user_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_tutorial_videos_user_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_tutorial_videos_user_id ON public.tutorial_videos USING btree (user_id);
 
 
 --
--- Name: idx_user_devices_deviceToken; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_user_devices_deviceToken; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX "idx_user_devices_deviceToken" ON public."UserDevices" USING btree ("deviceToken");
 
 
 --
--- Name: idx_user_devices_userId; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_user_devices_userId; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX "idx_user_devices_userId" ON public."UserDevices" USING btree ("userId");
 
 
 --
--- Name: idx_user_google_calendar_integrations_active; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_user_google_calendar_integrations_active; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_user_google_calendar_integrations_active ON public."UserGoogleCalendarIntegrations" USING btree (active);
 
 
 --
--- Name: idx_user_google_calendar_integrations_company_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_user_google_calendar_integrations_company_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_user_google_calendar_integrations_company_id ON public."UserGoogleCalendarIntegrations" USING btree (company_id);
 
 
 --
--- Name: idx_user_google_calendar_integrations_email; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_user_google_calendar_integrations_email; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_user_google_calendar_integrations_email ON public."UserGoogleCalendarIntegrations" USING btree (email);
 
 
 --
--- Name: idx_user_page_permissions_pagePath; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_user_page_permissions_pagePath; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX "idx_user_page_permissions_pagePath" ON public."UserPagePermissions" USING btree ("pagePath");
 
 
 --
--- Name: idx_user_page_permissions_userId; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_user_page_permissions_userId; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX "idx_user_page_permissions_userId" ON public."UserPagePermissions" USING btree ("userId");
 
 
 --
--- Name: idx_user_schedules_google_calendar_integration_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_user_schedules_google_calendar_integration_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_user_schedules_google_calendar_integration_id ON public.user_schedules USING btree (user_google_calendar_integration_id);
 
 
 --
--- Name: idx_userratings_company_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_userratings_company_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_userratings_company_id ON public."UserRatings" USING btree ("companyId");
 
 
 --
--- Name: idx_userratings_ticket_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_userratings_ticket_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_userratings_ticket_id ON public."UserRatings" USING btree ("ticketId");
 
 
 --
--- Name: idx_variacao_grupos_company; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_variacao_grupos_company; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_variacao_grupos_company ON public."ProdutoVariacaoGrupos" USING btree ("companyId");
 
 
 --
--- Name: idx_variacao_itens_opcao; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_variacao_itens_opcao; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_variacao_itens_opcao ON public."ProdutoVariacaoItens" USING btree ("opcaoId");
 
 
 --
--- Name: idx_variacao_itens_produto; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_variacao_itens_produto; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_variacao_itens_produto ON public."ProdutoVariacaoItens" USING btree ("produtoId");
 
 
 --
--- Name: idx_variacao_opcoes_grupo; Type: INDEX; Schema: public; Owner: empresa
+-- Name: idx_variacao_opcoes_grupo; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX idx_variacao_opcoes_grupo ON public."ProdutoVariacaoOpcoes" USING btree ("grupoId");
 
 
 --
--- Name: media_files_company_id_idx; Type: INDEX; Schema: public; Owner: empresa
+-- Name: media_files_company_id_idx; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX media_files_company_id_idx ON public.media_files USING btree (company_id);
 
 
 --
--- Name: media_files_folder_id_idx; Type: INDEX; Schema: public; Owner: empresa
+-- Name: media_files_folder_id_idx; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX media_files_folder_id_idx ON public.media_files USING btree (folder_id);
 
 
 --
--- Name: media_folders_company_id_idx; Type: INDEX; Schema: public; Owner: empresa
+-- Name: media_folders_company_id_idx; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX media_folders_company_id_idx ON public.media_folders USING btree (company_id);
 
 
 --
--- Name: project_products_company_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: project_products_company_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX project_products_company_id ON public.project_products USING btree ("companyId");
 
 
 --
--- Name: project_products_unique; Type: INDEX; Schema: public; Owner: empresa
+-- Name: project_products_unique; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE UNIQUE INDEX project_products_unique ON public.project_products USING btree ("projectId", "productId");
 
 
 --
--- Name: project_services_company_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: project_services_company_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX project_services_company_id ON public.project_services USING btree ("companyId");
 
 
 --
--- Name: project_services_unique; Type: INDEX; Schema: public; Owner: empresa
+-- Name: project_services_unique; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE UNIQUE INDEX project_services_unique ON public.project_services USING btree ("projectId", "serviceId");
 
 
 --
--- Name: project_task_users_company_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: project_task_users_company_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX project_task_users_company_id ON public.project_task_users USING btree ("companyId");
 
 
 --
--- Name: project_task_users_unique; Type: INDEX; Schema: public; Owner: empresa
+-- Name: project_task_users_unique; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE UNIQUE INDEX project_task_users_unique ON public.project_task_users USING btree ("taskId", "userId");
 
 
 --
--- Name: project_tasks_company_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: project_tasks_company_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX project_tasks_company_id ON public.project_tasks USING btree ("companyId");
 
 
 --
--- Name: project_tasks_project_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: project_tasks_project_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX project_tasks_project_id ON public.project_tasks USING btree ("projectId");
 
 
 --
--- Name: project_tasks_status; Type: INDEX; Schema: public; Owner: empresa
+-- Name: project_tasks_status; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX project_tasks_status ON public.project_tasks USING btree (status);
 
 
 --
--- Name: project_users_company_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: project_users_company_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX project_users_company_id ON public.project_users USING btree ("companyId");
 
 
 --
--- Name: project_users_unique; Type: INDEX; Schema: public; Owner: empresa
+-- Name: project_users_unique; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE UNIQUE INDEX project_users_unique ON public.project_users USING btree ("projectId", "userId");
 
 
 --
--- Name: projects_client_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: projects_client_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX projects_client_id ON public.projects USING btree ("clientId");
 
 
 --
--- Name: projects_company_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: projects_company_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX projects_company_id ON public.projects USING btree ("companyId");
 
 
 --
--- Name: projects_status; Type: INDEX; Schema: public; Owner: empresa
+-- Name: projects_status; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX projects_status ON public.projects USING btree (status);
 
 
 --
--- Name: scheduled_dispatch_logs_dispatcher_status; Type: INDEX; Schema: public; Owner: empresa
+-- Name: scheduled_dispatch_logs_dispatcher_status; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX scheduled_dispatch_logs_dispatcher_status ON public.scheduled_dispatch_logs USING btree (dispatcher_id, status);
 
 
 --
--- Name: scheduled_dispatchers_company_event; Type: INDEX; Schema: public; Owner: empresa
+-- Name: scheduled_dispatchers_company_event; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX scheduled_dispatchers_company_event ON public.scheduled_dispatchers USING btree (company_id, event_type);
 
 
 --
--- Name: tickets_uuid_idx; Type: INDEX; Schema: public; Owner: empresa
+-- Name: tickets_uuid_idx; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX tickets_uuid_idx ON public."Tickets" USING btree (uuid);
 
 
 --
--- Name: tutorial_videos_company_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: tutorial_videos_company_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX tutorial_videos_company_id ON public.tutorial_videos USING btree (company_id);
 
 
 --
--- Name: tutorial_videos_is_active; Type: INDEX; Schema: public; Owner: empresa
+-- Name: tutorial_videos_is_active; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX tutorial_videos_is_active ON public.tutorial_videos USING btree (is_active);
 
 
 --
--- Name: tutorial_videos_user_id; Type: INDEX; Schema: public; Owner: empresa
+-- Name: tutorial_videos_user_id; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE INDEX tutorial_videos_user_id ON public.tutorial_videos USING btree (user_id);
 
 
 --
--- Name: user_google_calendar_integrations_user_id_unique; Type: INDEX; Schema: public; Owner: empresa
+-- Name: user_google_calendar_integrations_user_id_unique; Type: INDEX; Schema: public; Owner: imagem
 --
 
 CREATE UNIQUE INDEX user_google_calendar_integrations_user_id_unique ON public."UserGoogleCalendarIntegrations" USING btree (user_id);
 
 
 --
--- Name: ProdutoCategorias trg_produtocategorias_updated_at; Type: TRIGGER; Schema: public; Owner: empresa
+-- Name: ProdutoCategorias trg_produtocategorias_updated_at; Type: TRIGGER; Schema: public; Owner: imagem
 --
 
 CREATE TRIGGER trg_produtocategorias_updated_at BEFORE UPDATE ON public."ProdutoCategorias" FOR EACH ROW EXECUTE FUNCTION public.update_produtocategorias_updated_at();
 
 
 --
--- Name: tutorial_videos trigger_tutorial_videos_updated_at; Type: TRIGGER; Schema: public; Owner: empresa
+-- Name: tutorial_videos trigger_tutorial_videos_updated_at; Type: TRIGGER; Schema: public; Owner: imagem
 --
 
 CREATE TRIGGER trigger_tutorial_videos_updated_at BEFORE UPDATE ON public.tutorial_videos FOR EACH ROW EXECUTE FUNCTION public.update_tutorial_videos_updated_at();
 
 
 --
--- Name: UserPagePermissions trigger_update_user_page_permissions_updated_at; Type: TRIGGER; Schema: public; Owner: empresa
+-- Name: UserPagePermissions trigger_update_user_page_permissions_updated_at; Type: TRIGGER; Schema: public; Owner: imagem
 --
 
 CREATE TRIGGER trigger_update_user_page_permissions_updated_at BEFORE UPDATE ON public."UserPagePermissions" FOR EACH ROW EXECUTE FUNCTION public.update_user_page_permissions_updated_at();
 
 
 --
--- Name: UserDevices update_user_device_updated_at_trigger; Type: TRIGGER; Schema: public; Owner: empresa
+-- Name: UserDevices update_user_device_updated_at_trigger; Type: TRIGGER; Schema: public; Owner: imagem
 --
 
 CREATE TRIGGER update_user_device_updated_at_trigger BEFORE UPDATE ON public."UserDevices" FOR EACH ROW EXECUTE FUNCTION public.update_user_device_updated_at();
 
 
 --
--- Name: UserGoogleCalendarIntegrations update_user_google_calendar_integrations_updated_at; Type: TRIGGER; Schema: public; Owner: empresa
+-- Name: UserGoogleCalendarIntegrations update_user_google_calendar_integrations_updated_at; Type: TRIGGER; Schema: public; Owner: imagem
 --
 
 CREATE TRIGGER update_user_google_calendar_integrations_updated_at BEFORE UPDATE ON public."UserGoogleCalendarIntegrations" FOR EACH ROW EXECUTE FUNCTION public.update_updated_at_column();
 
 
 --
--- Name: AffiliateCommissions AffiliateCommissions_affiliateId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: AffiliateCommissions AffiliateCommissions_affiliateId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AffiliateCommissions"
@@ -12683,7 +12803,7 @@ ALTER TABLE ONLY public."AffiliateCommissions"
 
 
 --
--- Name: AffiliateCommissions AffiliateCommissions_faturaId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: AffiliateCommissions AffiliateCommissions_faturaId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AffiliateCommissions"
@@ -12691,7 +12811,7 @@ ALTER TABLE ONLY public."AffiliateCommissions"
 
 
 --
--- Name: AffiliateCommissions AffiliateCommissions_invoiceId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: AffiliateCommissions AffiliateCommissions_invoiceId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AffiliateCommissions"
@@ -12699,7 +12819,7 @@ ALTER TABLE ONLY public."AffiliateCommissions"
 
 
 --
--- Name: AffiliateCommissions AffiliateCommissions_referredCompanyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: AffiliateCommissions AffiliateCommissions_referredCompanyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AffiliateCommissions"
@@ -12707,7 +12827,7 @@ ALTER TABLE ONLY public."AffiliateCommissions"
 
 
 --
--- Name: AffiliateLinks AffiliateLinks_affiliateId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: AffiliateLinks AffiliateLinks_affiliateId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AffiliateLinks"
@@ -12715,7 +12835,7 @@ ALTER TABLE ONLY public."AffiliateLinks"
 
 
 --
--- Name: AffiliateWithdrawals AffiliateWithdrawals_affiliateId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: AffiliateWithdrawals AffiliateWithdrawals_affiliateId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AffiliateWithdrawals"
@@ -12723,7 +12843,7 @@ ALTER TABLE ONLY public."AffiliateWithdrawals"
 
 
 --
--- Name: AffiliateWithdrawals AffiliateWithdrawals_processedBy_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: AffiliateWithdrawals AffiliateWithdrawals_processedBy_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AffiliateWithdrawals"
@@ -12731,7 +12851,7 @@ ALTER TABLE ONLY public."AffiliateWithdrawals"
 
 
 --
--- Name: Affiliates Affiliates_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Affiliates Affiliates_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Affiliates"
@@ -12739,7 +12859,7 @@ ALTER TABLE ONLY public."Affiliates"
 
 
 --
--- Name: Announcements Announcements_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Announcements Announcements_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Announcements"
@@ -12747,7 +12867,7 @@ ALTER TABLE ONLY public."Announcements"
 
 
 --
--- Name: AutomationActions AutomationActions_automationId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: AutomationActions AutomationActions_automationId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AutomationActions"
@@ -12755,7 +12875,7 @@ ALTER TABLE ONLY public."AutomationActions"
 
 
 --
--- Name: AutomationExecutions AutomationExecutions_automationActionId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: AutomationExecutions AutomationExecutions_automationActionId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AutomationExecutions"
@@ -12763,7 +12883,7 @@ ALTER TABLE ONLY public."AutomationExecutions"
 
 
 --
--- Name: AutomationExecutions AutomationExecutions_automationId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: AutomationExecutions AutomationExecutions_automationId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AutomationExecutions"
@@ -12771,7 +12891,7 @@ ALTER TABLE ONLY public."AutomationExecutions"
 
 
 --
--- Name: AutomationExecutions AutomationExecutions_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: AutomationExecutions AutomationExecutions_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AutomationExecutions"
@@ -12779,7 +12899,7 @@ ALTER TABLE ONLY public."AutomationExecutions"
 
 
 --
--- Name: AutomationExecutions AutomationExecutions_ticketId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: AutomationExecutions AutomationExecutions_ticketId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AutomationExecutions"
@@ -12787,7 +12907,7 @@ ALTER TABLE ONLY public."AutomationExecutions"
 
 
 --
--- Name: AutomationLogs AutomationLogs_automationId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: AutomationLogs AutomationLogs_automationId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AutomationLogs"
@@ -12795,7 +12915,7 @@ ALTER TABLE ONLY public."AutomationLogs"
 
 
 --
--- Name: AutomationLogs AutomationLogs_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: AutomationLogs AutomationLogs_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AutomationLogs"
@@ -12803,7 +12923,7 @@ ALTER TABLE ONLY public."AutomationLogs"
 
 
 --
--- Name: AutomationLogs AutomationLogs_ticketId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: AutomationLogs AutomationLogs_ticketId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."AutomationLogs"
@@ -12811,7 +12931,7 @@ ALTER TABLE ONLY public."AutomationLogs"
 
 
 --
--- Name: Automations Automations_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Automations Automations_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Automations"
@@ -12819,7 +12939,7 @@ ALTER TABLE ONLY public."Automations"
 
 
 --
--- Name: CallRecords CallRecords_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: CallRecords CallRecords_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."CallRecords"
@@ -12827,7 +12947,7 @@ ALTER TABLE ONLY public."CallRecords"
 
 
 --
--- Name: CallRecords CallRecords_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: CallRecords CallRecords_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."CallRecords"
@@ -12835,7 +12955,7 @@ ALTER TABLE ONLY public."CallRecords"
 
 
 --
--- Name: CallRecords CallRecords_ticketId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: CallRecords CallRecords_ticketId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."CallRecords"
@@ -12843,7 +12963,7 @@ ALTER TABLE ONLY public."CallRecords"
 
 
 --
--- Name: CallRecords CallRecords_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: CallRecords CallRecords_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."CallRecords"
@@ -12851,7 +12971,7 @@ ALTER TABLE ONLY public."CallRecords"
 
 
 --
--- Name: CallRecords CallRecords_whatsappId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: CallRecords CallRecords_whatsappId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."CallRecords"
@@ -12859,7 +12979,7 @@ ALTER TABLE ONLY public."CallRecords"
 
 
 --
--- Name: CampaignSettings CampaignSettings_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: CampaignSettings CampaignSettings_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."CampaignSettings"
@@ -12867,7 +12987,7 @@ ALTER TABLE ONLY public."CampaignSettings"
 
 
 --
--- Name: CampaignShipping CampaignShipping_campaignId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: CampaignShipping CampaignShipping_campaignId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."CampaignShipping"
@@ -12875,7 +12995,7 @@ ALTER TABLE ONLY public."CampaignShipping"
 
 
 --
--- Name: CampaignShipping CampaignShipping_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: CampaignShipping CampaignShipping_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."CampaignShipping"
@@ -12883,7 +13003,7 @@ ALTER TABLE ONLY public."CampaignShipping"
 
 
 --
--- Name: Campaigns Campaigns_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Campaigns Campaigns_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Campaigns"
@@ -12891,7 +13011,7 @@ ALTER TABLE ONLY public."Campaigns"
 
 
 --
--- Name: Campaigns Campaigns_contactListId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Campaigns Campaigns_contactListId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Campaigns"
@@ -12899,7 +13019,7 @@ ALTER TABLE ONLY public."Campaigns"
 
 
 --
--- Name: Campaigns Campaigns_queueId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Campaigns Campaigns_queueId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Campaigns"
@@ -12907,7 +13027,7 @@ ALTER TABLE ONLY public."Campaigns"
 
 
 --
--- Name: Campaigns Campaigns_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Campaigns Campaigns_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Campaigns"
@@ -12915,7 +13035,7 @@ ALTER TABLE ONLY public."Campaigns"
 
 
 --
--- Name: Campaigns Campaigns_whatsappId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Campaigns Campaigns_whatsappId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Campaigns"
@@ -12923,7 +13043,7 @@ ALTER TABLE ONLY public."Campaigns"
 
 
 --
--- Name: ChatMessages ChatMessages_chatId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ChatMessages ChatMessages_chatId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ChatMessages"
@@ -12931,7 +13051,7 @@ ALTER TABLE ONLY public."ChatMessages"
 
 
 --
--- Name: ChatMessages ChatMessages_senderId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ChatMessages ChatMessages_senderId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ChatMessages"
@@ -12939,7 +13059,7 @@ ALTER TABLE ONLY public."ChatMessages"
 
 
 --
--- Name: ChatUsers ChatUsers_chatId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ChatUsers ChatUsers_chatId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ChatUsers"
@@ -12947,7 +13067,7 @@ ALTER TABLE ONLY public."ChatUsers"
 
 
 --
--- Name: ChatUsers ChatUsers_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ChatUsers ChatUsers_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ChatUsers"
@@ -12955,7 +13075,7 @@ ALTER TABLE ONLY public."ChatUsers"
 
 
 --
--- Name: Chatbots Chatbots_chatbotId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Chatbots Chatbots_chatbotId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Chatbots"
@@ -12963,7 +13083,7 @@ ALTER TABLE ONLY public."Chatbots"
 
 
 --
--- Name: Chatbots Chatbots_optFileId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Chatbots Chatbots_optFileId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Chatbots"
@@ -12971,7 +13091,7 @@ ALTER TABLE ONLY public."Chatbots"
 
 
 --
--- Name: Chatbots Chatbots_optIntegrationId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Chatbots Chatbots_optIntegrationId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Chatbots"
@@ -12979,7 +13099,7 @@ ALTER TABLE ONLY public."Chatbots"
 
 
 --
--- Name: Chatbots Chatbots_optQueueId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Chatbots Chatbots_optQueueId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Chatbots"
@@ -12987,7 +13107,7 @@ ALTER TABLE ONLY public."Chatbots"
 
 
 --
--- Name: Chatbots Chatbots_optUserId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Chatbots Chatbots_optUserId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Chatbots"
@@ -12995,7 +13115,7 @@ ALTER TABLE ONLY public."Chatbots"
 
 
 --
--- Name: Chatbots Chatbots_queueId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Chatbots Chatbots_queueId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Chatbots"
@@ -13003,7 +13123,7 @@ ALTER TABLE ONLY public."Chatbots"
 
 
 --
--- Name: Chats Chats_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Chats Chats_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Chats"
@@ -13011,7 +13131,7 @@ ALTER TABLE ONLY public."Chats"
 
 
 --
--- Name: Chats Chats_ownerId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Chats Chats_ownerId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Chats"
@@ -13019,7 +13139,7 @@ ALTER TABLE ONLY public."Chats"
 
 
 --
--- Name: CompaniesSettings CompaniesSettings_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: CompaniesSettings CompaniesSettings_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."CompaniesSettings"
@@ -13027,7 +13147,7 @@ ALTER TABLE ONLY public."CompaniesSettings"
 
 
 --
--- Name: Companies Companies_affiliateId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Companies Companies_affiliateId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Companies"
@@ -13035,7 +13155,7 @@ ALTER TABLE ONLY public."Companies"
 
 
 --
--- Name: Companies Companies_affiliateLinkId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Companies Companies_affiliateLinkId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Companies"
@@ -13043,7 +13163,7 @@ ALTER TABLE ONLY public."Companies"
 
 
 --
--- Name: Companies Companies_couponId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Companies Companies_couponId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Companies"
@@ -13051,7 +13171,7 @@ ALTER TABLE ONLY public."Companies"
 
 
 --
--- Name: Companies Companies_planId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Companies Companies_planId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Companies"
@@ -13059,7 +13179,7 @@ ALTER TABLE ONLY public."Companies"
 
 
 --
--- Name: Companies Companies_referredBy_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Companies Companies_referredBy_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Companies"
@@ -13067,7 +13187,7 @@ ALTER TABLE ONLY public."Companies"
 
 
 --
--- Name: ContactCustomFields ContactCustomFields_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ContactCustomFields ContactCustomFields_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ContactCustomFields"
@@ -13075,7 +13195,7 @@ ALTER TABLE ONLY public."ContactCustomFields"
 
 
 --
--- Name: ContactListItems ContactListItems_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ContactListItems ContactListItems_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ContactListItems"
@@ -13083,7 +13203,7 @@ ALTER TABLE ONLY public."ContactListItems"
 
 
 --
--- Name: ContactListItems ContactListItems_contactListId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ContactListItems ContactListItems_contactListId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ContactListItems"
@@ -13091,7 +13211,7 @@ ALTER TABLE ONLY public."ContactListItems"
 
 
 --
--- Name: ContactLists ContactLists_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ContactLists ContactLists_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ContactLists"
@@ -13099,7 +13219,7 @@ ALTER TABLE ONLY public."ContactLists"
 
 
 --
--- Name: ContactTags ContactTags_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ContactTags ContactTags_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ContactTags"
@@ -13107,7 +13227,7 @@ ALTER TABLE ONLY public."ContactTags"
 
 
 --
--- Name: ContactTags ContactTags_tagId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ContactTags ContactTags_tagId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ContactTags"
@@ -13115,7 +13235,7 @@ ALTER TABLE ONLY public."ContactTags"
 
 
 --
--- Name: ContactWallets ContactWallets_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ContactWallets ContactWallets_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ContactWallets"
@@ -13123,7 +13243,7 @@ ALTER TABLE ONLY public."ContactWallets"
 
 
 --
--- Name: ContactWallets ContactWallets_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ContactWallets ContactWallets_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ContactWallets"
@@ -13131,7 +13251,7 @@ ALTER TABLE ONLY public."ContactWallets"
 
 
 --
--- Name: ContactWallets ContactWallets_walletId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ContactWallets ContactWallets_walletId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ContactWallets"
@@ -13139,7 +13259,7 @@ ALTER TABLE ONLY public."ContactWallets"
 
 
 --
--- Name: Contacts Contacts_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Contacts Contacts_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Contacts"
@@ -13147,7 +13267,7 @@ ALTER TABLE ONLY public."Contacts"
 
 
 --
--- Name: Contacts Contacts_whatsappId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Contacts Contacts_whatsappId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Contacts"
@@ -13155,7 +13275,7 @@ ALTER TABLE ONLY public."Contacts"
 
 
 --
--- Name: DialogChatBots DialogChatBots_chatbotId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: DialogChatBots DialogChatBots_chatbotId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."DialogChatBots"
@@ -13163,7 +13283,7 @@ ALTER TABLE ONLY public."DialogChatBots"
 
 
 --
--- Name: DialogChatBots DialogChatBots_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: DialogChatBots DialogChatBots_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."DialogChatBots"
@@ -13171,7 +13291,7 @@ ALTER TABLE ONLY public."DialogChatBots"
 
 
 --
--- Name: DialogChatBots DialogChatBots_queueId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: DialogChatBots DialogChatBots_queueId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."DialogChatBots"
@@ -13179,7 +13299,7 @@ ALTER TABLE ONLY public."DialogChatBots"
 
 
 --
--- Name: Faturas Faturas_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Faturas Faturas_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Faturas"
@@ -13187,7 +13307,7 @@ ALTER TABLE ONLY public."Faturas"
 
 
 --
--- Name: Faturas Faturas_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Faturas Faturas_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Faturas"
@@ -13195,7 +13315,7 @@ ALTER TABLE ONLY public."Faturas"
 
 
 --
--- Name: Ferramentas Ferramentas_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Ferramentas Ferramentas_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Ferramentas"
@@ -13203,7 +13323,7 @@ ALTER TABLE ONLY public."Ferramentas"
 
 
 --
--- Name: FilesOptions FilesOptions_fileId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: FilesOptions FilesOptions_fileId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."FilesOptions"
@@ -13211,7 +13331,7 @@ ALTER TABLE ONLY public."FilesOptions"
 
 
 --
--- Name: Files Files_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Files Files_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Files"
@@ -13219,7 +13339,7 @@ ALTER TABLE ONLY public."Files"
 
 
 --
--- Name: FlowCampaigns FlowCampaigns_whatsappId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: FlowCampaigns FlowCampaigns_whatsappId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."FlowCampaigns"
@@ -13227,7 +13347,7 @@ ALTER TABLE ONLY public."FlowCampaigns"
 
 
 --
--- Name: GoogleCalendarIntegrations GoogleCalendarIntegrations_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: GoogleCalendarIntegrations GoogleCalendarIntegrations_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."GoogleCalendarIntegrations"
@@ -13235,7 +13355,7 @@ ALTER TABLE ONLY public."GoogleCalendarIntegrations"
 
 
 --
--- Name: GoogleCalendarIntegrations GoogleCalendarIntegrations_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: GoogleCalendarIntegrations GoogleCalendarIntegrations_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."GoogleCalendarIntegrations"
@@ -13243,7 +13363,7 @@ ALTER TABLE ONLY public."GoogleCalendarIntegrations"
 
 
 --
--- Name: GoogleSheetsTokens GoogleSheetsTokens_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: GoogleSheetsTokens GoogleSheetsTokens_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."GoogleSheetsTokens"
@@ -13251,7 +13371,7 @@ ALTER TABLE ONLY public."GoogleSheetsTokens"
 
 
 --
--- Name: Integrations Integrations_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Integrations Integrations_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Integrations"
@@ -13259,7 +13379,7 @@ ALTER TABLE ONLY public."Integrations"
 
 
 --
--- Name: Invoices Invoices_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Invoices Invoices_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Invoices"
@@ -13267,7 +13387,7 @@ ALTER TABLE ONLY public."Invoices"
 
 
 --
--- Name: LogTickets LogTickets_queueId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: LogTickets LogTickets_queueId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."LogTickets"
@@ -13275,7 +13395,7 @@ ALTER TABLE ONLY public."LogTickets"
 
 
 --
--- Name: LogTickets LogTickets_ticketId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: LogTickets LogTickets_ticketId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."LogTickets"
@@ -13283,7 +13403,7 @@ ALTER TABLE ONLY public."LogTickets"
 
 
 --
--- Name: LogTickets LogTickets_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: LogTickets LogTickets_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."LogTickets"
@@ -13291,7 +13411,7 @@ ALTER TABLE ONLY public."LogTickets"
 
 
 --
--- Name: MediaFiles MediaFiles_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: MediaFiles MediaFiles_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."MediaFiles"
@@ -13299,7 +13419,7 @@ ALTER TABLE ONLY public."MediaFiles"
 
 
 --
--- Name: MediaFiles MediaFiles_folder_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: MediaFiles MediaFiles_folder_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."MediaFiles"
@@ -13307,7 +13427,7 @@ ALTER TABLE ONLY public."MediaFiles"
 
 
 --
--- Name: MediaFolders MediaFolders_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: MediaFolders MediaFolders_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."MediaFolders"
@@ -13315,7 +13435,7 @@ ALTER TABLE ONLY public."MediaFolders"
 
 
 --
--- Name: Messages Messages_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Messages Messages_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Messages"
@@ -13323,7 +13443,7 @@ ALTER TABLE ONLY public."Messages"
 
 
 --
--- Name: Messages Messages_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Messages Messages_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Messages"
@@ -13331,7 +13451,7 @@ ALTER TABLE ONLY public."Messages"
 
 
 --
--- Name: Messages Messages_queueId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Messages Messages_queueId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Messages"
@@ -13339,7 +13459,7 @@ ALTER TABLE ONLY public."Messages"
 
 
 --
--- Name: Messages Messages_quotedMsgId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Messages Messages_quotedMsgId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Messages"
@@ -13347,7 +13467,7 @@ ALTER TABLE ONLY public."Messages"
 
 
 --
--- Name: Messages Messages_ticketId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Messages Messages_ticketId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Messages"
@@ -13355,7 +13475,7 @@ ALTER TABLE ONLY public."Messages"
 
 
 --
--- Name: Messages Messages_ticketTrakingId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Messages Messages_ticketTrakingId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Messages"
@@ -13363,7 +13483,7 @@ ALTER TABLE ONLY public."Messages"
 
 
 --
--- Name: Messages Messages_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Messages Messages_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Messages"
@@ -13371,7 +13491,7 @@ ALTER TABLE ONLY public."Messages"
 
 
 --
--- Name: MobileWebhooks MobileWebhooks_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: MobileWebhooks MobileWebhooks_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."MobileWebhooks"
@@ -13379,7 +13499,7 @@ ALTER TABLE ONLY public."MobileWebhooks"
 
 
 --
--- Name: MobileWebhooks MobileWebhooks_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: MobileWebhooks MobileWebhooks_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."MobileWebhooks"
@@ -13387,7 +13507,7 @@ ALTER TABLE ONLY public."MobileWebhooks"
 
 
 --
--- Name: Negocios Negocios_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Negocios Negocios_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Negocios"
@@ -13395,7 +13515,7 @@ ALTER TABLE ONLY public."Negocios"
 
 
 --
--- Name: ProdutoCategorias ProdutoCategorias_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ProdutoCategorias ProdutoCategorias_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ProdutoCategorias"
@@ -13403,7 +13523,7 @@ ALTER TABLE ONLY public."ProdutoCategorias"
 
 
 --
--- Name: ProdutoVariacaoGrupos ProdutoVariacaoGrupos_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoGrupos ProdutoVariacaoGrupos_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ProdutoVariacaoGrupos"
@@ -13411,7 +13531,7 @@ ALTER TABLE ONLY public."ProdutoVariacaoGrupos"
 
 
 --
--- Name: ProdutoVariacaoItens ProdutoVariacaoItens_opcaoId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoItens ProdutoVariacaoItens_opcaoId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ProdutoVariacaoItens"
@@ -13419,7 +13539,7 @@ ALTER TABLE ONLY public."ProdutoVariacaoItens"
 
 
 --
--- Name: ProdutoVariacaoItens ProdutoVariacaoItens_produtoId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoItens ProdutoVariacaoItens_produtoId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ProdutoVariacaoItens"
@@ -13427,7 +13547,7 @@ ALTER TABLE ONLY public."ProdutoVariacaoItens"
 
 
 --
--- Name: ProdutoVariacaoOpcoes ProdutoVariacaoOpcoes_grupoId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: ProdutoVariacaoOpcoes ProdutoVariacaoOpcoes_grupoId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."ProdutoVariacaoOpcoes"
@@ -13435,7 +13555,7 @@ ALTER TABLE ONLY public."ProdutoVariacaoOpcoes"
 
 
 --
--- Name: Produtos Produtos_categoriaId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Produtos Produtos_categoriaId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Produtos"
@@ -13443,7 +13563,7 @@ ALTER TABLE ONLY public."Produtos"
 
 
 --
--- Name: Produtos Produtos_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Produtos Produtos_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Produtos"
@@ -13451,7 +13571,7 @@ ALTER TABLE ONLY public."Produtos"
 
 
 --
--- Name: PromptToolSettings PromptToolSettings_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: PromptToolSettings PromptToolSettings_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."PromptToolSettings"
@@ -13459,7 +13579,7 @@ ALTER TABLE ONLY public."PromptToolSettings"
 
 
 --
--- Name: PromptToolSettings PromptToolSettings_promptId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: PromptToolSettings PromptToolSettings_promptId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."PromptToolSettings"
@@ -13467,7 +13587,7 @@ ALTER TABLE ONLY public."PromptToolSettings"
 
 
 --
--- Name: Prompts Prompts_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Prompts Prompts_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Prompts"
@@ -13475,7 +13595,7 @@ ALTER TABLE ONLY public."Prompts"
 
 
 --
--- Name: Prompts Prompts_queueId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Prompts Prompts_queueId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Prompts"
@@ -13483,7 +13603,7 @@ ALTER TABLE ONLY public."Prompts"
 
 
 --
--- Name: QueueIntegrations QueueIntegrations_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: QueueIntegrations QueueIntegrations_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."QueueIntegrations"
@@ -13491,7 +13611,7 @@ ALTER TABLE ONLY public."QueueIntegrations"
 
 
 --
--- Name: QueueOptions QueueOptions_parentId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: QueueOptions QueueOptions_parentId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."QueueOptions"
@@ -13499,7 +13619,7 @@ ALTER TABLE ONLY public."QueueOptions"
 
 
 --
--- Name: QueueOptions QueueOptions_queueId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: QueueOptions QueueOptions_queueId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."QueueOptions"
@@ -13507,7 +13627,7 @@ ALTER TABLE ONLY public."QueueOptions"
 
 
 --
--- Name: Queues Queues_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Queues Queues_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Queues"
@@ -13515,7 +13635,7 @@ ALTER TABLE ONLY public."Queues"
 
 
 --
--- Name: Queues Queues_fileListId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Queues Queues_fileListId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Queues"
@@ -13523,7 +13643,7 @@ ALTER TABLE ONLY public."Queues"
 
 
 --
--- Name: Queues Queues_integrationId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Queues Queues_integrationId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Queues"
@@ -13531,7 +13651,7 @@ ALTER TABLE ONLY public."Queues"
 
 
 --
--- Name: QuickMessages QuickMessages_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: QuickMessages QuickMessages_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."QuickMessages"
@@ -13539,7 +13659,7 @@ ALTER TABLE ONLY public."QuickMessages"
 
 
 --
--- Name: QuickMessages QuickMessages_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: QuickMessages QuickMessages_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."QuickMessages"
@@ -13547,7 +13667,7 @@ ALTER TABLE ONLY public."QuickMessages"
 
 
 --
--- Name: Schedules Schedules_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Schedules Schedules_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Schedules"
@@ -13555,7 +13675,7 @@ ALTER TABLE ONLY public."Schedules"
 
 
 --
--- Name: Schedules Schedules_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Schedules Schedules_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Schedules"
@@ -13563,7 +13683,7 @@ ALTER TABLE ONLY public."Schedules"
 
 
 --
--- Name: Schedules Schedules_queueId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Schedules Schedules_queueId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Schedules"
@@ -13571,7 +13691,7 @@ ALTER TABLE ONLY public."Schedules"
 
 
 --
--- Name: Schedules Schedules_ticketId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Schedules Schedules_ticketId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Schedules"
@@ -13579,7 +13699,7 @@ ALTER TABLE ONLY public."Schedules"
 
 
 --
--- Name: Schedules Schedules_ticketUserId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Schedules Schedules_ticketUserId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Schedules"
@@ -13587,7 +13707,7 @@ ALTER TABLE ONLY public."Schedules"
 
 
 --
--- Name: Schedules Schedules_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Schedules Schedules_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Schedules"
@@ -13595,7 +13715,7 @@ ALTER TABLE ONLY public."Schedules"
 
 
 --
--- Name: Schedules Schedules_whatsappId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Schedules Schedules_whatsappId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Schedules"
@@ -13603,7 +13723,7 @@ ALTER TABLE ONLY public."Schedules"
 
 
 --
--- Name: Settings Settings_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Settings Settings_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Settings"
@@ -13611,7 +13731,7 @@ ALTER TABLE ONLY public."Settings"
 
 
 --
--- Name: SliderBanners SliderBanners_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: SliderBanners SliderBanners_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."SliderBanners"
@@ -13619,7 +13739,7 @@ ALTER TABLE ONLY public."SliderBanners"
 
 
 --
--- Name: Subscriptions Subscriptions_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Subscriptions Subscriptions_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Subscriptions"
@@ -13627,7 +13747,7 @@ ALTER TABLE ONLY public."Subscriptions"
 
 
 --
--- Name: Tags Tags_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Tags Tags_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Tags"
@@ -13635,7 +13755,7 @@ ALTER TABLE ONLY public."Tags"
 
 
 --
--- Name: TicketNotes TicketNotes_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: TicketNotes TicketNotes_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."TicketNotes"
@@ -13643,7 +13763,7 @@ ALTER TABLE ONLY public."TicketNotes"
 
 
 --
--- Name: TicketNotes TicketNotes_ticketId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: TicketNotes TicketNotes_ticketId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."TicketNotes"
@@ -13651,7 +13771,7 @@ ALTER TABLE ONLY public."TicketNotes"
 
 
 --
--- Name: TicketNotes TicketNotes_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: TicketNotes TicketNotes_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."TicketNotes"
@@ -13659,7 +13779,7 @@ ALTER TABLE ONLY public."TicketNotes"
 
 
 --
--- Name: TicketTags TicketTags_tagId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: TicketTags TicketTags_tagId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."TicketTags"
@@ -13667,7 +13787,7 @@ ALTER TABLE ONLY public."TicketTags"
 
 
 --
--- Name: TicketTags TicketTags_ticketId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: TicketTags TicketTags_ticketId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."TicketTags"
@@ -13675,7 +13795,7 @@ ALTER TABLE ONLY public."TicketTags"
 
 
 --
--- Name: TicketTraking TicketTraking_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: TicketTraking TicketTraking_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."TicketTraking"
@@ -13683,7 +13803,7 @@ ALTER TABLE ONLY public."TicketTraking"
 
 
 --
--- Name: TicketTraking TicketTraking_queueId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: TicketTraking TicketTraking_queueId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."TicketTraking"
@@ -13691,7 +13811,7 @@ ALTER TABLE ONLY public."TicketTraking"
 
 
 --
--- Name: TicketTraking TicketTraking_ticketId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: TicketTraking TicketTraking_ticketId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."TicketTraking"
@@ -13699,7 +13819,7 @@ ALTER TABLE ONLY public."TicketTraking"
 
 
 --
--- Name: TicketTraking TicketTraking_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: TicketTraking TicketTraking_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."TicketTraking"
@@ -13707,7 +13827,7 @@ ALTER TABLE ONLY public."TicketTraking"
 
 
 --
--- Name: TicketTraking TicketTraking_whatsappId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: TicketTraking TicketTraking_whatsappId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."TicketTraking"
@@ -13715,7 +13835,7 @@ ALTER TABLE ONLY public."TicketTraking"
 
 
 --
--- Name: Tickets Tickets_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Tickets Tickets_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Tickets"
@@ -13723,7 +13843,7 @@ ALTER TABLE ONLY public."Tickets"
 
 
 --
--- Name: Tickets Tickets_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Tickets Tickets_contactId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Tickets"
@@ -13731,7 +13851,7 @@ ALTER TABLE ONLY public."Tickets"
 
 
 --
--- Name: Tickets Tickets_crm_client_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Tickets Tickets_crm_client_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Tickets"
@@ -13739,7 +13859,7 @@ ALTER TABLE ONLY public."Tickets"
 
 
 --
--- Name: Tickets Tickets_crm_lead_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Tickets Tickets_crm_lead_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Tickets"
@@ -13747,7 +13867,7 @@ ALTER TABLE ONLY public."Tickets"
 
 
 --
--- Name: Tickets Tickets_integrationId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Tickets Tickets_integrationId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Tickets"
@@ -13755,7 +13875,7 @@ ALTER TABLE ONLY public."Tickets"
 
 
 --
--- Name: Tickets Tickets_queueId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Tickets Tickets_queueId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Tickets"
@@ -13763,7 +13883,7 @@ ALTER TABLE ONLY public."Tickets"
 
 
 --
--- Name: Tickets Tickets_queueOptionId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Tickets Tickets_queueOptionId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Tickets"
@@ -13771,7 +13891,7 @@ ALTER TABLE ONLY public."Tickets"
 
 
 --
--- Name: Tickets Tickets_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Tickets Tickets_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Tickets"
@@ -13779,7 +13899,7 @@ ALTER TABLE ONLY public."Tickets"
 
 
 --
--- Name: Tickets Tickets_whatsappId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Tickets Tickets_whatsappId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Tickets"
@@ -13787,7 +13907,7 @@ ALTER TABLE ONLY public."Tickets"
 
 
 --
--- Name: UserDevices UserDevices_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: UserDevices UserDevices_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserDevices"
@@ -13795,7 +13915,7 @@ ALTER TABLE ONLY public."UserDevices"
 
 
 --
--- Name: UserRatings UserRatings_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: UserRatings UserRatings_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserRatings"
@@ -13803,7 +13923,7 @@ ALTER TABLE ONLY public."UserRatings"
 
 
 --
--- Name: UserRatings UserRatings_ticketId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: UserRatings UserRatings_ticketId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserRatings"
@@ -13811,7 +13931,7 @@ ALTER TABLE ONLY public."UserRatings"
 
 
 --
--- Name: UserRatings UserRatings_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: UserRatings UserRatings_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserRatings"
@@ -13819,7 +13939,7 @@ ALTER TABLE ONLY public."UserRatings"
 
 
 --
--- Name: UserServices UserServices_serviceId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: UserServices UserServices_serviceId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserServices"
@@ -13827,7 +13947,7 @@ ALTER TABLE ONLY public."UserServices"
 
 
 --
--- Name: UserServices UserServices_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: UserServices UserServices_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserServices"
@@ -13835,7 +13955,7 @@ ALTER TABLE ONLY public."UserServices"
 
 
 --
--- Name: Users Users_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Users Users_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Users"
@@ -13843,7 +13963,7 @@ ALTER TABLE ONLY public."Users"
 
 
 --
--- Name: Users Users_whatsappId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Users Users_whatsappId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Users"
@@ -13851,7 +13971,7 @@ ALTER TABLE ONLY public."Users"
 
 
 --
--- Name: Whatsapps Whatsapps_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Whatsapps Whatsapps_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Whatsapps"
@@ -13859,7 +13979,7 @@ ALTER TABLE ONLY public."Whatsapps"
 
 
 --
--- Name: Whatsapps Whatsapps_flowIdNotPhrase_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Whatsapps Whatsapps_flowIdNotPhrase_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Whatsapps"
@@ -13867,7 +13987,7 @@ ALTER TABLE ONLY public."Whatsapps"
 
 
 --
--- Name: Whatsapps Whatsapps_flowIdWelcome_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Whatsapps Whatsapps_flowIdWelcome_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Whatsapps"
@@ -13875,7 +13995,7 @@ ALTER TABLE ONLY public."Whatsapps"
 
 
 --
--- Name: Whatsapps Whatsapps_integrationId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Whatsapps Whatsapps_integrationId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Whatsapps"
@@ -13883,7 +14003,7 @@ ALTER TABLE ONLY public."Whatsapps"
 
 
 --
--- Name: Whatsapps Whatsapps_promptId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Whatsapps Whatsapps_promptId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Whatsapps"
@@ -13891,7 +14011,7 @@ ALTER TABLE ONLY public."Whatsapps"
 
 
 --
--- Name: Whatsapps Whatsapps_queueIdImportMessages_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: Whatsapps Whatsapps_queueIdImportMessages_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."Whatsapps"
@@ -13899,7 +14019,7 @@ ALTER TABLE ONLY public."Whatsapps"
 
 
 --
--- Name: appointments appointments_client_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: appointments appointments_client_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.appointments
@@ -13907,7 +14027,7 @@ ALTER TABLE ONLY public.appointments
 
 
 --
--- Name: appointments appointments_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: appointments appointments_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.appointments
@@ -13915,7 +14035,7 @@ ALTER TABLE ONLY public.appointments
 
 
 --
--- Name: appointments appointments_contact_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: appointments appointments_contact_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.appointments
@@ -13923,7 +14043,7 @@ ALTER TABLE ONLY public.appointments
 
 
 --
--- Name: appointments appointments_schedule_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: appointments appointments_schedule_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.appointments
@@ -13931,7 +14051,7 @@ ALTER TABLE ONLY public.appointments
 
 
 --
--- Name: appointments appointments_service_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: appointments appointments_service_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.appointments
@@ -13939,7 +14059,7 @@ ALTER TABLE ONLY public.appointments
 
 
 --
--- Name: company_api_keys company_api_keys_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: company_api_keys company_api_keys_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.company_api_keys
@@ -13947,7 +14067,7 @@ ALTER TABLE ONLY public.company_api_keys
 
 
 --
--- Name: company_integration_field_maps company_integration_field_maps_integration_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: company_integration_field_maps company_integration_field_maps_integration_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.company_integration_field_maps
@@ -13955,7 +14075,7 @@ ALTER TABLE ONLY public.company_integration_field_maps
 
 
 --
--- Name: company_integration_settings company_integration_settings_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: company_integration_settings company_integration_settings_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.company_integration_settings
@@ -13963,7 +14083,7 @@ ALTER TABLE ONLY public.company_integration_settings
 
 
 --
--- Name: company_payment_settings company_payment_settings_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: company_payment_settings company_payment_settings_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.company_payment_settings
@@ -13971,7 +14091,7 @@ ALTER TABLE ONLY public.company_payment_settings
 
 
 --
--- Name: crm_client_contacts crm_client_contacts_client_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: crm_client_contacts crm_client_contacts_client_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.crm_client_contacts
@@ -13979,7 +14099,7 @@ ALTER TABLE ONLY public.crm_client_contacts
 
 
 --
--- Name: crm_client_contacts crm_client_contacts_contact_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: crm_client_contacts crm_client_contacts_contact_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.crm_client_contacts
@@ -13987,7 +14107,7 @@ ALTER TABLE ONLY public.crm_client_contacts
 
 
 --
--- Name: crm_clients crm_clients_contact_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: crm_clients crm_clients_contact_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.crm_clients
@@ -13995,7 +14115,7 @@ ALTER TABLE ONLY public.crm_clients
 
 
 --
--- Name: crm_clients crm_clients_primary_ticket_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: crm_clients crm_clients_primary_ticket_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.crm_clients
@@ -14003,7 +14123,7 @@ ALTER TABLE ONLY public.crm_clients
 
 
 --
--- Name: crm_leads crm_leads_contact_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: crm_leads crm_leads_contact_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.crm_leads
@@ -14011,7 +14131,7 @@ ALTER TABLE ONLY public.crm_leads
 
 
 --
--- Name: crm_leads crm_leads_converted_client_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: crm_leads crm_leads_converted_client_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.crm_leads
@@ -14019,7 +14139,7 @@ ALTER TABLE ONLY public.crm_leads
 
 
 --
--- Name: crm_leads crm_leads_primary_ticket_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: crm_leads crm_leads_primary_ticket_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.crm_leads
@@ -14027,7 +14147,7 @@ ALTER TABLE ONLY public.crm_leads
 
 
 --
--- Name: financeiro_faturas financeiro_faturas_project_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: financeiro_faturas financeiro_faturas_project_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.financeiro_faturas
@@ -14035,7 +14155,7 @@ ALTER TABLE ONLY public.financeiro_faturas
 
 
 --
--- Name: financeiro_pagamentos financeiro_pagamentos_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: financeiro_pagamentos financeiro_pagamentos_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.financeiro_pagamentos
@@ -14043,7 +14163,7 @@ ALTER TABLE ONLY public.financeiro_pagamentos
 
 
 --
--- Name: financeiro_pagamentos financeiro_pagamentos_fatura_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: financeiro_pagamentos financeiro_pagamentos_fatura_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.financeiro_pagamentos
@@ -14051,7 +14171,7 @@ ALTER TABLE ONLY public.financeiro_pagamentos
 
 
 --
--- Name: financeiro_pagamentos fk_financeiro_pagamentos_fatura; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: financeiro_pagamentos fk_financeiro_pagamentos_fatura; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.financeiro_pagamentos
@@ -14059,7 +14179,7 @@ ALTER TABLE ONLY public.financeiro_pagamentos
 
 
 --
--- Name: tutorial_videos fk_tutorial_videos_company; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: tutorial_videos fk_tutorial_videos_company; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.tutorial_videos
@@ -14067,7 +14187,7 @@ ALTER TABLE ONLY public.tutorial_videos
 
 
 --
--- Name: tutorial_videos fk_tutorial_videos_user; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: tutorial_videos fk_tutorial_videos_user; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.tutorial_videos
@@ -14075,7 +14195,7 @@ ALTER TABLE ONLY public.tutorial_videos
 
 
 --
--- Name: UserGoogleCalendarIntegrations fk_user_google_calendar_integrations_company_id; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: UserGoogleCalendarIntegrations fk_user_google_calendar_integrations_company_id; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserGoogleCalendarIntegrations"
@@ -14083,7 +14203,7 @@ ALTER TABLE ONLY public."UserGoogleCalendarIntegrations"
 
 
 --
--- Name: UserGoogleCalendarIntegrations fk_user_google_calendar_integrations_user_id; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: UserGoogleCalendarIntegrations fk_user_google_calendar_integrations_user_id; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserGoogleCalendarIntegrations"
@@ -14091,7 +14211,7 @@ ALTER TABLE ONLY public."UserGoogleCalendarIntegrations"
 
 
 --
--- Name: UserPagePermissions fk_user_page_permissions_user; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: UserPagePermissions fk_user_page_permissions_user; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public."UserPagePermissions"
@@ -14099,7 +14219,7 @@ ALTER TABLE ONLY public."UserPagePermissions"
 
 
 --
--- Name: user_schedules fk_user_schedules_google_calendar_integration; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: user_schedules fk_user_schedules_google_calendar_integration; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.user_schedules
@@ -14107,7 +14227,7 @@ ALTER TABLE ONLY public.user_schedules
 
 
 --
--- Name: media_files media_files_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: media_files media_files_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.media_files
@@ -14115,7 +14235,7 @@ ALTER TABLE ONLY public.media_files
 
 
 --
--- Name: media_files media_files_folder_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: media_files media_files_folder_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.media_files
@@ -14123,7 +14243,7 @@ ALTER TABLE ONLY public.media_files
 
 
 --
--- Name: media_folders media_folders_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: media_folders media_folders_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.media_folders
@@ -14131,7 +14251,7 @@ ALTER TABLE ONLY public.media_folders
 
 
 --
--- Name: profissionais profissionais_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: profissionais profissionais_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.profissionais
@@ -14139,7 +14259,7 @@ ALTER TABLE ONLY public.profissionais
 
 
 --
--- Name: project_products project_products_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: project_products project_products_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_products
@@ -14147,7 +14267,7 @@ ALTER TABLE ONLY public.project_products
 
 
 --
--- Name: project_products project_products_productId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: project_products project_products_productId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_products
@@ -14155,7 +14275,7 @@ ALTER TABLE ONLY public.project_products
 
 
 --
--- Name: project_products project_products_projectId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: project_products project_products_projectId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_products
@@ -14163,7 +14283,7 @@ ALTER TABLE ONLY public.project_products
 
 
 --
--- Name: project_services project_services_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: project_services project_services_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_services
@@ -14171,7 +14291,7 @@ ALTER TABLE ONLY public.project_services
 
 
 --
--- Name: project_services project_services_projectId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: project_services project_services_projectId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_services
@@ -14179,7 +14299,7 @@ ALTER TABLE ONLY public.project_services
 
 
 --
--- Name: project_services project_services_serviceId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: project_services project_services_serviceId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_services
@@ -14187,7 +14307,7 @@ ALTER TABLE ONLY public.project_services
 
 
 --
--- Name: project_task_users project_task_users_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: project_task_users project_task_users_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_task_users
@@ -14195,7 +14315,7 @@ ALTER TABLE ONLY public.project_task_users
 
 
 --
--- Name: project_task_users project_task_users_taskId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: project_task_users project_task_users_taskId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_task_users
@@ -14203,7 +14323,7 @@ ALTER TABLE ONLY public.project_task_users
 
 
 --
--- Name: project_task_users project_task_users_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: project_task_users project_task_users_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_task_users
@@ -14211,7 +14331,7 @@ ALTER TABLE ONLY public.project_task_users
 
 
 --
--- Name: project_tasks project_tasks_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: project_tasks project_tasks_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_tasks
@@ -14219,7 +14339,7 @@ ALTER TABLE ONLY public.project_tasks
 
 
 --
--- Name: project_tasks project_tasks_projectId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: project_tasks project_tasks_projectId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_tasks
@@ -14227,7 +14347,7 @@ ALTER TABLE ONLY public.project_tasks
 
 
 --
--- Name: project_users project_users_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: project_users project_users_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_users
@@ -14235,7 +14355,7 @@ ALTER TABLE ONLY public.project_users
 
 
 --
--- Name: project_users project_users_projectId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: project_users project_users_projectId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_users
@@ -14243,7 +14363,7 @@ ALTER TABLE ONLY public.project_users
 
 
 --
--- Name: project_users project_users_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: project_users project_users_userId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.project_users
@@ -14251,7 +14371,7 @@ ALTER TABLE ONLY public.project_users
 
 
 --
--- Name: projects projects_clientId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: projects projects_clientId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.projects
@@ -14259,7 +14379,7 @@ ALTER TABLE ONLY public.projects
 
 
 --
--- Name: projects projects_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: projects projects_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.projects
@@ -14267,7 +14387,7 @@ ALTER TABLE ONLY public.projects
 
 
 --
--- Name: projects projects_invoiceId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: projects projects_invoiceId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.projects
@@ -14275,7 +14395,7 @@ ALTER TABLE ONLY public.projects
 
 
 --
--- Name: scheduled_dispatch_logs scheduled_dispatch_logs_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: scheduled_dispatch_logs scheduled_dispatch_logs_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.scheduled_dispatch_logs
@@ -14283,7 +14403,7 @@ ALTER TABLE ONLY public.scheduled_dispatch_logs
 
 
 --
--- Name: scheduled_dispatch_logs scheduled_dispatch_logs_contact_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: scheduled_dispatch_logs scheduled_dispatch_logs_contact_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.scheduled_dispatch_logs
@@ -14291,7 +14411,7 @@ ALTER TABLE ONLY public.scheduled_dispatch_logs
 
 
 --
--- Name: scheduled_dispatch_logs scheduled_dispatch_logs_dispatcher_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: scheduled_dispatch_logs scheduled_dispatch_logs_dispatcher_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.scheduled_dispatch_logs
@@ -14299,7 +14419,7 @@ ALTER TABLE ONLY public.scheduled_dispatch_logs
 
 
 --
--- Name: scheduled_dispatch_logs scheduled_dispatch_logs_ticket_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: scheduled_dispatch_logs scheduled_dispatch_logs_ticket_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.scheduled_dispatch_logs
@@ -14307,7 +14427,7 @@ ALTER TABLE ONLY public.scheduled_dispatch_logs
 
 
 --
--- Name: scheduled_dispatchers scheduled_dispatchers_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: scheduled_dispatchers scheduled_dispatchers_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.scheduled_dispatchers
@@ -14315,7 +14435,7 @@ ALTER TABLE ONLY public.scheduled_dispatchers
 
 
 --
--- Name: scheduled_dispatchers scheduled_dispatchers_whatsapp_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: scheduled_dispatchers scheduled_dispatchers_whatsapp_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.scheduled_dispatchers
@@ -14323,7 +14443,7 @@ ALTER TABLE ONLY public.scheduled_dispatchers
 
 
 --
--- Name: servicos servicos_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: servicos servicos_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.servicos
@@ -14331,7 +14451,7 @@ ALTER TABLE ONLY public.servicos
 
 
 --
--- Name: slider_home slider_home_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: slider_home slider_home_companyId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.slider_home
@@ -14339,7 +14459,7 @@ ALTER TABLE ONLY public.slider_home
 
 
 --
--- Name: user_schedules user_schedules_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: user_schedules user_schedules_company_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.user_schedules
@@ -14347,7 +14467,7 @@ ALTER TABLE ONLY public.user_schedules
 
 
 --
--- Name: user_schedules user_schedules_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: empresa
+-- Name: user_schedules user_schedules_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: imagem
 --
 
 ALTER TABLE ONLY public.user_schedules
@@ -14358,5 +14478,5 @@ ALTER TABLE ONLY public.user_schedules
 -- PostgreSQL database dump complete
 --
 
-\unrestrict I3zNzRxrUv530N4nOIP9SC1YLB8XceIj5NBRzMfJHXIeAS5mAfzqgldeiaKu5zB
+\unrestrict KvuPkRGHe8YSVaEthz3aKXePlEUqxFts7NgHWdzUtRWEbrPXfRgoS6eNJ1zA2wq
 
