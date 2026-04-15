@@ -866,7 +866,7 @@ backend_set_env() {
 NODE_ENV=
 BACKEND_URL=${backend_url}
 FRONTEND_URL=${frontend_url}
-PROXY_PORT=443
+PROXY_PORT=
 PORT=${backend_port}
 
 DB_HOST=localhost
