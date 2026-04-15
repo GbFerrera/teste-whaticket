@@ -453,7 +453,7 @@ export const ActionsWebhookService = async (
 
             // Monta a lista de opções novamente
             const optionLines = nodeSelected.data.arrayOption
-              .map((opt: any) => `[${opt.number}] ${opt.label || opt.title || ""}`)
+              .map((opt: any) => `[${opt.number}] ${opt.value || opt.label || opt.title || ""}`)
               .join("\n");
             const invalidMsg = `Opção inválida. Por favor, digite uma das opções abaixo:\n\n${optionLines}`;
 
