@@ -541,11 +541,30 @@ system_traefik_add_instance() {
   log_info "Configurando roteamento Traefik para ${instancia}..."
   sleep 2
 
-  sudo mkdir -p /etc/traefik/dynamic
+  # Detectar se ambiente usa Coolify (container coolify-proxy)
+  local is_coolify=false
+  local dynamic_dir="/etc/traefik/dynamic"
+  local entrypoint_http="websecure"
+  local cert_resolver="letsencrypt"
+
+  if docker ps --format '{{.Names}}' 2>/dev/null | grep -q "coolify-proxy"; then
+    is_coolify=true
+    dynamic_dir="/data/coolify/proxy/dynamic"
+    entrypoint_http="https"
+    cert_resolver="letsencrypt"
+    log_info "Ambiente Coolify detectado - usando ${dynamic_dir}"
+  fi
+
+  sudo mkdir -p "${dynamic_dir}"
 
   # Detectar IP do gateway Docker (host visto de dentro do container Traefik)
   local docker_host_ip
-  docker_host_ip=$(docker inspect traefik 2>/dev/null | grep '"Gateway"' | head -1 | grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+')
+  local traefik_container
+  traefik_container=$(docker ps --format '{{.Names}}' 2>/dev/null | grep -E "traefik|coolify-proxy" | head -1)
+  docker_host_ip=$(docker inspect "${traefik_container}" 2>/dev/null | grep '"Gateway"' | head -1 | grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+')
+  if [ -z "${docker_host_ip}" ]; then
+    docker_host_ip=$(docker network inspect bridge --format='{{range .IPAM.Config}}{{.Gateway}}{{end}}' 2>/dev/null | head -1)
+  fi
   if [ -z "${docker_host_ip}" ]; then
     docker_host_ip=$(ip route | awk '/default/ {print $3}' | head -1)
   fi
@@ -554,24 +573,24 @@ system_traefik_add_instance() {
   fi
   log_info "IP do host Docker detectado: ${docker_host_ip}"
 
-  sudo tee /etc/traefik/dynamic/${instancia}.yml > /dev/null <<EOF
+  sudo tee "${dynamic_dir}/${instancia}.yaml" > /dev/null <<EOF
 http:
   routers:
     ${instancia}-backend:
       rule: "Host(\`${back_host}\`)"
       entryPoints:
-        - websecure
+        - ${entrypoint_http}
       service: ${instancia}-backend-svc
       tls:
-        certResolver: letsencrypt
+        certresolver: ${cert_resolver}
 
     ${instancia}-frontend:
       rule: "Host(\`${front_host}\`)"
       entryPoints:
-        - websecure
+        - ${entrypoint_http}
       service: ${instancia}-frontend-svc
       tls:
-        certResolver: letsencrypt
+        certresolver: ${cert_resolver}
 
   services:
     ${instancia}-backend-svc:
@@ -587,7 +606,7 @@ http:
         passHostHeader: true
 EOF
 
-  echo "Rota dinâmica criada: /etc/traefik/dynamic/${instancia}.yml"
+  echo "Rota dinâmica criada: ${dynamic_dir}/${instancia}.yaml"
 
   log_success "Traefik configurado para ${instancia} (backend: ${back_host} → :${back_port} | frontend: ${front_host} → :${front_port})"
   sleep 2
@@ -596,7 +615,12 @@ EOF
 # Remove a rota dinâmica de uma instância
 system_traefik_remove_instance() {
   local instancia="$1"
-  sudo rm -f /etc/traefik/dynamic/${instancia}.yml 2>/dev/null || true
+  if docker ps --format '{{.Names}}' 2>/dev/null | grep -q "coolify-proxy"; then
+    sudo rm -f /data/coolify/proxy/dynamic/${instancia}.yaml 2>/dev/null || true
+  else
+    sudo rm -f /etc/traefik/dynamic/${instancia}.yml 2>/dev/null || true
+    sudo rm -f /etc/traefik/dynamic/${instancia}.yaml 2>/dev/null || true
+  fi
   log_success "Rota Traefik removida para ${instancia}"
 }
 
