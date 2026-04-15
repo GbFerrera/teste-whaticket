@@ -966,7 +966,7 @@ export const ActionsWebhookService = async (
         const ticketDetails = await ShowTicketService(ticket.id, companyId);
 
         await typeSimulation(ticket, "composing");
-        await delay(2000);
+        await delay(500);
         await typeSimulation(ticket, "paused");
 
         console.log("ActionsWebhookService Node Question1: ", questionMessage);
@@ -1085,7 +1085,7 @@ export const ActionsWebhookService = async (
           const bodyFila = formatBody(`${msgFila}`, ticket.contact);
 
           await typeSimulation(ticket, "composing");
-          await delay(2000);
+          await delay(500);
           await typeSimulation(ticket, "paused");
 
           console.log("ActionsWebhookService Node Question2: ", bodyFila);
@@ -1133,7 +1133,7 @@ export const ActionsWebhookService = async (
             }
 
             await typeSimulation(ticket, "composing");
-            await delay(2000);
+            await delay(500);
             await typeSimulation(ticket, "paused");
 
             console.log("ActionsWebhookService Node Question3: ", msg);
@@ -3057,7 +3057,7 @@ export const ActionsWebhookService = async (
           // });
 
           await typeSimulation(ticket, "composing");
-          await delay(2000);
+          await delay(500);
           await typeSimulation(ticket, "paused");
 
           console.log("ActionsWebhookService Node Question4: ", msg);
