@@ -449,7 +449,30 @@ export const ActionsWebhookService = async (
               }
             }
           } else {
-            console.log("Opção não encontrada para:", pressKey);
+            console.log("Opção inválida:", pressKey, "- reenviando menu");
+
+            // Monta a lista de opções novamente
+            const optionLines = nodeSelected.data.arrayOption
+              .map((opt: any) => `[${opt.number}] ${opt.label || opt.title || ""}`)
+              .join("\n");
+            const invalidMsg = `Opção inválida. Por favor, digite uma das opções abaixo:\n\n${optionLines}`;
+
+            await SendMessage(whatsapp, {
+              number: numberClient,
+              body: invalidMsg
+            });
+
+            // Mantém o ticket aguardando resposta neste nó de menu
+            if (ticket) {
+              await ticket.update({
+                flowWebhook: true,
+                lastFlowId: nodeSelected.id,
+                flowStopped: idFlowDb.toString(),
+                hashFlowId: hashWebhookId || ticket.hashFlowId
+              });
+            }
+
+            break;
           }
         } else {
           console.log("Nenhum pressKey fornecido");
