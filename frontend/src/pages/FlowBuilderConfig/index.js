@@ -544,9 +544,17 @@ export const FlowBuilderConfig = () => {
 
   // [TODA A LÓGICA DE ADIÇÃO DE NODES MANTIDA IGUAL]
   const addNode = (type, data) => {
-    const posY = nodes[nodes.length - 1].position.y;
-    const posX =
-      nodes[nodes.length - 1].position.x + nodes[nodes.length - 1].width + 40;
+    // Posicionar o novo nó dentro do viewport atual
+    const viewport = getViewport();
+    const viewportWidth = window.innerWidth - 260; // Subtrai a sidebar
+    const viewportHeight = window.innerHeight;
+    
+    // Calcular posição central do viewport
+    const centerX = (viewportWidth / 2 - viewport.x) / viewport.zoom;
+    const centerY = (viewportHeight / 2 - viewport.y) / viewport.zoom;
+    
+    const posY = centerY;
+    const posX = centerX;
 
     if (type === "file") {
       return setNodes((old) => {
@@ -1069,6 +1077,7 @@ export const FlowBuilderConfig = () => {
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const { getViewport } = useReactFlow();
   const [groupSelectionActive, setGroupSelectionActive] = useState(false);
   const [groupSelectionIds, setGroupSelectionIds] = useState([]);
   const selectionActiveRef = useRef(false);
