@@ -3,7 +3,7 @@ import {
   ContentCopy,
   Delete,
   CheckCircle,
-  DriveFileRenameOutline,
+  Edit,
 } from "@mui/icons-material";
 import React, { memo, useState } from "react";
 import { Handle } from "react-flow-renderer";
@@ -91,9 +91,24 @@ export default memo(({ data, isConnectable, id }) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.backgroundColor = "#e5e7eb";
+            e.target.style.transform = "scale(1.1)";
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.backgroundColor = "#f3f4f6";
+            e.target.style.transform = "scale(1)";
           }}
         >
-          <DriveFileRenameOutline style={{ width: "14px", height: "14px", color: "#6b7280" }} />
+          <Edit
+            sx={{ 
+              width: "14px", 
+              height: "14px", 
+              color: "#6b7280"
+            }}
+          />
         </div>
         <div
           onClick={() => {
@@ -108,9 +123,24 @@ export default memo(({ data, isConnectable, id }) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.backgroundColor = "#e5e7eb";
+            e.target.style.transform = "scale(1.1)";
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.backgroundColor = "#f3f4f6";
+            e.target.style.transform = "scale(1)";
           }}
         >
-          <ContentCopy sx={{ width: "14px", height: "14px", color: "#6b7280" }} />
+          <ContentCopy
+            sx={{ 
+              width: "14px", 
+              height: "14px", 
+              color: "#6b7280"
+            }}
+          />
         </div>
         <div
           onClick={() => {
@@ -125,9 +155,24 @@ export default memo(({ data, isConnectable, id }) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.backgroundColor = "#fee2e2";
+            e.target.style.transform = "scale(1.1)";
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.backgroundColor = "#fef2f2";
+            e.target.style.transform = "scale(1)";
           }}
         >
-          <Delete sx={{ width: "14px", height: "14px", color: "#ef4444" }} />
+          <Delete
+            sx={{ 
+              width: "14px", 
+              height: "14px", 
+              color: "#ef4444"
+            }}
+          />
         </div>
       </div>
 
@@ -153,13 +198,19 @@ export default memo(({ data, isConnectable, id }) => {
             boxShadow: "0 4px 12px rgba(34, 197, 94, 0.25)",
           }}
         >
-          <CheckCircle sx={{ width: "18px", height: "18px", color: "#ffffff" }} />
+          <CheckCircle
+            sx={{
+              width: "18px",
+              height: "18px",
+              color: "#ffffff",
+            }}
+          />
         </div>
         <div>
-          <div
-            style={{
-              color: "#111827",
-              fontSize: "16px",
+          <div 
+            style={{ 
+              color: "#111827", 
+              fontSize: "16px", 
               fontWeight: "700",
               lineHeight: "1.2",
               marginBottom: "2px",
@@ -167,10 +218,10 @@ export default memo(({ data, isConnectable, id }) => {
           >
             {data?.title || "Encerrar Ticket"}
           </div>
-          <div
-            style={{
-              color: "#6b7280",
-              fontSize: "12px",
+          <div 
+            style={{ 
+              color: "#6b7280", 
+              fontSize: "12px", 
               fontWeight: "500",
             }}
           >
