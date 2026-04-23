@@ -22,7 +22,6 @@ const addAdditionalTranspileRules = () => (config) => {
     "@reactflow",
     "emoji-mart",
     "apexcharts",
-    "react-draggable",
   ];
 
   const includePaths = packagesToTranspile.map((pkg) =>
