@@ -118,6 +118,9 @@
     "yup": "^0.32.8",
     "zustand": "^4.4.1"
   },
+  "overrides": {
+    "zustand": "^4.4.1"
+  },
   "scripts": {
     "start": "cross-env NODE_OPTIONS=\"--openssl-legacy-provider\" react-app-rewired start",
     "build": "cross-env NODE_OPTIONS=\"--openssl-legacy-provider\" GENERATE_SOURCEMAP=false react-app-rewired build",
