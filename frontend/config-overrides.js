@@ -51,6 +51,8 @@ const addProcessPolyfill = () => (config) => {
     new webpack.ProvidePlugin({
       process: "process/browser",
       React: "react",
+      ReactDOM: "react-dom",
+      PropTypes: "prop-types",
       ApexCharts: ["apexcharts", "default"],
     })
   );
