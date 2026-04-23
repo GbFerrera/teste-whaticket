@@ -63,7 +63,6 @@ import ReactFlow, {
   useEdgesState,
   addEdge,
   onElementsRemove,
-  useReactFlow,
   Controls,
 } from "react-flow-renderer";
 import FlowBuilderAddTextModal from "../../components/FlowBuilderAddTextModal";
@@ -536,6 +535,18 @@ export const FlowBuilderConfig = () => {
   const [nodeRenaming, setNodeRenaming] = useState(null);
   const [flowLocked, setFlowLocked] = useState(false);
   const [, setPageNumber] = useState(1);
+  const viewportRef = useRef({ x: 0, y: 0, zoom: 1 });
+
+  const getCurrentViewportCenter = useCallback(() => {
+    const { x = 0, y = 0, zoom = 1 } = viewportRef.current || {};
+    const viewportWidth = window.innerWidth - 260;
+    const viewportHeight = window.innerHeight;
+
+    return {
+      x: (viewportWidth / 2 - x) / zoom,
+      y: (viewportHeight / 2 - y) / zoom,
+    };
+  }, []);
 
   const connectionLineStyle = { 
     stroke: "#6366f1", 
@@ -545,17 +556,9 @@ export const FlowBuilderConfig = () => {
 
   // [TODA A LÓGICA DE ADIÇÃO DE NODES MANTIDA IGUAL]
   const addNode = (type, data) => {
-    // Posicionar o novo nó dentro do viewport atual
-    const viewport = getViewport();
-    const viewportWidth = window.innerWidth - 260; // Subtrai a sidebar
-    const viewportHeight = window.innerHeight;
-    
-    // Calcular posição central do viewport
-    const centerX = (viewportWidth / 2 - viewport.x) / viewport.zoom;
-    const centerY = (viewportHeight / 2 - viewport.y) / viewport.zoom;
-    
-    const posY = centerY;
-    const posX = centerX;
+    const viewportCenter = getCurrentViewportCenter();
+    const posY = viewportCenter.y;
+    const posX = viewportCenter.x;
 
     if (type === "file") {
       return setNodes((old) => {
@@ -1078,7 +1081,6 @@ export const FlowBuilderConfig = () => {
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const { getViewport } = useReactFlow();
   const [groupSelectionActive, setGroupSelectionActive] = useState(false);
   const [groupSelectionIds, setGroupSelectionIds] = useState([]);
   const selectionActiveRef = useRef(false);
@@ -1252,6 +1254,22 @@ export const FlowBuilderConfig = () => {
     },
     [addNodeToSelection]
   );
+
+  const handleFlowMove = useCallback((_event, viewport) => {
+    if (!viewport) return;
+
+    if (Array.isArray(viewport)) {
+      const [x = 0, y = 0, zoom = 1] = viewport;
+      viewportRef.current = { x, y, zoom };
+      return;
+    }
+
+    viewportRef.current = {
+      x: viewport.x ?? 0,
+      y: viewport.y ?? 0,
+      zoom: viewport.zoom ?? 1,
+    };
+  }, []);
 
   const saveFlow = async () => {
     const nodesWithTitles = applyTitlesToNodes(nodes);
@@ -1773,6 +1791,7 @@ export const FlowBuilderConfig = () => {
               onPaneMouseDown={handlePaneMouseDown}
               onNodeMouseDown={handleNodeMouseDown}
               onNodeMouseEnter={handleNodeMouseEnter}
+              onMove={handleFlowMove}
               onPaneContextMenu={(event) => event.preventDefault()}
               onNodeContextMenu={(event) => event.preventDefault()}
               onConnect={onConnect}
@@ -1857,10 +1876,11 @@ export const FlowBuilderConfig = () => {
             );
           } else {
             // Add new node
+            const viewportCenter = getCurrentViewportCenter();
             const newNode = {
               id: `directOpenai-${Date.now()}`,
               type: "directOpenai",
-              position: { x: 100, y: 100 },
+              position: { x: viewportCenter.x, y: viewportCenter.y },
               data: config
             };
             setNodes((nds) => [...nds, newNode]);
