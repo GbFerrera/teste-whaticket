@@ -121,7 +121,7 @@
   "overrides": {
     "zustand": "^4.4.1",
     "fast-png": "^5.0.0",
-    "iobuffer": "^5.0.0"
+    "iobuffer": "^4.0.0"
   },
   "scripts": {
     "start": "cross-env NODE_OPTIONS=\"--openssl-legacy-provider\" react-app-rewired start",
