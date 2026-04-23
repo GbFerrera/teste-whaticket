@@ -470,7 +470,7 @@
       }
 
       window.finishProgress = () => {
-        progress = 100;
+        currentStep = TOTAL_STEPS;
         progressBar.style.width = "100%";
         progressPercent.textContent = "100%";
         updateSteps(4, true);
@@ -478,7 +478,8 @@
 
       // Remove splash screen when all elements are loaded
       window.addEventListener("load", () => {
-        if (progress < 100) {
+        const currentProgress = Math.min(100, (currentStep / TOTAL_STEPS) * 100);
+        if (currentProgress < 100) {
           window.finishProgress();
         }
       });

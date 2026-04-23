@@ -119,7 +119,6 @@
     "zustand": "^4.4.1"
   },
   "overrides": {
-    "zustand": "^4.4.1",
     "fast-png": "^5.0.0",
     "iobuffer": "^4.0.0"
   },
