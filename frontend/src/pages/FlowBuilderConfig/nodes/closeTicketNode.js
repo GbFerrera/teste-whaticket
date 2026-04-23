@@ -3,7 +3,7 @@ import {
   ContentCopy,
   Delete,
   CheckCircle,
-  DriveFileRenameOutlineIcon,
+  DriveFileRenameOutline,
 } from "@mui/icons-material";
 import React, { memo, useState } from "react";
 import { Handle } from "react-flow-renderer";
@@ -93,7 +93,7 @@ export default memo(({ data, isConnectable, id }) => {
             justifyContent: "center",
           }}
         >
-          <DriveFileRenameOutlineIcon style={{ width: "14px", height: "14px", color: "#6b7280" }} />
+          <DriveFileRenameOutline style={{ width: "14px", height: "14px", color: "#6b7280" }} />
         </div>
         <div
           onClick={() => {
