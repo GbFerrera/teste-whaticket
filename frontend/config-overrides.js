@@ -50,6 +50,7 @@ const addProcessPolyfill = () => (config) => {
   config.plugins.push(
     new webpack.ProvidePlugin({
       process: "process/browser",
+      React: "react",
     })
   );
 
