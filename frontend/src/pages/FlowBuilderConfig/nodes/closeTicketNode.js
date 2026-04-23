@@ -3,6 +3,7 @@ import {
   ContentCopy,
   Delete,
   CheckCircle,
+  DriveFileRenameOutlineIcon,
 } from "@mui/icons-material";
 import React, { memo, useState } from "react";
 import { Handle } from "react-flow-renderer";
@@ -21,6 +22,8 @@ export default memo(({ data, isConnectable, id }) => {
         backgroundColor: "#ffffff",
         padding: "20px",
         borderRadius: "16px",
+        maxWidth: "280px",
+        minWidth: "280px",
         width: "280px",
         position: "relative",
         fontFamily: "'Inter', sans-serif",
@@ -74,6 +77,24 @@ export default memo(({ data, isConnectable, id }) => {
           transition: "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
         }}
       >
+        <div
+          onClick={(event) => {
+            event.stopPropagation();
+            storageItems.setNodesStorage(id);
+            storageItems.setAct("rename");
+          }}
+          style={{
+            width: "28px",
+            height: "28px",
+            borderRadius: "8px",
+            backgroundColor: "#f3f4f6",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <DriveFileRenameOutlineIcon style={{ width: "14px", height: "14px", color: "#6b7280" }} />
+        </div>
         <div
           onClick={() => {
             storageItems.setNodesStorage(id);

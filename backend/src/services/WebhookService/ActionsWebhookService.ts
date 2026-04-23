@@ -2786,9 +2786,18 @@ export const ActionsWebhookService = async (
             
             if (contact) {
               const variables: Record<string, string> = {
+                "{{firstName}}": contact.name?.split(" ")[0] || contact.name || "",
                 "{{name}}": contact.name || "",
                 "{{number}}": contact.number || "",
                 "{{email}}": contact.email || "",
+                "{{userName}}": ticket?.user?.name || "",
+                "{{ms}}": contact.name?.split(" ")[0] || contact.name || "",
+                "{{protocol}}": ticket?.id || "",
+                "{{date}}": new Date().toLocaleDateString("pt-BR"),
+                "{{hour}}": new Date().toLocaleTimeString("pt-BR"),
+                "{{ticket_id}}": ticket?.id || "",
+                "{{queue}}": ticket?.queue?.name || "",
+                "{{connection}}": ticket?.whatsapp?.name || "",
               };
               
               // Adicionar variáveis do webhook
