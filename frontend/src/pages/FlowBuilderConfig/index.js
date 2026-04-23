@@ -1036,23 +1036,27 @@ export const FlowBuilderConfig = () => {
       storageItems.setAct("idle");
     }
     if (storageItems.action === "duplicate") {
-      const nodeDuplicate = nodes.filter(
+      const nodeDuplicate = nodes.find(
         (item) => item.id === storageItems.node
-      )[0];
-      const maioresX = nodes.map((node) => node.position.x);
-      const maiorX = Math.max(...maioresX);
-      const finalY = nodes[nodes.length - 1].position.y;
+      );
+      if (!nodeDuplicate) {
+        storageItems.setNodesStorage("");
+        storageItems.setAct("idle");
+        return;
+      }
+      const viewportCenter = getCurrentViewportCenter();
       const nodeNew = {
         ...nodeDuplicate,
         id: geraStringAleatoria(30),
         position: {
-          x: maiorX + 240,
-          y: finalY,
+          x: viewportCenter.x + 20,
+          y: viewportCenter.y + 20,
         },
         selected: false,
         style: { backgroundColor: "#555555", padding: 0, borderRadius: 8 },
       };
       setNodes((old) => [...old, nodeNew]);
+      toast.success("Bloco duplicado com sucesso");
       storageItems.setNodesStorage("");
       storageItems.setAct("idle");
     }
