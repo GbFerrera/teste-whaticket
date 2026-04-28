@@ -2515,13 +2515,14 @@ useEffect(() => {
                     src={imageUrl}
                     alt=""
                     style={{
-                        width: "100%", // **NOVO: Largura total**
-                        maxHeight: "400px", // **NOVO: Altura máxima maior**
-                        minHeight: "200px", // **NOVO: Altura mínima**
-                        objectFit: "cover", // **NOVO: Mantém proporção**
+                        width: "100%",
+                        maxHeight: "500px",
+                        minHeight: "300px",
+                        objectFit: "contain",
                         borderRadius: "8px",
                         marginBottom: "4px",
                         cursor: "pointer",
+                        backgroundColor: "#f5f5f5"
                     }}
                     onClick={() => handleOpenMediaGallery(message)}
                 />
@@ -2549,11 +2550,13 @@ useEffect(() => {
             return (
                 <video
                     style={{
-                        maxWidth: "100%",
-                        maxHeight: "300px",
+                        width: "100%",
+                        maxHeight: "400px",
+                        minHeight: "250px",
                         borderRadius: "8px",
                         marginBottom: "4px",
                         cursor: "pointer",
+                        backgroundColor: "#000"
                     }}
                     src={message.mediaUrl}
                     controls
@@ -3102,17 +3105,12 @@ useEffect(() => {
         
         try {
             for (const contactId of contactIds) {
-                // Buscar ou criar ticket para o contato
-                const { data: ticketData } = await api.post("/tickets", {
+                // Usar a rota correta de encaminhamento
+                await api.post('/message/forward', {
+                    messageId: selectedMessage.id,
                     contactId: contactId,
-                    userId: user.id,
-                    status: "open",
-                });
-                
-                // Enviar mensagem para o ticket
-                await api.post(`/messages/${ticketData.id}`, {
-                    body: selectedMessage.body,
-                    mediaUrl: selectedMessage.mediaUrl,
+                    quotedMsg: selectedMessage,
+                    signMessage: false
                 });
             }
             setForwardModalOpen(false);

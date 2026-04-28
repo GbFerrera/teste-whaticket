@@ -103,6 +103,8 @@ const isTempNumber = (value) =>
 const ContactModal = ({ open, onClose, contactId, initialValues, onSave }) => {
   const isMounted = useRef(true);
   const [gradient] = useState(getRandomGradient());
+  const [profileImageModalOpen, setProfileImageModalOpen] = useState(false);
+  const [profileImageUrl, setProfileImageUrl] = useState("");
 
   const initialState = {
     name: "",
@@ -230,6 +232,16 @@ const ContactModal = ({ open, onClose, contactId, initialValues, onSave }) => {
     }
   };
 
+  const handleOpenProfileImage = (imageUrl) => {
+    setProfileImageUrl(imageUrl);
+    setProfileImageModalOpen(true);
+  };
+
+  const handleCloseProfileImage = () => {
+    setProfileImageModalOpen(false);
+    setProfileImageUrl("");
+  };
+
   return (
     <Drawer
       anchor="right"
@@ -261,8 +273,22 @@ const ContactModal = ({ open, onClose, contactId, initialValues, onSave }) => {
         }}
       >
         <Box display="flex" alignItems="center">
-          <Avatar sx={{ bgcolor: "rgba(255,255,255,0.2)", mr: 2 }}>
-            <PersonIcon />
+          <Avatar 
+            src={contact?.profilePicUrl}
+            sx={{ 
+              bgcolor: "rgba(255,255,255,0.2)", 
+              mr: 2,
+              cursor: contact?.profilePicUrl ? "pointer" : "default",
+              width: 56,
+              height: 56,
+              "&:hover": {
+                transform: contact?.profilePicUrl ? "scale(1.05)" : "none",
+                transition: "transform 0.2s ease-in-out"
+              }
+            }}
+            onClick={() => contact?.profilePicUrl && handleOpenProfileImage(contact.profilePicUrl)}
+          >
+            {!contact?.profilePicUrl && <PersonIcon />}
           </Avatar>
           <Box>
             <Typography variant="h6" fontWeight="bold">
@@ -966,6 +992,52 @@ const ContactModal = ({ open, onClose, contactId, initialValues, onSave }) => {
         </Formik>
       </Box>
     </Drawer>
+
+    {/* Modal para visualização da imagem de perfil */}
+    <Dialog
+      open={profileImageModalOpen}
+      onClose={handleCloseProfileImage}
+      maxWidth="md"
+      fullWidth
+      PaperProps={{
+        sx: {
+          backgroundColor: 'rgba(0, 0, 0, 0.9)',
+          backdropFilter: 'blur(10px)',
+          border: 'none',
+          borderRadius: '12px',
+          overflow: 'hidden'
+        }
+      }}
+    >
+      <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', p: 2 }}>
+        <IconButton
+          onClick={handleCloseProfileImage}
+          sx={{
+            position: 'absolute',
+            top: 8,
+            right: 8,
+            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+            color: 'white',
+            '&:hover': {
+              backgroundColor: 'rgba(255, 255, 255, 0.2)'
+            },
+            zIndex: 1
+          }}
+        >
+          <CancelIcon />
+        </IconButton>
+        <img
+          src={profileImageUrl}
+          alt="Foto de perfil"
+          style={{
+            maxWidth: '100%',
+            maxHeight: '80vh',
+            borderRadius: '8px',
+            objectFit: 'contain'
+          }}
+        />
+      </Box>
+    </Dialog>
   );
 };
 
