@@ -21,6 +21,7 @@ import {
   Grid,
   InputAdornment,
   Tooltip,
+  Dialog,
 } from "@mui/material";
 
 import {
@@ -988,7 +989,6 @@ const ContactModal = ({ open, onClose, contactId, initialValues, onSave }) => {
                     )}
                   </Button>
                 </Box>
-              </Box>
             </Form>
           )}
         </Formik>
